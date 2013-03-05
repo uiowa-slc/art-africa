@@ -15,6 +15,10 @@ class CollectionPiece extends DataObject {
     'Image' => 'Image',
     'CollectionHolderPage' => 'CollectionHolderPage'	
   );
+  
+  public static $many_many = array(
+  	"Categories" => "Category"
+  );
  
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
