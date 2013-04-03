@@ -40,6 +40,7 @@ class CollectionHolderPage_Controller extends Page_Controller {
 	 * @var array
 	 */
 	private static $allowed_actions = array (
+	'queryTest'
 	);
 
 	public function init() {
@@ -52,6 +53,16 @@ class CollectionHolderPage_Controller extends Page_Controller {
 		Requirements::themedCSS('layout'); 
 		Requirements::themedCSS('typography'); 
 		Requirements::themedCSS('form'); 
+	}
+	
+	public function queryTest(){
+		$query = new SearchQuery();
+		$query->search('Death');
+		$results = singleton('MyIndex')->search($query);
+		//print_r($results);
+		//sleep(5);
+		print_r("HI");
+		return;
 	}
 
 }

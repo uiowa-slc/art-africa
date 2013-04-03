@@ -3,7 +3,7 @@
 class CollectionPiece extends DataObject {
  
   
-  private static $db = array(	
+  public static $db = array(	
 	  'SortOrder' => 'Int',
 	  'Title' => 'Varchar',
 	  'ArtistName' => 'Varchar',
@@ -11,12 +11,12 @@ class CollectionPiece extends DataObject {
   );
  
   // One-to-one relationship with gallery page
-  private static $has_one = array(
+  public static $has_one = array(
     'Image' => 'Image',
     'CollectionHolderPage' => 'CollectionHolderPage'	
   );
   
-  private static $many_many = array(
+  public static $many_many = array(
   	"Categories" => "Category"
   );
  
@@ -29,7 +29,7 @@ class CollectionPiece extends DataObject {
   }
   
   // Tell the datagrid what fields to show in the table
-   private static $summary_fields = array( 
+   public static $summary_fields = array( 
        'ID' => 'ID',
 	   'Title' => 'Title',
 	   'ArtistName' => 'Artist',
