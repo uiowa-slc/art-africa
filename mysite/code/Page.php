@@ -26,6 +26,7 @@ class Page_Controller extends ContentController {
 	 * @var array
 	 */
 	public static $allowed_actions = array (
+		"queryTest"
 	);
 
 	public function init() {
@@ -39,5 +40,13 @@ class Page_Controller extends ContentController {
 		Requirements::themedCSS('typography'); 
 		Requirements::themedCSS('form'); 
 	}
-
+	public function queryTest(){
+		$query = new SearchQuery();
+		$query->search('Death');
+		$results = singleton('MyIndex')->search($query);
+		print_r($results);
+		//sleep(5);
+		//print_r("HI");
+		return;
+	}
 }
