@@ -1,7 +1,7 @@
 <?php
 class CollectionHolderPage extends Page {
 
-   private static $has_many = array(
+   public static $has_many = array(
     	'CollectionPieces' => 'CollectionPiece'
    );
   
@@ -39,7 +39,7 @@ class CollectionHolderPage_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array (
+	public static $allowed_actions = array (
 	'queryTest'
 	);
 
