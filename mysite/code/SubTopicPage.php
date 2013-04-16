@@ -15,7 +15,7 @@ class SubTopicPage extends Page {
 		$gridFieldConfig->addComponent(new GridFieldBulkImageUpload());   
 		/*$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));    */
 		
-		$gridfield = new GridField("CollectionPieces", "Collection Pieces", $this->CollectionPieces()->sort("SortOrder"), $gridFieldConfig);
+		$gridfield = new GridField("CollectionPieces", "Collection Pieces", $this->CollectionPieces(), $gridFieldConfig);
 					
 		$fields->addFieldToTab('Root.CollectionPieces', $gridfield);
 

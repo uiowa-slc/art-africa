@@ -3,9 +3,11 @@
 		<h1>$Title</h1>
 		<div class="content">$Content</div>
 		<h2>Collection Items associated with this topic:</h2>
+		<ul>
 		<% loop CollectionPieces %>
-			<h3><a href="$Link">$Title</a></h3>
+			<li><h3><a href="$Link">$Title</a></h3></li>
 		<% end_loop %>
+		</ul>
 	</article>
 		$Form
 		$PageComments
