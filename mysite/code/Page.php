@@ -7,9 +7,7 @@ class Page extends SiteTree {
 
 	public static $has_one = array(
 	);
-	static $create_table_options = array(
-	    'MySQLDatabase' => 'ENGINE=MyISAM'
-	);
+	
 	
 	//static $searchable_fields = array('Keywords', 'Content', 'Title');
 	

@@ -1,6 +1,6 @@
 <?php
  
-class Chapter extends Page {
+class Test extends Page {
  
   
   public static $db = array(	
@@ -16,19 +16,16 @@ class Chapter extends Page {
   );
   
   public static $has_many = array(
-  'Subtopics' => 'Subtopic',
-  'Chapters' => 'Chapter'
+  'Subtopics' => 'Subtopic'
   );
   
-  public static $belongs_many_many = array(
-    'Chapter' => 'Chapter'
-  );
+  
   
 
-
+ // tidy up the CMS by not showing these fields!
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		
+
 		$fields->addFieldToTab('Root.Main', new TextField('TopicName', 'Topic Name'));
 		$fields->addFieldToTab('Root.Main', new TextField('TopicDescription', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
@@ -50,7 +47,7 @@ class Chapter extends Page {
 }
 
 
-class Chapter_Controller extends Page_Controller {
+class Test_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the

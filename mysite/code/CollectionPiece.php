@@ -24,9 +24,7 @@ class CollectionPiece extends Page {
   	"SubTopics" => "SubTopicPage"
   );
   
-	static $create_table_options = array(
-	    'MySQLDatabase' => 'ENGINE=MyISAM'
-	);
+	
 	
 	
  // tidy up the CMS by not showing these fields

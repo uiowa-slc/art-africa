@@ -1,6 +1,6 @@
 <?php
  
-class WorkOfArt extends Page {
+class Essay extends Page {
  
   
   public static $db = array(	
@@ -29,7 +29,7 @@ class WorkOfArt extends Page {
 }
 
 
-class WorkOfArt_Controller extends Page_Controller {
+class Essay_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the

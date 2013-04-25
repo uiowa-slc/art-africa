@@ -23,6 +23,8 @@ class ImageHolder extends Page {
 		return $fields;		
   }
   
+  
+  
 
 }
 
