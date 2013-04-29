@@ -9,7 +9,7 @@ class WorkOfArt extends Page {
  
   // One-to-one relationship with gallery page
   public static $has_one = array(
-
+ 
   );
   
   public static $belongs_many_many = array();

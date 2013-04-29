@@ -18,10 +18,12 @@ class CollectionPiece extends Page {
   
   public static $many_many = array(
   	//"Categories" => "Category"
+
   );
   
   public static $belongs_many_many = array( 
-  	"SubTopics" => "SubTopicPage"
+  	"SubTopics" => "SubTopicPage",
+
   );
   
 	
@@ -35,6 +37,7 @@ class CollectionPiece extends Page {
 		$fields->addFieldToTab("Root.Main", new TextField("Keywords","Keywords"));
 		
 		$fields->addFieldToTab("Root.Main", new UploadField("Image","Image"));
+		
 		
 		return $fields;		
   }
