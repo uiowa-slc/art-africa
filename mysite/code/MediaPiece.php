@@ -1,6 +1,6 @@
 <?php
  
-class Chapter extends Page {
+class MediaPiece extends Page {
  
   
   public static $db = array(	
@@ -23,13 +23,13 @@ class Chapter extends Page {
 		return $fields;		
   }
   
-    
+  
   
 
 }
 
 
-class Chapter_Controller extends Page_Controller {
+class MediaPiece_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the

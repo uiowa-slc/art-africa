@@ -1,6 +1,6 @@
 <?php
  
-class AudioObject extends Page {
+class FieldPhoto extends Photo {
  
   
   public static $db = array(	
@@ -29,7 +29,7 @@ class AudioObject extends Page {
 }
 
 
-class AudioObject_Controller extends Page_Controller {
+class FieldPhoto_Controller extends Photo_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
