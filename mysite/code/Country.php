@@ -4,7 +4,29 @@ class Country extends Page {
  
   
   public static $db = array(	
-
+  'Name' => 'Text',
+  'Location' => 'Text',
+  'DateOfIndependence' => 'Text',
+  'Nationality' => 'Text',
+  'CapitalCity' => 'Text',
+  'Population' => 'Text',
+  'ImportantCities' => 'Text',
+  'HeadOfState' => 'Text',
+  'Area' => 'Text',
+  'TypeOfGovernment' => 'Text',
+  'Currency' => 'Text',
+  'MajorPeoples' => 'Text',
+  'Religion' => 'Text',
+  'Climate' => 'Text',
+  'Literacy' => 'Text',
+  'OfficialLanguage' => 'Text',
+  'PrincipalLanguage' => 'Text',
+  'MajorExports' => 'Text',
+  'PrecolonialHistory' => 'Text',
+  'PostcolonialHistory' => 'Text',
+  'Tags' => 'Text'
+  
+  
   );
  
   // One-to-one relationship with gallery page

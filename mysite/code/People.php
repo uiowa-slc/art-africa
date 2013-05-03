@@ -4,6 +4,16 @@ class People extends Page {
  
   
   public static $db = array(	
+  'Name' => 'Text',
+  'Location' => 'Text',
+  'Languages' => 'Text',
+  'Population' => 'Text',
+  'Neighbors' => 'Text',
+  'TypesOfArt' => 'Text',
+  'History' => 'Text',
+  'Economy' => 'Text',
+  'PoliticalSystems' => 'Text',
+  'Religion' => 'Text'
 
   );
  

@@ -3,8 +3,15 @@
 class Essay extends Page {
  
   
-  public static $db = array(	
-
+  public static $db = array(
+  'Author' => 'Text',	
+  'Content' => 'Text',	
+  'DateWritten' => 'Text',	
+  'University' => 'Text',	
+  'Consultant' => 'Text',	
+  'Title' => 'Text',	
+  'Source' => 'Text',	
+  'Bibliography' => 'Text'
   );
  
   // One-to-one relationship with gallery page

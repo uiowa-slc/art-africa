@@ -3,7 +3,17 @@
 class Photo extends Page {
  
   
-  public static $db = array(	
+  public static $db = array(
+  'Description' => 'Text',
+  'TraditionalName' => 'Text',
+  'Material' => 'Text',
+  'Size' => 'Text',
+  'Function' => 'Text',
+  'Style' => 'Text',
+  'Substyle' => 'Text',
+  'Collection' => 'Text',
+  'Source' => 'Text',	
+  'Tags' => 'Text'
 
   );
  

@@ -4,9 +4,8 @@ class Chapter extends Page {
  
   
   public static $db = array(	
-  'TopicName' => 'Varchar',
-  'TopicDescription' => 'Text',
-  'BizarroTest' => 'Text',
+  'Name' => 'Varchar',
+  'Description' => 'Text',
   'Tags' => 'Text'
   );
  
@@ -17,11 +16,11 @@ class Chapter extends Page {
   
   public static $has_many = array(
   'Subtopics' => 'Subtopic',
-  'Chapters' => 'Chapter'
+
   );
   
   public static $belongs_many_many = array(
-    'Chapter' => 'Chapter'
+  
   );
   
 

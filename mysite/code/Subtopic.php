@@ -4,12 +4,26 @@ class Subtopic extends Page {
  
   
   public static $db = array(	
-
+  'Name' => 'Varchar',
+  'Description' => 'Text',
+  'Tags' => 'Text'
   );
  
   // One-to-one relationship with gallery page
   public static $has_one = array(
-  'Chapter' => 'Chapter'
+
+  
+  );
+  
+   public static $many_many = array(
+   'People' => 'People',
+   'Essays' => 'Essay',
+   'Countries' => 'Country',
+   'MediaItems' => 'MediaItem',
+   'Photos' => 'Photo',
+   'Subtopics' => 'Subtopic'
+
+  
   );
   
   public static $belongs_many_many = array();

@@ -4,6 +4,8 @@ class MediaPiece extends Page {
  
   
   public static $db = array(	
+  'History' => 'Text',
+  'Bibliography' => 'Text'
 
   );
  
