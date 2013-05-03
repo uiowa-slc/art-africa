@@ -19,7 +19,17 @@ class Essay extends Page {
 
   );
   
-  public static $belongs_many_many = array();
+  
+  public static $has_many = array(
+  'MediaPieces' => 'MediaPiece'
+  );
+  public static $belongs_many_many = array(
+  'Subtopics' => 'Subtopic',
+  'Countries' => 'Country',
+  'People' => 'People',
+  'Essay' => 'Essay'
+  
+  );
   
 
  // tidy up the CMS by not showing these fields

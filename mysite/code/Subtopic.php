@@ -11,8 +11,7 @@ class Subtopic extends Page {
  
   // One-to-one relationship with gallery page
   public static $has_one = array(
-
-  
+  'Chapter' => 'Chapter'
   );
   
    public static $many_many = array(
@@ -20,13 +19,13 @@ class Subtopic extends Page {
    'Essays' => 'Essay',
    'Countries' => 'Country',
    'MediaItems' => 'MediaItem',
-   'Photos' => 'Photo',
-   'Subtopics' => 'Subtopic'
+   'Photos' => 'Photo'
 
   
   );
   
-  public static $belongs_many_many = array();
+  public static $belongs_many_many = array(
+  );
   
 
  // tidy up the CMS by not showing these fields

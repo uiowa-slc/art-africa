@@ -31,10 +31,20 @@ class Country extends Page {
  
   // One-to-one relationship with gallery page
   public static $has_one = array(
-
+  
   );
   
-  public static $belongs_many_many = array();
+  public static $has_many = array(
+  'People' => 'People',
+  'Essays' => 'Essay',
+  'MediaPieces' => 'MediaPiece',
+  'Photos' => 'Photo'
+  );
+  
+  public static $belongs_many_many = array(
+  'Subtopics' => 'Subtopic'
+  
+  );
   
 
  // tidy up the CMS by not showing these fields

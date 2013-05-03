@@ -14,7 +14,13 @@ class MediaPiece extends Page {
 
   );
   
-  public static $belongs_many_many = array();
+  public static $belongs_many_many = array(
+  'People' => 'People',
+  'Essays' => 'Essay',
+  'Photos' => 'Photo',
+  'Countries' => 'Country',
+  'Subtopics' => 'Subtopic'
+  );
   
 
  // tidy up the CMS by not showing these fields

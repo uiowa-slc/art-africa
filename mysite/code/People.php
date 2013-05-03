@@ -22,7 +22,18 @@ class People extends Page {
 
   );
   
-  public static $belongs_many_many = array();
+  public static $has_many = array(
+  'Essays' => 'Essay',
+  'MediaPieces' => 'MediaPiece',
+  'Photos' => 'Photo',
+  
+  );
+  
+  public static $belongs_many_many = array(
+  'Subtopics' => 'Subtopic',
+  'Countries' => 'Country'
+
+  );
   
 
  // tidy up the CMS by not showing these fields
