@@ -14,7 +14,7 @@ class Subtopic extends Page {
    'People' => 'People',
    'Essays' => 'Essay',
    'Countries' => 'Country',
-   'MediaItems' => 'MediaItem',
+   'MediaPieces' => 'MediaPiece',
    'Photos' => 'Photo'
 
   
@@ -26,10 +26,50 @@ class Subtopic extends Page {
 
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
+ 	
  		$fields = parent::getCMSFields();
-		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
-		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
+		
+		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Topic Name'));
+		$fields->addFieldToTab('Root.Main', new TextField('Description', 'Topic Description'));
+		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
+		
+		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfigPeople->addComponent(new GridFieldBulkEditingTools());
+		$gridFieldConfigPeople->addComponent(new GridFieldBulkImageUpload());     
+		
+		$gridfield = new GridField("People", "People", $this->People(), $gridFieldConfigPeople);
+					
+		$fields->addFieldToTab('Root.People', $gridfield);
+		
+		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfigEssays->addComponent(new GridFieldBulkEditingTools());
+		$gridFieldConfigEssays->addComponent(new GridFieldBulkImageUpload());     
+		
+		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);
+					
+		$fields->addFieldToTab('Root.Essays', $gridfield);
+		
+		$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfigCountries->addComponent(new GridFieldBulkEditingTools());
+		$gridFieldConfigCountries->addComponent(new GridFieldBulkImageUpload());     
+		
+		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigEssays);
+					
+		$fields->addFieldToTab('Root.Countries', $gridfield);
+		
+		$gridFieldConfigMediaItems= GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfigMediaItems->addComponent(new GridFieldBulkEditingTools());
+		$gridFieldConfigMediaItems->addComponent(new GridFieldBulkImageUpload());     
+		
+		$gridfield = new GridField("MediaPieces", "MediaPieces", $this->MediaPieces(), $gridFieldConfigEssays);
+					
+		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
+		
+		
+		
 		return $fields;		
+ 	
+		
   }
   
 

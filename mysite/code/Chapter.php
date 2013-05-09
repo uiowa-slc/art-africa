@@ -28,8 +28,8 @@ class Chapter extends Page {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
 		
-		$fields->addFieldToTab('Root.Main', new TextField('TopicName', 'Topic Name'));
-		$fields->addFieldToTab('Root.Main', new TextField('TopicDescription', 'Topic Description'));
+		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Topic Name'));
+		$fields->addFieldToTab('Root.Main', new TextField('Description', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
 		
 		$gridFieldConfig = GridFieldConfig_RelationEditor::create(); 
