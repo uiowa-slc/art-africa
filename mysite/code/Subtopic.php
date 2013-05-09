@@ -8,11 +8,7 @@ class Subtopic extends Page {
   'Description' => 'Text',
   'Tags' => 'Text'
   );
- 
-  // One-to-one relationship with gallery page
-  public static $has_one = array(
-  'Chapter' => 'Chapter'
-  );
+
   
    public static $many_many = array(
    'People' => 'People',

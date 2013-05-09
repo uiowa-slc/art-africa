@@ -39,13 +39,6 @@ class Page_Controller extends ContentController {
 	public function init() {
 		parent::init();
 
-		// Note: you should use SS template require tags inside your templates 
-		// instead of putting Requirements calls here.  However these are 
-		// included so that our older themes still work!!!!!
-		Requirements::themedCSS('reset');
-		Requirements::themedCSS('layout'); 
-		Requirements::themedCSS('typography'); 
-		Requirements::themedCSS('form'); 
 	}
 	
 	
@@ -92,7 +85,7 @@ function results($data, $form, $request)
     //$mode = ' WITH QUERY EXPANSION';
     //$mode = '';
         
-    $siteTreeClasses = array('Page', 'CollectionPiece'); //add in an classes that extend Page or SiteTree
+    $siteTreeClasses = array('Page', 'WorkOfArt'); //add in an classes that extend Page or SiteTree
     $siteTreeMatch = "MATCH( Title, MenuTitle, Content ) AGAINST ('$keyword'$mode)
                     + MATCH( Title, MenuTitle, Content ) AGAINST ('$keywordHTML'$mode)";
         
@@ -137,7 +130,7 @@ function results($data, $form, $request)
      * copy/edit this block for each Object that extend Page/SiteTree and have other columns searchable
      * see above for custom MATCH statement
      */
-    $query = DataList::create('CollectionPiece')
+    $query = DataList::create('WorkOfArt')
       ->where($siteTreeMatch . ' OR ' . $extendedPageMatch);
     $query = $query->dataQuery()->query();
     $query->addSelect(array('Relevance' => $siteTreeMatch . ' OR ' . $extendedPageMatch));
