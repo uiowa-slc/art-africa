@@ -20,6 +20,10 @@ class Subtopic extends Page {
   
   );
   
+  public static $has_one = array(
+  'Chapter' => 'Chapter'
+  );
+  
   public static $belongs_many_many = array(
   );
   
@@ -35,7 +39,7 @@ class Subtopic extends Page {
 		
 		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigPeople->addComponent(new GridFieldBulkEditingTools());
-		$gridFieldConfigPeople->addComponent(new GridFieldBulkImageUpload());     
+
 		
 		$gridfield = new GridField("People", "People", $this->People(), $gridFieldConfigPeople);
 					
@@ -43,7 +47,7 @@ class Subtopic extends Page {
 		
 		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigEssays->addComponent(new GridFieldBulkEditingTools());
-		$gridFieldConfigEssays->addComponent(new GridFieldBulkImageUpload());     
+    
 		
 		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);
 					
@@ -51,17 +55,16 @@ class Subtopic extends Page {
 		
 		$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigCountries->addComponent(new GridFieldBulkEditingTools());
-		$gridFieldConfigCountries->addComponent(new GridFieldBulkImageUpload());     
+    
 		
-		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigEssays);
+		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigCountries);
 					
 		$fields->addFieldToTab('Root.Countries', $gridfield);
 		
 		$gridFieldConfigMediaItems= GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigMediaItems->addComponent(new GridFieldBulkEditingTools());
-		$gridFieldConfigMediaItems->addComponent(new GridFieldBulkImageUpload());     
-		
-		$gridfield = new GridField("MediaPieces", "MediaPieces", $this->MediaPieces(), $gridFieldConfigEssays);
+
+		$gridfield = new GridField("MediaPieces", "MediaPieces", $this->MediaPieces(), $gridFieldConfigMediaItems);
 					
 		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
 		

@@ -32,11 +32,20 @@ class Essay extends Page {
   );
   
 
- // tidy up the CMS by not showing these fields
+
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
-		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
+		
+		
+		$gridFieldConfig = GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfig->addComponent(new GridFieldBulkEditingTools());
+
+		
+		$gridfield = new GridField("MediaPieces", "MediaPieces", $this->MediaPieces(), $gridFieldConfig);
+					
+		$fields->addFieldToTab('Root.People', $gridfield);
+		
+		
 		return $fields;		
   }
   
