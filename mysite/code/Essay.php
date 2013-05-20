@@ -3,7 +3,7 @@
 class Essay extends Page {
  
   
-  public static $db = array(
+  private static $db = array(
   'Author' => 'Text',	
   'Content' => 'Text',	
   'DateWritten' => 'Text',	
@@ -15,15 +15,15 @@ class Essay extends Page {
   );
  
   // One-to-one relationship with gallery page
-  public static $has_one = array(
+  private static $has_one = array(
 
   );
   
   
-  public static $has_many = array(
+  private static $has_many = array(
   'MediaPieces' => 'MediaPiece'
   );
-  public static $belongs_many_many = array(
+  private static $belongs_many_many = array(
   'Subtopics' => 'Subtopic',
   'Countries' => 'Country',
   'People' => 'People',
@@ -63,7 +63,7 @@ class Essay_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array ();
+	private static $allowed_actions = array ();
 	
 	
 	

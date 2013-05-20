@@ -28,7 +28,7 @@ class GridFieldBulkManager_Request extends RequestHandler {
 	/**
 	 *
 	 */
-	static $url_handlers = array(
+	private static $url_handlers = array(
 		'$Action!' => '$Action'
 	);
 	
@@ -75,7 +75,7 @@ class GridFieldBulkManager_Request extends RequestHandler {
 				->setAttribute('data-url', $this->Link('update'))
 				->setUseButtonTag(true)
 		);
-		
+		/*
 		if($crumbs && $crumbs->count()>=2)
 		{			
 			$actions->push(
@@ -87,7 +87,7 @@ class GridFieldBulkManager_Request extends RequestHandler {
 					->setAttribute('data-return-url', $one_level_up->Link)
 					->setUseButtonTag(true)
 			);
-		}	
+		}	*/
 		
 		$actions->push(
 			FormAction::create('Cancel', 'Cancel & Delete All')
@@ -151,7 +151,33 @@ class GridFieldBulkManager_Request extends RequestHandler {
 		$response = new SS_HTTPResponse($formHTML);
 		$response->addHeader('Content-Type', 'text/plain');
 		$response->addHeader('X-Title', 'SilverStripe - Bulk '.$this->gridField->list->dataClass.' Editing');
-		return $response;
+		
+		if($request->isAjax())
+		{
+			return $response;
+		}
+		else {
+			$controller = $this->getToplevelController();
+			// If not requested by ajax, we need to render it within the controller context+template
+			return $controller->customise(array(
+				'Content' => $response->getBody(),
+			));	
+		}
+	}
+	
+	/**
+	 * Traverse up nested requests until we reach the first that's not a GridFieldDetailForm or GridFieldDetailForm_ItemRequest.
+	 * The opposite of {@link Controller::curr()}, required because
+	 * Controller::$controller_stack is not directly accessible.
+	 * 
+	 * @return Controller
+	 */
+	protected function getToplevelController() {
+		$c = $this->controller;
+		while($c && ($c instanceof GridFieldDetailForm_ItemRequest || $c instanceof GridFieldDetailForm)) {
+			$c = $c->getController();
+		}
+		return $c;
 	}
 	
 	/**
@@ -187,20 +213,9 @@ class GridFieldBulkManager_Request extends RequestHandler {
 	public function unlink(SS_HTTPRequest $request)
 	{
 		$recordList = $this->getPOSTRecordList($request);
-		$recordClass = $this->gridField->list->dataClass;
-		$recordForeignKey = $this->gridField->list->foreignKey;
-		//$recordForeignID = $this->gridField->list->foreignID;
-		$result = array();
+		$this->gridField->list->removeMany($recordList);
 		
-		foreach ( $recordList as $id )
-		{			
-			$record = DataObject::get_by_id($recordClass, $id);
-			$res = $record->setField($recordForeignKey, 0);
-			$record->write();
-			array_push($result, array($id => $res));
-		}
-		
-		$response = new SS_HTTPResponse(Convert::raw2json(array($result)));
+		$response = new SS_HTTPResponse(Convert::raw2json(array($recordList)));
 		$response->addHeader('Content-Type', 'text/plain');
 		return $response;
 	}

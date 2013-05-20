@@ -40,6 +40,21 @@
 				}
 			}
 		});
+
+		$('div.ss-upload .ss-uploadfield-item-editform form').entwine({
+			onsubmit: function(e) {
+				return false;
+			}
+		});
+
+		$('#bulkImageUploadUpdateBtn,#bulkImageUploadUpdateCancelBtn').entwine({
+			onmatch: function(){
+				$(this).addClass('ui-state-disabled ssui-button-disabled');
+        $(this).attr('aria-disabled', 'true');
+        $(this).attr('disabled', 'true');
+			},
+			onunmatch: function(){}
+		});
 		
 		// end SS overhides
 		// start add-on behaviours
@@ -64,9 +79,10 @@
 					$(itemStatus).removeClass('updated').addClass('dirty').html('Changed');
 					if ( $(itemInfo).hasClass('updated') ) $(itemInfo).removeClass('updated');
 					if ( !$(itemInfo).hasClass('dirty') ) $(itemInfo).addClass('dirty');
-					
-					$('#bulkImageUploadUpdateFinishBtn').addClass('dirty');
-          $('#bulkImageUploadUpdateBtn').removeClass('ui-state-disabled');
+
+          $('#bulkImageUploadUpdateBtn').removeClass('ui-state-disabled ssui-button-disabled');
+          $('#bulkImageUploadUpdateBtn').attr('aria-disabled', 'false');
+          $('#bulkImageUploadUpdateBtn').removeAttr('disabled');
         }
       });
      
@@ -131,14 +147,9 @@
 							$(this).removeClass('hasUpdate');
 							
 							if ( counter == totalForms ) {
-								$('#bulkImageUploadUpdateFinishBtn').removeClass('dirty');
 								$('#bulkImageUploadUpdateBtn').data('completedForms', 0);
 								$('#bulkImageUploadUpdateBtn').removeClass('loading');
                 $('#bulkImageUploadUpdateBtn').addClass('ui-state-disabled');
-								if ( $('#bulkImageUploadUpdateBtn').hasClass('doFinish') ) {
-									//@TODO find a way to pass this as CMS navigation through AJAX
-									window.location = $('#bulkImageUploadUpdateFinishBtn').data('return-url');
-								}		
 							}
 							
 						});
@@ -147,19 +158,11 @@
 				}
 			});
 			
-			$('#bulkImageUploadUpdateFinishBtn').entwine({
-				onclick: function(e){										
-					if ( $(this).hasClass('dirty') ) {
-						$('#bulkImageUploadUpdateBtn').addClass('doFinish');
-						$('#bulkImageUploadUpdateBtn').click();
-					}					
-				}				
-			});	
-			
       $('.ss-uploadfield-item-editform').entwine({
-        onmatch: function(e){
-          console.log(this);
-          $('#bulkImageUploadUpdateCancelBtn').removeClass('ui-state-disabled');
+        onmatch: function(e){     
+          $('#bulkImageUploadUpdateCancelBtn').removeClass('ui-state-disabled ssui-button-disabled');
+          $('#bulkImageUploadUpdateCancelBtn').attr('aria-disabled', 'false');
+          $('#bulkImageUploadUpdateCancelBtn').removeAttr('disabled');
         },
 				onunmatch: function(){					
 				}

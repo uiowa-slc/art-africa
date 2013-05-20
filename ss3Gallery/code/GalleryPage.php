@@ -2,7 +2,7 @@
 
 class GalleryPage extends Page {
 	
-	public static $has_many = array(
+	private static $has_many = array(
     	'GalleryImages' => 'GalleryImage'
   	);
   
@@ -26,7 +26,7 @@ class GalleryPage extends Page {
 }
 class GalleryPage_Controller extends Page_Controller {
 	
-	public static $allowed_actions = array (
+	private static $allowed_actions = array (
 	);
 	
 	public function GetGalleryImages() {

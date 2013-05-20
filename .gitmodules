@@ -4,3 +4,15 @@
 [submodule "silverstripe-cms"]
 	path = cms
 	url = https://github.com/silverstripe/silverstripe-cms
+[submodule "cms"]
+	path = cms
+	url = https://github.com/silverstripe/silverstripe-cms
+[submodule "GridFieldBulkEditingTools"]
+	path = GridFieldBulkEditingTools
+	url = https://github.com/colymba/GridFieldBulkEditingTools.git
+[submodule "fulltextsearch"]
+	path = fulltextsearch
+	url = https://github.com/silverstripe-labs/silverstripe-fulltextsearch
+[submodule "multivaluefield"]
+	path = multivaluefield
+	url = git://github.com/nyeholt/silverstripe-multivaluefield.git

@@ -3,7 +3,7 @@
 class Country extends Page {
  
   
-  public static $db = array(	
+  private static $db = array(	
   'Name' => 'Text',
   'Location' => 'Text',
   'DateOfIndependence' => 'Text',
@@ -30,18 +30,18 @@ class Country extends Page {
   );
  
   // One-to-one relationship with gallery page
-  public static $has_one = array(
+  private static $has_one = array(
   
   );
   
-  public static $has_many = array(
+  private static $has_many = array(
   'People' => 'People',
   'Essays' => 'Essay',
   'MediaPieces' => 'MediaPiece',
   'Photos' => 'Photo'
   );
   
-  public static $belongs_many_many = array(
+  private static $belongs_many_many = array(
   'Subtopics' => 'Subtopic'
   
   );
@@ -78,7 +78,7 @@ class Country_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array ();
+	private static $allowed_actions = array ();
 	
 	
 	

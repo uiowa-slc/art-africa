@@ -23,6 +23,7 @@ class GridFieldBulkImageUpload implements GridField_HTMLProvider, GridField_URLH
 		'fieldsClassBlacklist' => array(),
 		'fieldsNameBlacklist' => array(),
 		'folderName' => 'bulkUpload',
+		'maxFileSize' => null,
     'sequentialUploads' => false
 	);
 	
@@ -67,6 +68,13 @@ class GridFieldBulkImageUpload implements GridField_HTMLProvider, GridField_URLH
 		if ( $reference == 'fieldsClassBlacklist' )
 		{
 			$value = array_unique( array_merge($value, $this->forbiddenFieldsClasses) );
+		}
+
+		//makes sure maxFileSize is INT
+		if ( $reference == 'maxFileSize' && !is_int($value) )
+		{
+			user_warning("maxFileSize should be an Integer. Setting it to Auto.", E_USER_ERROR);
+			$value = null;
 		}
     
     //sequentialUploads true/false
@@ -151,20 +159,19 @@ class GridFieldBulkImageUpload implements GridField_HTMLProvider, GridField_URLH
 		
 		Requirements::css(BULK_EDIT_TOOLS_PATH . '/css/GridFieldBulkImageUpload.css');
 		
-		/*
-		$data = new ArrayData(array(
-			'NewLink' => $gridField->Link('bulkimageupload'),
-			'ButtonName' => 'Bulk Upload'
-		));	
-		*/
-		$html = '
-		<a id="bulkImageUploadGFButton" href="'.$gridField->Link('bulkimageupload').'"  class="action action-detail ss-ui-action-constructive ss-ui-button ui-button ui-widget ui-state-default ui-corner-all new new-link" data-icon="add">
-			Bulk Upload
-		</a>';
+		$targetFragment = 'before';
+		if ( $gridField->getConfig()->getComponentByType('GridFieldButtonRow') )
+		{
+			$targetFragment = 'buttons-before-right';
+		}
+
+		$bulkUploadBtn = new ArrayData(array(
+			'Link' => $gridField->Link('bulkimageupload'),
+			'Label' => 'Bulk Upload',
+		));
 		
 		return array(
-			//'bulk-edit-tools' => $data->renderWith('GridFieldAddNewbutton')
-			'bulk-edit-tools' => $html
+			$targetFragment => $bulkUploadBtn->renderWith('BulkUploadButton')
 		);
 	}
 	

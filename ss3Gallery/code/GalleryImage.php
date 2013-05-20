@@ -3,13 +3,13 @@
 class GalleryImage extends DataObject {
  
   
-  public static $db = array(	
+  private static $db = array(	
 	  'SortOrder' => 'Int',
 	  'Title' => 'Varchar'
   );
  
   // One-to-one relationship with gallery page
-  public static $has_one = array(
+  private static $has_one = array(
     'Image' => 'Image',
     'GalleryPage' => 'GalleryPage'	
   );
@@ -23,7 +23,7 @@ class GalleryImage extends DataObject {
   }
   
   // Tell the datagrid what fields to show in the table
-   public static $summary_fields = array( 
+   private static $summary_fields = array( 
        'ID' => 'ID',
 	   'Title' => 'Title',
 	   'Thumbnail' => 'Thumbnail'     

@@ -29,36 +29,21 @@
 			onunmatch: function(){				
 			},
 			onclick: function(e) {
-        //e.preventDefault();
-        //return false;
-			}/*,
-			onchange: function(){
-				var idList, id;
-				
-				idList = $('#doBulkActionButton').data('selection');
-				if ( !idList ) idList = '';
-				
-				id = $(this).attr('name').split('_')[1];
-				
-				if ( !$(this).prop('checked') ) idList.replace( '#' + id, '');
-				else idList = idList + '#' + id;
-				
-				$('#doBulkActionButton').data('selection', idList); 
-			}*/
+			}
 		});
 		
-    $('#toggleSelectAll').entwine({
+    $('.toggleSelectAll').entwine({
       onmatch: function(){
 			},
 			onunmatch: function(){				
 			},
       onclick: function(){
         var state = $(this).prop('checked');
-        $('td.col-bulkSelect input').each(function(){$(this).prop('checked', state);});
+        $(this).parents('.ss-gridfield-table').find('td.col-bulkSelect input').each(function(){$(this).prop('checked', state);});
       }
     });
     
-		$('select#bulkActionName').entwine({
+		$('select.bulkActionName').entwine({
 			onmatch: function(){
 			},
 			onunmatch: function(){				
@@ -66,8 +51,8 @@
 			onchange: function(e) {
 				var value, btn, icon;
 				value = $(this).val();
-				btn = $('#doBulkActionButton');
-				icon = $('#doBulkActionButton .ui-icon');
+				btn = $(this).parents('.bulkManagerOptions').find('.doBulkActionButton');
+				icon = $(this).parents('.bulkManagerOptions').find('.doBulkActionButton .ui-icon');
 				
 				switch (value) {
 					case 'edit':
@@ -97,17 +82,17 @@
 		});
 		
 		//@TODO prevent button click to call default url request
-		$('#doBulkActionButton').entwine({
+		$('.doBulkActionButton').entwine({
 			onmatch: function(){
 			},
 			onunmatch: function(){				
 			},
 			onmouseover: function(){
 				var action, ids = [];
-				action = $('select#bulkActionName').val();
+				action = $(this).parents('.bulkManagerOptions').find('select.bulkActionName').val();
 				if ( action == 'edit' )
 				{
-					$('.col-bulkSelect input:checked').each(function(){
+					$(this).parents('.ss-gridfield-table').find('td.col-bulkSelect input:checked').each(function(){
 						ids.push( parseInt( $(this).attr('name').split('_')[1] ) );
 					});
 					if(ids.length > 0) $(this).attr('href', $(this).data('url')+'/'+action+'?records[]='+ids.join('&records[]=') );
@@ -115,14 +100,14 @@
 			},			
 			onclick: function(e) {
 				var action, url, data = {}, ids = [], cacheBuster;
-				action = $('select#bulkActionName').val();
+				action = $(this).parents('.bulkManagerOptions').find('select.bulkActionName').val();
 				
 				if ( action != 'edit' )
 				{				
 					url = $(this).data('url');
 					cacheBuster = new Date().getTime();
           
-					$('.col-bulkSelect input:checked').each(function(){
+					$(this).parents('.ss-gridfield-table').find('td.col-bulkSelect input:checked').each(function(){
 						ids.push( parseInt( $(this).attr('name').split('_')[1] ) );
 					});				
 					data.records = ids;
@@ -142,6 +127,9 @@
 				
 			} 
 		});
+
+		/* **************************************************************************************
+		 * EDITING */
 		
 		$('.bulkEditingFieldHolder').entwine({
 			onmatch: function(){
@@ -150,6 +138,12 @@
 				$(this).wrap('<form name="'+name+'_'+id+'" id="'+name+'_'+id+'" class="'+name+'"/>');
 			},
 			onunmatch: function(){					
+			}
+		});
+
+		$('.bulkEditingForm').entwine({
+			onsubmit: function(){
+				return false;
 			}
 		});
 		
@@ -162,8 +156,6 @@
 				if ( !$(form).hasClass('hasUpdate') ) {
 					$(form).addClass('hasUpdate');
 				}
-
-				$('#bulkEditingUpdateFinishBtn').addClass('dirty');
 			}
 		});		
 		
@@ -181,8 +173,7 @@
 					url = $(this).data('url');
 					
 					if ( $(formsWithUpadtes).length > 0 ) $(this).addClass('loading');
-					
-					//@TODO execute 'doFinish' even when no form have been changed					
+														
 					$(formsWithUpadtes).each(function(){
 						cacheBuster = new Date().getTime() + '_' + $(this).attr('name');
 						data = $(this).serialize();
@@ -191,7 +182,7 @@
 						else cacheBuster = '?cacheBuster=' + cacheBuster;
 
 						$.ajax({
-							url: url + '/' + action + cacheBuster,
+							url: url + '/' + cacheBuster,
 							data: data,
 							type: "POST",
 							context: $(this)
@@ -206,13 +197,8 @@
 							$(this).removeClass('hasUpdate');		
 														
 							if ( counter == totalForms ) {
-								$('#bulkEditingUpdateFinishBtn').removeClass('dirty');
 								$('#bulkEditingUpdateBtn').data('completedForms', 0);
 								$('#bulkEditingUpdateBtn').removeClass('loading');
-								if ( $('#bulkEditingUpdateBtn').hasClass('doFinish') ) {
-									//@TODO find a way to pass this as CMS navigation through AJAX
-									window.location = $('#bulkEditingUpdateFinishBtn').data('return-url');
-								}								
 							}
 							
 						});
@@ -220,16 +206,6 @@
 					
 				}
 			});
-			
-			$('#bulkEditingUpdateFinishBtn').entwine({
-				onclick: function(e){										
-					if ( $(this).hasClass('dirty') ) {
-						$('#bulkEditingUpdateBtn').addClass('doFinish');
-						$('#bulkEditingUpdateBtn').click();
-					}					
-				}				
-			});	
-		
 		
 	});
 	

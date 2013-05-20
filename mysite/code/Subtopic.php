@@ -3,14 +3,14 @@
 class Subtopic extends Page {
  
   
-  public static $db = array(	
+  private static $db = array(	
   'Name' => 'Varchar',
   'Description' => 'Text',
   'Tags' => 'Text'
   );
 
   
-   public static $many_many = array(
+   private static $many_many = array(
    'People' => 'People',
    'Essays' => 'Essay',
    'Countries' => 'Country',
@@ -20,7 +20,7 @@ class Subtopic extends Page {
   
   );
   
-  public static $belongs_many_many = array(
+  private static $belongs_many_many = array(
   );
   
 
@@ -93,7 +93,7 @@ class Subtopic_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array ();
+	private static $allowed_actions = array ();
 	
 	
 	

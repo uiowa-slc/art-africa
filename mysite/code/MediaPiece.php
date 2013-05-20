@@ -3,18 +3,18 @@
 class MediaPiece extends Page {
  
   
-  public static $db = array(	
+  private static $db = array(	
   'History' => 'Text',
   'Bibliography' => 'Text'
 
   );
  
   // One-to-one relationship with gallery page
-  public static $has_one = array(
+  private static $has_one = array(
 
   );
   
-  public static $belongs_many_many = array(
+  private static $belongs_many_many = array(
   'People' => 'People',
   'Essays' => 'Essay',
   'Photos' => 'Photo',
@@ -54,7 +54,7 @@ class MediaPiece_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array ();
+	private static $allowed_actions = array ();
 	
 	
 	
