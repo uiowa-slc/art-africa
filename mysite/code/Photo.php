@@ -22,7 +22,7 @@ class Photo extends Page {
 
   );
   
-  private static $has_many = array(
+  private static $many_many = array(
   'Essays' => 'Essay',
   'MediaPieces' => 'MediaPiece'
   );
@@ -38,8 +38,38 @@ class Photo extends Page {
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
-		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
+ 		
+ 		$fields->addFieldToTab('Root.Main', new TextField('Description', 'Description'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('TraditionalName', 'Traditional Name'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Material', 'Material'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Size', 'Size'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Function', 'Function'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Style', 'Style'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Substyle', 'Substyle'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Collection', 'Collection'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
+
+ 		$gridFieldConfigSubtopics = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Subtopics", "Subtopics", $this->Subtopics(), $gridFieldConfigSubtopics);					
+		$fields->addFieldToTab('Root.Subtopics', $gridfield);
+		
+		$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigCountries);	
+		$fields->addFieldToTab('Root.Countries', $gridfield);
+				
+		$gridFieldConfigMediaPieces= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("MediaPieces", "MediaPieces", $this->MediaPieces(), $gridFieldConfigMediaPieces);	
+		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
+		
+		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("People", "People", $this->People(), $gridFieldConfigPeople);
+		$fields->addFieldToTab('Root.People', $gridfield);
+		
+		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		
+		$fields->addFieldToTab('Root.Essays', $gridfield);
+
 		return $fields;		
   }
   

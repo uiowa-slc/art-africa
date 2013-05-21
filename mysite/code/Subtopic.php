@@ -3,14 +3,14 @@
 class Subtopic extends Page {
  
   
-  public static $db = array(	
+  private static $db = array(	
   'Name' => 'Varchar',
   'Description' => 'Text',
   'Tags' => 'Text'
   );
 
   
-   public static $many_many = array(
+   private static $many_many = array(
    'People' => 'People',
    'Essays' => 'Essay',
    'Countries' => 'Country',
@@ -20,11 +20,11 @@ class Subtopic extends Page {
   
   );
   
-  public static $has_one = array(
+  private static $has_one = array(
   'Chapter' => 'Chapter'
   );
   
-  public static $belongs_many_many = array(
+  private static $belongs_many_many = array(
   );
   
 
@@ -37,37 +37,29 @@ class Subtopic extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField('Description', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
 		
-		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigPeople->addComponent(new GridFieldBulkEditingTools());
-
 		
+		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("People", "People", $this->People(), $gridFieldConfigPeople);
-					
 		$fields->addFieldToTab('Root.People', $gridfield);
 		
-		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigEssays->addComponent(new GridFieldBulkEditingTools());
-    
 		
-		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);
-					
+		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		
 		$fields->addFieldToTab('Root.Essays', $gridfield);
 		
-		$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigCountries->addComponent(new GridFieldBulkEditingTools());
-    
 		
-		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigCountries);
-					
+		$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigCountries);	
 		$fields->addFieldToTab('Root.Countries', $gridfield);
 		
-		$gridFieldConfigMediaItems= GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigMediaItems->addComponent(new GridFieldBulkEditingTools());
-
-		$gridfield = new GridField("MediaPieces", "MediaPieces", $this->MediaPieces(), $gridFieldConfigMediaItems);
-					
+		
+		$gridFieldConfigMediaPieces= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("MediaPieces", "MediaPieces", $this->MediaPieces(), $gridFieldConfigMediaPieces);
 		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
 		
+		$gridFieldConfigPhotos= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Photos", "Photos", $this->Photos(), $gridFieldConfigPhotos);
+		$fields->addFieldToTab('Root.Photos', $gridfield);
 		
 		
 		return $fields;		
@@ -96,7 +88,7 @@ class Subtopic_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array ();
+	private static $allowed_actions = array ();
 	
 	
 	

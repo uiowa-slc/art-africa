@@ -1,6 +1,6 @@
 <?php
  
-class ImageHolder extends Page {
+class CountryHolder extends Page {
  
   
   private static $db = array(	
@@ -11,6 +11,8 @@ class ImageHolder extends Page {
   private static $has_one = array(
 
   );
+  
+  private static $allowed_children = array("Country");
   
   private static $belongs_many_many = array();
   
@@ -23,13 +25,11 @@ class ImageHolder extends Page {
 		return $fields;		
   }
   
-  
-  
 
 }
 
 
-class ImageHolder_Controller extends Page_Controller {
+class CountryHolder_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the

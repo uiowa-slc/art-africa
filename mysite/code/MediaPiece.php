@@ -26,8 +26,32 @@ class MediaPiece extends Page {
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
-		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
+ 		
+ 		$fields->addFieldToTab('Root.Main', new TextField('History', 'History'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Bibliography', 'Bibliography'));
+
+ 		$gridFieldConfigSubtopics = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Subtopics", "Subtopics", $this->Subtopics(), $gridFieldConfigSubtopics);					
+		$fields->addFieldToTab('Root.Subtopics', $gridfield);
+		
+		$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigCountries);	
+		$fields->addFieldToTab('Root.Countries', $gridfield);
+		
+		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("People", "People", $this->People(), $gridFieldConfigPeople);
+		$fields->addFieldToTab('Root.People', $gridfield);
+		
+		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		
+		$fields->addFieldToTab('Root.Essays', $gridfield);
+		
+		$gridFieldConfigPhotos= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Photos", "Photos", $this->Photos(), $gridFieldConfigPhotos);
+		$fields->addFieldToTab('Root.Photos', $gridfield);
+		
+
+ 		
 		return $fields;		
   }
   

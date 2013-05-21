@@ -1,6 +1,6 @@
 <?php
  
-class SubtopicHolder extends Page {
+class PhotoHolder extends Page {
  
   
   private static $db = array(	
@@ -12,7 +12,7 @@ class SubtopicHolder extends Page {
 
   );
   
-  private static $allowed_children = array("Subtopic");
+  private static $allowed_children = array("Photo");
   
   private static $belongs_many_many = array();
   
@@ -25,11 +25,13 @@ class SubtopicHolder extends Page {
 		return $fields;		
   }
   
+  
+  
 
 }
 
 
-class SubtopicHolder_Controller extends Page_Controller {
+class PhotoHolder_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -47,6 +49,8 @@ class SubtopicHolder_Controller extends Page_Controller {
 	 * @var array
 	 */
 	private static $allowed_actions = array ();
+	
+	 
 	
 	
 	
