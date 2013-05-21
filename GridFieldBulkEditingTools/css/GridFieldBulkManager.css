@@ -8,22 +8,25 @@
 	text-align: center;
 }
 
-#bulkManagerOptions
+.bulkManagerOptions
 {
-	float: right;
-	margin: 0 0 0 20px;
 }
 
-#bulkActionName
+.bulkManagerOptions th.bulkmanagerselect
+{
+	text-align: center;
+}
+
+.bulkManagerOptions .dropdown 
 {
 	display: inline-block;
 	border: none;
 	box-shadow: none;
-}
 
-#bulkActionName #bulkActionName_chzn
-{
-	width: auto !important;
+	padding: 0;
+	margin: 0;
+
+	color: #000;
 }
 
 .cms table.ss-gridfield-table tbody td a.tempDisabledEditLink
@@ -38,7 +41,3 @@
   background-position: 2px 0px;
   background-repeat: no-repeat no-repeat;
 }
-
-/* ************************************************************************
- * EDITING
- */

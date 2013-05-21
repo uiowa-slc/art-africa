@@ -1,11 +1,11 @@
 <?php
 class Page extends SiteTree {
 
-	public static $db = array(
+	private static $db = array(
 		/*"Keywords" => "Text" */
 	);
 
-	public static $has_one = array(
+	private static $has_one = array(
 	);
 	
 	
@@ -30,7 +30,7 @@ class Page_Controller extends ContentController {
 	 *
 	 * @var array
 	 */
-	public static $allowed_actions = array (
+	private static $allowed_actions = array (
 		"queryTest",
 		"SplitKeywords",
 		"results"

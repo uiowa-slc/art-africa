@@ -3,12 +3,12 @@
 class Word extends DataObject {
  
   
-  public static $db = array(	
+  private static $db = array(	
 	  'Word' => 'Text'
   );
  
   // One-to-one relationship with gallery page
-  public static $has_one = array(
+  private static $has_one = array(
 
   );
   

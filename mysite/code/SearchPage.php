@@ -1,7 +1,7 @@
 <?php
 class SearchPage extends Page {
 
-   public static $allowed_children = array(
+   private static $allowed_children = array(
     	
    );
   

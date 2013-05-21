@@ -8,13 +8,14 @@
 			"name": "Thierry Francois",
 			"homepage": "http://colymba.com"
     },{
-      "name": "GitHub contributors"
+      "name": "GitHub contributors",
+      "homepage": "https://github.com/colymba/GridFieldBulkEditingTools/contributors"
   }],
   "repositories": [{
     "type": "vcs",
     "url": "git@github.com:colymba/GridFieldBulkEditingTools.git"
   }],
 	"require": {
-    "silverstripe/cms": "3.*"
+    "silverstripe/framework": ">=3.1.x-dev,<4.0"
 	}
 }

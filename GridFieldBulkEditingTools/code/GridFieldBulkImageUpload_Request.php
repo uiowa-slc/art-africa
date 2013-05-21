@@ -40,7 +40,7 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 	/**
 	 *
 	 */
-	static $url_handlers = array(
+	private static $url_handlers = array(
 		'$Action!' => '$Action'
 	);
 	
@@ -166,6 +166,7 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 		if ( $config['imageFieldName'] == null ) $config['imageFieldName'] = $this->getDefaultRecordImageField();
 		
 		$recordCMSDataFields = GridFieldBulkEditingHelper::getModelFilteredDataFields($config, $recordCMSDataFields);
+		$recordCMSDataFields = GridFieldBulkEditingHelper::populateCMSDataFields($recordCMSDataFields, $this->gridField->list->dataClass, $recordID);
 		$formFieldsHTML = GridFieldBulkEditingHelper::dataFieldsToHTML($recordCMSDataFields);
 		$formFieldsHTML = GridFieldBulkEditingHelper::escapeFormFieldsHTML($formFieldsHTML, $recordID);
 		
@@ -177,7 +178,7 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 	 * 
 	 * @return string Form's HTML
 	 */
-	public function index()
+	public function index($request)
 	{	
 		Requirements::javascript(FRAMEWORK_DIR . '/javascript/AssetUploadField.js');
 		Requirements::css(FRAMEWORK_DIR . '/css/AssetUploadField.css');				
@@ -194,22 +195,9 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 				->setAttribute('data-icon', 'accept')
 				->setAttribute('data-url', $this->Link('update'))
 				->setUseButtonTag(true)
-        ->setDisabled(true)
+        //->setDisabled(true)
 		);
-		/*
-		if($crumbs && $crumbs->count()>=2)
-		{			
-			$actions->push(
-				FormAction::create('SaveAndFinish', 'Save All & Finish')
-					->setAttribute('id', 'bulkImageUploadUpdateFinishBtn')
-					->addExtraClass('ss-ui-action-constructive cms-panel-link')
-					->setAttribute('data-icon', 'accept')
-					->setAttribute('data-url', $this->Link('update'))
-					->setAttribute('data-return-url', $one_level_up->Link)
-					->setUseButtonTag(true)
-			);
-		}	
-		*/
+		
 		$actions->push(
 			FormAction::create('Cancel', 'Cancel & Delete All')
 				->setAttribute('id', 'bulkImageUploadUpdateCancelBtn')
@@ -217,7 +205,7 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 				->setAttribute('data-icon', 'decline')
 				->setAttribute('data-url', $this->Link('cancel'))
 				->setUseButtonTag(true)
-        ->setDisabled(true)
+        //->setDisabled(true)
 		);
 		
 		
@@ -232,6 +220,11 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 		$uploadField->setConfig('downloadTemplateName','GridFieldBulkImageUpload_downloadtemplate');   
     $uploadField->setConfig('sequentialUploads', $this->component->getConfig('sequentialUploads'));
 				
+		$maxFileSize = $this->component->getConfig('maxFileSize');
+		if ( $maxFileSize !== null ) 
+		{
+			$uploadField->getValidator()->setAllowedMaxFileSize( $maxFileSize );
+		}
 		
 		$uploadField->setConfig('url', $this->Link('upload'));
 		
@@ -267,7 +260,30 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 		$response = new SS_HTTPResponse($formHTML);
 		$response->addHeader('Content-Type', 'text/plain');
 		$response->addHeader('X-Title', 'SilverStripe - Bulk '.$this->gridField->list->dataClass.' Image Upload');
-		return $response;
+		if($request->isAjax()) {
+			return $response;
+		} else {
+			$controller = $this->getToplevelController();
+			// If not requested by ajax, we need to render it within the controller context+template
+			return $controller->customise(array(
+				'Content' => $response->getBody(),
+			));	
+		}
+	}
+	
+	/**
+	 * Traverse up nested requests until we reach the first that's not a GridFieldDetailForm or GridFieldDetailForm_ItemRequest.
+	 * The opposite of {@link Controller::curr()}, required because
+	 * Controller::$controller_stack is not directly accessible.
+	 * 
+	 * @return Controller
+	 */
+	protected function getToplevelController() {
+		$c = $this->controller;
+		while($c && ($c instanceof GridFieldDetailForm_ItemRequest || $c instanceof GridFieldDetailForm)) {
+			$c = $c->getController();
+		}
+		return $c;
 	}
 	
 	/**
@@ -286,16 +302,14 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 	 */
 	public function upload(SS_HTTPRequest $request)
 	{
-		$recordClass = $this->gridField->list->dataClass;
-		$recordForeignKey = $this->gridField->list->foreignKey;
-		$recordForeignID = $this->gridField->list->foreignID;
-		
+		$recordClass = $this->gridField->list->dataClass;		
 		$record = Object::create($recordClass);
-		$record->setField($recordForeignKey, $recordForeignID);
+
 		// passes the current gridfield-instance to a call-back method on the new object
 		$record->extend("onBulkImageUpload", $this->gridField);
 		
 		$record->write();
+		$this->gridField->list->add($record->ID);
 		
 		$upload = new Upload();		
 		$tmpfile = $request->postVar('BulkImageUploadField');
