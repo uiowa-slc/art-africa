@@ -14,6 +14,8 @@ class ArtPhoto extends Photo {
   
   private static $belongs_many_many = array();
   
+ // public static $hide_ancestor = 'Photo';
+  
 
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {

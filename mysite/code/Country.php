@@ -34,6 +34,10 @@ class Country extends Page {
   
   );
   
+  private static $searchable_fields = array(
+  'Name'
+  );
+  
   private static $many_many = array(
   'People' => 'People',
   'Essays' => 'Essay',
@@ -99,6 +103,21 @@ class Country extends Page {
 		return $fields;		
   }
   
+  public function onBeforeWrite(){
+  
+  	$publishPage = $this->IsPublished();
+  	
+  	if (isset($publishPage)){
+		if (!$publishPage){
+
+		  $countryParent = CountryHolder::get()->First();
+		  $this->setParent($countryParent);
+		 
+		}
+	}
+	
+	parent::onBeforeWrite();
+  }
   
   
 

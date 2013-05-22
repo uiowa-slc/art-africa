@@ -12,7 +12,7 @@ class PhotoHolder extends Page {
 
   );
   
-  private static $allowed_children = array("Photo");
+  private static $allowed_children = array("ArtPhoto", "FieldPhoto");
   
   private static $belongs_many_many = array();
   

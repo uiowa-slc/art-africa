@@ -55,6 +55,17 @@ class MediaPiece extends Page {
 		return $fields;		
   }
   
+    public function onBeforeWrite(){
+    	$publishPage = $this->IsPublished();
+  	
+    	if (isset($publishPage)){
+			if (!$publishPage){
+			  $mediaParent = MediaHolder::get()->First();
+			  $this->setParent($mediaParent);
+			}
+		}
+		parent::onBeforeWrite();
+  }
   
   
 

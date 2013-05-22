@@ -75,9 +75,20 @@ class Essay extends Page {
 		return $fields;		
   }
   
+   public function onBeforeWrite(){
+   
+   	  $publishPage = $this->IsPublished();
+  	
+   	  if (isset($publishPage)){
+			if (!$publishPage){
+			  $essayParent = EssayHolder::get()->First();
+			  $this->setParent($essayParent);
+			}
+	  }
+	  parent::onBeforeWrite();
+  }
   
   
-
 }
 
 

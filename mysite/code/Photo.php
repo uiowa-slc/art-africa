@@ -73,6 +73,17 @@ class Photo extends Page {
 		return $fields;		
   }
   
+    public function onBeforeWrite(){
+    	$publishPage = $this->IsPublished();
+  	
+    	if (isset($publishPage)){
+			if (!$publishPage){
+			  $photoParent = PhotoHolder::get()->First();
+			  $this->setParent($photoParent);
+			}
+		}
+		parent::onBeforeWrite();
+	}
   
   
 

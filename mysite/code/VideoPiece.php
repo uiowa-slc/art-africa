@@ -12,6 +12,8 @@ class VideoPiece extends MediaPiece {
 
   );
   
+  private static $hide_ancestor = 'MediaPiece';
+  
   private static $belongs_many_many = array();
   
 

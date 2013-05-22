@@ -14,6 +14,8 @@ class FieldPhoto extends Photo {
   
   private static $belongs_many_many = array();
   
+  //private static $hide_ancestor = 'Photo';
+  
 
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {

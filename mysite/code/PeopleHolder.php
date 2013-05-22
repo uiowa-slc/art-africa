@@ -25,6 +25,8 @@ class PeopleHolder extends Page {
 		return $fields;		
   }
   
+ 
+  
 
 }
 
@@ -47,6 +49,8 @@ class PeopleHolder_Controller extends Page_Controller {
 	 * @var array
 	 */
 	private static $allowed_actions = array ();
+	
+	
 	
 	
 	

@@ -76,6 +76,18 @@ class People extends Page {
 		return $fields;		
   }
   
+   public function onBeforeWrite(){
+   
+   	  $publishPage = $this->IsPublished();
+  	
+   	  if (isset($publishPage)){
+			if (!$publishPage){
+			  $peopleParent = PeopleHolder::get()->First();
+			  $this->setParent($peopleParent);
+			  parent::onBeforeWrite();
+			}
+	  }
+  }
   
   
 

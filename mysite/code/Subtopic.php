@@ -67,7 +67,20 @@ class Subtopic extends Page {
 		
   }
   
-
+    public function onBeforeWrite(){
+    
+	    $publishPage = $this->IsPublished();
+	  	
+	  	if (isset($publishPage)){
+			if (!$publishPage){
+				$subtopicParent = SubtopicHolder::get()->First();
+				$this->setParent($subtopicParent);
+				
+			}
+		}
+		
+		parent::onBeforeWrite();
+	}
 }
 
 
