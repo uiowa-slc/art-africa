@@ -1,6 +1,6 @@
 <?php
  
-class Country extends Page {
+class Country extends DataObject {
  
   
   private static $db = array(	
@@ -56,6 +56,7 @@ class Country extends Page {
   
  		$fields = parent::getCMSFields();
  		
+ 		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID', 'Temporary ID Field'));
  		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Name'));
  		$fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
  		$fields->addFieldToTab('Root.Main', new TextField('DateOfIndependence', 'Date Of Independence'));
@@ -66,6 +67,7 @@ class Country extends Page {
  		$fields->addFieldToTab('Root.Main', new TextField('HeadOfState', 'Head Of State'));
  		$fields->addFieldToTab('Root.Main', new TextField('Area', 'Area'));
  		$fields->addFieldToTab('Root.Main', new TextField('TypeOfGovernment', 'Type Of Government'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Currency', 'Currency'));
  		$fields->addFieldToTab('Root.Main', new TextField('MajorPeoples', 'Major Peoples'));
  		$fields->addFieldToTab('Root.Main', new TextField('Religion', 'Religion'));
  		$fields->addFieldToTab('Root.Main', new TextField('Climate', 'Climate'));
@@ -103,46 +105,5 @@ class Country extends Page {
 		return $fields;		
   }
   
-  public function onBeforeWrite(){
-  
-  	$publishPage = $this->IsPublished();
-  	
-  	if (isset($publishPage)){
-		if (!$publishPage){
-
-		  $countryParent = CountryHolder::get()->First();
-		  $this->setParent($countryParent);
-		 
-		}
-	}
-	
-	parent::onBeforeWrite();
-  }
-  
-  
-
 }
 
-
-class Country_Controller extends Page_Controller {
-
-	/**
-	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
-	 * permissions or conditions required to allow the user to access it.
-	 *
-	 * <code>
-	 * array (
-	 *     'action', // anyone can access this action
-	 *     'action' => true, // same as above
-	 *     'action' => 'ADMIN', // you must have ADMIN permissions to access this action
-	 *     'action' => '->checkAction' // you can only access this action if $this->checkAction() returns true
-	 * );
-	 * </code>
-	 *
-	 * @var array
-	 */
-	private static $allowed_actions = array ();
-	
-	
-	
-}

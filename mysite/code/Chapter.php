@@ -16,13 +16,10 @@ class Chapter extends Page {
   
 
    private static $allowed_children = array(
-    	"SubTopicPage"
+    	"Subtopic"
    );
   
-  private static $has_many = array(
-  'Subtopics' => 'Subtopic',
-
-  );
+ 
   
   private static $belongs_many_many = array(
   

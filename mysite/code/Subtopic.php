@@ -20,9 +20,7 @@ class Subtopic extends Page {
   
   );
   
-  private static $has_one = array(
-  'Chapter' => 'Chapter'
-  );
+ 
   
   private static $belongs_many_many = array(
   );
