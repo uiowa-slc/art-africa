@@ -20,8 +20,13 @@ class EssayHolder extends Page {
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
-		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
+		
+		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Essay", "Essays", Essay::get(), $gridFieldConfigEssays);		
+		$fields->addFieldToTab('Root.Essays', $gridfield);
+
+		
+		
 		return $fields;		
   }
   
@@ -47,6 +52,30 @@ class EssayHolder_Controller extends Page_Controller {
 	 * @var array
 	 */
 	private static $allowed_actions = array ();
+	
+	public function show (){
+	//Displays a data object
+	
+						
+		$otherClass = 'Essay';
+		
+		$objectID = $this->request->param('ID');
+		if ($objectID){
+		
+		    $object = $otherClass::get_by_id($otherClass, $objectID);
+		    
+		    if(isset($object)){
+		       $showTemplate = $class . 'Holder_show';
+			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
+			   
+		    }else{
+		    }		   
+		}
+		else {
+			return $this->renderWith('Page');
+		}
+	
+	}
 	
 	
 	

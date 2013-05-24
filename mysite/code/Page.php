@@ -45,30 +45,7 @@ class Page_Controller extends ContentController {
 	}
 	
 	
-	public function show($class = 'NONE', $otherClass){
-	//Displays a data object
-
-		if ($otherClass != 'NONE') {
-			$objectID = $this->request->param('ID');
-			if ($objectID){
-			
-			    $object = $otherClass::get_by_id($otherClass, $objectID);
-			    
-			    if(isset($object)){
-			       $showTemplate = $class . 'Holder_show';
-				   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
-				   
-			    }else{
-			    }		   
-			}
-			else {
-				return $this->renderWith('Page');
-			}
-		}
-		else {
-			return $this->renderWith('Page');
-		}
-	}
+	
 	
         
 	public function queryTest(){

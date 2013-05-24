@@ -21,13 +21,16 @@ class Essay extends DataObject {
   
   
   private static $many_many = array(
-  'MediaPieces' => 'MediaPiece'
+  'AudioPieces' => 'AudioPiece',
+  'VideoPieces' => 'VideoPiece'
+  
   );
   private static $belongs_many_many = array(
   'Subtopics' => 'Subtopic',
   'Countries' => 'Country',
   'People' => 'People',
-  'Photos' => 'Photo'
+  'FieldPhotos' => 'FieldPhotos',
+  'ArtPhotos' => 'ArtPhotos'
   
   );
   
@@ -54,9 +57,12 @@ class Essay extends DataObject {
 		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigCountries);	
 		$fields->addFieldToTab('Root.Countries', $gridfield);
 		
-			
-		$gridFieldConfigMediaPieces= GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("MediaPieces", "MediaPieces", $this->MediaPieces(), $gridFieldConfigMediaPieces);
+		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);
+		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
+		
+		$gridFieldConfigVideoPieces= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("VideoPieces", "Video Pieces", $this->VideoPieces(), $gridFieldConfigVideoPieces);
 		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
 		
 		$gridFieldConfigPhotos= GridFieldConfig_RelationEditor::create(); 

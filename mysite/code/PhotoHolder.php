@@ -22,6 +22,19 @@ class PhotoHolder extends Page {
  		$fields = parent::getCMSFields();
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
+		
+		$gridFieldConfigPhoto = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Photo", "Photos", Photo::get(), $gridFieldConfigPhoto);		
+		$fields->addFieldToTab('Root.Photos', $gridfield);
+		
+		$gridFieldConfigArtPhoto = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("ArtPhoto", "ArtPhotos", ArtPhoto::get(), $gridFieldConfigArtPhoto);		
+		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
+		
+		$gridFieldConfigFieldPhoto = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("FieldPhoto", "FieldPhotos", FieldPhoto::get(), $gridFieldConfigFieldPhoto);		
+		$fields->addFieldToTab('Root.FieldPhotos', $gridfield);
+		
 		return $fields;		
   }
   
@@ -48,7 +61,33 @@ class PhotoHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ();
+	private static $allowed_actions = array ('show');
+	
+	public function show (){
+	//Displays a data object
+	
+						
+		$otherClass = 'Essay';
+		
+		$objectID = $this->request->param('ID');
+		if ($objectID){
+		
+		    $object = $otherClass::get_by_id($otherClass, $objectID);
+		    
+		    if(isset($object)){
+		       $showTemplate = $class . 'Holder_show';
+			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
+			   
+		    }else{
+		    }		   
+		}
+		else {
+			return $this->renderWith('Page');
+		}
+	
+	}
+	
+	
 	
 	 
 	

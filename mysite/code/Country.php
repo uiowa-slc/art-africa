@@ -41,8 +41,10 @@ class Country extends DataObject {
   private static $many_many = array(
   'People' => 'People',
   'Essays' => 'Essay',
-  'MediaPieces' => 'MediaPiece',
-  'Photos' => 'Photo'
+  'AudioPieces' => 'AudioPiece',
+  'VideoPieces' => 'VideoPiece',
+  'ArtPhotos' => 'ArtPhoto',
+  'FieldPhotos' => 'FieldPhoto'
   );
   
   private static $belongs_many_many = array(
@@ -82,15 +84,22 @@ class Country extends DataObject {
  		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		
 		$fields->addFieldToTab('Root.Essays', $gridfield);
-		
-		$gridFieldConfigMediaPieces= GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("MediaPieces", "MediaPieces", $this->MediaPieces(), $gridFieldConfigMediaPieces);
+				
+		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);
 		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
 		
-		$gridFieldConfigPhotos= GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("Photos", "Photos", $this->Photos(), $gridFieldConfigPhotos);	
+		$gridFieldConfigVideoPieces= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("VideoPieces", "Video Pieces", $this->VideoPieces(), $gridFieldConfigVideoPieces);
+		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
+		
+		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
 		$fields->addFieldToTab('Root.Photos', $gridfield);
 		
+		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("FieldPhotos", "Field Photos", $this->FieldPhotos(), $gridFieldConfigFieldPhotos);
+		$fields->addFieldToTab('Root.Photos', $gridfield);
 		
 		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("People", "People", $this->People(), $gridFieldConfigPeople);
