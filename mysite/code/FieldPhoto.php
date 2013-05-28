@@ -12,6 +12,12 @@ class FieldPhoto extends Photo {
 
   );
   
+  private static $many_many = array(
+  'Essays' => 'Essay',
+  'AudioPieces' => 'AudioPiece',
+  'VideoPieces' => 'VideoPiece',
+  );
+  
   private static $belongs_many_many = array(
    'People' => 'People',
    'Essays' => 'Essay',
@@ -20,12 +26,7 @@ class FieldPhoto extends Photo {
 
   );
   
-   private static $many_many = array(
-  'Essays' => 'Essay',
-  'AudioPieces' => 'AudioPiece',
-  'VideoPieces' => 'VideoPiece',
-  );
-  
+
   //private static $hide_ancestor = 'Photo';
   
 

@@ -58,8 +58,7 @@ class CountryHolder_Controller extends Page_Controller {
 		
 		    $object = $class::get_by_id($class, $objectID);
 		    
-		    return print_r($object); 
-		    
+		    		    
 		    if(isset($object)){
 		       $showTemplate = $class . 'Holder_show';
 			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));

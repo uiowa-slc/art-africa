@@ -12,6 +12,12 @@ class ArtPhoto extends Photo {
 
   );
   
+  private static $many_many = array(
+  'Essays' => 'Essay',
+  'AudioPieces' => 'AudioPiece',
+  'VideoPieces' => 'VideoPiece',
+  );
+  
   private static $belongs_many_many = array(
    'People' => 'People',
    'Essays' => 'Essay',
@@ -23,11 +29,7 @@ class ArtPhoto extends Photo {
   
   );
   
-   private static $many_many = array(
-  'Essays' => 'Essay',
-  'AudioPieces' => 'AudioPiece',
-  'VideoPieces' => 'VideoPiece',
-  );
+   
   
  // public static $hide_ancestor = 'Photo';
   

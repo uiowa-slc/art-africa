@@ -1,12 +1,10 @@
 <?php
  
-class Chapter extends Page {
+class ChapterHolder extends Page {
  
   
   private static $db = array(	
-  'Name' => 'Varchar',
-  'Description' => 'Text',
-  'Tags' => 'Text'
+
   );
  
   // One-to-one relationship with gallery page
@@ -14,38 +12,24 @@ class Chapter extends Page {
 
   );
   
-
-   private static $allowed_children = array(
-    	"Subtopic"
-   );
+  private static $allowed_children = array("Chapter");
   
- 
-  
-  private static $belongs_many_many = array(
-  
-  );
+  private static $belongs_many_many = array();
   
 
-
+ // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		
-		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Topic Name'));
-		$fields->addFieldToTab('Root.Main', new TextField('Description', 'Topic Description'));
-		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
-		
-	
-		
+		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
+		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 		return $fields;		
   }
-  
-  
   
 
 }
 
 
-class Chapter_Controller extends Page_Controller {
+class ChapterHolder_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
