@@ -30,6 +30,11 @@ class VideoPiece extends MediaPiece {
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 		
+		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
+		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
+		
+		
 		$gridFieldConfigSubtopics = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("Subtopics", "Subtopics", $this->Subtopics(), $gridFieldConfigSubtopics);					
 		$fields->addFieldToTab('Root.Subtopics', $gridfield);
@@ -38,17 +43,13 @@ class VideoPiece extends MediaPiece {
 		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigCountries);	
 		$fields->addFieldToTab('Root.Countries', $gridfield);
 		
-		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
-		$fields->addFieldToTab('Root.Photos', $gridfield);
-		
 		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("FieldPhotos", "Field Photos", $this->FieldPhotos(), $gridFieldConfigFieldPhotos);
-		$fields->addFieldToTab('Root.Photos', $gridfield);
+		$fields->addFieldToTab('Root.FieldPhotos', $gridfield);
 		
 		$gridFieldConfigVideoPieces= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigVideoPieces);
-		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
+		$fields->addFieldToTab('Root.AudioPieces', $gridfield);
 		
 		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("People", "People", $this->People(), $gridFieldConfigPeople);

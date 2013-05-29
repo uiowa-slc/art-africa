@@ -16,6 +16,7 @@ class ArtPhoto extends Photo {
   'Essays' => 'Essay',
   'AudioPieces' => 'AudioPiece',
   'VideoPieces' => 'VideoPiece',
+  'FieldPhotos' => 'FieldPhoto'
   );
   
   private static $belongs_many_many = array(
@@ -40,29 +41,40 @@ class ArtPhoto extends Photo {
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 		
-		$gridFieldConfigSubtopics = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("Subtopics", "Subtopics", $this->Subtopics(), $gridFieldConfigSubtopics);					
-		$fields->addFieldToTab('Root.Subtopics', $gridfield);
+		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);
+		$fields->addFieldToTab('Root.AudioPieces', $gridfield);
 		
 		$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigCountries);	
 		$fields->addFieldToTab('Root.Countries', $gridfield);
 		
-		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);
-		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
+		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		
+		$fields->addFieldToTab('Root.Essays', $gridfield);
 		
-		$gridFieldConfigVideoPieces= GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("VideoPieces", "Video Pieces", $this->VideoPieces(), $gridFieldConfigVideoPieces);
-		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
+		
+		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("FieldPhotos", "Field Photos", $this->FieldPhotos(), $gridFieldConfigFieldPhotos);
+		$fields->addFieldToTab('Root.FieldPhotos', $gridfield);
 		
 		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("People", "People", $this->People(), $gridFieldConfigPeople);
 		$fields->addFieldToTab('Root.People', $gridfield);
 		
-		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		
-		$fields->addFieldToTab('Root.Essays', $gridfield);
+		
+		$gridFieldConfigSubtopics = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Subtopics", "Subtopics", $this->Subtopics(), $gridFieldConfigSubtopics);					
+		$fields->addFieldToTab('Root.Subtopics', $gridfield);
+		
+		$gridFieldConfigVideoPieces= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("VideoPieces", "Video Pieces", $this->VideoPieces(), $gridFieldConfigVideoPieces);
+		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
+		
+		
+	
+		
+		
 		
 		return $fields;		
   }

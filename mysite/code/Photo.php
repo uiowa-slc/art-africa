@@ -35,7 +35,7 @@ class Photo extends DataObject {
  		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID'));
  		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Title'));
  		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Description', 'Description'));
+ 		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));
  		$fields->addFieldToTab('Root.Main', new TextField('TraditionalName', 'Traditional Name'));
  		$fields->addFieldToTab('Root.Main', new TextField('Material', 'Material'));
  		$fields->addFieldToTab('Root.Main', new TextField('Size', 'Size'));

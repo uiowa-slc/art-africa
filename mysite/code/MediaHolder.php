@@ -22,8 +22,16 @@ class MediaHolder extends Page {
  		$fields = parent::getCMSFields();
 		
 		$gridFieldConfigMedia = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("Media", "Media", MediaPiece::get(), $gridFieldConfigMedia);		
-		$fields->addFieldToTab('Root.Media', $gridfield);
+		$gridfield = new GridField("Media", "Media Pieces", MediaPiece::get(), $gridFieldConfigMedia);		
+		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
+		
+		$gridFieldConfigAudio = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("AudioPieces", "Audio Pieces", AudioPiece::get(), $gridFieldConfigAudio);		
+		$fields->addFieldToTab('Root.AudioPieces', $gridfield);
+		
+		$gridFieldConfigVideo = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("VideoPieces", "Video Pieces", VideoPiece::get(), $gridFieldConfigVideo);		
+		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
 		
 		return $fields;		
   }

@@ -36,6 +36,27 @@ class Subtopic extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Topic Name'));
 		$fields->addFieldToTab('Root.Main', new TextField('Description', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
+		$fields->addFieldToTab('Root.Main', new TextAreaField('Content', 'Content'));
+		
+		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
+		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
+		
+		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);
+		$fields->addFieldToTab('Root.AudioPieces', $gridfield);
+		
+		$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigCountries);	
+		$fields->addFieldToTab('Root.Countries', $gridfield);
+		
+		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		
+		$fields->addFieldToTab('Root.Essays', $gridfield);
+		
+		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("FieldPhotos", "Field Photos", $this->FieldPhotos(), $gridFieldConfigFieldPhotos);
+		$fields->addFieldToTab('Root.FieldPhotos', $gridfield);
 		
 		
 		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
@@ -43,31 +64,13 @@ class Subtopic extends Page {
 		$fields->addFieldToTab('Root.People', $gridfield);
 		
 		
-		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		
-		$fields->addFieldToTab('Root.Essays', $gridfield);
-		
-		
-		$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigCountries);	
-		$fields->addFieldToTab('Root.Countries', $gridfield);
-		
-		
-		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);
-		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
-		
 		$gridFieldConfigVideoPieces= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("VideoPieces", "Video Pieces", $this->VideoPieces(), $gridFieldConfigVideoPieces);
-		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
+		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
 		
-		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
-		$fields->addFieldToTab('Root.Photos', $gridfield);
 		
-		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("FieldPhotos", "Field Photos", $this->FieldPhotos(), $gridFieldConfigFieldPhotos);
-		$fields->addFieldToTab('Root.Photos', $gridfield);
+		
+		
 		
 		
 		return $fields;		
