@@ -1,40 +1,65 @@
-// just messing around with stuff in here
- 
+/*
+ * Functions
+ * =========
+ */
 function rems (n) {
   var htmlElement = document.getElementsByTagName('html')[0];
   return parseInt(getComputedStyle(htmlElement, null).getPropertyValue('font-size')) * n;
 }
- 
-$(document).on('click', '[data-mtoggle]', function () {
+
+/*
+ * toggle
+ * ======
+ */
+$(document).on('click', '[data-toggle]', function () {
   var $el = $(this);
-  var selector = $el.attr('data-mtoggle');
-  var $toggleEls = $(selector);
-  $toggleEls.toggleClass('mtoggle');
+  var toggleSelector = $el.attr('data-toggle');
+  var $toggleEls = $(toggleSelector);
+  $toggleEls.toggleClass('toggle');
 });
 
-var resized = false;
-$(window).on('resize', function () {
-  resized = true;
-});
+/*
+ * #main_content img
+ * =================
+ */
+function sizeMainContentImages () {
+  var $mc = $('#main_content');
+  $mc.find('img').css('width', ($mc.outerWidth()+2).toString() + 'px')
+                 .css('position', 'relative')
+                 .css('left', '-' + $mc.css('padding-left'));
+}
+function setMainContentImgMaxWidth () {
+  $('#main_content img').each(function () {
+    $(this).on('load', function () {
+      var nw = this.naturalWidth;
+      $(this).css('max-width', nw.toString() + 'px')
+    });
+  });
+}
+$(document).ready(setMainContentImgMaxWidth);
+$(document).ready(sizeMainContentImages);
+$(window).on('resize', sizeMainContentImages);
 
-$(document).ready(function () {
-  $('#main_content').css('min-height', window.outerHeight.toString() + 'px');
-});
-
-$(window).on('resize', function () {
-  $('#main_content').css('min-height', window.outerHeight.toString() + 'px');
-});
-
-// setInterval(function () {
-//   if (resized) {
-//     if (window.outerWidth <= 768) {
-//       console.log('move #nav2 inside of #nav1');
-//     } else {
-//       console.log('move #nav2 to #middle');
-//     }
-//     resized = false;
+/*
+ * #main_content min-height
+ * ========================
+ */
+// $(document).ready(function () {
+//   setMainContentMinHeight();
+// });
+// $(window).on('resize', function () {
+//   setMainContentMinHeight();
+// });
+// function setMainContentMinHeight () {
+//   if (window.outerWidth <= 768) {
+//     $('#main_content').css('min-height', '0px');
+//   } else {
+//     $('#main_content').css('min-height', $('#middle .nav2').outerHeight().toString() + 'px');
 //   }
-//   // think of a way to make the transition less janky, possibly with css+media queries?
-//   // #nav1 #nav2, #middle #nav2
-//   // or possible have .nav2 and render it twice...
-// }, 500);
+// }
+
+window.addEventListener("load",function() {
+  setTimeout(function () {
+    window.scrollTo(0, 1); // Hide the address bar on iOS
+  }, 0);
+});

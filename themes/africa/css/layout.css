@@ -6,20 +6,38 @@ html {
   html { font-size: 0.875em; }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 1680px) {
   html { font-size: 1.125em; }
+  #view { margin: 0 2%; }
 }
 
-@media (min-width: 2400px) {
+@media (min-width: 1920px) {
   html { font-size: 1.25em; }
+  #view { margin: 0 4%; }
+}
+
+@media (min-width: 2560px) {
+  html { font-size: 1.5em; }
+  #view { margin: 0 6%; }
 }
 
 body {
   font-family: Raleway;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  text-rendering: optimizeLegibility;
+}
+
 a {
   text-decoration: none;
+  color: #AA2F13;
 }
 
 a:hover {
@@ -27,11 +45,18 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-  .mtoggle { display: none; }
+  /*.toggle { display: none; }*/
+  /*use &.toggle*/
 }
 
 .trol {
   text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 769px) {
+  .m {
+    display: none;
+  }
 }
 
 #top {
@@ -50,10 +75,6 @@ a:hover {
   background-position: 14.5rem 4.375rem;
 }
 
-@media (min-width: 769px) {
-  .hamburger { display: none; }
-}
-
 .hamburger {
   float: right;
   width: 24px;
@@ -69,6 +90,9 @@ a:hover {
   background: -webkit-linear-gradient(top,
                                       rgba(255,255,255, 0.1),
                                       rgba(255,255,255, 0.3));
+  background: linear-gradient(to bottom,
+                              rgba(255,255,255, 0.1),
+                              rgba(255,255,255, 0.3));
   box-shadow: inset 0 1px 0 rgba(255,255,255, 0.25);
 }
 
@@ -76,6 +100,9 @@ a:hover {
   background: -webkit-linear-gradient(top,
                                       rgba(255,255,255, 0.15),
                                       rgba(255,255,255, 0.3));
+  background: linear-gradient(to bottom,
+                              rgba(255,255,255, 0.15),
+                              rgba(255,255,255, 0.3));
   box-shadow: inset 0 1px 0 rgba(255,255,255, 0.3);
 }
 
@@ -100,8 +127,8 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-  .nav1 {
-    font-size: 0.875rem;
+  .nav1.toggle {
+    display: none;
   }
 
   .nav1 >ul>li:nth-child(1)>a { background: #1f1a1b; }
@@ -111,7 +138,7 @@ a:hover {
 
   .nav1 >ul>li>a {
     display: block;
-    padding: 1rem 1.25rem;
+    padding: 1.125rem 1.25rem;
   }
 }
 
@@ -144,14 +171,20 @@ a:hover {
 }
 
 .nav1 .nav2 >ul {
-  margin: 0.75rem 0;
+  margin: 1rem 0 2rem 0;
 }
 
 .nav1 .nav2 >ul>li>a {
   color: #fff;
-  text-transform: uppercase;
+  text-transform: none;
   display: block;
-  padding: 0.75rem 2.5rem;
+  padding: 0.75rem 1.25rem;
+  border-left: 2px solid #333;
+  margin-left: 1.25rem;
+}
+
+.nav1 .nav2 >ul>li>a:active {
+  border-left-color: #555;
 }
 
 #middle {
@@ -182,6 +215,7 @@ a:hover {
 
 #middle .nav2 >ul {
   margin: 1.5rem 0;
+  list-style-type: none;
 }
 
 #middle .nav2 >ul>li>a {
@@ -193,16 +227,84 @@ a:hover {
 
 #main_content {
   background: white;
-  padding: 1rem;
+  padding: 1.25rem 1.25rem 0 1.25rem;
   min-height: 100%;
+  overflow: hidden;
 }
 
 @media (min-width: 769px) {
   #main_content {
+    padding: 2rem 2rem 0 2rem;
     position: absolute;
     top: 1rem;
     left: 18rem;
     right: 0;
-    box-shadow: -0.125rem 0.125rem 0.375rem #181415;
+    box-shadow: -0.125rem 0.125rem 0.375rem rgba(24,20,21, 0.5);
   }
+}
+
+@media (max-width: 768px) {
+  .nav3 { display: none; }
+}
+
+.nav3 > ul {
+  list-style-type: none;
+  border-left: 2px solid #444;
+  padding-left: 24px;
+  margin: 0 0 1rem 1.25rem;
+}
+
+.nav3 > ul > li {
+  font-size: 0.875rem;
+  margin: 4px 0;
+}
+
+.nav3 > ul > li > a {
+  display: block;
+  padding: 8px 0 8px 24px;
+  position: relative;
+  left: -26px;
+  border-left: 2px solid #444;
+  color: #ccc;
+  -webkit-transition: border 0.1s ease-in;
+  -moz-transition: border 0.1s ease-in;
+  transition: border 0.1s ease-in;
+}
+
+.nav3 > ul > li > a:hover {
+  text-decoration: none;
+  color: white;
+  border-left-color: #888;
+}
+
+#main_content h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #000;
+}
+
+#main_content h2 {
+  font-size: 1.375rem;
+  color: #888;
+  font-weight: 400;
+}
+
+#main_content .secondary h3 {
+  font-size: 1.375rem;
+  color: #888;
+  font-weight: 400;
+}
+
+.content-container {
+  max-width: 45rem;
+}
+
+.content-container p {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin: 1.5rem 0;
+}
+
+#main_content::selection, #main_content ::selection {
+  background: rgba(170,47,19, 0.15);
 }

@@ -15,7 +15,7 @@
   <body>
     <div id="view">
       <div id="top">
-        <div class="hamburger" data-mtoggle=".nav1" onclick="void(0)">
+        <div class="hamburger m" data-toggle=".nav1" onclick="void(0)">
           <div></div>
           <div class="patty"></div>
           <div></div>
@@ -24,7 +24,7 @@
           Art &amp; Life<br>
           in Africa
         </div>
-        <nav class="nav1" class="mtoggle">
+        <nav class="nav1 toggle">
           <ul>
             <% loop Menu(1) %>
             <li>
@@ -33,29 +33,67 @@
               <nav class="nav2">
                 <ul>
                   <li>
-                    <a href="#everydayendeavors" id="everydayendeavors" class="trol selected">Everyday Endeavors</a>
+                    <a href="#">Everyday Endeavors</a>
+                    <nav class="nav3">
+                      <ul>
+                        <li>
+                          <a href="#">Everyday Endeavors</a>
+                        </li>
+                        <li>
+                          <a href="#">Key Moments in Life</a>
+                        </li>
+                        <li>
+                          <a href="#">Education Initiation</a>
+                        </li>
+                        <li>
+                          <a href="#">Abundance</a>
+                        </li>
+                        <li>
+                          <a href="#">Sacred Spaces</a>
+                        </li>
+                        <li>
+                          <a href="#">Divination</a>
+                        </li>
+                        <li>
+                          <a href="#">Ancient Africa</a>
+                        </li>
+                        <li>
+                          <a href="#">Arts of Healing</a>
+                        </li>
+                        <!--<% loop ChildrenOf('chapters') %>
+                        <li>
+                          <a href="$Link" id="$URLSegment" class="trol">$MenuTitle</a>
+                        </li>
+                        <% end_loop %>-->
+                      </ul>
+                    </nav>
                   </li>
                   <li>
-                    <a href="#keymomentsinlife" class="trol">Key Moments in Life</a>
+                    <a href="#">Key Moments in Life</a>
                   </li>
                   <li>
-                    <a href="#educationinitiation" class="trol">Education Initiation</a>
+                    <a href="#">Education Initiation</a>
                   </li>
                   <li>
-                    <a href="#abundance" class="trol">Abundance</a>
+                    <a href="#">Abundance</a>
                   </li>
                   <li>
-                    <a href="#sacredspaces" class="trol">Sacred Spaces</a>
+                    <a href="#">Sacred Spaces</a>
                   </li>
                   <li>
-                    <a href="#divination" class="trol">Divination</a>
+                    <a href="#">Divination</a>
                   </li>
                   <li>
-                    <a href="#ancientafrica" class="trol">Ancient Africa</a>
+                    <a href="#">Ancient Africa</a>
                   </li>
                   <li>
-                    <a href="#artsofhealing" class="trol">Arts of Healing</a>
+                    <a href="#">Arts of Healing</a>
                   </li>
+                  <!--<% loop ChildrenOf('chapters') %>
+                  <li>
+                    <a href="$Link" id="$URLSegment" class="trol">$MenuTitle</a>
+                  </li>
+                  <% end_loop %>-->
                 </ul>
               </nav>
               <% end_if %>
@@ -70,33 +108,77 @@
         <nav class="nav2">
           <ul>
             <li>
-              <a href="#everydayendeavors" id="everydayendeavors" class="trol selected">Everyday Endeavors</a>
+              <a href="#">Everyday Endeavors</a>
+              <nav class="nav3">
+                <ul>
+                  <li>
+                    <a href="#">Everyday Endeavors</a>
+                  </li>
+                  <li>
+                    <a href="#">Key Moments in Life</a>
+                  </li>
+                  <li>
+                    <a href="#">Education Initiation</a>
+                  </li>
+                  <li>
+                    <a href="#">Abundance</a>
+                  </li>
+                  <li>
+                    <a href="#">Sacred Spaces</a>
+                  </li>
+                  <li>
+                    <a href="#">Divination</a>
+                  </li>
+                  <li>
+                    <a href="#">Ancient Africa</a>
+                  </li>
+                  <li>
+                    <a href="#">Arts of Healing</a>
+                  </li>
+                  <!--<% loop ChildrenOf('chapters') %>
+                  <li>
+                    <a href="$Link" id="$URLSegment" class="trol">$MenuTitle</a>
+                  </li>
+                  <% end_loop %>-->
+                </ul>
+              </nav>
             </li>
             <li>
-              <a href="#keymomentsinlife" class="trol">Key Moments in Life</a>
+              <a href="#">Key Moments in Life</a>
             </li>
             <li>
-              <a href="#educationinitiation" class="trol">Education Initiation</a>
+              <a href="#">Education Initiation</a>
             </li>
             <li>
-              <a href="#abundance" class="trol">Abundance</a>
+              <a href="#">Abundance</a>
             </li>
             <li>
-              <a href="#sacredspaces" class="trol">Sacred Spaces</a>
+              <a href="#">Sacred Spaces</a>
             </li>
             <li>
-              <a href="#divination" class="trol">Divination</a>
+              <a href="#">Divination</a>
             </li>
             <li>
-              <a href="#ancientafrica" class="trol">Ancient Africa</a>
+              <a href="#">Ancient Africa</a>
             </li>
             <li>
-              <a href="#artsofhealing" class="trol">Arts of Healing</a>
+              <a href="#">Arts of Healing</a>
             </li>
+            <!--<% loop ChildrenOf('chapters') %>
+            <li>
+              <a href="$Link" id="$URLSegment" class="trol">$MenuTitle</a>
+            </li>
+            <% end_loop %>-->
           </ul>
         </nav>
         <div id="main_content">
           $Layout
+          <!-- <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
+          <div class="content-container typography">
+            <article>
+              <div class="content"><p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href="admin/">the CMS</a>. You can now access the <a href="http://doc.silverstripe.org">developer documentation</a>, or begin <a href="http://doc.silverstripe.org/doku.php?id=tutorials">the tutorials.</a></p></div>
+            </article>
+          </div> -->
         </div>
       </div>
     </div>
