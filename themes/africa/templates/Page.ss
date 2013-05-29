@@ -173,12 +173,12 @@
         </nav>
         <div id="main_content">
           $Layout
-          <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
+          <!-- <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
           <div class="content-container typography">
             <article>
               <div class="content"><p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href="admin/">the CMS</a>. You can now access the <a href="http://doc.silverstripe.org">developer documentation</a>, or begin <a href="http://doc.silverstripe.org/doku.php?id=tutorials">the tutorials.</a></p></div>
             </article>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
