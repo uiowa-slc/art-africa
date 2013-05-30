@@ -11,7 +11,8 @@ class Essay extends DataObject {
   'Consultant' => 'Text',	
   'Title' => 'Text',	
   'Source' => 'Text',	
-  'Bibliography' => 'Text'
+  'Bibliography' => 'Text',
+  'Tags' => 'Text'
   );
  
   // One-to-one relationship with gallery page
@@ -51,6 +52,7 @@ class Essay extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextField('Consultant', 'Consultant'));
  		$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Bibliography', 'Bibliography'));
+ 		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
  		
  			
 		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 

@@ -13,7 +13,8 @@ class People extends DataObject {
   'History' => 'Text',
   'Economy' => 'Text',
   'PoliticalSystems' => 'Text',
-  'Religion' => 'Text'
+  'Religion' => 'Text',
+  'Tags' => 'Text'
 
   );
  
@@ -53,6 +54,7 @@ class People extends DataObject {
 		$fields->addFieldToTab('Root.Main', new TextField('Economy', 'Economy'));
 		$fields->addFieldToTab('Root.Main', new TextField('PoliticalSystems', 'Political Systems'));
 		$fields->addFieldToTab('Root.Main', new TextField('Religion', 'Religion'));
+		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
 		
 		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		

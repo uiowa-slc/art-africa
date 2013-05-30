@@ -44,7 +44,7 @@ class Photo extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextField('Substyle', 'Substyle'));
  		$fields->addFieldToTab('Root.Main', new TextField('Collection', 'Collection'));
  		$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
+ 		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
 
  		
 		return $fields;		
