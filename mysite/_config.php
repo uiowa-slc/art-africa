@@ -31,6 +31,7 @@ error_reporting(E_ALL);
 
 
 Director::set_environment_type("dev");
+//Object::add_extension('Country', "FulltextSearchable('Name,Location')");
 
 
 /*SearchUpdater::bind_manipulation_capture();

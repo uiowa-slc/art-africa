@@ -34,9 +34,8 @@ class Subtopic extends Page {
  		$fields = parent::getCMSFields();
 		
 		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Topic Name'));
-		$fields->addFieldToTab('Root.Main', new TextField('Description', 'Topic Description'));
+		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
-		$fields->addFieldToTab('Root.Main', new TextAreaField('Content', 'Content'));
 		
 		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
