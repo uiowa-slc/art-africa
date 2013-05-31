@@ -21,8 +21,8 @@ class Glossary extends Page {
 		
 				
 		$gridFieldConfigWords = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("Words", "Words", Word::get(), $gridFieldConfigCountries);		
-		$fields->addFieldToTab('Root.Countries', $gridfield);
+		$gridfield = new GridField("Words", "Words", Word::get(), $gridFieldConfigWords);		
+		$fields->addFieldToTab('Root.Words', $gridfield);
 		
 		return $fields;		
   }

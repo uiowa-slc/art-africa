@@ -172,8 +172,7 @@
           </ul>
         </nav>
         <div id="main_content">
-          $Layout
-          $SearchForm
+         
           <!-- <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
           <div class="content-container typography">
             <article>

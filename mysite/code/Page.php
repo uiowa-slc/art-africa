@@ -72,20 +72,24 @@ class Page_Controller extends ContentController {
 	      $query = DataList::create($c)
 	       // ->filter(array('RootLanguageParentID' => $this->RootLanguageParentID))
 	        ->where($siteTreeMatch);
+
 	      $query = $query->dataQuery()->query();
+	     	      
 	      $query->addSelect(array('Relevance' => $siteTreeMatch));
 	      
+	    
 	      $records = DB::query($query->sql());
 	    
-		  
+		
 	      $objects = array();
 	      foreach( $records as $record )
 	      {
+	      	
 	        if ( in_array($record['ClassName'], $siteTreeClasses) )
-	          $objects[] = new $record['ClassName']($record);
+	         $objects[] = new $record['ClassName']($record);
 	      }
 	      
-	       
+	   
 	      $pages->merge($objects);
 	    }
 	    
@@ -165,6 +169,16 @@ class Page_Controller extends ContentController {
 		return $returnedString;
 	}
 	
+	public function filteredContent(){
+		$pageContent = $this->Content;
+		$wordArray = Word::get();
+		foreach ($wordArray as $word){
+			$newHTML = '<a href="#">' . $word->Word . ' </a>';
+			$pageContent = str_replace($word->Word, $newHTML, $pageContent);
+		}
+		
+		return $pageContent;
+	}
 	
 		
 		

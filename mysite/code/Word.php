@@ -12,12 +12,15 @@ class Word extends DataObject {
 
   );
   
+  private static $summary_fields = array('Word');
+  
   
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
-		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
+		
+		$fields->addFieldToTab('Root.Main', new TextField('Word', 'Word'));
+	
 		return $fields;		
   }
   
