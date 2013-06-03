@@ -55,48 +55,12 @@ class Page_Controller extends ContentController {
 	    $dataObjects = new ArrayList();
 	    $files = new ArrayList();
 	    
-	    $mode = ' IN BOOLEAN MODE';
-	    //$mode = ' WITH QUERY EXPANSION';
-	    //$mode = '';
-	    
-	    $siteTreeFields = DataObject::custom_database_fields('Subtopic');
-	    $siteTreeCount = count($siteTreeFields);
-	    $iter = 1;
-	    $siteTreeString =  ' ';
-	    foreach ($siteTreeFields as $fieldValue => $fieldType){
-		     $siteTreeString .= $fieldValue;
-		     if ($iter != $siteTreeCount){
-			     $siteTreeString .= ', ';
-			     $iter++;
-		     }
-	     }
-	    $siteTreeString .= ' ';
 	        
 	    $siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
 	    $dataObjectClasses = array('Country', 'Essay', 'People');
 	    
-	    
-	   // $dataObjectClasses = array(
-	   /* $siteTreeMatch = "MATCH( Title, MenuTitle, " . $siteTreeString . ") AGAINST ('$keyword'$mode)" . "
-	                    + MATCH( Title, MenuTitle, " . $siteTreeString . ") AGAINST ('$keywordHTML'$mode)"; */
-	                    
-	    
-	  
-	        
-	    //custom MATCH statement for any Object that extend Page or SiteTree and have additional fields/columns that need to be searchable
-	    //create one block per Object
-	    //i.e. "MATCH( column1, column2, column3 ) AGAINST ('$keyword'$mode) + MATCH( column1, column2, column3 ) AGAINST ('$keywordHTML'$mode)"
-	    $extendedPageMatch = "MATCH( Keywords ) AGAINST ('$keyword'$mode)
-	                           + MATCH( Keywords ) AGAINST ('$keywordHTML'$mode)";
-	    
-	    //DataObject
-	   //$dataObjectFieldList = 'Name, Content';
-	  /* $dataObjectsItemMatch = "MATCH( Name, Location ) AGAINST ('$keyword'$mode)
-	                    + MATCH( Name, Location ) AGAINST ('$keywordHTML'$mode)"; */
-	    
-	    /*$fileMatch = "MATCH( Filename, Title, Content ) AGAINST ('$keyword'$mode)
-	                + MATCH( Filename, Title, Content ) AGAINST ('$keywordHTML'$mode)";
-	                */
+
+
 	    
 	    /*
 	     * Standard pages
@@ -104,53 +68,38 @@ class Page_Controller extends ContentController {
 	     */
 	    foreach ( $siteTreeClasses as $c )
 	    {
-	      $siteTreeMatch = $this->getItemMatch($c, $request, $keyword, $keywordHTML, 'Title, MenuTitle, ');
+	      $siteTreeMatch = $this->getItemMatch($c, $request, $keyword, $keywordHTML, 'Title, MenuTitle, '); //This function is in Page.php
 	      $query = DataList::create($c)
 	       // ->filter(array('RootLanguageParentID' => $this->RootLanguageParentID))
 	        ->where($siteTreeMatch);
+
 	      $query = $query->dataQuery()->query();
+	     	      
 	      $query->addSelect(array('Relevance' => $siteTreeMatch));
 	      
+	    
 	      $records = DB::query($query->sql());
 	    
-		  
+		
 	      $objects = array();
 	      foreach( $records as $record )
 	      {
+	      	
 	        if ( in_array($record['ClassName'], $siteTreeClasses) )
-	          $objects[] = new $record['ClassName']($record);
+	         $objects[] = new $record['ClassName']($record);
 	      }
 	      
-	       
+	   
 	      $pages->merge($objects);
 	    }
 	    
 	    
-	    
 	    /*
-	     * Pages with additional searchable fields
-	     * copy/edit this block for each Object that extend Page/SiteTree and have other columns searchable
-	     * see above for custom MATCH statement
-	     
-	    $query = DataList::create('WorkOfArt')
-	      ->where($siteTreeMatch . ' OR ' . $extendedPageMatch);
-	    $query = $query->dataQuery()->query();
-	    $query->addSelect(array('Relevance' => $siteTreeMatch . ' OR ' . $extendedPageMatch));
-	    
-	    $records = DB::query($query->sql());
-	    $objects = array();
-	    foreach( $records as $record ) $objects[] = new $record['ClassName']($record);
-	    $pages->merge($objects);
-	    
-	    $pages->removeDuplicates();
-	    */
-	    
-	    /*
-	     * news DataObject
+	     *  DataObjects
 	     */
-	     
+
 	     foreach ($dataObjectClasses as $c){
-	        $dataObjectsItemMatch = $this->getItemMatch($c, $request, $keyword, $keywordHTML, '');
+	        $dataObjectsItemMatch = $this->getItemMatch($c, $request, $keyword, $keywordHTML, ''); //This function is in Page.php
 		    $query = DataList::create($c)->where($dataObjectsItemMatch);
 		    
 		    $query = $query->dataQuery()->query();
@@ -162,32 +111,10 @@ class Page_Controller extends ContentController {
 		    foreach( $records as $record ) $objects[] = new $record['ClassName']($record);
 		
 		    $dataObjects->merge($objects);
-		    
+		 }
 		   
-		  }
-		  
-		 // print_r($dataObjects);
-		 // return;
-	    
-	    /*
-	     * files
-	     */
-	   /* $query = DataList::create('File')->where($fileMatch);
-	    $query = $query->dataQuery()->query();
-	    $query->addSelect(array('Relevance' => $fileMatch));
-	    
-	    $records = DB::query($query->sql());
-	    $objects = array();
-	    foreach( $records as $record )
-	    {
-	      $extension = strtolower( pathinfo( $record['Name'], PATHINFO_EXTENSION ) );     
-	      //only return some file extensions
-	      if ( in_array($extension, array('xls','xlsx','doc','docx','pdf','rtf','zip','7z','rar')) )
-	        $objects[] = new $record['ClassName']($record);
-	    }
-	    $files->merge($objects);
-	    
-	   */   
+		 
+	
 	    $pages->sort(array(
 	      'Relevance' => 'DESC',
 	      'Title' => 'ASC'
@@ -196,12 +123,8 @@ class Page_Controller extends ContentController {
 	      'Relevance' => 'DESC',
 	      'Date' => 'DESC'
 	    ));
-	    /*
-	    $files->sort(array(
-	      'Relevance' => 'DESC',
-	      'Name' => 'ASC'
-	    ));
-	    */
+
+	    
 	    $data = array(
 	      'Pages' => $pages,
 	       'Files' => $files,
@@ -220,38 +143,43 @@ class Page_Controller extends ContentController {
 	    return $this->customise($data)->renderWith(array('Search','Page'));
 	}
 	
+	/*Returns SQL for searching through DataObjects and Pages in the results function*/
 	
-	
-	
-	
-	
-	
-	
-		public function getItemMatch($class, $request, $keyword, $keywordHTML, $resultString = ''){
-			
-			$fields = DataObject::custom_database_fields($class);
-		    $count = count($fields);
-		    $iter = 1;
-		    
-		    foreach ($fields as $fieldValue => $fieldType){
-			     $resultString .= $fieldValue;
-			     if ($iter != $count){
-				     $resultString .= ', ';
-				     $iter++;
-			     }
+	public function getItemMatch($class, $request, $keyword, $keywordHTML, $resultString = ''){
+		
+		$fields = DataObject::custom_database_fields($class);
+	    $count = count($fields);
+	    $iter = 1;
+	    
+	    foreach ($fields as $fieldValue => $fieldType){
+		     $resultString .= $fieldValue;
+		     if ($iter != $count){
+			     $resultString .= ', ';
+			     $iter++;
 		     }
-		    $resultString .= ' ';
-		    
-		   
-		    $mode = ' IN BOOLEAN MODE';
-				
-			$returnedString = "MATCH(" . $resultString . " ) AGAINST ('$keyword'$mode)
-	                    + MATCH(" . $resultString . " ) AGAINST ('$keywordHTML'$mode)";
+	     }
+	    $resultString .= ' ';
+	    
+	   
+	    $mode = ' IN BOOLEAN MODE';
+			
+		$returnedString = "MATCH(" . $resultString . " ) AGAINST ('$keyword'$mode)
+                    + MATCH(" . $resultString . " ) AGAINST ('$keywordHTML'$mode)";
 
-			return $returnedString;
+		return $returnedString;
+	}
+	
+	public function filteredContent(){
+		$pageContent = $this->Content;
+		$wordArray = Word::get();
+		foreach ($wordArray as $word){
+			$newHTML = '<a href="#">' . $word->Word . ' </a>';
+			$pageContent = str_replace($word->Word, $newHTML, $pageContent);
 		}
 		
-		
+		return $pageContent;
+	}
+	
 		
 		
 		
