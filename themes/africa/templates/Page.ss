@@ -180,6 +180,42 @@
               <div class="content"><p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href="admin/">the CMS</a>. You can now access the <a href="http://doc.silverstripe.org">developer documentation</a>, or begin <a href="http://doc.silverstripe.org/doku.php?id=tutorials">the tutorials.</a></p></div>
             </article>
           </div> -->
+          <div id="footer">
+            <div class="c">
+              <div class="col">
+                <p>
+                  <img src="{$ThemeDir}/images/UIMA-newlogo-black.png">
+                </p>
+                <p>
+                  1375 Highway One West<br>
+                  1840 Studio Arts Building</br>
+                  Iowa City, IA 52242<br>
+                  Telephone (319) 335-1727<br>
+                  Fax (319) 335-3677
+                </p>
+              </div>
+              <div class="col">
+                <h3>See the African Art collection in person</h3>
+                <p>
+                  1375 Highway One West<br>
+                  1840 Studio Arts Building</br>
+                  Iowa City, IA 52242<br>
+                  Telephone (319) 335-1727
+                </p>
+              </div>
+              <div class="col">
+                <p style="margin: 2rem 0 0 2.5rem">
+                  <img src="{$ThemeDir}/images/social-media-icons-temporary.png">
+                </p>
+                <ul>
+                  <li><a href="#">Welcome</a></li>
+                  <li><a href="#">Chapters/Themes</a></li>
+                  <li><a href="#">Tools/Resources</a></li>
+                  <li><a href="#">Search the Catalogue</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
