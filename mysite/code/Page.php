@@ -43,40 +43,56 @@ class Page_Controller extends ContentController {
 		parent::init();
 
 	}
+	/**
+	* Create custom search results when a user searches
+	*/
 	
 	function results($data, $form, $request)
 	  {	
-	  	/*
-	  	$string = "blah blah";
-	  	$stringArray = explode(" ", $string);
-	  	foreach($stringArray as $stringThing){
-		  	print_r($stringThing);
-	  	}
-	  	return;
-	  	*/
-	  	if (isset($data['Search_Bibliography'])){
-	  	
-	  	}
+		
 	  	
 	    $keyword = trim($request->requestVar('Search'));
-	    
+	    $keyword = Convert::raw2sql($keyword);
+	     
 	    $keywordArray = explode(" ", $keyword);
 	 
-	    
-	    $keyword = Convert::raw2sql($keyword);
+
 	    $keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');    
 	    	    
-	    $pages = new ArrayList();
-	    $dataObjects = new ArrayList();
-	    $files = new ArrayList();
+	    $pages = new ArrayList(); //Output these to template
+	    $dataObjects = new ArrayList(); //Output these to template
+	   
 	    
 	    $bibliographyFlag = false; //set to true below if checkbox in searchform.ss is checked
 	    
-	        
-	    $siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
-	    $dataObjectClasses = array('Country', 'Essay', 'People');
-	    $bibliographyClasses = array('Essay', 'MediaPiece');
+	    //$searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'
+	    //Define classes for outputting to template
+	    $subtopics = new ArrayList();
+	    $people = new ArrayList();
+	    $essays = new ArrayList();
+	    $countries = new ArrayList();
+	    $audioPieces = new ArrayList();
+	    $videoPieces = new ArrayList();
+	    $artPhotos = new ArrayList();
+	    $fieldPhotos = new ArrayList();
 	    
+	      $data = array(
+	      'Subtopic' => $subtopics,
+	      'People' => $people,
+	      'Essay' => $essays,
+		  'Country' => $countries,
+		  'AudioPiece' => $audioPieces,
+		  'VideoPiece' => $videoPieces,
+		  'ArtPhoto' => $artPhotos,
+		  'FieldPhoto' => $fieldPhotos,
+		  'Query' => $keyword
+			); 
+	    
+	    $siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
+	    $dataObjectClasses = array('Country', 'Essay', 'People'); //add in your DataObjects
+	    $bibliographyClasses = array('Essay', 'MediaPiece'); //add classes with the Bibliography field
+	    
+	    //When the bibliography check box is checked, only search classes that have the Bibliography field + Essays
 	    if (isset($data['Search_Bibliography'])){
 	  		$siteTreeClasses = array_intersect($bibliographyClasses, $siteTreeClasses);
 	  		$dataObjectClasses = array_intersect($bibliographyClasses, $dataObjectClasses);
@@ -85,10 +101,8 @@ class Page_Controller extends ContentController {
 	  	}
 	  	
 	    
-	    /*
-	     * Standard pages
-	     * SiteTree Classes with the default search MATCH
-	     */
+	 
+	     
 	    foreach ( $siteTreeClasses as $c )
 	    {
 	      $siteTreeMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, 'Title, MenuTitle, ', $bibliographyFlag); //This function is in Page.php
@@ -103,8 +117,9 @@ class Page_Controller extends ContentController {
 	    
 	      $records = DB::query($query->sql());
 	    
-		
 	      $objects = array();
+		
+	      //$objects = array();
 	      foreach( $records as $record )
 	      {
 	      	
@@ -134,11 +149,20 @@ class Page_Controller extends ContentController {
 		    $records = DB::query($query->sql());
 		    
 		 
-		    $objects = array();
+		  
 		    foreach( $records as $record ) $objects[] = new $record['ClassName']($record);
 		
 		    $dataObjects->merge($objects);
 		 }
+		 
+		  foreach($objects AS $object) { 
+			 foreach($data as $key=>$value){
+		         if($object->ClassName == $key) {
+		         	$value->push($object);
+		         }
+	         }    
+          }
+
 		   
 		 
 	    $pages->sort(array(
@@ -150,13 +174,14 @@ class Page_Controller extends ContentController {
 	      'Date' => 'DESC'
 	    ));
 
-	    
+	    /*
 	    $data = array(
 	      'Pages' => $pages,
 	       'Files' => $files,
 	     'DataObjects' => $dataObjects,
 				'Query' => $keyword
 			); 
+		*/
 	
 	    if ( $pages->count() == 0 
 	     && $dataObjects->count() == 0
@@ -164,7 +189,14 @@ class Page_Controller extends ContentController {
 	    {
 	      $data['NoResults'] = 1;
 	    }
-	    
+	    /*
+	    foreach($data as $dataKey => $dataValue){
+		      print_r($data[$dataKey]);
+		      print_r("<br><br><br>");
+	    }
+	      return;
+	     */
+
 	   
 	    return $this->customise($data)->renderWith(array('Search','Page'));
 	}
@@ -197,7 +229,7 @@ class Page_Controller extends ContentController {
 		
 		$fields = DataObject::custom_database_fields($class);
 	    $count = count($fields);
-	    $iter = 1;
+	    $iter = 0;
 	    
 	    $resultString = '';
 	    //return $resultString;
@@ -206,7 +238,7 @@ class Page_Controller extends ContentController {
 		    foreach ($fields as $fieldValue => $fieldType){
 		    	foreach ($keywordArray as $keyword){
 		    		$keyword = trim($keyword);
-			    	if ($iter == 1){
+			    	if ($iter == 0){
 				    	$resultString = $fieldValue . ' LIKE ' . "'%" . $keyword. "%'";
 				    	$iter++;
 				    	continue;

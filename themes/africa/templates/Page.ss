@@ -173,7 +173,7 @@
         </nav>
         <div id="main_content">
         	$Layout
-            <% include SearchForm %>
+         
          
           <!-- <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
           <div class="content-container typography">
