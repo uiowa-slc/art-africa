@@ -70,13 +70,19 @@ class Page_Controller extends ContentController {
 	    $dataObjects = new ArrayList();
 	    $files = new ArrayList();
 	    
+	    $bibliographyFlag = false; //set to true below if checkbox in searchform.ss is checked
+	    
 	        
 	    $siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
 	    $dataObjectClasses = array('Country', 'Essay', 'People');
+	    $bibliographyClasses = array('Essay', 'MediaPiece');
 	    
-	    
-
-	    
+	    if (isset($data['Search_Bibliography'])){
+	  		$siteTreeClasses = array_intersect($siteTreeClasses, $dataObjectClasses);
+	  		$bibliographyClasses = array_intersect($bibliographyClasses, $dataObjectClasses);
+	  		$bibliographyFlag = true; //bibliography search
+	  	}
+	  	
 	    
 	    /*
 	     * Standard pages
@@ -84,7 +90,7 @@ class Page_Controller extends ContentController {
 	     */
 	    foreach ( $siteTreeClasses as $c )
 	    {
-	      $siteTreeMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, 'Title, MenuTitle, '); //This function is in Page.php
+	      $siteTreeMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, 'Title, MenuTitle, ', $bibliographyFlag); //This function is in Page.php
 	      $query = DataList::create($c)
 	       // ->filter(array('RootLanguageParentID' => $this->RootLanguageParentID))
 	        ->where($siteTreeMatch);
@@ -115,8 +121,8 @@ class Page_Controller extends ContentController {
 	     */
 
 	     foreach ($dataObjectClasses as $c){
-	        $dataObjectsItemMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, ''); //This function is in Page.php
-	       
+	        $dataObjectsItemMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, '', $bibliographyFlag); //This function is in Page.php
+	        
 		    $query = DataList::create($c)->where($dataObjectsItemMatch);
 		    
 		    $query = $query->dataQuery()->query();
@@ -162,7 +168,7 @@ class Page_Controller extends ContentController {
 	    return $this->customise($data)->renderWith(array('Search','Page'));
 	}
 	
-	public function performQuery($classes, $extraFields, $objects){		
+	public function performQuery($classes, $objects, $request, $keywordArray, $extraFields, $bibliographyFlag = false){		
 	     foreach ($classes as $c){
 	        $ItemMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, ''); //This function is in Page.php
 	       
@@ -194,13 +200,14 @@ class Page_Controller extends ContentController {
 	    
 	    $resultString = '';
 	    //return $resultString;
-	    
+	 
 	    if ($fields){
 		    foreach ($fields as $fieldValue => $fieldType){
 		    	foreach ($keywordArray as $keyword){
 		    		$keyword = trim($keyword);
 			    	if ($iter == 1){
 				    	$resultString = $fieldValue . ' LIKE ' . "'%" . $keyword. "%'";
+				    	$iter++;
 				    	continue;
 			    	}
 				     
@@ -213,7 +220,7 @@ class Page_Controller extends ContentController {
 		     }
 		    $resultString .= ' ';
 	    }
-	    
+	   
 	    
 	   
 	    $mode = ' IN BOOLEAN MODE';
