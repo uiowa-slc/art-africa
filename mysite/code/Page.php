@@ -46,11 +46,26 @@ class Page_Controller extends ContentController {
 	
 	function results($data, $form, $request)
 	  {	
+	  	/*
+	  	$string = "blah blah";
+	  	$stringArray = explode(" ", $string);
+	  	foreach($stringArray as $stringThing){
+		  	print_r($stringThing);
+	  	}
+	  	return;
+	  	*/
+	  	if (isset($data['Search_Bibliography'])){
+	  	
+	  	}
 	  	
 	    $keyword = trim($request->requestVar('Search'));
+	    
+	    $keywordArray = explode(" ", $keyword);
+	 
+	    
 	    $keyword = Convert::raw2sql($keyword);
 	    $keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');    
-	        
+	    	    
 	    $pages = new ArrayList();
 	    $dataObjects = new ArrayList();
 	    $files = new ArrayList();
@@ -59,8 +74,9 @@ class Page_Controller extends ContentController {
 	    $siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
 	    $dataObjectClasses = array('Country', 'Essay', 'People');
 	    
+	    
 
-
+	    
 	    
 	    /*
 	     * Standard pages
@@ -68,7 +84,7 @@ class Page_Controller extends ContentController {
 	     */
 	    foreach ( $siteTreeClasses as $c )
 	    {
-	      $siteTreeMatch = $this->getItemMatch($c, $request, $keyword, $keywordHTML, 'Title, MenuTitle, '); //This function is in Page.php
+	      $siteTreeMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, 'Title, MenuTitle, '); //This function is in Page.php
 	      $query = DataList::create($c)
 	       // ->filter(array('RootLanguageParentID' => $this->RootLanguageParentID))
 	        ->where($siteTreeMatch);
@@ -99,14 +115,18 @@ class Page_Controller extends ContentController {
 	     */
 
 	     foreach ($dataObjectClasses as $c){
-	        $dataObjectsItemMatch = $this->getItemMatch($c, $request, $keyword, $keywordHTML, ''); //This function is in Page.php
+	        $dataObjectsItemMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, ''); //This function is in Page.php
+	       
 		    $query = DataList::create($c)->where($dataObjectsItemMatch);
 		    
 		    $query = $query->dataQuery()->query();
+
+		    
 		    $query->addSelect(array('Relevance' => $dataObjectsItemMatch));
 		            
 		    $records = DB::query($query->sql());
 		    
+		 
 		    $objects = array();
 		    foreach( $records as $record ) $objects[] = new $record['ClassName']($record);
 		
@@ -114,7 +134,6 @@ class Page_Controller extends ContentController {
 		 }
 		   
 		 
-	
 	    $pages->sort(array(
 	      'Relevance' => 'DESC',
 	      'Title' => 'ASC'
@@ -143,38 +162,85 @@ class Page_Controller extends ContentController {
 	    return $this->customise($data)->renderWith(array('Search','Page'));
 	}
 	
+	public function performQuery($classes, $extraFields, $objects){		
+	     foreach ($classes as $c){
+	        $ItemMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, ''); //This function is in Page.php
+	       
+		    $query = DataList::create($c)->where($ItemMatch);
+		    
+		    $query = $query->dataQuery()->query();
+
+		    
+		    $query->addSelect(array('Relevance' => $ItemMatch));
+		            
+		    $records = DB::query($query->sql());
+		    
+		 
+		    $objects = array();
+		    foreach( $records as $record ) $objects[] = new $record['ClassName']($record);
+		
+		    $dataObjects->merge($objects);
+		 }
+
+	}
+	
 	/*Returns SQL for searching through DataObjects and Pages in the results function*/
 	
-	public function getItemMatch($class, $request, $keyword, $keywordHTML, $resultString = ''){
+	public function getItemMatch($class, $request, $keywordArray, $keywordHTML, $resultString = '', $bibSearch = false){
 		
 		$fields = DataObject::custom_database_fields($class);
 	    $count = count($fields);
 	    $iter = 1;
 	    
-	    foreach ($fields as $fieldValue => $fieldType){
-		     $resultString .= $fieldValue;
-		     if ($iter != $count){
-			     $resultString .= ', ';
-			     $iter++;
+	    $resultString = '';
+	    //return $resultString;
+	    
+	    if ($fields){
+		    foreach ($fields as $fieldValue => $fieldType){
+		    	foreach ($keywordArray as $keyword){
+		    		$keyword = trim($keyword);
+			    	if ($iter == 1){
+				    	$resultString = $fieldValue . ' LIKE ' . "'%" . $keyword. "%'";
+				    	continue;
+			    	}
+				     
+				     if ($iter != $count){
+					     $resultString .= ' OR ' . $fieldValue . ' LIKE ' . "'%" . $keyword. "%'";
+					   
+				     }
+				     $iter++;
+				 }
 		     }
-	     }
-	    $resultString .= ' ';
+		    $resultString .= ' ';
+	    }
+	    
 	    
 	   
 	    $mode = ' IN BOOLEAN MODE';
 			
-		$returnedString = "MATCH(" . $resultString . " ) AGAINST ('$keyword'$mode)
-                    + MATCH(" . $resultString . " ) AGAINST ('$keywordHTML'$mode)";
-
-		return $returnedString;
+		/*$returnedString = "MATCH(" . $resultString . " ) AGAINST ('$keyword'$mode)
+                    + MATCH(" . $resultString . " ) AGAINST ('$keywordHTML'$mode)";*/
+		//$returnedString = 'CONCAT(' . $resultString . ") LIKE ('$keyword')";
+                  
+		
+		return $resultString;
 	}
 	
+
+	
+	//Return content of page with words that appear in glossary as hypertext 
 	public function filteredContent(){
 		$pageContent = $this->Content;
 		$wordArray = Word::get();
 		foreach ($wordArray as $word){
-			$newHTML = '<a href="#">' . $word->Word . ' </a>';
-			$pageContent = str_replace($word->Word, $newHTML, $pageContent);
+		    $allLowerCaseWord = strtolower($word->Word);
+			$newHTML = '<a href="#">' . $allLowerCaseWord . '</a>';
+			$pageContent = str_replace($allLowerCaseWord, $newHTML, $pageContent);
+			//$str = strtolower($str);
+			
+			$firstLetterUpperWord = ucwords($word->Word);
+			$newHTML = '<a href="#">' . $firstLetterUpperWord . '</a>';
+			$pageContent = str_replace($firstLetterUpperWord, $newHTML, $pageContent);
 		}
 		
 		return $pageContent;
