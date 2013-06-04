@@ -78,8 +78,9 @@ class Page_Controller extends ContentController {
 	    $bibliographyClasses = array('Essay', 'MediaPiece');
 	    
 	    if (isset($data['Search_Bibliography'])){
-	  		$siteTreeClasses = array_intersect($siteTreeClasses, $dataObjectClasses);
-	  		$bibliographyClasses = array_intersect($bibliographyClasses, $dataObjectClasses);
+	  		$siteTreeClasses = array_intersect($bibliographyClasses, $siteTreeClasses);
+	  		$dataObjectClasses = array_intersect($bibliographyClasses, $dataObjectClasses);
+
 	  		$bibliographyFlag = true; //bibliography search
 	  	}
 	  	
