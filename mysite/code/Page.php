@@ -43,32 +43,68 @@ class Page_Controller extends ContentController {
 		parent::init();
 
 	}
+	/**
+	* Create custom search results when a user searches
+	*/
 	
 	function results($data, $form, $request)
 	  {	
+		
 	  	
 	    $keyword = trim($request->requestVar('Search'));
 	    $keyword = Convert::raw2sql($keyword);
+	     
+	    $keywordArray = explode(" ", $keyword);
+	 
+
 	    $keywordHTML = htmlentities($keyword, ENT_NOQUOTES, 'UTF-8');    
-	        
-	    $pages = new ArrayList();
-	    $dataObjects = new ArrayList();
-	    $files = new ArrayList();
+	    	    
+	    $pages = new ArrayList(); //Output these to template
+	    $dataObjects = new ArrayList(); //Output these to template
+	   
 	    
-	        
+	    $bibliographyFlag = false; //set to true below if checkbox in searchform.ss is checked
+	    
+	    //$searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'
+	    //Define classes for outputting to template
+	    $subtopics = new ArrayList();
+	    $people = new ArrayList();
+	    $essays = new ArrayList();
+	    $countries = new ArrayList();
+	    $audioPieces = new ArrayList();
+	    $videoPieces = new ArrayList();
+	    $artPhotos = new ArrayList();
+	    $fieldPhotos = new ArrayList();
+	    
+	      $data = array(
+	      'Subtopic' => $subtopics,
+	      'People' => $people,
+	      'Essay' => $essays,
+		  'Country' => $countries,
+		  'AudioPiece' => $audioPieces,
+		  'VideoPiece' => $videoPieces,
+		  'ArtPhoto' => $artPhotos,
+		  'FieldPhoto' => $fieldPhotos,
+		  'Query' => $keyword
+			); 
+	    
 	    $siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
-	    $dataObjectClasses = array('Country', 'Essay', 'People');
+	    $dataObjectClasses = array('Country', 'Essay', 'People'); //add in your DataObjects
+	    $bibliographyClasses = array('Essay', 'MediaPiece'); //add classes with the Bibliography field
 	    
+	    //When the bibliography check box is checked, only search classes that have the Bibliography field + Essays
+	    if ($request->requestVar('Search_Bibliography')){
+	  		$siteTreeClasses = array_intersect($bibliographyClasses, $siteTreeClasses);
+	  		$dataObjectClasses = array_intersect($bibliographyClasses, $dataObjectClasses);
 
-
-	    
-	    /*
-	     * Standard pages
-	     * SiteTree Classes with the default search MATCH
-	     */
+	  		$bibliographyFlag = true; //bibliography search
+	  	}
+	  	
+	  
+	     
 	    foreach ( $siteTreeClasses as $c )
 	    {
-	      $siteTreeMatch = $this->getItemMatch($c, $request, $keyword, $keywordHTML, 'Title, MenuTitle, '); //This function is in Page.php
+	      $siteTreeMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, 'Title, MenuTitle, ', $bibliographyFlag); //This function is in Page.php
 	      $query = DataList::create($c)
 	       // ->filter(array('RootLanguageParentID' => $this->RootLanguageParentID))
 	        ->where($siteTreeMatch);
@@ -80,8 +116,9 @@ class Page_Controller extends ContentController {
 	    
 	      $records = DB::query($query->sql());
 	    
-		
 	      $objects = array();
+		
+	      //$objects = array();
 	      foreach( $records as $record )
 	      {
 	      	
@@ -99,22 +136,34 @@ class Page_Controller extends ContentController {
 	     */
 
 	     foreach ($dataObjectClasses as $c){
-	        $dataObjectsItemMatch = $this->getItemMatch($c, $request, $keyword, $keywordHTML, ''); //This function is in Page.php
+	        $dataObjectsItemMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, '', $bibliographyFlag); //This function is in Page.php
+	        
 		    $query = DataList::create($c)->where($dataObjectsItemMatch);
 		    
 		    $query = $query->dataQuery()->query();
+
+		    
 		    $query->addSelect(array('Relevance' => $dataObjectsItemMatch));
 		            
 		    $records = DB::query($query->sql());
 		    
-		    $objects = array();
+		 
+		  
 		    foreach( $records as $record ) $objects[] = new $record['ClassName']($record);
 		
 		    $dataObjects->merge($objects);
 		 }
+		 
+		  foreach($objects AS $object) { 
+			 foreach($data as $key=>$value){
+		         if($object->ClassName == $key) {
+		         	$value->push($object);
+		         }
+	         }    
+          }
+
 		   
 		 
-	
 	    $pages->sort(array(
 	      'Relevance' => 'DESC',
 	      'Title' => 'ASC'
@@ -124,13 +173,14 @@ class Page_Controller extends ContentController {
 	      'Date' => 'DESC'
 	    ));
 
-	    
+	    /*
 	    $data = array(
 	      'Pages' => $pages,
 	       'Files' => $files,
 	     'DataObjects' => $dataObjects,
 				'Query' => $keyword
 			); 
+		*/
 	
 	    if ( $pages->count() == 0 
 	     && $dataObjects->count() == 0
@@ -138,43 +188,98 @@ class Page_Controller extends ContentController {
 	    {
 	      $data['NoResults'] = 1;
 	    }
-	    
+	    /*
+	    foreach($data as $dataKey => $dataValue){
+		      print_r($data[$dataKey]);
+		      print_r("<br><br><br>");
+	    }
+	      return;
+	     */
+
 	   
 	    return $this->customise($data)->renderWith(array('Search','Page'));
 	}
 	
+	public function performQuery($classes, $objects, $request, $keywordArray, $extraFields, $bibliographyFlag = false){		
+	     foreach ($classes as $c){
+	        $ItemMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, ''); //This function is in Page.php
+	       
+		    $query = DataList::create($c)->where($ItemMatch);
+		    
+		    $query = $query->dataQuery()->query();
+
+		    
+		    $query->addSelect(array('Relevance' => $ItemMatch));
+		            
+		    $records = DB::query($query->sql());
+		    
+		 
+		    $objects = array();
+		    foreach( $records as $record ) $objects[] = new $record['ClassName']($record);
+		
+		    $dataObjects->merge($objects);
+		 }
+
+	}
+	
 	/*Returns SQL for searching through DataObjects and Pages in the results function*/
 	
-	public function getItemMatch($class, $request, $keyword, $keywordHTML, $resultString = ''){
+	public function getItemMatch($class, $request, $keywordArray, $keywordHTML, $resultString = '', $bibSearch = false){
 		
 		$fields = DataObject::custom_database_fields($class);
 	    $count = count($fields);
-	    $iter = 1;
+	    $iter = 0;
 	    
-	    foreach ($fields as $fieldValue => $fieldType){
-		     $resultString .= $fieldValue;
-		     if ($iter != $count){
-			     $resultString .= ', ';
-			     $iter++;
+	    $resultString = '';
+	    //return $resultString;
+	 
+	    if ($fields){
+		    foreach ($fields as $fieldValue => $fieldType){
+		    	foreach ($keywordArray as $keyword){
+		    		$keyword = trim($keyword);
+			    	if ($iter == 0){
+				    	$resultString = $fieldValue . ' LIKE ' . "'%" . $keyword. "%'";
+				    	$iter++;
+				    	continue;
+			    	}
+				     
+				     if ($iter != $count){
+					     $resultString .= ' OR ' . $fieldValue . ' LIKE ' . "'%" . $keyword. "%'";
+					   
+				     }
+				     $iter++;
+				 }
 		     }
-	     }
-	    $resultString .= ' ';
+		    $resultString .= ' ';
+	    }
+	   
 	    
 	   
 	    $mode = ' IN BOOLEAN MODE';
 			
-		$returnedString = "MATCH(" . $resultString . " ) AGAINST ('$keyword'$mode)
-                    + MATCH(" . $resultString . " ) AGAINST ('$keywordHTML'$mode)";
-
-		return $returnedString;
+		/*$returnedString = "MATCH(" . $resultString . " ) AGAINST ('$keyword'$mode)
+                    + MATCH(" . $resultString . " ) AGAINST ('$keywordHTML'$mode)";*/
+		//$returnedString = 'CONCAT(' . $resultString . ") LIKE ('$keyword')";
+                  
+		
+		return $resultString;
 	}
 	
+
+	
+	//Return content of page with words that appear in glossary as hypertext 
 	public function filteredContent(){
 		$pageContent = $this->Content;
 		$wordArray = Word::get();
 		foreach ($wordArray as $word){
-			$newHTML = '<a href="#">' . $word->Word . ' </a>';
-			$pageContent = str_replace($word->Word, $newHTML, $pageContent);
+		    $allLowerCaseWord = strtolower($word->Word);
+			$newHTML = '<a href="#">' . $allLowerCaseWord . '</a>';
+			$pageContent = str_replace($allLowerCaseWord, $newHTML, $pageContent);
+			//$str = strtolower($str);
+			
+			$firstLetterUpperWord = ucwords($word->Word);
+			$newHTML = '<a href="#">' . $firstLetterUpperWord . '</a>';
+			$pageContent = str_replace($firstLetterUpperWord, $newHTML, $pageContent);
 		}
 		
 		return $pageContent;
