@@ -316,7 +316,7 @@ class Page_Controller extends ContentController {
 		  //$form->disableSecurityToken();
 		  $form->setFormMethod('GET');
 		  $form->setTemplate('SearchForm');
-	
+
 		  return $form;
 		}
 	
