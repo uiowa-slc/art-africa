@@ -93,15 +93,14 @@ class Page_Controller extends ContentController {
 	    $bibliographyClasses = array('Essay', 'MediaPiece'); //add classes with the Bibliography field
 	    
 	    //When the bibliography check box is checked, only search classes that have the Bibliography field + Essays
-	    if (isset($data['Search_Bibliography'])){
+	    if ($request->requestVar('Search_Bibliography')){
 	  		$siteTreeClasses = array_intersect($bibliographyClasses, $siteTreeClasses);
 	  		$dataObjectClasses = array_intersect($bibliographyClasses, $dataObjectClasses);
 
 	  		$bibliographyFlag = true; //bibliography search
 	  	}
 	  	
-	    
-	 
+	  
 	     
 	    foreach ( $siteTreeClasses as $c )
 	    {
