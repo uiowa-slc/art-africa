@@ -20,7 +20,7 @@
           <div class="patty"></div>
           <div></div>
         </div>
-        <div id="logo" class="trol">
+        <div id="logo">
           Art &amp; Life<br>
           in Africa
         </div>
@@ -28,7 +28,7 @@
           <ul>
             <% loop Menu(1) %>
             <li>
-              <a href="$Link" class="trol">$MenuTitle</a>
+              <a href="$Link">$MenuTitle</a>
               <% if $URLSegment = 'chapters' %>
               <nav class="nav2">
                 <ul>
@@ -62,7 +62,7 @@
                         </li>
                         <!--<% loop ChildrenOf('chapters') %>
                         <li>
-                          <a href="$Link" id="$URLSegment" class="trol">$MenuTitle</a>
+                          <a href="$Link" id="$URLSegment">$MenuTitle</a>
                         </li>
                         <% end_loop %>-->
                       </ul>
@@ -91,7 +91,7 @@
                   </li>
                   <!--<% loop ChildrenOf('chapters') %>
                   <li>
-                    <a href="$Link" id="$URLSegment" class="trol">$MenuTitle</a>
+                    <a href="$Link" id="$URLSegment">$MenuTitle</a>
                   </li>
                   <% end_loop %>-->
                 </ul>
@@ -137,7 +137,7 @@
                   </li>
                   <!--<% loop ChildrenOf('chapters') %>
                   <li>
-                    <a href="$Link" id="$URLSegment" class="trol">$MenuTitle</a>
+                    <a href="$Link" id="$URLSegment">$MenuTitle</a>
                   </li>
                   <% end_loop %>-->
                 </ul>
@@ -166,15 +166,13 @@
             </li>
             <!--<% loop ChildrenOf('chapters') %>
             <li>
-              <a href="$Link" id="$URLSegment" class="trol">$MenuTitle</a>
+              <a href="$Link" id="$URLSegment">$MenuTitle</a>
             </li>
             <% end_loop %>-->
           </ul>
         </nav>
         <div id="main_content">
-        	$Layout
-   
-         
+          $Layout
           <!-- <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
           <div class="content-container typography">
             <article>
@@ -205,14 +203,24 @@
                 </p>
               </div>
               <div class="col">
-                <p style="margin: 2rem 0 0 2.5rem">
-                  <img src="{$ThemeDir}/images/social-media-icons-temporary.png">
+                <p style="margin-top: 2rem">
+                  <a href="#" class="img-link">
+                    <img width="42" src="{$ThemeDir}/images/facebook-icon.png" style="margin-right: 0.5rem">
+                  </a>
+                  <!-- http://www.youtube.com/user/CDROYburkina -->
+                  <!-- <a href="#" class="img-link">
+                    <img width="42" src="{$ThemeDir}/images/twitter-icon.png" style="margin-right: 0.5rem">
+                  </a> -->
+                  <a href="#" class="img-link">
+                    <img width="42" src="{$ThemeDir}/images/twitter-icon.png">
+                  </a>
                 </p>
                 <ul>
-                  <li><a href="#">Welcome</a></li>
-                  <li><a href="#">Chapters/Themes</a></li>
-                  <li><a href="#">Tools/Resources</a></li>
-                  <li><a href="#">Search the Catalogue</a></li>
+                  <% loop Menu(1) %>
+                  <li>
+                    <a href="$Link">$MenuTitle</a>
+                  </li>
+                  <% end_loop %>
                 </ul>
               </div>
             </div>

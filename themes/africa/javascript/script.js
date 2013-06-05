@@ -24,12 +24,12 @@ $(document).on('click', '[data-toggle]', function () {
  */
 function sizeMainContentImages () {
   var $mc = $('#main_content');
-  $mc.find('img').css('width', ($mc.outerWidth()+2).toString() + 'px')
-                 .css('position', 'relative')
-                 .css('left', '-' + $mc.css('padding-left'));
+  $mc.find('img:not([width])').css('width', ($mc.outerWidth()+2).toString() + 'px')
+                              .css('position', 'relative')
+                              .css('left', '-' + $mc.css('padding-left'));
 }
 function setMainContentImgMaxWidth () {
-  $('#main_content img').each(function () {
+  $('#main_content img:not([width])').each(function () {
     $(this).on('load', function () {
       var nw = this.naturalWidth;
       $(this).css('max-width', nw.toString() + 'px')
