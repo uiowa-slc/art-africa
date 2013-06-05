@@ -112,6 +112,66 @@ class Country extends DataObject {
 		return $fields;		
   }
   
+  public function onBeforeWrite(){
+	  
+	  $allRelationships = new ArrayList();
+	  
+	  
+	  foreach(Country::$many_many as $relationshipKey => $relationshipValue){
+		  $allRelationships->merge($this->$relationshipKey());
+	  }
+	  
+	  foreach(Country::$belongs_many_many as $relationshipKey => $relationshipValue){
+	  	  $allRelationships->merge($this->$relationshipKey());
+	  }
+	  
+	  /*
+	  $allRelationships->merge($this->AudioPieces());
+	  $allRelationships->merge($this->ArtPhotos());
+	  $allRelationships->merge($this->Essays());
+	  $allRelationships->merge($this->FieldPhotos());
+	  $allRelationships->merge($this->People());
+	  $allRelationships->merge($this->Subtopics());
+	  $allRelationships->merge($this->VideoPieces());  
+	  */
+	  $newTags = $this->Tags;
+	
+	  $lastCharacterOfTags = substr($newTags, -1);
+	  
+	  $newTagsArray = explode(",", $newTags);
+	  $newTagsCount = count($newTagsArray);
+	  $allRelationshipsCount = count($allRelationshipsCount);
+	  $iter = 0;
+	  
+	  foreach($allRelationships as $relatedItem){
+	    $iter++;
+	    $addTag = true;
+	  	foreach ($newTagsArray as $tag){
+	  	    $stripTag = trim($tag);
+		  	if ($relatedItem->Name == $stripTag){
+			  	$addTag = false;		  
+			 }
+		}
+		
+		if ($addTag == true){
+		    if ($iter == 1)	{
+			    $newTags .= ', ';
+		    }
+			if ($iter == $allRelationshipsCount) {
+				$newTags = $newTags . $relatedItem->Name;
+			}					
+			else {
+				$newTags = $newTags . $relatedItem->Name . ', ';
+			}
+		}		
+		
+	  }
+	  
+	  $this->Tags = $newTags;
+	  
 
+	  parent::onBeforeWrite();
+  }
+  
 }
 

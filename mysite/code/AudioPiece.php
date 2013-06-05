@@ -4,7 +4,7 @@ class AudioPiece extends MediaPiece {
  
   
   private static $db = array(	
-  'Testy' => 'Text'
+  'Name' => 'Text'
   );
  
   // One-to-one relationship with gallery page
