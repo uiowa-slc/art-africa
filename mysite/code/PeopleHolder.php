@@ -52,7 +52,7 @@ class PeopleHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ();
+	private static $allowed_actions = array ('show');
 	
 	public function show (){
 	//Displays a data object
@@ -66,7 +66,7 @@ class PeopleHolder_Controller extends Page_Controller {
 		    $object = $otherClass::get_by_id($otherClass, $objectID);
 		    
 		    if(isset($object)){
-		       $showTemplate = $class . 'Holder_show';
+		       $showTemplate = $otherClass . 'Holder_show';
 			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
 			   
 		    }else{

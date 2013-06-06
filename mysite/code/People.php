@@ -43,17 +43,17 @@ class People extends DataObject {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
  		
- 				
+ 		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID', 'Temporary ID Field'));		
 		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Name'));
 		$fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
 		$fields->addFieldToTab('Root.Main', new TextField('Languages', 'Languages'));
 		$fields->addFieldToTab('Root.Main', new TextField('Population', 'Population'));
 		$fields->addFieldToTab('Root.Main', new TextField('Neighbors', 'Neighbors'));
-		$fields->addFieldToTab('Root.Main', new TextField('TypesOfArt', 'Types Of Art'));
-		$fields->addFieldToTab('Root.Main', new TextField('History', 'History'));
-		$fields->addFieldToTab('Root.Main', new TextField('Economy', 'Economy'));
-		$fields->addFieldToTab('Root.Main', new TextField('PoliticalSystems', 'Political Systems'));
-		$fields->addFieldToTab('Root.Main', new TextField('Religion', 'Religion'));
+		$fields->addFieldToTab('Root.Main', new TextAreaField('TypesOfArt', 'Types Of Art'));
+		$fields->addFieldToTab('Root.Main', new TextAreaField('History', 'History'));
+		$fields->addFieldToTab('Root.Main', new TextAreaField('Economy', 'Economy'));
+		$fields->addFieldToTab('Root.Main', new TextAreaField('PoliticalSystems', 'Political Systems'));
+		$fields->addFieldToTab('Root.Main', new TextAreaField('Religion', 'Religion'));
 		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
 		
 		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 

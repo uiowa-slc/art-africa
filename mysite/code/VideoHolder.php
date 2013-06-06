@@ -1,6 +1,6 @@
 <?php
  
-class EssayHolder extends Page {
+class VideoHolder extends Page {
  
   
   private static $db = array(	
@@ -12,20 +12,18 @@ class EssayHolder extends Page {
 
   );
   
-  private static $belongs_many_many = array();
+  private static $allowed_children = array("AudioPiece", "VideoPiece");
   
-  private static $allowed_children = array("Essay");
+  private static $belongs_many_many = array();
   
 
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
 		
-		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("Essay", "Essays", Essay::get(), $gridFieldConfigEssays);		
-		$fields->addFieldToTab('Root.Essays', $gridfield);
-
-		
+		$gridFieldConfigVideo = GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("VideoPieces", "Video Pieces", VideoPiece::get(), $gridFieldConfigVideo);		
+		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
 		
 		return $fields;		
   }
@@ -34,7 +32,7 @@ class EssayHolder extends Page {
 }
 
 
-class EssayHolder_Controller extends Page_Controller {
+class VideoHolder_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -51,13 +49,13 @@ class EssayHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ('show');
+	private static $allowed_actions = array ();
 	
 	public function show (){
 	//Displays a data object
 	
 						
-		$otherClass = 'Essay';
+		$otherClass = 'Media';
 		
 		$objectID = $this->request->param('ID');
 		if ($objectID){
@@ -65,7 +63,7 @@ class EssayHolder_Controller extends Page_Controller {
 		    $object = $otherClass::get_by_id($otherClass, $objectID);
 		    
 		    if(isset($object)){
-		       $showTemplate = $otherClass . 'Holder_show';
+		       $showTemplate = $class . 'Holder_show';
 			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
 			   
 		    }else{

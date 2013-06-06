@@ -72,7 +72,32 @@ class CountryHolder_Controller extends Page_Controller {
 	
 	}
 	
+	public function getCustomFields(){
+	  	$fields = DataObject::custom_database_fields('Country');
+	  	$returnArray = new ArrayList();
+	  	foreach ($fields as $fieldKey => $fieldValue){
+	  	    $newArray = array('Test' => $fieldKey);
+	  		$newArrayData = new ArrayData($newArray);
+	  		$returnArray->add($newArrayData);
+	  	}
+	  	
+	  	//$iterator = $returnArray->getIterator();
+
+		return $returnArray;
+	}
+  
+  
+	public function getRelations(){
+		$allRelationships = new ArrayList();
+		
+		foreach(Country::$many_many as $relationshipKey => $relationshipValue){
+		    $newArray = array('Test' => $relationshipKey);
+	  		$newArrayData = new ArrayData($newArray);
+	  		$allRelationships->add($newArrayData);  
+		  }
+		  
 	
-	
-	
+		return $allRelationships;
+	}
+
 }

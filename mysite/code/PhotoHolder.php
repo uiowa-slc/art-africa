@@ -67,10 +67,17 @@ class PhotoHolder_Controller extends Page_Controller {
 	//Displays a data object
 	
 						
-		$otherClass = 'Essay';
+		
 		
 		$objectID = $this->request->param('ID');
+		
+
+		
+		
+		
 		if ($objectID){
+		
+			
 		
 		    $object = $otherClass::get_by_id($otherClass, $objectID);
 		    
