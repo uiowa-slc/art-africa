@@ -111,7 +111,7 @@ class Country extends DataObject {
 
 		return $fields;		
   }
-  
+  /*
   public function onBeforeWrite(){
 	  
 	  $allRelationships = new ArrayList();
@@ -125,7 +125,7 @@ class Country extends DataObject {
 	  	  $allRelationships->merge($this->$relationshipKey());
 	  }
 	  
-	  /*
+	  
 	  $allRelationships->merge($this->AudioPieces());
 	  $allRelationships->merge($this->ArtPhotos());
 	  $allRelationships->merge($this->Essays());
@@ -133,19 +133,19 @@ class Country extends DataObject {
 	  $allRelationships->merge($this->People());
 	  $allRelationships->merge($this->Subtopics());
 	  $allRelationships->merge($this->VideoPieces());  
-	  */
+	  
 	  $newTags = $this->Tags;
 	
 	  $lastCharacterOfTags = substr($newTags, -1);
 	  
 	  $newTagsArray = explode(",", $newTags);
+	  $newTagsLength = strlen($newTags);
 	  $newTagsCount = count($newTagsArray);
 	  $allRelationshipsCount = count($allRelationshipsCount);
 	  $iter = 0;
 	  $changeMade = false;
 	  
 	  foreach($allRelationships as $relatedItem){
-	    $iter++;
 	    $addTag = true;
 	  	foreach ($newTagsArray as $tag){
 	  	    $stripTag = trim($tag);
@@ -159,7 +159,8 @@ class Country extends DataObject {
 		
 		
 		if ($addTag == true){
-		    if ($iter == 1 && $newTags)	{
+			$iter++;
+		    if (($iter == 1) && ($newTagsLength > 0))	{
 			    $newTags .= ', ';
 		    }
 			if ($iter == $allRelationshipsCount) {
@@ -178,10 +179,14 @@ class Country extends DataObject {
 	}
 	
 	$this->Tags = $newTags;
-	  
+	$this->PrecolonialHistory = 'New Tags Array Length ' . $newTagsLength;
+	$this->PostcolonialHistory = 'New Tags Change Made '  . ($changeMade == true) ? 'true' : 'false';
+	
+	
 
 	parent::onBeforeWrite();
   }
+  */
   
   
 }
