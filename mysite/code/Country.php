@@ -142,6 +142,7 @@ class Country extends DataObject {
 	  $newTagsCount = count($newTagsArray);
 	  $allRelationshipsCount = count($allRelationshipsCount);
 	  $iter = 0;
+	  $changeMade = false;
 	  
 	  foreach($allRelationships as $relatedItem){
 	    $iter++;
@@ -149,12 +150,13 @@ class Country extends DataObject {
 	  	foreach ($newTagsArray as $tag){
 	  	    $stripTag = trim($tag);
 		  	if ($relatedItem->Name == $stripTag){
-			  	$addTag = false;		  
+			  	$addTag = false;
+			  			  
 			 }
 		}
 		print_r("NEW TAGS COUNT " . $newTagsCount);
 		print_r($newTagsCount);
-		return;
+		
 		
 		if ($addTag == true){
 		    if ($iter == 1 && $newTags)	{
@@ -166,14 +168,19 @@ class Country extends DataObject {
 			else {
 				$newTags = $newTags . $relatedItem->Name . ', ';
 			}
+			$changeMade = true;
 		}		
 		
 	  }
-	  
-	  $this->Tags = $newTags;
+	if ($changeMade){  
+	  	$newTagsLength = strlen($newTagsLength);
+		$newTags = substr($newTags, 0, $newTagsLength - 2);
+	}
+	
+	$this->Tags = $newTags;
 	  
 
-	  parent::onBeforeWrite();
+	parent::onBeforeWrite();
   }
   
   
