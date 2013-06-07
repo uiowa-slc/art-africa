@@ -19,8 +19,9 @@ class MediaHolder extends Page {
 
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
+  		
  		$fields = parent::getCMSFields();
-		
+		/*å
 		$gridFieldConfigMedia = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("Media", "Media Pieces", MediaPiece::get(), $gridFieldConfigMedia);		
 		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
@@ -31,7 +32,7 @@ class MediaHolder extends Page {
 		
 		$gridFieldConfigVideo = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("VideoPieces", "Video Pieces", VideoPiece::get(), $gridFieldConfigVideo);		
-		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
+		$fields->addFieldToTab('Root.VideoPieces', $gridfield);*/
 		
 		return $fields;		
   }

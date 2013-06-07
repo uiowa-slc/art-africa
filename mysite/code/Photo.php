@@ -4,7 +4,7 @@ class Photo extends DataObject {
  
   
   private static $db = array(
-  'Title' => 'Text',
+  'Name' => 'Text',
   'Description' => 'Text',
   'TraditionalName' => 'Text',
   'Material' => 'Text',
@@ -33,7 +33,7 @@ class Photo extends DataObject {
  		$fields = parent::getCMSFields();
  		
  		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Title'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Name'));
  		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));
  		$fields->addFieldToTab('Root.Main', new TextField('TraditionalName', 'Traditional Name'));

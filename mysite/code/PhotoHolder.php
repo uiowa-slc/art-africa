@@ -21,7 +21,7 @@ class PhotoHolder extends Page {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
-		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
+		$fields->removeFieldFromTab("Root.Main","SortOrder");
 		
 		$gridFieldConfigPhoto = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("Photo", "Photos", Photo::get(), $gridFieldConfigPhoto);		
@@ -33,7 +33,7 @@ class PhotoHolder extends Page {
 		
 		$gridFieldConfigFieldPhoto = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("FieldPhoto", "FieldPhotos", FieldPhoto::get(), $gridFieldConfigFieldPhoto);		
-		$fields->addFieldToTab('Root.FieldPhotos', $gridfield);
+		$fields->addFieldToTab('Root.FieldPhotos', $gridfield);*/
 		
 		return $fields;		
   }

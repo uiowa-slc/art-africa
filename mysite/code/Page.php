@@ -100,7 +100,7 @@ class Page_Controller extends ContentController {
 	  		$bibliographyFlag = true; //bibliography search
 	  	}
 	  	
-	  
+	    $objects = array();
 	     
 	    foreach ( $siteTreeClasses as $c )
 	    {
@@ -116,7 +116,7 @@ class Page_Controller extends ContentController {
 	    
 	      $records = DB::query($query->sql());
 	    
-	      $objects = array();
+	    
 		
 	      //$objects = array();
 	      foreach( $records as $record )

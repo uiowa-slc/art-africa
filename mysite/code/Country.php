@@ -152,9 +152,12 @@ class Country extends DataObject {
 			  	$addTag = false;		  
 			 }
 		}
+		print_r("NEW TAGS COUNT " . $newTagsCount);
+		print_r($newTagsCount);
+		return;
 		
 		if ($addTag == true){
-		    if ($iter == 1)	{
+		    if ($iter == 1 && $newTags)	{
 			    $newTags .= ', ';
 		    }
 			if ($iter == $allRelationshipsCount) {

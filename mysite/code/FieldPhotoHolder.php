@@ -21,15 +21,7 @@ class FieldPhotoHolder extends Page {
  		$fields = parent::getCMSFields();
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
-		
-		$gridFieldConfigPhoto = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("Photo", "Photos", Photo::get(), $gridFieldConfigPhoto);		
-		$fields->addFieldToTab('Root.Photos', $gridfield);
-		
-		$gridFieldConfigArtPhoto = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("ArtPhoto", "ArtPhotos", ArtPhoto::get(), $gridFieldConfigArtPhoto);		
-		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
-		
+			
 		$gridFieldConfigFieldPhoto = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("FieldPhoto", "FieldPhotos", FieldPhoto::get(), $gridFieldConfigFieldPhoto);		
 		$fields->addFieldToTab('Root.FieldPhotos', $gridfield);
