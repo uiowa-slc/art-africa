@@ -10,9 +10,9 @@
 		<ul>
 			<% loop Subtopic %>
 					<% if Name %>
-						<li><a href="$Link">$Name</a></li>
+						<li><a href="{$Link}">$Name</a></li>
 					<% else_if Title %>
-						<li><a href="$Link">$Title</a></li>
+						<li><a href="{$Link}">$Title</a></li>
 					<% end_if %>
 			<% end_loop %>
 		<% end_if %>
@@ -22,9 +22,9 @@
 			<ul>
 				<% loop People %>
 						<% if Name %>
-							<li><a href="$Link">$Name</a></li>
+							<li><a href="peoples/show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="$Link">$Title</a></li>
+							<li><a href="peoples/show/{$ID}">$Title</a></li>
 						<% end_if %>
 	
 				<% end_loop %>
@@ -35,9 +35,9 @@
 		<ul>
 				<% loop Essay %>
 						<% if Name %>
-							<li><a href="$Link">$Name</a></li>
+							<li><a href="essays/show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="$Link">$Title</a></li>
+							<li><a href="essays/show/{$ID}">$Title</a></li>
 						<% end_if %>
 				<% end_loop %>
 			</ul>	
@@ -47,9 +47,9 @@
 			<ul>
 				<% loop Country %>
 						<% if Name %>
-							<li><a href="$Link">$Name</a></li>
+							<li><a href="countries/show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="$Link">$Title</a></li>
+							<li><a href="countries/show/{$ID}">$Title</a></li>
 						<% end_if %>
 				<% end_loop %>
 			</ul>	
@@ -59,9 +59,9 @@
 			<ul>
 				<% loop AudioPiece %>
 						<% if Name %>
-							<li><a href="$Link">$Name</a></li>
+							<li><a href="audio/show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="$Link">$Title</a></li>
+							<li><a href="audio/show/{$ID}">$Title</a></li>
 						<% end_if %>
 				<% end_loop %>
 			</ul>	
@@ -71,9 +71,9 @@
 			<ul>
 				<% loop VideoPiece %>
 						<% if Name %>
-							<li><a href="$Link">$Name</a></li>
+							<li><a href="video/show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="$Link">$Title</a></li>
+							<li><a href="video/show/{$ID}">$Title</a></li>
 						<% end_if %>
 				<% end_loop %>
 			</ul>
@@ -83,9 +83,9 @@
 			<ul>
 				<% loop ArtPhoto %>
 						<% if Name %>
-							<li><a href="$Link">$Name</a></li>
+							<li><a href="art-photos/show{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="$Link">$Title</a></li>
+							<li><a href="art-photos/show/{$ID}">$Title</a></li>
 						<% end_if %>
 				<% end_loop %>
 			</ul>
@@ -95,9 +95,9 @@
 			<ul>
 				<% loop FieldPhoto %>
 						<% if Name %>
-							<li><a href="$Link">$Name</a></li>
+							<li><a href="field-photos/show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="$Link">$Title</a></li>
+							<li><a href="field-photos/show/{$ID}">$Title</a></li>
 						<% end_if %>
 				<% end_loop %>
 			</ul>	
