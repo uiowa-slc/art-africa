@@ -77,6 +77,11 @@ class EssayHolder_Controller extends Page_Controller {
 	
 	}
 	
+	public function getEssays(){
+		$essays = Essay::get();
+		return $essays;
+	}
+	
 	
 	
 }
