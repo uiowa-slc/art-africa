@@ -20,6 +20,7 @@ class People extends DataObject {
  
   // One-to-one relationship with gallery page
   private static $has_one = array(
+  'Picture' => 'Image'
 
   );
   
@@ -55,6 +56,7 @@ class People extends DataObject {
 		$fields->addFieldToTab('Root.Main', new TextAreaField('PoliticalSystems', 'Political Systems'));
 		$fields->addFieldToTab('Root.Main', new TextAreaField('Religion', 'Religion'));
 		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
+		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
 		
 		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		

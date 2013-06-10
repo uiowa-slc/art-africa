@@ -68,6 +68,9 @@
 			<% end_loop %>
 			<br><br>
 			
+			Image<br><br> 
+			$Picture
+			
 			
 			
 	

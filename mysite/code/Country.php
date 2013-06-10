@@ -31,6 +31,7 @@ class Country extends DataObject {
  
   // One-to-one relationship with gallery page
   private static $has_one = array(
+  'Picture' => 'Image'
   
   );
   
@@ -80,6 +81,7 @@ class Country extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextField('PrecolonialHistory', 'Precolonial History'));
  		$fields->addFieldToTab('Root.Main', new TextField('PostcolonialHistory', 'Postcolonial Language'));
  		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
+ 		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
  		
  		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);

@@ -63,7 +63,7 @@ class ArtPhotoHolder_Controller extends Page_Controller {
 	//Displays a data object
 	
 						
-		
+		$otherClass = "ArtPhoto";
 		
 		$objectID = $this->request->param('ID');
 		
@@ -73,7 +73,7 @@ class ArtPhotoHolder_Controller extends Page_Controller {
 		    $object = $otherClass::get_by_id($otherClass, $objectID);
 		    
 		    if(isset($object)){
-		       $showTemplate = $class . 'Holder_show';
+		       $showTemplate = $otherClass . 'Holder_show';
 			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
 			   
 		    }else{
