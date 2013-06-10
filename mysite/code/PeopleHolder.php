@@ -52,7 +52,7 @@ class PeopleHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ('show');
+	private static $allowed_actions = array ('show', 'getPeople');
 	
 	public function show (){
 	//Displays a data object
@@ -76,6 +76,11 @@ class PeopleHolder_Controller extends Page_Controller {
 			return $this->renderWith('Page');
 		}
 	
+	}
+	
+	public function getPeople(){
+	$people = People::get();
+	return $people;
 	}
 	
 	

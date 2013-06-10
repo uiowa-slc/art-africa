@@ -27,7 +27,7 @@ class CountryHolder extends Page {
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 		
-		$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfigCountries = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("Countries", "Countries", Country::get(), $gridFieldConfigCountries);		
 		$fields->addFieldToTab('Root.Countries', $gridfield);
 		
@@ -41,7 +41,13 @@ class CountryHolder extends Page {
 
 class CountryHolder_Controller extends Page_Controller {
 
-	private static $allowed_actions = array ('show');
+	private static $allowed_actions = array ('show', 'getCountries');
+	
+	public function getCountries(){
+	$country = Country::get();
+	return $country;
+	}
+	
 
 	
 	public function show (){

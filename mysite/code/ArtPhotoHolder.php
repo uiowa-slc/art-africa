@@ -51,7 +51,13 @@ class ArtPhotoHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ('show');
+	private static $allowed_actions = array ('show', 'getArtPhotos');
+	
+	public function getPeople(){
+	$artPhotos = ArtPhoto::get();
+	return $artPhotos;
+	}
+	
 	
 	public function show (){
 	//Displays a data object

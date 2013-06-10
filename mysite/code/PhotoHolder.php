@@ -61,7 +61,7 @@ class PhotoHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ('show');
+	private static $allowed_actions = array ('show', 'getArtPhotos', 'getFieldPhotos');
 	
 	public function show (){
 	//Displays a data object
@@ -94,6 +94,15 @@ class PhotoHolder_Controller extends Page_Controller {
 	
 	}
 	
+	public function getArtPhotos(){
+		$artPhotos = ArtPhoto::get();
+		return $artPhotos;
+	}
+	
+	public function getFieldPhotos(){
+		$fieldPhotos = FieldPhoto::get();
+		return $fieldPhotos;
+	}
 	
 	
 	 

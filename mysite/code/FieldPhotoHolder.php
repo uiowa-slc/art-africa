@@ -52,7 +52,7 @@ class FieldPhotoHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ('show');
+	private static $allowed_actions = array ('show', 'getFieldPhotos');
 	
 	public function show (){
 	//Displays a data object
@@ -78,6 +78,11 @@ class FieldPhotoHolder_Controller extends Page_Controller {
 			return $this->renderWith('Page');
 		}
 	
+	}
+	
+	public function getFieldPhotos(){
+		$fieldPhotos = FieldPhoto::get();
+		return $fieldPhotos;
 	}
 	
 	

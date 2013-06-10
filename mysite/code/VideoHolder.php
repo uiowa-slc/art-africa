@@ -49,7 +49,7 @@ class VideoHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ();
+	private static $allowed_actions = array ('show', 'getVideoPieces');
 	
 	public function show (){
 	//Displays a data object
@@ -73,6 +73,11 @@ class VideoHolder_Controller extends Page_Controller {
 			return $this->renderWith('Page');
 		}
 	
+	}
+	
+	public function getVideoPieces(){
+		$videos = VideoPiece::get();
+		return $videos;
 	}
 	
 	

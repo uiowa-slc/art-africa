@@ -49,7 +49,7 @@ class AudioHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ();
+	private static $allowed_actions = array ('show', 'getAudio');
 	
 	public function show (){
 	//Displays a data object
@@ -74,6 +74,12 @@ class AudioHolder_Controller extends Page_Controller {
 		}
 	
 	}
+	
+	public function getAudio(){
+	$audio = AudioPiece::get();
+	return $audio;
+	}
+	
 	
 	
 	

@@ -18,32 +18,32 @@
 						
 			Audio Pieces
 			<% loop AudioPieces %>
-				$Title<br>
+				$Name<br>
 			<% end_loop %>
 			<br><br><br>
 			Subtopics
 			<% loop Subtopics %>
-				$Title<br>
+				$Name<br>
 			<% end_loop %>
 			<br><br><br>
 			Video Pieces
 			<% loop VideoPieces %>
-				$Title<br>
+				$Name<br>
 			<% end_loop %>
 			<br><br><br>
 			Countries
 			<% loop Countries %>
-				$Title<br>
+				$Name<br>
 			<% end_loop %>
 			<br><br><br>
 			ArtPhotos
 			<% loop ArtPhotos %>
-				$Title<br>
+				$Name<br>
 			<% end_loop %>
 			<br><br><br>
 			FieldPhotos
 			<% loop FieldPhotos %>
-				$Title<br>
+				$Name<br>
 			<% end_loop %>
 			
 			<br><br><br>
