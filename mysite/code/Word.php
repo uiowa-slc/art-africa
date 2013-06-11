@@ -4,7 +4,8 @@ class Word extends DataObject {
  
   
   private static $db = array(	
-	  'Word' => 'Text'
+	  'Word' => 'Text',
+	  'Definition' => 'Text'
   );
  
   // One-to-one relationship with gallery page
