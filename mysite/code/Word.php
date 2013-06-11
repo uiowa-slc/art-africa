@@ -21,6 +21,7 @@ class Word extends DataObject {
  		$fields = parent::getCMSFields();
 		
 		$fields->addFieldToTab('Root.Main', new TextField('Word', 'Word'));
+		$fields->addFieldToTab('Root.Main', new TextField('Definition', 'Definition'));
 	
 		return $fields;		
   }
