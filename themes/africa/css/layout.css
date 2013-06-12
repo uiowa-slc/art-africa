@@ -256,7 +256,7 @@ a:hover {
     -moz-column-gap: 2rem; /* Firefox */
     -webkit-column-gap: 2rem; /* Safari and Chrome */
   }
-  .columns > *:first-of-type { /* prevents top of element from being different than other columns */
+  .columns > *:first-child { /* prevents top of element from being different than other columns */
     margin-top: 0 !important;
   }
 }
