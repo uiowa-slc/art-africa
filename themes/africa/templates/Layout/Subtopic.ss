@@ -4,7 +4,7 @@
     <div class="description">
       $Description
     </div>
-    <div class="content">
+    <div class="content columns">
       $Content
     </div>
     <!-- Name: $Name<br><br>
