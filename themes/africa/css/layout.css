@@ -237,6 +237,38 @@ a:hover {
   overflow: hidden;
 }
 
+.description {
+  display: block;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  margin: 2rem 0;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    column-count: 2;
+    -moz-column-count: 2; /* Firefox */
+    -webkit-column-count: 2; /* Safari and Chrome */
+    column-gap: 2rem;
+    -moz-column-gap: 2rem; /* Firefox */
+    -webkit-column-gap: 2rem; /* Safari and Chrome */
+  }
+  .content p:first-of-type {
+    margin-top: 0 !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .content {
+    column-count: 3;
+    -moz-column-count: 3; /* Firefox */
+    -webkit-column-count: 3; /* Safari and Chrome */
+    column-gap: 2rem;
+    -moz-column-gap: 2rem; /* Firefox */
+    -webkit-column-gap: 2rem; /* Safari and Chrome */
+  }
+}
+
 @media (min-width: 769px) {
   #main_content {
     padding: 2.5rem 2.5rem 0 2.5rem;
@@ -305,7 +337,7 @@ a:hover {
 }
 
 .content-container {
-  max-width: 45rem;
+  /*max-width: 45rem;*/
 }
 
 .content-container p {
