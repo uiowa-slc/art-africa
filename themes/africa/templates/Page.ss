@@ -4,6 +4,7 @@
     <% base_tag %>
     <title>Art &amp; Life in Africa</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <link rel="icon" type="image/png" href="http://localhost:8888/art-africa/themes/africa/images/logo.png">
     $MetaTags(false)
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
@@ -13,9 +14,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
   </head>
   <body>
-    <div id="view">
+    <div id="view" class="homepage-">
       <div id="top">
-        <div class="hamburger m" data-toggle=".nav1" onclick="void(0)">
+        <div class="hamburger m" data-toggle=".nav1, #pic" onclick="void(0)">
           <div></div>
           <div class="patty"></div>
           <div></div>
@@ -102,6 +103,21 @@
           </ul>
         </nav>
       </div>
+      <div id="pic" style="background-image:url('{$ThemeDir}/images/homepage-pic.jpg')">
+        <div style="position:absolute;bottom: 2rem; right: 2rem;">
+          <img src="{$ThemeDir}/images/uiowa-logo.png" width="200" style="margin-right: 2rem;position:relative;top:-1rem;">
+          <img src="{$ThemeDir}/images/UIMA-newlogo-white.png" width="160" style="margin-right: 1.125rem;">
+          <a href="http://www.youtube.com/user/CDROYburkina" target="_blank" class="img-link">
+            <img width="42" src="{$ThemeDir}/images/youtube-icon-white.png" style="margin-right: 0.5rem">
+          </a>
+          <a href="#" class="img-link">
+            <img width="42" src="{$ThemeDir}/images/facebook-icon-white.png" style="margin-right: 0.5rem">
+          </a>
+          <a href="#" class="img-link">
+            <img width="42" src="{$ThemeDir}/images/twitter-icon-white.png">
+          </a>
+        </div>
+      </div>
       <div id="middle">
         <!-- for chapter pages -->
         <div id="chapters_heading">Chapters</div>
@@ -173,13 +189,47 @@
         </nav>
         <div id="main_content">
           $Layout
-          <% include SearchForm %>
-          <!-- <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
-          <div class="content-container typography">
+          <div id="ptcc">
             <article>
-              <div class="content"><p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href="admin/">the CMS</a>. You can now access the <a href="http://doc.silverstripe.org">developer documentation</a>, or begin <a href="http://doc.silverstripe.org/doku.php?id=tutorials">the tutorials.</a></p></div>
+              <h1>Chapters</h1>
+              <div class="content"></div>
             </article>
-          </div> -->
+            <img style="margin-top: 2rem" src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <div class="two_columns">
+              <h3>Hedy, Hedy, Hedy</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+              <h3>Hedy, Hedy, Hedy</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+            <hr>
+            <ul class="objects">
+              <li>
+                <img src="{$ThemeDir}/images/object.jpg" width alt="">
+                <h3>Everyday Endeavors</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </li>
+              <li>
+                <img src="{$ThemeDir}/images/object.jpg" width alt="">
+                <h3>Key Moments in Life</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <% include SearchForm %>
           <div id="footer">
             <div class="c">
               <div class="col">
@@ -205,13 +255,12 @@
               </div>
               <div class="col">
                 <p style="margin-top: 2rem">
+                  <a href="http://www.youtube.com/user/CDROYburkina" target="_blank" class="img-link">
+                    <img width="42" src="{$ThemeDir}/images/youtube-icon.png" style="margin-right: 0.5rem">
+                  </a>
                   <a href="#" class="img-link">
                     <img width="42" src="{$ThemeDir}/images/facebook-icon.png" style="margin-right: 0.5rem">
                   </a>
-                  <!-- http://www.youtube.com/user/CDROYburkina -->
-                  <!-- <a href="#" class="img-link">
-                    <img width="42" src="{$ThemeDir}/images/twitter-icon.png" style="margin-right: 0.5rem">
-                  </a> -->
                   <a href="#" class="img-link">
                     <img width="42" src="{$ThemeDir}/images/twitter-icon.png">
                   </a>

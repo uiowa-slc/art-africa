@@ -58,8 +58,21 @@ $(window).on('resize', sizeMainContentImages);
 //   }
 // }
 
-window.addEventListener('load',function() {
+// window.addEventListener('load', function() {
+//   setTimeout(function () {
+//     window.scrollTo(0, 1); // Hide the address bar on iOS
+//   }, 0);
+// });
+$(document).ready(function () {
+  $('#main_content form').remove();
+  $('.content-container').html('').prepend( $('#ptcc').html() ); // prepend to .content-container
   setTimeout(function () {
-    window.scrollTo(0, 1); // Hide the address bar on iOS
-  }, 0);
+    sizeMainContentImages();
+  }, 1000);
+  $('#ptcc').remove();
+});
+
+$(document).on('click', '#footer a', function (ev) {
+  ev.preventDefault();
+  $('#view').toggleClass('homepage');
 });
