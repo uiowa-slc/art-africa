@@ -266,9 +266,6 @@ a:hover {
     column-count: 3;
     -moz-column-count: 3; /* Firefox */
     -webkit-column-count: 3; /* Safari and Chrome */
-    column-gap: 2rem;
-    -moz-column-gap: 2rem; /* Firefox */
-    -webkit-column-gap: 2rem; /* Safari and Chrome */
   }
 }
 
@@ -368,7 +365,7 @@ a:hover {
 }
 
 #footer .col {
-  vertical-align: middle;
+  vertical-align: top;
   display: inline-block;
   width: 30%;
   /*border: 1px solid red;*/
@@ -382,6 +379,13 @@ a:hover {
   max-width: 20rem !important;
   width: 90% !important;
   position: static !important;
+}
+
+@media (min-width: 769px) {
+  #footer .col:nth-of-type(2) {
+    position: relative;
+    top: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
