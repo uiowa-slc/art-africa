@@ -4,6 +4,16 @@ class ArtPhoto extends Photo {
  
   
   private static $db = array(	
+  'Name' => 'Text',
+  'ArtID' => 'Text',
+  'TraditionalName' => 'Text',
+  'Material' => 'Text',
+  'Size' => 'Text',
+  'Function' => 'Text',
+  'Style' => 'Text',
+  'Substyle' => 'Text',
+  'Collection' => 'Text',
+  'Source' => 'Text'
 
   );
  
@@ -40,6 +50,18 @@ class ArtPhoto extends Photo {
  		$fields = parent::getCMSFields();
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
+		
+		
+ 		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
+ 		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('TraditionalName', 'Traditional Name'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Material', 'Material'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Size', 'Size'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Function', 'Function'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Style', 'Style'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Substyle', 'Substyle'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Collection', 'Collection'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
 		
 		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);
@@ -100,6 +122,12 @@ class ArtPhoto extends Photo {
 
 		return $fields;		
   }
+  /*
+  public function getCMSValidator(){
+	  return new RequiredFields('CreditLine');
+  }
+  */
+  
   
   
   

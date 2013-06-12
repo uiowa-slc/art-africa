@@ -73,8 +73,8 @@ class Page_Controller extends ContentController {
 	    $countries = new ArrayList();
 	    $audioPieces = new ArrayList();
 	    $videoPieces = new ArrayList();
-	    $artPhotos = new ArrayList();
-	    $fieldPhotos = new ArrayList();
+	    $photos = new ArrayList();
+	    $photos = new ArrayList();
 	    
 	      $data = array(
 	      'Subtopic' => $subtopics,
@@ -83,8 +83,8 @@ class Page_Controller extends ContentController {
 		  'Country' => $countries,
 		  'AudioPiece' => $audioPieces,
 		  'VideoPiece' => $videoPieces,
-		  'ArtPhoto' => $artPhotos,
-		  'FieldPhoto' => $fieldPhotos,
+		  'ArtPhoto' => $photos,
+		  'FieldPhoto' => $photos,
 		  'Query' => $keyword
 			); 
 	    
@@ -333,6 +333,68 @@ class Page_Controller extends ContentController {
 		//sleep(5);
 		//print_r("HI");
 		return;
+	}
+	
+	public function fieldPhotoHandler($arguments){
+		
+	    if (isset($arguments["ID"])){
+		    $photoID = $arguments["ID"];
+	    }
+	    else {
+		    return;
+	    }
+	    
+	  
+		
+	    
+		$photoObject = DataObject::get_by_id("FieldPhoto", $photoID);
+		$picture = $photoObject->Picture();
+		
+		$photoWidth = $picture->getWidth();
+		$photoHeight = $picture->getHeight();
+		
+		if (isset($arguments["width"])){
+		    $photoWidth = $arguments["width"];
+	    }
+	    if (isset($arguments["height"])){
+		    $photoHeight = $arguments["height"];
+	    }
+		$filename = $picture->getFilename();
+		//print_r($filename);
+	    $pictureHTML = '<img src="' . $filename . '" . width="' . $photoWidth . '" height="' . $photoHeight . '"/>';
+		//
+		return $pictureHTML;		
+	}
+	
+	
+	public function artPhotoHandler($arguments){
+		 if (isset($arguments["ID"])){
+		    $photoID = $arguments["ID"];
+	    }
+	    else {
+		    return;
+	    }
+	    
+	  
+		
+	    
+		$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);
+		$picture = $photoObject->Picture();
+		
+		$photoWidth = $picture->getWidth();
+		$photoHeight = $picture->getHeight();
+		
+		if (isset($arguments["width"])){
+		    $photoWidth = $arguments["width"];
+	    }
+	    if (isset($arguments["height"])){
+		    $photoHeight = $arguments["height"];
+	    }
+		$filename = $picture->getFilename();
+		//print_r($filename);
+	    $pictureHTML = '<img src="' . $filename . '" . width="' . $photoWidth . '" height="' . $photoHeight . '"/>';
+		//
+		return $pictureHTML;		
 	}
 
 /**

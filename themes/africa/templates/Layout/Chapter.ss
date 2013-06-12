@@ -12,5 +12,6 @@
 			<a href="{$Link}">$Title<br></a>
 		<% end_loop %>
 		<br><br>
+		$testDescription
 </div> 
 <% include SideBar %>

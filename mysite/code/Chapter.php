@@ -11,7 +11,7 @@ class Chapter extends Page {
  
   // One-to-one relationship with gallery page
   private static $has_one = array(
-
+  'Picture' => 'Image'
   );
   
 

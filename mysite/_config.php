@@ -43,5 +43,14 @@ Solr::configure_server(isset($solr_config) ? $solr_config : array(
     )
 ));
 */
+
+ShortcodeParser::get('default')->register(
+    'ArtPhoto', array('Page_Controller', 'artPhotoHandler')
+);
+
+ShortcodeParser::get('default')->register(
+    'FieldPhoto', array('Page_Controller', 'fieldPhotoHandler')
+);
+
 FulltextSearchable::enable();
 //Object::add_extension('CollectionPiece', "FulltextSearchable('Keywords')");

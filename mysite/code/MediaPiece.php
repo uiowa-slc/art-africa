@@ -6,6 +6,7 @@ class MediaPiece extends DataObject {
   private static $db = array(	
   'History' => 'Text',
   'Name' => 'Text',
+  'CreditLine' => 'Text',
   /*'Bibliography' => 'Text',*/
   'Tags' => 'Text'
 

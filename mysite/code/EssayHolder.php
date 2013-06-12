@@ -82,6 +82,12 @@ class EssayHolder_Controller extends Page_Controller {
 		return $essays;
 	}
 	
+	public function essaysByAuthor(){
+		$essays = Essay::get();
+		$essays->sort('Author', 'DESC');
+		return $essays;
+	}
+	
 	
 	
 }

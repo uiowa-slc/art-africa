@@ -5,19 +5,15 @@ class Photo extends DataObject {
   
   private static $db = array(
   'Name' => 'Text',
-  'ArtID' => 'Text',
+  'PhotoID' => 'Text',
+  'Photographer' => 'Text',
   'Description' => 'Text',
-  'TraditionalName' => 'Text',
-  'Material' => 'Text',
-  'Size' => 'Text',
-  'Function' => 'Text',
-  'Style' => 'Text',
-  'Substyle' => 'Text',
-  'Collection' => 'Text',
-  'Source' => 'Text',	
-  'Tags' => 'Text'
+  'Date' => 'Date',
+  'Location' => 'Text',
+  'CreditLine' => 'Text',
+  'Tags' => 'Text',
+  'Location' => 'Text'
   
-
   );
  
   // One-to-one relationship with gallery page
@@ -34,25 +30,42 @@ class Photo extends DataObject {
  		$fields = parent::getCMSFields();
  		
  		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID'));
- 		$fields->addFieldToTab('Root.Main', new TextField('ArtID', 'Art ID'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Photo', 'Photo ID'));
  		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Name'));
  		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));
- 		$fields->addFieldToTab('Root.Main', new TextField('TraditionalName', 'Traditional Name'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Material', 'Material'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Size', 'Size'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Function', 'Function'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Style', 'Style'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Substyle', 'Substyle'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Collection', 'Collection'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Photographer', 'Photographer'));
+ 		
+ 		 		
+ 		$creditField = new TextField('CreditLine', 'Credit Line');
+ 		$fields->addFieldToTab('Root.Main', $creditField);
+ 		
+ 		$fields->addFieldToTab('Root.Main', $dateField = new DateField('Date', 'Date')); 
+ 		$dateField->setConfig('showcalendar', true);
+ 		$dateField->setConfig('dateformat', 'MM/dd/YYYY');
+ 		
+ 		
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
 
  		
 		return $fields;		
   }
-  
-  
+   
+  	public function onBeforeWrite(){
+  		//print_r($this->CreditLine);
+		if ($this->CreditLine == ''){
+			return;
+		}
+		
+		parent::onBeforeWrite();
+	}
+	
+
+  /*
+  public function getCMSValidator(){
+	  return new RequiredFields('CreditLine');
+  }
+  */
   
 
 }
