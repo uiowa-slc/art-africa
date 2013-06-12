@@ -248,7 +248,7 @@ a:hover {
 }
 
 @media (min-width: 1024px) {
-  .content.columns {
+  .columns {
     column-count: 2;
     -moz-column-count: 2; /* Firefox */
     -webkit-column-count: 2; /* Safari and Chrome */
@@ -256,13 +256,13 @@ a:hover {
     -moz-column-gap: 2rem; /* Firefox */
     -webkit-column-gap: 2rem; /* Safari and Chrome */
   }
-  .content p:first-of-type {
+  .columns > *:first-of-type { /* prevents top of element from being different than other columns */
     margin-top: 0 !important;
   }
 }
 
 @media (min-width: 1280px) {
-  .content.columns {
+  .columns {
     column-count: 3;
     -moz-column-count: 3; /* Firefox */
     -webkit-column-count: 3; /* Safari and Chrome */
