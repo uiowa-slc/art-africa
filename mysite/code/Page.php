@@ -337,31 +337,39 @@ class Page_Controller extends ContentController {
 	
 	public function fieldPhotoHandler($arguments){
 		
-	    if (isset($arguments["ID"])){
+	     if (isset($arguments["ID"])){
 		    $photoID = $arguments["ID"];
 	    }
 	    else {
 		    return;
 	    }
 	    
+	    $customise = array();
+	    
+	    if (isset($arguments["size"])){
+		    $customise['size'] = $arguments["size"] . 'Image';
+	    }
+	    else {
+		    $customise['size'] = 'normal';
+	    }
 	  
-		
+	    
 	    
 		$photoObject = DataObject::get_by_id("FieldPhoto", $photoID);
 		$picture = $photoObject->Picture();
 		
-		$photoWidth = $picture->getWidth();
-		$photoHeight = $picture->getHeight();
 		
-		if (isset($arguments["width"])){
-		    $photoWidth = $arguments["width"];
-	    }
-	    if (isset($arguments["height"])){
-		    $photoHeight = $arguments["height"];
-	    }
-		$filename = $picture->getFilename();
+		
+		$customise["picture"] = $picture;
+	    
+		$customise['filename'] = $picture->getFilename();
+		
+		$template = new SSViewer('FieldPhoto');
+		
+		return $template->process(new ArrayData($customise));
+		
 		//print_r($filename);
-	    $pictureHTML = '<img src="' . $filename . '" . width="' . $photoWidth . '" height="' . $photoHeight . '"/>';
+	    //$pictureHTML = '<img src="' . $filename . '" . width="' . $photoWidth . '" height="' . $photoHeight . '"/>';
 		//
 		return $pictureHTML;		
 	}
@@ -375,24 +383,32 @@ class Page_Controller extends ContentController {
 		    return;
 	    }
 	    
+	    $customise = array();
+	    
+	    if (isset($arguments["size"])){
+		    $customise['size'] = $arguments["size"] . 'Image';
+	    }
+	    else {
+		    $customise['size'] = 'normal';
+	    }
 	  
-		
+	    
 	    
 		$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);
 		$picture = $photoObject->Picture();
 		
-		$photoWidth = $picture->getWidth();
-		$photoHeight = $picture->getHeight();
 		
-		if (isset($arguments["width"])){
-		    $photoWidth = $arguments["width"];
-	    }
-	    if (isset($arguments["height"])){
-		    $photoHeight = $arguments["height"];
-	    }
-		$filename = $picture->getFilename();
+		
+		$customise["picture"] = $picture;
+	    
+		$customise['filename'] = $picture->getFilename();
+		
+		$template = new SSViewer('ArtPhoto');
+		
+		return $template->process(new ArrayData($customise));
+		
 		//print_r($filename);
-	    $pictureHTML = '<img src="' . $filename . '" . width="' . $photoWidth . '" height="' . $photoHeight . '"/>';
+	    //$pictureHTML = '<img src="' . $filename . '" . width="' . $photoWidth . '" height="' . $photoHeight . '"/>';
 		//
 		return $pictureHTML;		
 	}

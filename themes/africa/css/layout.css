@@ -445,3 +445,8 @@ a:hover {
 .nav3 {
   background: #444;
 }
+
+.artPhoto {
+	position: static !important;
+}
+
