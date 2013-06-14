@@ -63,3 +63,9 @@ window.addEventListener('load',function() {
     window.scrollTo(0, 1); // Hide the address bar on iOS
   }, 0);
 });
+
+$(document).ready(function () {
+  $('.test-popup-link').magnificPopup({ 
+    type: 'image'
+  });
+});

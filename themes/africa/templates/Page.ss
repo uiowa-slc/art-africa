@@ -8,9 +8,12 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <script src="{$ThemeDir}/javascript/jquery.magnific-popup.min.js" type="text/javascript"></script>
     <script src="{$ThemeDir}/javascript/script.js" type="text/javascript"></script>
     <link href='{$ThemeDir}/css/layout.css' rel='stylesheet' type='text/css'>
+    <link href='{$ThemeDir}/css/magnific-popup.css' rel='stylesheet' type='text/css'>
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="icon" type="image/png" href="/art-africa/themes/africa/images/logo.png">
   </head>
   <body>
     <div id="view">
@@ -39,72 +42,29 @@
         <div id="chapters_heading">Chapters</div>
         <nav class="nav2">
           <ul>
+            <% loop ChildrenOf('chapters') %>
             <li>
-              <a href="#">Everyday Endeavors</a>
+              <a href="$Link">$MenuTitle</a>
+              <% if LinkOrSection = section %>
               <nav class="nav3">
                 <ul>
+                  <% loop Children %>
                   <li>
-                    <a href="#">Everyday Endeavors</a>
+                    <a href="$Link"<% if LinkOrCurrent = current %> class="selected"<% end_if %>>
+                      $MenuTitle
+                    </a>
                   </li>
-                  <li>
-                    <a href="#">Key Moments in Life</a>
-                  </li>
-                  <li>
-                    <a href="#">Education Initiation</a>
-                  </li>
-                  <li>
-                    <a href="#">Abundance</a>
-                  </li>
-                  <li>
-                    <a href="#">Sacred Spaces</a>
-                  </li>
-                  <li>
-                    <a href="#">Divination</a>
-                  </li>
-                  <li>
-                    <a href="#">Ancient Africa</a>
-                  </li>
-                  <li>
-                    <a href="#">Arts of Healing</a>
-                  </li>
-                  <!--<% loop ChildrenOf('chapters') %>
-                  <li>
-                    <a href="$Link" id="$URLSegment">$MenuTitle</a>
-                  </li>
-                  <% end_loop %>-->
+                  <% end_loop %>
                 </ul>
               </nav>
+              <% end_if %>
             </li>
-            <li>
-              <a href="#">Key Moments in Life</a>
-            </li>
-            <li>
-              <a href="#">Education Initiation</a>
-            </li>
-            <li>
-              <a href="#">Abundance</a>
-            </li>
-            <li>
-              <a href="#">Sacred Spaces</a>
-            </li>
-            <li>
-              <a href="#">Divination</a>
-            </li>
-            <li>
-              <a href="#">Ancient Africa</a>
-            </li>
-            <li>
-              <a href="#">Arts of Healing</a>
-            </li>
-            <!--<% loop ChildrenOf('chapters') %>
-            <li>
-              <a href="$Link" id="$URLSegment">$MenuTitle</a>
-            </li>
-            <% end_loop %>-->
+            <% end_loop %>
           </ul>
         </nav>
         <div id="main_content">
           $Layout
+          <!-- <a class="test-popup-link" href="/art-africa/themes/africa/images/logo.png">adsfasd</a> -->
           <% include SearchForm %>
           <!-- <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
           <div class="content-container typography">
