@@ -456,3 +456,47 @@ a:hover {
 	position: static !important;
 }
 
+article.page {
+	column-width:350px;
+	-moz-column-width:350px; /* Firefox */
+	-webkit-column-width:350px; /* Safari and Chrome */
+}
+
+.veryTinyImage {
+	width: 2% !important;
+	height: 2% !important;
+}
+.tinyImage {
+	width: 5% !important;
+	height: 5% !important;
+}
+
+.verySmallImage {
+	height: 10% !important;
+	width: 10% !important;
+}
+
+.smallImage {
+	height: 25% !important;
+	width: 25% !important;
+}
+
+.mediumImage {
+	height: 50% !important;
+	width: 50% !important;
+}
+
+.veryLargeImage {
+	height: 75% !important;
+	width: 75% !important;
+}
+
+.hugeImage {
+	height: 125% !important;
+	width: 125% !important;
+}
+
+
+.artPhoto img {
+	position: static !important;
+}

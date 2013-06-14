@@ -35,9 +35,8 @@ class Photo extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextField('Photographer', 'Photographer'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));
 
- 		$fields->addFieldToTab('Root.Main', $dateField = new DateField('Date', 'Date')); 
- 		$dateField->setConfig('showcalendar', true);
- 		$dateField->setConfig('dateformat', 'MM/dd/YYYY');
+ 		$fields->addFieldToTab('Root.Main', new TextField('Date', 'Date')); 
+
  		
  		$fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
  		 		

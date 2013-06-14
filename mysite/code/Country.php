@@ -84,8 +84,10 @@ class Country extends DataObject {
  		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
  		
  		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
+ 		$gridFieldConfigAudioPieces->addComponent(new GridFieldManyRelationHandler());
 		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);
 		$fields->addFieldToTab('Root.AudioPieces', $gridfield);
+		
 		
 		$gridFieldConfigAudioPiecesViewer= GridFieldConfig_RecordEditor::create(); 
 		$gridfieldViewer = new GridField("AudioPiecesViewer", "View All Audio Pieces", AudioPiece::get(), $gridFieldConfigAudioPiecesViewer);
