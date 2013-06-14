@@ -58,14 +58,14 @@ class FieldPhotoHolder_Controller extends Page_Controller {
 	//Displays a data object
 	
 						
-		
+		$class = 'FieldPhoto';
 		
 		$objectID = $this->request->param('ID');
 		
 		
 		if ($objectID){
 		
-		    $object = $otherClass::get_by_id($otherClass, $objectID);
+		    $object = $class::get_by_id($class, $objectID);
 		    
 		    if(isset($object)){
 		       $showTemplate = $class . 'Holder_show';

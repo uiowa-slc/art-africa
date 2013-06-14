@@ -5,20 +5,12 @@
 
 		
 			Name: $Name<br><br>
-			Photo: $PhotoID<br><br>
+			PhotoID: $PhotoID<br><br>
 			Photographer: $Photographer<br><br>
 			Description: $Description<br><br>
 			Date: $Date<br><br>
 			Location: $Location<br><br>
 			CreditLine: $CreditLine<br><br>
-			TraditionalName: $TraditionalName<br><br>
-			Material: $Material<br><br>
-			Size: $Size<br><br>
-			Function: $Function<br><br>
-			Style: $Style<br><br>
-			Substyle: $Substyle<br><br>
-			Collection: $Collection<br><br>
-			Source: $Source<br><br>
 			Tags: $Tags<br><br>
 			
 			<br>
