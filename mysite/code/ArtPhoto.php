@@ -4,7 +4,6 @@ class ArtPhoto extends Photo {
  
   
   private static $db = array(	
-  'Name' => 'Text',
   'ArtID' => 'Text',
   'TraditionalName' => 'Text',
   'Material' => 'Text',

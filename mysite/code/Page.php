@@ -273,12 +273,12 @@ class Page_Controller extends ContentController {
 		$wordArray = Word::get();
 		foreach ($wordArray as $word){
 		    $allLowerCaseWord = strtolower($word->Word);
-			$newHTML = '<a href="#">' . $allLowerCaseWord . '</a>';
+			$newHTML = '<a class="fancybox" href="themes/africa/images/logo.png">' . $allLowerCaseWord . '</a>';
 			$pageContent = str_replace($allLowerCaseWord, $newHTML, $pageContent);
 			//$str = strtolower($str);
 			
 			$firstLetterUpperWord = ucwords($word->Word);
-			$newHTML = '<a href="#">' . $firstLetterUpperWord . '</a>';
+			$newHTML = '<a class="fancybox" href="#">' . $firstLetterUpperWord . '</a>';
 			$pageContent = str_replace($firstLetterUpperWord, $newHTML, $pageContent);
 		}
 		

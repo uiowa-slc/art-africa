@@ -11,6 +11,14 @@
     <script src="{$ThemeDir}/javascript/script.js" type="text/javascript"></script>
     <link href='{$ThemeDir}/css/layout.css' rel='stylesheet' type='text/css'>
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <!-- Add mousewheel plugin (this is optional) -->
+    <script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+    <!-- Add fancyBox -->
+    <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    
   </head>
   <body>
     <div id="view">
