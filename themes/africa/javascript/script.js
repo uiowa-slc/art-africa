@@ -88,5 +88,5 @@ $(document).on('click', '.mfp-img', function (event) {
       ap  = $('.artPhoto[data-mfp-src="' + src + '"]:first');
 
   console.log(ap.length);
-  // could visit ap.attr('href')
+  document.location = ap.attr('data-mfp-href');
 });
