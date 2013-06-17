@@ -34,47 +34,69 @@ class Subtopic extends Page {
   public function getCMSFields() {
  	
  		$fields = parent::getCMSFields();
-		
-		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Topic Name (make the same as page name)'));
+
+		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Topic Name'));
 		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
-		
+
 		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigArtPhotos->addComponent(new GridFieldManyRelationHandler());
 		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
 		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
-		
+
+		$gridFieldConfigArtPhotosViewer= GridFieldConfig_RecordEditor::create(); 
+		$gridfield = new GridField("ArtPhotosViewer", "View All Art Photos", ArtPhoto::get(), $gridFieldConfigArtPhotosViewer);
+		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
+
 		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigAudioPieces->addComponent(new GridFieldManyRelationHandler());
 		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);
 		$fields->addFieldToTab('Root.AudioPieces', $gridfield);
 
+		$gridFieldConfigAudioPiecesViewer= GridFieldConfig_RecordEditor::create(); 
+		$gridfieldViewer = new GridField("AudioPiecesViewer", "View All Audio Pieces", AudioPiece::get(), $gridFieldConfigAudioPiecesViewer);
+		$fields->addFieldToTab('Root.AudioPieces', $gridfieldViewer);
+
 		$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigCountries->addComponent(new GridFieldManyRelationHandler());
 		$gridfield = new GridField("Countries", "Countries", $this->Countries(), $gridFieldConfigCountries);	
 		$fields->addFieldToTab('Root.Countries', $gridfield);
-		
+
+		$gridFieldConfigCountriesViewer = GridFieldConfig_RecordEditor::create(); 
+		$gridfield = new GridField("CountriesViewer", "View All Countries", Country::get(), $gridFieldConfigCountriesViewer);	
+		$fields->addFieldToTab('Root.Countries', $gridfield);
+
 		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigEssays->addComponent(new GridFieldManyRelationHandler());
 		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		
 		$fields->addFieldToTab('Root.Essays', $gridfield);
 
+		$gridFieldConfigEssaysViewer = GridFieldConfig_RecordEditor::create(); 
+		$gridfield = new GridField("EssaysViewer", "View All Essays", Essay::get(), $gridFieldConfigEssaysViewer);		
+		$fields->addFieldToTab('Root.Essays', $gridfield);
+
 		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigFieldPhotos->addComponent(new GridFieldManyRelationHandler());
 		$gridfield = new GridField("FieldPhotos", "Field Photos", $this->FieldPhotos(), $gridFieldConfigFieldPhotos);
 		$fields->addFieldToTab('Root.FieldPhotos', $gridfield);
 
+		$gridFieldConfigFieldPhotosViewer = GridFieldConfig_RecordEditor::create(); 
+		$gridfield = new GridField("FieldPhotosViewer", "View All Field Photos", FieldPhoto::get(), $gridFieldConfigFieldPhotosViewer);
+		$fields->addFieldToTab('Root.FieldPhotos', $gridfield);
+
 		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigPeople->addComponent(new GridFieldManyRelationHandler());
 		$gridfield = new GridField("People", "People", $this->People(), $gridFieldConfigPeople);
 		$fields->addFieldToTab('Root.People', $gridfield);
-		
+
+		$gridFieldConfigPeopleViewer = GridFieldConfig_RecordEditor::create(); 
+		$gridfield = new GridField("PeopleViewer", "View All People", People::get(), $gridFieldConfigPeople);
+		$fields->addFieldToTab('Root.People', $gridfield);
+
 		$gridFieldConfigVideoPieces= GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigVideoPieces->addComponent(new GridFieldManyRelationHandler());
 		$gridfield = new GridField("VideoPieces", "Video Pieces", $this->VideoPieces(), $gridFieldConfigVideoPieces);
 		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
 
-		return $fields;		
+		$gridFieldConfigVideoPiecesViewer = GridFieldConfig_RecordEditor::create(); 
+		$gridfield = new GridField("VideoPiecesViewer", "View All Video Pieces", VideoPiece::get(), $gridFieldConfigVideoPiecesViewer);
+		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
+
+
+		return $fields;			
 
   }
   

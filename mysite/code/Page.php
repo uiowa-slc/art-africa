@@ -8,6 +8,9 @@ class Page extends SiteTree {
 	private static $has_one = array(
 	);
 	
+	private static $defaults = array( 
+'ShowInMenus' => 0 
+);
 	
 	//static $searchable_fields = array('Keywords', 'Content', 'Title');
 	
@@ -274,14 +277,18 @@ class Page_Controller extends ContentController {
 		foreach ($wordArray as $word){
 		    $allLowerCaseWord = strtolower($word->Word);
 		    $wordID = $word->ID;
-			$newHTML = '<a class="fancybox" href="themes/africa/images/logo.png">' . $allLowerCaseWord . '</a>';
+		    $newHTML = "<div id=" . $word->Word . " class='white-popup mfp-hide'>" . $word->Definition . "</div>";
+			$newHTML .= '<a class="open-glossary-popup" href="#' . $word->Word . '">' . $allLowerCaseWord . '</a>';
 			$pageContent = str_replace($allLowerCaseWord, $newHTML, $pageContent);
 			//$str = strtolower($str);
 			
 			$firstLetterUpperWord = ucwords($word->Word);
-			$newHTML = '<a class="fancybox" href="#inline">' . $firstLetterUpperWord . '</a>';
+			$newHTML = "<div id=" . $word->Word . " class='white-popup mfp-hide'>" . $word->Definition . "</div>";
+			$newHTML .= '<a class="open-glossary-popup" href="#' . $word->Word . '">' . $firstLetterUpperWord . '</a>';
 			$pageContent = str_replace($firstLetterUpperWord, $newHTML, $pageContent);
 		}
+		
+		$pageContent .= '<p><a class="open-glossary-popup" href="#fig">asdas</a></p>';
 		
 		return $pageContent;
 	}
@@ -401,6 +408,8 @@ class Page_Controller extends ContentController {
 		
 		
 		$customise["picture"] = $picture;
+		
+		$customise["CreditLine"] = $photoObject->CreditLine;
 	    
 		$customise['filename'] = $picture->getFilename();
 		
