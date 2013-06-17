@@ -21,18 +21,12 @@ class MediaHolder extends Page {
   public function getCMSFields() {
   		
  		$fields = parent::getCMSFields();
-		/*å
-		$gridFieldConfigMedia = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("Media", "Media Pieces", MediaPiece::get(), $gridFieldConfigMedia);		
-		$fields->addFieldToTab('Root.MediaPieces', $gridfield);
-		
-		$gridFieldConfigAudio = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("AudioPieces", "Audio Pieces", AudioPiece::get(), $gridFieldConfigAudio);		
-		$fields->addFieldToTab('Root.AudioPieces', $gridfield);
-		
-		$gridFieldConfigVideo = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("VideoPieces", "Video Pieces", VideoPiece::get(), $gridFieldConfigVideo);		
-		$fields->addFieldToTab('Root.VideoPieces', $gridfield);*/
+	
+		$fields->removeFieldFromTab("Root.Main","Content");
+		//$fields->addFieldToTab("Root.Main")
+		$content = new HTMLEditorField("Content", "Content -- Use this field to edit the introduction to the audio and video that shows up on the front-end of the site.  Use Art Photos and Field Photos to edit the photos themselves.");
+		$fields->addFieldToTab("Root.Main", $content);
+		return $fields;	
 		
 		return $fields;		
   }

@@ -23,6 +23,7 @@ class MediaPiece extends DataObject {
 
   );
   
+  private static $plural_name = "Media Pieces";
 
      
      
@@ -35,6 +36,7 @@ class MediaPiece extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextAreaField('History', 'History'));
  		//$fields->addFieldToTab('Root.Main', new TextAreaField('Bibliography', 'Bibliography'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('CreditLine', 'CreditLine'));
  		$fields->addFieldToTab('Root.Main', new UploadField('MediaFile', 'Media File'));
  		
 
