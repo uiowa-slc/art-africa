@@ -89,20 +89,25 @@ google.maps.event.addDomListener(window, 'load', initialize);
 }
 #main_content .map-page h2 {
 	font-size: 3em;
+	border-bottom: 1px solid #ccc;
+	padding: 0.3em 0;
+	margin: 0.2em 0;
 }
-
+#main_content .map-page h3 {
+	
+}
 .country-info-container{
 	padding: 1em 0;
-	border-bottom: 1px solid #ccc;
+	
 }
 </style>
 <div class="content-container typography map-page">	
 	<article>
 		<h1>$Title</h1>
 		<div id="map-canvas"></div>
-		<div class="content">$Content
+		<div class="content container-fluid">$Content
 		<!--$Picture -->
-		<div class="row-fluid">
+		<div class="row">
 			<section class="country-info-container span4">
 				<h2>Basic Info</h2>
 				<h3>Capital</h3>
