@@ -107,7 +107,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		<div id="map-canvas"></div>
 		<div class="content container-fluid">$Content
 		<!--$Picture -->
-		<div class="row">
+		<div class="row-fluid">
 			<section class="country-info-container span4">
 				<h2>Basic Info</h2>
 				<h3>Capital</h3>
