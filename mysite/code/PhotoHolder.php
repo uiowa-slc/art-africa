@@ -20,21 +20,10 @@ class PhotoHolder extends Page {
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
-		$fields->removeFieldFromTab("Root.Main","SortOrder");
-		
-		$gridFieldConfigPhoto = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("Photo", "Photos", Photo::get(), $gridFieldConfigPhoto);		
-		$fields->addFieldToTab('Root.Photos', $gridfield);
-		
-		$gridFieldConfigArtPhoto = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("ArtPhoto", "ArtPhotos", ArtPhoto::get(), $gridFieldConfigArtPhoto);		
-		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
-		
-		$gridFieldConfigFieldPhoto = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("FieldPhoto", "FieldPhotos", FieldPhoto::get(), $gridFieldConfigFieldPhoto);		
-		$fields->addFieldToTab('Root.FieldPhotos', $gridfield);*/
-		
+		$fields->removeFieldFromTab("Root.Main","Content");
+		//$fields->addFieldToTab("Root.Main")
+		$content = new HTMLEditorField("Content", "Content -- Use this field to edit the introduction to photos that shows up on the front-end of the site.  Use Art Photos and Field Photos to edit the photos themselves.");
+		$fields->addFieldToTab("Root.Main", $content);
 		return $fields;		
   }
   
