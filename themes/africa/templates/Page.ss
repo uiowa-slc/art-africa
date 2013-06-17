@@ -69,7 +69,11 @@
         </nav>
         <div id="main_content">
           $Layout
-          <!-- <a class="test-popup-link" href="/art-africa/themes/africa/images/logo.png">adsfasd</a> -->
+          <!-- <div class="gal">
+            <a class="gal-link" href="/art-africa/themes/africa/images/logo.png">adsfasd</a>
+            <a class="gal-link" href="/art-africa/themes/africa/images/UIMA-newlogo-black.png">adsfasd</a>
+            <a class="gal-link" href="/art-africa/themes/africa/images/facebook-icon.png">adsfasd</a>
+          </div> -->
           <% include SearchForm %>
           <!-- <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
           <div class="content-container typography">

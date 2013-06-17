@@ -82,7 +82,7 @@ a:hover {
 
 .hamburger {
   float: right;
-  width: 24px;
+  width: 28px;
   position: relative;
   top: 2rem;
   right: 1rem;
@@ -90,29 +90,29 @@ a:hover {
 }
 
 .hamburger > div {
-  height: 4px;
-  border-radius: 2px;
+  height: 5px;
+  border-radius: 3px;
   background: -webkit-linear-gradient(top,
-                                      rgba(255,255,255, 0.1),
+                                      rgba(255,255,255, 0.2),
                                       rgba(255,255,255, 0.3));
   background: linear-gradient(to bottom,
-                              rgba(255,255,255, 0.1),
+                              rgba(255,255,255, 0.2),
                               rgba(255,255,255, 0.3));
   box-shadow: inset 0 1px 0 rgba(255,255,255, 0.25);
 }
 
 .hamburger:active > div {
   background: -webkit-linear-gradient(top,
-                                      rgba(255,255,255, 0.15),
-                                      rgba(255,255,255, 0.3));
+                                      rgba(255,255,255, 0.25),
+                                      rgba(255,255,255, 0.35));
   background: linear-gradient(to bottom,
-                              rgba(255,255,255, 0.15),
-                              rgba(255,255,255, 0.3));
+                              rgba(255,255,255, 0.25),
+                              rgba(255,255,255, 0.35));
   box-shadow: inset 0 1px 0 rgba(255,255,255, 0.3);
 }
 
 .hamburger > .patty {
-  margin: 3px 0;
+  margin: 4px 0;
 }
 
 .nav1 {
