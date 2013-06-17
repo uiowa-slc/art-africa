@@ -65,18 +65,28 @@ window.addEventListener('load', function() {
 });
 
 $(document).ready(function () {
-  $('.gal').magnificPopup({
-    delegate: '.gal-link',
-    type: 'image',
-    gallery: {
-      enabled: true
-    }
-  });
+  // $('.gal').magnificPopup({
+  //   delegate: '.gal-link',
+  //   type: 'image',
+  //   gallery: {
+  //     enabled: true
+  //   }
+  // });
   $('#main_content').magnificPopup({
     delegate: '.artPhoto',
     type: 'image',
     gallery: {
-      enabled: true
+      enabled: true,
+      navigateByImgClick: false
     }
   });
+});
+
+$(document).on('click', '.mfp-img', function (event) {
+  event.preventDefault();
+  var src = $(this).attr('src'),
+      ap  = $('.artPhoto[data-mfp-src="' + src + '"]:first');
+
+  console.log(ap.length);
+  // could visit ap.attr('href')
 });
