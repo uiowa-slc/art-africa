@@ -7,11 +7,11 @@
 		$PageComments
 </div>
 
-<p><a class="open-glossary-popup" data-mfp-src="#fig">new test</a></p>
+<p><a class="open-glossary-popup" data-mfp-src="#spear">new test</a></p>
 
 
 <script type="text/javascript">
-alert("HII");
+
 	$('.open-glossary-popup').magnificPopup({
 	  
 	  type:'inline',

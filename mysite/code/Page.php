@@ -277,18 +277,18 @@ class Page_Controller extends ContentController {
 		foreach ($wordArray as $word){
 		    $allLowerCaseWord = strtolower($word->Word);
 		    $wordID = $word->ID;
-		    $newHTML = "<div id=" . $word->Word . " class='white-popup mfp-hide'>" . $word->Definition . "</div>";
-			$newHTML .= '<a class="open-glossary-popup" href="#' . $word->Word . '">' . $allLowerCaseWord . '</a>';
+		    $newHTML = "<div id='" . $word->Word . "' class='white-popup mfp-hide'>" . $word->Definition . "</div>";
+			$newHTML .= '<a class="open-glossary-popup" data-mfp-src="#' . $word->Word . '">' . $allLowerCaseWord . '</a>';
 			$pageContent = str_replace($allLowerCaseWord, $newHTML, $pageContent);
 			//$str = strtolower($str);
 			
 			$firstLetterUpperWord = ucwords($word->Word);
-			$newHTML = "<div id=" . $word->Word . " class='white-popup mfp-hide'>" . $word->Definition . "</div>";
-			$newHTML .= '<a class="open-glossary-popup" href="#' . $word->Word . '">' . $firstLetterUpperWord . '</a>';
+			$newHTML = "<div id='" . $word->Word . "' class='white-popup mfp-hide'>" . $word->Definition . "</div>";
+			$newHTML .= '<a class="open-glossary-popup" data-mfp-src="#' . $word->Word . '">' . $firstLetterUpperWord . '</a>';
 			$pageContent = str_replace($firstLetterUpperWord, $newHTML, $pageContent);
 		}
 		
-		$pageContent .= '<p><a class="open-glossary-popup" href="#fig">asdas</a></p>';
+		
 		
 		return $pageContent;
 	}
@@ -369,8 +369,12 @@ class Page_Controller extends ContentController {
 		
 		
 		$customise["picture"] = $picture;
+		
+		$customise["CreditLine"] = $photoObject->CreditLine;
 	    
 		$customise['filename'] = $picture->getFilename();
+		
+		$customise['ID'] = $photoObject->ID;
 		
 		$template = new SSViewer('FieldPhoto');
 		
@@ -412,6 +416,8 @@ class Page_Controller extends ContentController {
 		$customise["CreditLine"] = $photoObject->CreditLine;
 	    
 		$customise['filename'] = $picture->getFilename();
+		
+		$customise['ID'] = $photoObject->ID;
 		
 		$template = new SSViewer('ArtPhoto');
 		
