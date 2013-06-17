@@ -136,6 +136,11 @@ a:hover {
     display: none;
   }
 
+  .nav1 >ul>li>a {
+    display: block;
+    padding: 1.125rem 1.25rem;
+  }
+
   .nav1 >ul>li:nth-child(1)>a { background: #202020; }
   .nav1 >ul>li:nth-child(2)>a { background: #252525; }
   .nav1 >ul>li:nth-child(3)>a { background: #303030; }
@@ -143,11 +148,7 @@ a:hover {
   .nav1 >ul>li:nth-child(5)>a { background: #404040; }
   .nav1 >ul>li:nth-child(6)>a { background: #454545; }
   .nav1 >ul>li:nth-child(7)>a { background: #505050; }
-
-  .nav1 >ul>li>a {
-    display: block;
-    padding: 1.125rem 1.25rem;
-  }
+  .nav1 >ul>li:nth-child(8)>a { background: #555555; }
 }
 
 @media (min-width: 769px) {
@@ -450,6 +451,20 @@ a:hover {
 
 .nav3 {
   background: #444;
+}
+
+*[data-mfp-src],
+.mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+  cursor: pointer !important;
+}
+
+.mfp-zoom-out-cur {
+  cursor: default !important;
+}
+
+.credit-line {
+  color: #aaa;
+  font-size: 0.75rem;
 }
 
 .artPhoto {

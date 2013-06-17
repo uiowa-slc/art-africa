@@ -72,4 +72,11 @@ $(document).ready(function () {
       enabled: true
     }
   });
+  $('#main_content').magnificPopup({
+    delegate: '.artPhoto',
+    type: 'image',
+    gallery: {
+      enabled: true
+    }
+  });
 });
