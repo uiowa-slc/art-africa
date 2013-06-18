@@ -154,9 +154,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<p>$PrincipalLanguage</p>
 				<h3>Official Language</h3>
 				<p>$OfficialLanguage</p>
-			</section>			
-
+			</section>
+			
+			
 		</div>
+		<h2>Items associated with $Name</h2>
 			<!--People
 			<% loop People %>
 				$Title<br>
