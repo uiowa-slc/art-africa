@@ -277,13 +277,13 @@ class Page_Controller extends ContentController {
 		foreach ($wordArray as $word){
 		    $allLowerCaseWord = strtolower($word->Word);
 		    $wordID = $word->ID;
-		    $newHTML = "<div id='" . $word->Word . "' class='white-popup mfp-hide'>" . $word->Definition . "</div>";
+		    $newHTML = "<span id='" . $word->Word . "' class='white-popup mfp-hide'>" . $word->Definition . "</span>";
 			$newHTML .= '<a class="open-glossary-popup" data-mfp-src="#' . $word->Word . '">' . $allLowerCaseWord . '</a>';
 			$pageContent = str_replace($allLowerCaseWord, $newHTML, $pageContent);
 			//$str = strtolower($str);
 			
 			$firstLetterUpperWord = ucwords($word->Word);
-			$newHTML = "<div id='" . $word->Word . "' class='white-popup mfp-hide'>" . $word->Definition . "</div>";
+			$newHTML = "<span id='" . $word->Word . "' class='white-popup mfp-hide'>" . $word->Definition . "</span>";
 			$newHTML .= '<a class="open-glossary-popup" data-mfp-src="#' . $word->Word . '">' . $firstLetterUpperWord . '</a>';
 			$pageContent = str_replace($firstLetterUpperWord, $newHTML, $pageContent);
 		}

@@ -518,8 +518,10 @@ article.page {
 
 .white-popup {
   position: relative;
+  display: block;
   background: #FFF;
-  padding: 20px;
+  padding: 10px;
+  padding-top: 40px;
   width: auto;
   max-width: 500px;
   margin: 20px auto;

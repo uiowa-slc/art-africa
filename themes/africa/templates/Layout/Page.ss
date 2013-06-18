@@ -7,7 +7,7 @@
 		$PageComments
 </div>
 
-<p><a class="open-glossary-popup" data-mfp-src="#spear">new test</a></p>
+
 
 
 <script type="text/javascript">
