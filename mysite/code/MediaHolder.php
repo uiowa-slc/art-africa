@@ -78,15 +78,11 @@ class MediaHolder_Controller extends Page_Controller {
 	
 	}
 	
-	public function getVideos(){
-		$videoPieces = VideoPiece::get();
-		return $videoPieces;
+	public function testFunction(){
+		$returnString = "HI";
+		return $returnString;
 	}
 	
-	public function getAudio(){
-		$audioPieces = AudioPiece::get();
-		return $audioPieces;
-	}
 	
 	
 	

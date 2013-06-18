@@ -52,10 +52,9 @@ class ArtPhoto extends Photo {
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 
-
- 		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
+		$fields->addFieldToTab('Root.Main', new TextField('ArtID', 'Art ID'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));
- 		$fields->addFieldToTab('Root.Main', new TextField('TraditionalName', 'Traditional Name'));
+  		$fields->addFieldToTab('Root.Main', new TextField('TraditionalName', 'Traditional Name'));
  		$fields->addFieldToTab('Root.Main', new TextField('Material', 'Material'));
  		$fields->addFieldToTab('Root.Main', new TextField('Size', 'Size'));
  		$fields->addFieldToTab('Root.Main', new TextField('Function', 'Function'));

@@ -80,10 +80,15 @@ class FieldPhotoHolder_Controller extends Page_Controller {
 	
 	}
 	
-	public function getFieldPhotos(){
-		$fieldPhotos = FieldPhoto::get();
-		return $fieldPhotos;
+	public function testFunction(){
+		$returnString = "HI";
+		return $returnString;
 	}
+	
+
+	
+	
+	
 	
 	
 	

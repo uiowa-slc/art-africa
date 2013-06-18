@@ -293,9 +293,18 @@ class Page_Controller extends ContentController {
 		return $pageContent;
 	}
 	
-		
-		
-		
+	//Get a holder.  HolderType passed through in template
+	public function getHolderLink($holderType){
+		$holderLink = $holderType::get()->First()->Link();
+		return $holderLink;
+	}
+	
+	//Get a DataList for an object type.  Object type passed through in template
+	public function getObjects($type){
+		$desiredDataList = $type::get();
+		return $desiredDataList;
+	}
+	
 		
 		
 	

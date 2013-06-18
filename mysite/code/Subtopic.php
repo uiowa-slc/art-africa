@@ -4,9 +4,15 @@ class Subtopic extends Page {
  
   
   private static $db = array(	
-  'Name' => 'Varchar',
+  'Title' => 'Varchar',
   'Description' => 'Text',
-  'Tags' => 'Text'
+  'Tags' => 'Text',
+  /*
+  'Content2' => 'Text',
+  'Content3' => 'Text',
+  'Content4' => 'Text',
+  'Content5' => 'Text',
+  'Content6' => 'Text'*/
   );
 
   
@@ -22,6 +28,8 @@ class Subtopic extends Page {
   
   );
   
+   private static $has_many = array('EssayPages' => 'EssayPage');
+  
  
   
   private static $belongs_many_many = array(
@@ -34,10 +42,23 @@ class Subtopic extends Page {
   public function getCMSFields() {
  	
  		$fields = parent::getCMSFields();
-
-		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Topic Name'));
+ 		
+ 		//$fields->removeFieldFromTab('Root.Main', 'Content');
+		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Topic Name'));
 		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
+		//$fields->addFieldToTab('Root.Main', new HTMLEditorField('Content', 'First content page'));
+		
+		$gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
+		$gridfield = new GridField("EssayPages", "Essay Pages", $this->EssayPages(), $gridFieldConfigEssayPages);
+		$fields->addFieldToTab('Root.Main', $gridfield);
+		/*
+		$fields->addFieldToTab('Root.Pages', new HTMLEditorField('Content2', 'Second content page'));
+		$fields->addFieldToTab('Root.Pages', new HTMLEditorField('Content3', 'Third content page'));
+		$fields->addFieldToTab('Root.Pages', new HTMLEditorField('Content4', 'Fourth content page'));
+		$fields->addFieldToTab('Root.Pages', new HTMLEditorField('Content5', 'Fifth content page'));
+		$fields->addFieldToTab('Root.Pages', new HTMLEditorField('Content6', 'Sixth content page'));*/
 
 		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
@@ -100,6 +121,8 @@ class Subtopic extends Page {
 
   }
   
+  
+  
     
 }
 
@@ -123,5 +146,28 @@ class Subtopic_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ();
 	
+	public function show (){
+	//Displays a data object
+	
+						
+		$otherClass = 'Subtopic';
+		
+		$objectID = $this->request->param('ID');
+		if ($objectID){
+		
+		    $object = $otherClass::get_by_id($otherClass, $objectID);
+		    
+		    if(isset($object)){
+		       $showTemplate = $otherClass . '_show';
+			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
+			   
+		    }else{
+		    }		   
+		}
+		else {
+			return $this->renderWith('Page');
+		}
+	
+	}
 
 }

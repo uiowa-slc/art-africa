@@ -4,7 +4,7 @@ class People extends DataObject {
  
   
   private static $db = array(	
-  'Name' => 'Text',
+  'Title' => 'Text',
   'Location' => 'Text',
   'Languages' => 'Text',
   'Population' => 'Text',
@@ -47,7 +47,7 @@ class People extends DataObject {
  		$fields = parent::getCMSFields();
  		
  		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID', 'Temporary ID Field'));		
-		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Name'));
+		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
 		$fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
 		$fields->addFieldToTab('Root.Main', new TextField('Languages', 'Languages'));
 		$fields->addFieldToTab('Root.Main', new TextField('Population', 'Population'));
