@@ -2,11 +2,9 @@
 	<article>
 		<h1>$Title</h1>
 		<div class="content">
-		<% loop getEssays %>
-			<% if Name %>
-				<li><a href="essays/show/{$ID}">$Name</a></li>
-			<% else_if Title %>
-				<li><a href="essays/show/{$ID}">$Title</a></li>
+		<% loop getObjects('Essay') %>
+			<% if Title %>
+				<li><a href="{$Up.getHolderLink('EssayHolder')}/show/{$ID}">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		

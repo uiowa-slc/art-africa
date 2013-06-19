@@ -50,6 +50,33 @@ class Page_Controller extends ContentController {
 	* Create custom search results when a user searches
 	*/
 	
+	public function show (){
+	//Displays a data object of the class childPage, which is found in the controller of the holder class show is called on
+		
+						
+		$otherClass = $this::$childPage;
+
+		$objectID = $this->request->param('ID');
+		if ($objectID){
+		
+		    $object = $otherClass::get_by_id($otherClass, $objectID);
+		    
+		    if(isset($object)){
+		    	
+			       $showTemplate = $otherClass . 'Holder_show';
+				   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
+				
+			   
+		    }else{
+		    }		   
+		}
+		else {
+			return $this->renderWith('Page');
+		}
+	
+	}
+	
+	
 	function results($data, $form, $request)
 	  {	
 		
@@ -293,9 +320,18 @@ class Page_Controller extends ContentController {
 		return $pageContent;
 	}
 	
-		
-		
-		
+	//Get a holder.  HolderType passed through in template
+	public function getHolderLink($holderType){
+		$holderLink = $holderType::get()->First()->Link();
+		return $holderLink;
+	}
+	
+	//Get a DataList for an object type.  Object type passed through in template
+	public function getObjects($type){
+		$desiredDataList = $type::get();
+		return $desiredDataList;
+	}
+	
 		
 		
 	

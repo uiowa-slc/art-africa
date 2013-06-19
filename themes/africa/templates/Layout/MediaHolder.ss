@@ -3,19 +3,28 @@
 		<h1>$Title</h1>
 		<div class="content">
 		Videos <br><br>
-		<% loop getVideos %>
-			<% if Name %>
-				<li><a href="art-photos/show/{$ID}">$Name</a></li><br>
-			<% else_if Title %>
-				<li><a href="art-photos/show/{$ID}">$Title</a></li><br>
+		<% loop getObjects('VideoPiece') %>
+			<% if Title %>
+				<li><a href="{$Up.getHolderLink('VideoPieceHolder')}/show/{$ID}">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		Audio <br><br>
-		<% loop getAudio %>
-			<% if Name %>
-				<li><a href="field-photo-holder/show/{$ID}">$Name</a></li><br>
-			<% else_if Title %>
-				<li><a href="field-photo-holder/show/{$ID}">$Title</a></li><br>
+		<% loop getObjects('AudioPiece') %>
+			<% if Title %>
+				<li><a href="{$Up.getHolderLink('AudioPieceHolder')}/show/{$ID}">$Title</a></li><br>
+			<% end_if %>
+		<% end_loop %>
+		Art Photos <br><br>
+		<% loop getObjects('ArtPhoto') %>
+			<% if Title %>
+				<li><a href="{$Up.getHolderLink('ArtPhotoHolder')}/show/{$ID}">$Title</a></li><br>
+			<% end_if %>
+		<% end_loop %>
+		
+		Field Photos <br><br>
+		<% loop getObjects('FieldPhoto') %>
+			<% if Title %>
+				<li><a href="{$Up.getHolderLink('FieldPhotoHolder')}/show/{$ID}">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		
@@ -24,4 +33,5 @@
 	</article>
 		
 </div>
+
 <% include SideBar %>

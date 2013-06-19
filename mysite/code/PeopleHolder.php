@@ -16,6 +16,7 @@ class PeopleHolder extends Page {
   
   private static $belongs_many_many = array();
   
+  
 
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
@@ -54,36 +55,15 @@ class PeopleHolder_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ('show', 'getPeople');
 	
-	public function show (){
-	//Displays a data object
+	public static $childPage = 'People'; //Used in Show function in Page.php
 	
-						
-		$otherClass = 'People';
-		
-		$objectID = $this->request->param('ID');
-		if ($objectID){
-		
-		    $object = $otherClass::get_by_id($otherClass, $objectID);
-		    
-		    if(isset($object)){
-		       $showTemplate = $otherClass . 'Holder_show';
-			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
-			   
-		    }else{
-		    }		   
-		}
-		else {
-			return $this->renderWith('Page');
-		}
-	
-	}
-	
+
 	public function getPeople(){
 	$people = People::get();
 	return $people;
 	}
 	
-	
+
 	
 	
 	

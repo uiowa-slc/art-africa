@@ -4,7 +4,7 @@ class Chapter extends Page {
  
   
   private static $db = array(	
-  'Name' => 'Varchar',
+  'Title' => 'Varchar',
   'Description' => 'Text',
   'Tags' => 'Text'
   );
@@ -30,7 +30,7 @@ class Chapter extends Page {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
 		
-		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Topic Name'));
+		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Topic Name'));
 		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
 		

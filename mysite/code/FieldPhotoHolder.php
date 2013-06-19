@@ -54,11 +54,13 @@ class FieldPhotoHolder_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ('show', 'getFieldPhotos');
 	
+	public static $childPage = 'FieldPhoto';
+	
 	public function show (){
 	//Displays a data object
 	
 						
-		$class = 'FieldPhoto';
+		$class = $this->ClassName;
 		
 		$objectID = $this->request->param('ID');
 		
@@ -80,10 +82,15 @@ class FieldPhotoHolder_Controller extends Page_Controller {
 	
 	}
 	
-	public function getFieldPhotos(){
-		$fieldPhotos = FieldPhoto::get();
-		return $fieldPhotos;
+	public function testFunction(){
+		$returnString = "HI";
+		return $returnString;
 	}
+	
+
+	
+	
+	
 	
 	
 	

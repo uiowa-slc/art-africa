@@ -5,7 +5,7 @@ class MediaPiece extends DataObject {
   
   private static $db = array(	
   'History' => 'Text',
-  'Name' => 'Text',
+  'Title' => 'Text',
   'CreditLine' => 'Text',
   /*'Bibliography' => 'Text',*/
   'Tags' => 'Text'
@@ -32,7 +32,7 @@ class MediaPiece extends DataObject {
  		$fields = parent::getCMSFields();
  		
  		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Name', 'Name'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('History', 'History'));
  		//$fields->addFieldToTab('Root.Main', new TextAreaField('Bibliography', 'Bibliography'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));

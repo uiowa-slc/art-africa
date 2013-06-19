@@ -1,6 +1,6 @@
 <?php
  
-class AudioHolder extends Page {
+class AudioPieceHolder extends Page {
  
   
   private static $db = array(	
@@ -32,7 +32,7 @@ class AudioHolder extends Page {
 }
 
 
-class AudioHolder_Controller extends Page_Controller {
+class AudioPieceHolder_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -51,11 +51,13 @@ class AudioHolder_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ('show', 'getAudio');
 	
+	public static $childPage = 'Audio';
+	
 	public function show (){
 	//Displays a data object
 	
 						
-		$otherClass = 'Media';
+		$otherClass = 'AudioPiece';
 		
 		$objectID = $this->request->param('ID');
 		if ($objectID){
@@ -63,7 +65,7 @@ class AudioHolder_Controller extends Page_Controller {
 		    $object = $otherClass::get_by_id($otherClass, $objectID);
 		    
 		    if(isset($object)){
-		       $showTemplate = $class . 'Holder_show';
+		       $showTemplate = $otherClass . 'Holder_show';
 			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
 			   
 		    }else{

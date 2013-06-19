@@ -2,11 +2,9 @@
 	<article>
 		<h1>$Title</h1>
 		<div class="content">
-		<% loop getPeople %>
-			<% if Name %>
-				<li><a href="peoples/show/{$ID}">$Name</a></li>
-			<% else_if Title %>
-				<li><a href="peoples/show/{$ID}">$Title</a></li>
+		<% loop getObjects('VideoPiece') %>
+			<% if Title %>
+				<li><a href="{$Up.getHolderLink('VideoHolder')}/show/{$ID}">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		

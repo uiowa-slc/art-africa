@@ -2,11 +2,10 @@
 	<article>
 		<h1>$Title</h1>
 		<div class="content">
-		<% loop getCountries %>
-			<% if Name %>
-				<li><a href="countries/show/{$ID}">$Name</a></li>
-			<% else_if Title %>
-				<li><a href="countries/show/{$ID}">$Title</a></li>
+		<% loop getObjects('Country') %>
+ 
+			<% if Title %>
+				<li><a href="{$Up.getHolderLink('CountryHolder')}/show/{$ID}">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		
