@@ -45,6 +45,28 @@ a:hover {
   text-decoration: underline;
 }
 
+ul {
+  list-style-type: square;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"] {
+  padding: 0.375rem 0.5rem;
+  border: 0.0625rem solid #aaa;
+  text-rendering: optimizeLegibility;
+}
+
+input[type="submit"],
+button {
+  background: #591202;
+  padding: 0.4375rem 1rem;
+  color: white;
+  border: 0;
+  text-rendering: optimizeLegibility;
+}
+
 .img-link,
 .img-link:hover {
   text-decoration: none !important;

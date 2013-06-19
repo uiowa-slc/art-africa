@@ -48,7 +48,6 @@
         <div id="chapters_heading">$Level(1).Title</div>
         <nav class="nav2">
           <ul>
-
             <!-- Chapters -->
             <% if $Level(1).Title == 'Chapters' %>
             <% loop ChildrenOf('chapters') %>
@@ -155,12 +154,11 @@
                   <a href="#" class="img-link">
                     <img width="42" src="{$ThemeDir}/images/facebook-icon.png" style="margin-right: 0.5rem">
                   </a>
-                  <!-- http://www.youtube.com/user/CDROYburkina -->
-                  <!-- <a href="#" class="img-link">
-                    <img width="42" src="{$ThemeDir}/images/twitter-icon.png" style="margin-right: 0.5rem">
-                  </a> -->
                   <a href="#" class="img-link">
-                    <img width="42" src="{$ThemeDir}/images/twitter-icon.png">
+                    <img width="42" src="{$ThemeDir}/images/twitter-icon.png" style="margin-right: 0.5rem">
+                  </a>
+                  <a href="http://www.youtube.com/user/CDROYburkina" target="_blank" class="img-link">
+                    <img width="42" src="{$ThemeDir}/images/youtube-icon.png">
                   </a>
                 </p>
                 <ul>
