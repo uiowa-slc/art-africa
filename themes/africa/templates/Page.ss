@@ -134,7 +134,7 @@
                 </p>
                 <p>
                   1375 Highway One West<br>
-                  1840 Studio Arts Building</br>
+                  1840 Studio Arts Building<br>
                   Iowa City, IA 52242<br>
                   Telephone (319) 335-1727<br>
                   Fax (319) 335-3677
@@ -144,20 +144,20 @@
                 <h3>See the African Art collection in person</h3>
                 <p>
                   1375 Highway One West<br>
-                  1840 Studio Arts Building</br>
+                  1840 Studio Arts Building<br>
                   Iowa City, IA 52242<br>
                   Telephone (319) 335-1727
                 </p>
               </div>
               <div class="col">
                 <p style="margin-top: 2rem">
-                  <a href="#" class="img-link">
+                  <a class="img-link" target="_blank" href="#">
                     <img width="42" src="{$ThemeDir}/images/facebook-icon.png" style="margin-right: 0.5rem">
                   </a>
-                  <a href="#" class="img-link">
+                  <a class="img-link" target="_blank" href="#">
                     <img width="42" src="{$ThemeDir}/images/twitter-icon.png" style="margin-right: 0.5rem">
                   </a>
-                  <a href="http://www.youtube.com/user/CDROYburkina" target="_blank" class="img-link">
+                  <a class="img-link" target="_blank" href="http://www.youtube.com/user/CDROYburkina">
                     <img width="42" src="{$ThemeDir}/images/youtube-icon.png">
                   </a>
                 </p>
