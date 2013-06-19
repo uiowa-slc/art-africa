@@ -6,7 +6,7 @@
 					
 			Name: $Name<br><br>
 			Location: $Location<br><br>
-			Languages: $Languages<br><br>
+			Languages: $filteredField("Languages", $ID, "People")<br><br>
 			Population: $Population<br><br>
 			TypesOfArt: $TypesOfArt<br><br>
 			History: $History<br><br>
@@ -54,3 +54,13 @@
 		
 </div>
 <% include SideBar %>
+
+<script type="text/javascript">
+
+	$('.open-glossary-popup').magnificPopup({
+	  
+	  type:'inline',
+	  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+	 });
+
+</script>

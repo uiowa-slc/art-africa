@@ -11,7 +11,9 @@ class EssayPage extends DataObject {
   
   private static $default_sort = 'PageNo';
 
-  private static $has_one = array('Subtopic' => 'Subtopic' );
+  private static $has_one = array(
+  'Subtopic' => 'Subtopic',
+  'Essay' => 'Essay');
   
   static $searchable_fields = array('PageNo', 'Content');
   

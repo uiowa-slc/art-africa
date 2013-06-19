@@ -2,7 +2,7 @@
 	<article class="page">
 		<h1>$Title</h1>
 		Layout/Page.ss in the building
-		<div class="content">$filteredContent</div>
+		<div class="content">$filteredField("Content", $ID, "Page")</div>
 	</article>
 		$Form
 		$PageComments

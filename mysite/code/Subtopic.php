@@ -171,8 +171,6 @@ class Subtopic_Controller extends Page_Controller {
 	
 	}
 	
-	public function PaginatedPages(){
-		 return new PaginatedList($this->EssayPages(), $this->request);
-	}
+	
 
 }

@@ -36,6 +36,8 @@ class Essay extends DataObject {
   
   );
   
+  private static $has_many = array('EssayPages' => 'EssayPage');
+  
   private static $plural_name = "Essays";
 
 
@@ -44,6 +46,12 @@ class Essay extends DataObject {
  			$fields = parent::getCMSFields();
  		
  		 //$fields->removeByName('');
+ 		 
+ 		 $gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
+		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));
+		$gridfield = new GridField("EssayPages", "Essay Pages", $this->EssayPages(), $gridFieldConfigEssayPages);
+		$fields->addFieldToTab('Root.Main', $gridfield);
  		
  		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Title'));
  		$fields->addFieldToTab('Root.Main', new TextField('Author', 'Author'));

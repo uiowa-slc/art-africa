@@ -64,6 +64,7 @@ class Page_Controller extends ContentController {
 		    if(isset($object)){
 		    	
 			       $showTemplate = $otherClass . 'Holder_show';
+
 				   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
 				
 			   
@@ -297,9 +298,34 @@ class Page_Controller extends ContentController {
 	
 
 	
-	//Return content of page with words that appear in glossary as hypertext 
-	public function filteredContent(){
-		$pageContent = $this->Content;
+	
+	/*TEMPLATE FUNCTIONS*/
+	
+	//Get a holder.  HolderType passed through in template
+	public function getHolderLink($holderType){
+		$holderLink = $holderType::get()->First()->Link();
+		return $holderLink;
+	}
+	
+	//Get a DataList for an object type.  Object type passed through in template
+	public function getObjects($type){
+		$desiredDataList = $type::get();
+		return $desiredDataList;
+	}
+	
+	public function getPaginatedPages($relation){
+		 $list = new PaginatedList($this->$relation(), $this->request);
+		 $list->setPageLength(1);
+		 return $list;
+	}
+	
+	//Filters a field for glossary terms.  Returns content of page with words that appear in glossary as hypertext
+	public function filteredField($field, $ID, $class = 'Page'){
+		
+		print_r("ID :");
+		print_r($ID);
+		$object = DataObject::get_by_id($class, $ID);
+		$pageContent = $object->$field;
 		$wordArray = Word::get();
 		foreach ($wordArray as $word){
 		    $allLowerCaseWord = strtolower($word->Word);
@@ -317,22 +343,9 @@ class Page_Controller extends ContentController {
 		
 		
 		
+		
 		return $pageContent;
 	}
-	
-	//Get a holder.  HolderType passed through in template
-	public function getHolderLink($holderType){
-		$holderLink = $holderType::get()->First()->Link();
-		return $holderLink;
-	}
-	
-	//Get a DataList for an object type.  Object type passed through in template
-	public function getObjects($type){
-		$desiredDataList = $type::get();
-		return $desiredDataList;
-	}
-	
-		
 		
 	
 		public function search()

@@ -35,9 +35,7 @@ class Country extends DataObject {
   
   );
   
-  private static $searchable_fields = array(
-  'Name'
-  );
+  
   
   private static $many_many = array(
   'People' => 'People',
