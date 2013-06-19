@@ -53,29 +53,9 @@ class EssayHolder_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ('show');
 	
-	public function show (){
-	//Displays a data object
+	public static $childPage = 'Essay';
 	
-						
-		$otherClass = 'Essay';
-		
-		$objectID = $this->request->param('ID');
-		if ($objectID){
-		
-		    $object = $otherClass::get_by_id($otherClass, $objectID);
-		    
-		    if(isset($object)){
-		       $showTemplate = $otherClass . 'Holder_show';
-			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
-			   
-		    }else{
-		    }		   
-		}
-		else {
-			return $this->renderWith('Page');
-		}
 	
-	}
 	
 	
 	public function essaysByAuthor(){

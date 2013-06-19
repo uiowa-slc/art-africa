@@ -51,6 +51,7 @@ class Subtopic extends Page {
 		
 		$gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
+		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));
 		$gridfield = new GridField("EssayPages", "Essay Pages", $this->EssayPages(), $gridFieldConfigEssayPages);
 		$fields->addFieldToTab('Root.Main', $gridfield);
 		/*
@@ -168,6 +169,10 @@ class Subtopic_Controller extends Page_Controller {
 			return $this->renderWith('Page');
 		}
 	
+	}
+	
+	public function PaginatedPages(){
+		 return new PaginatedList($this->EssayPages(), $this->request);
 	}
 
 }

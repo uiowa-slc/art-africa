@@ -43,40 +43,13 @@ class CountryHolder_Controller extends Page_Controller {
 
 	private static $allowed_actions = array ('show', 'getCountries');
 	
+	public static $childPage = 'Country';
+	
 	public function getCountries(){
 	$country = Country::get();
 	return $country;
 	}
 	
-
-	
-	public function show (){
-	//Displays a data object
-	
-						
-		$class = 'Country';
-		
-		$objectID = $this->request->param('ID');
-		
-	
-		
-		if ($objectID){
-		
-		    $object = $class::get_by_id($class, $objectID);
-		    
-		    		    
-		    if(isset($object)){
-		       $showTemplate = $class . 'Holder_show';
-			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
-			   
-		    }else{
-		    }		   
-		}
-		else {
-			return $this->renderWith('Page');
-		}
-	
-	}
 	
 	public function getCustomFields(){
 	  	$fields = DataObject::custom_database_fields('Country');

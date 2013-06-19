@@ -5,13 +5,13 @@
 		Art Photos <br><br>
 		<% loop getObjects('ArtPhoto') %>
 			<% if Title %>
-				<li><a href="{$Up.getHolderLink('AudioHolder')}/show/{$ID}">$Title</a></li><br>
+				<li><a href="{$Up.getHolderLink('ArtPhotoHolder')}/show/{$ID}">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		Field Photos <br><br>
 		<% loop getObjects('FieldPhoto') %>
 			<% if Title %>
-				<li><a href="{$Up.getHolderLink('AudioHolder')}/show/{$ID}">$Title</a></li><br>
+				<li><a href="{$Up.getHolderLink('FieldPhotoHolder')}/show/{$ID}">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		

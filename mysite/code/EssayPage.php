@@ -12,6 +12,12 @@ class EssayPage extends DataObject {
   private static $default_sort = 'PageNo';
 
   private static $has_one = array('Subtopic' => 'Subtopic' );
+  
+  static $searchable_fields = array('PageNo', 'Content');
+  
+  private static $summary_fields = array('PageNo', 'Content');
+  
+  private static $plural_name = 'Essay Pages';
 
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
@@ -27,6 +33,8 @@ class EssayPage extends DataObject {
 
 
 class EssayPage_Controller extends ContentController {
+
+	
 	public function HI(){
 		print_r("Hi");
 	}
