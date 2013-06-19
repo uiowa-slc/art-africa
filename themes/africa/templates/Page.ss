@@ -45,9 +45,12 @@
       </div>
       <div id="middle">
         <!-- for chapter pages -->
-        <div id="chapters_heading">Chapters</div>
+        <div id="chapters_heading">$Level(1).Title</div>
         <nav class="nav2">
           <ul>
+
+            <!-- Chapters -->
+            <% if $Level(1).Title == 'Chapters' %>
             <% loop ChildrenOf('chapters') %>
             <li>
               <a href="$Link">$MenuTitle</a>
@@ -66,6 +69,48 @@
               <% end_if %>
             </li>
             <% end_loop %>
+            <% end_if %>
+
+            <!-- Countries -->
+            <% if $Level(1).Title == 'Countries' %>
+            <% loop getCountries %>
+            <% if Name %>
+              <li><a href="countries/show/{$ID}">$Name</a></li>
+            <% else_if Title %>
+              <li><a href="countries/show/{$ID}">$Title</a></li>
+            <% end_if %>
+            <% end_loop %>
+            <% end_if %>
+
+            <!-- Peoples -->
+            <% if $Level(1).Title == 'Peoples' %>
+            <% loop getPeople %>
+            <% if Name %>
+              <li><a href="peoples/show/{$ID}">$Name</a></li>
+            <% else_if Title %>
+              <li><a href="peoples/show/{$ID}">$Title</a></li>
+            <% end_if %>
+            <% end_loop %>
+            <% end_if %>
+
+            <!-- Photos -->
+            <% if $Level(1).Title == 'Photos' %>
+            <% end_if %>
+
+            <!-- Media -->
+            <% if $Level(1).Title == 'Media' %>
+            <% end_if %>
+
+            <!-- Field Essays -->
+            <% if $Level(1).Title == 'Field Essays' %>
+            <% loop getEssays %>
+            <% if Name %>
+              <li><a href="essays/show/{$ID}">$Name</a></li>
+            <% else_if Title %>
+              <li><a href="essays/show/{$ID}">$Title</a></li>
+            <% end_if %>
+            <% end_loop %>
+            <% end_if %>
           </ul>
         </nav>
         <div id="main_content">
