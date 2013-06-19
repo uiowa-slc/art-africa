@@ -1,4 +1,4 @@
 <div class="artPhotoContainer">
-  <img src="{$filename}" data-mfp-src="{$filename}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="/foo">
+  <img src="{$filename}" data-mfp-src="{$filename}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="/art-africa/art-photos/show/{$ID}">
   <div class="credit-line">$CreditLine</div>
 </div>
