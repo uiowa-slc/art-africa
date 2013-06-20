@@ -1,0 +1,4 @@
+ @charset "utf-8";
+.required label:after {
+    content: ' \2022';
+} 

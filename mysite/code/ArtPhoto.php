@@ -128,15 +128,6 @@ class ArtPhoto extends Photo {
   }
   
   
-  	public function onBeforeWrite(){
-  		//print_r($this->CreditLine);
-		if ($this->Name != 'Female Figure with Child'){
-			return false;
-		}
-		
-		parent::onBeforeWrite();
-	}
-	
   
   
   

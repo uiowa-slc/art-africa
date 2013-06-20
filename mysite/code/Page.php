@@ -320,32 +320,38 @@ class Page_Controller extends ContentController {
 	}
 	
 	//Filters a field for glossary terms.  Returns content of page with words that appear in glossary as hypertext
-	public function filteredField($field, $ID, $class = 'Page'){
+	public function filteredField($field, $ID, $class){
 		
-		print_r("ID :");
-		print_r($ID);
 		$object = DataObject::get_by_id($class, $ID);
-		$pageContent = $object->$field;
+		print_r($object);
+		$pageContent = $object->$field;		
 		$wordArray = Word::get();
+		$iter = 0;
+		
+		//IDs for the glossary boxes that pop up are generated using semantically meaningless IDs (Word2, Word3) instead of the actual word to keep it from interfering with the string replacement
 		foreach ($wordArray as $word){
+		    $iter++; 
 		    $allLowerCaseWord = strtolower($word->Word);
 		    $wordID = $word->ID;
-		    $newHTML = "<span id='" . $word->Word . "' class='white-popup mfp-hide'>" . $word->Definition . "</span>";
-			$newHTML .= '<a class="open-glossary-popup" data-mfp-src="#' . $word->Word . '">' . $allLowerCaseWord . '</a>';
+		    $newHTML = '<span id="' . 'word' . $iter . '" class="white-popup mfp-hide">' . $word->Definition . "</span>";
+			$newHTML .= '<a class="open-glossary-popup" data-mfp-src="#' . 'word' . $iter . '">' . $allLowerCaseWord . '</a>';
 			$pageContent = str_replace($allLowerCaseWord, $newHTML, $pageContent);
-			//$str = strtolower($str);
 			
 			$firstLetterUpperWord = ucwords($word->Word);
-			$newHTML = "<span id='" . $word->Word . "' class='white-popup mfp-hide'>" . $word->Definition . "</span>";
+			$newHTML = '<span id="' . $word->Word . '" class="white-popup mfp-hide">' . $word->Definition . "</span>";
 			$newHTML .= '<a class="open-glossary-popup" data-mfp-src="#' . $word->Word . '">' . $firstLetterUpperWord . '</a>';
 			$pageContent = str_replace($firstLetterUpperWord, $newHTML, $pageContent);
+			
 		}
+
 		
 		
 		
 		
 		return $pageContent;
 	}
+	
+	
 		
 	
 		public function search()
