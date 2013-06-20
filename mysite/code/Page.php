@@ -50,33 +50,6 @@ class Page_Controller extends ContentController {
 	* Create custom search results when a user searches
 	*/
 	
-	public function show (){
-	//Displays a data object of the class childPage, which is found in the controller of the holder class show is called on
-		
-						
-		$otherClass = $this::$childPage;
-
-		$objectID = $this->request->param('ID');
-		if ($objectID){
-		
-		    $object = $otherClass::get_by_id($otherClass, $objectID);
-		    
-		    if(isset($object)){
-		    	
-			       $showTemplate = $otherClass . 'Holder_show';
-
-				   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
-				
-			   
-		    }else{
-		    }		   
-		}
-		else {
-			return $this->renderWith('Page');
-		}
-	
-	}
-	
 	
 	function results($data, $form, $request)
 	  {	
@@ -351,6 +324,32 @@ class Page_Controller extends ContentController {
 		return $pageContent;
 	}
 	
+	//Displays a data object of the class childPage, which is found in the controller of the holder class show is called on
+	public function show (){
+							
+		$otherClass = $this::$childPage;
+
+		$objectID = $this->request->param('ID');
+		if ($objectID){
+		
+		    $object = $otherClass::get_by_id($otherClass, $objectID);
+		    
+		    if(isset($object)){
+		    	
+			       $showTemplate = $otherClass . 'Holder_show';
+
+				   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
+				
+			   
+		    }else{
+		    }		   
+		}
+		else {
+			return $this->renderWith('Page');
+		}
+	
+	}
+	
 	
 		
 	
@@ -450,38 +449,51 @@ class Page_Controller extends ContentController {
 		    return;
 	    }
 	    
-	    $customise = array();
+	   $photoObject = DataObject::get_by_id("ArtPhoto", $photoID);
+	   $newObject = $photoObject->toMap();
+	   $newObject = new ArrayData($newObject); //cast to array that can be displayed on template
 	    
 	    if (isset($arguments["size"])){
-		    $customise['size'] = $arguments["size"] . 'Image';
+		    $newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
 	    }
 	    else {
 		    $customise['size'] = 'normal';
 	    }
 	  
-	    
-	    
-		$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);
-		$picture = $photoObject->Picture();
-		
-		
-		
-		$customise["picture"] = $picture;
-		
-		$customise["CreditLine"] = $photoObject->CreditLine;
-	    
-		$customise['filename'] = $picture->getFilename();
-		
-		$customise['ID'] = $photoObject->ID;
-		
 		$template = new SSViewer('ArtPhoto');
+
+		$picture = $photoObject->Picture();
+		$newObject->setField('filename', $picture->getFilename());
 		
-		return $template->process(new ArrayData($customise));
+		return $template->process($newObject);
+			
+	}
+	
+	public function shortCodeHandler($arguments, $class){
+		  if (isset($arguments["ID"])){
+		    $photoID = $arguments["ID"];
+	    }
+	    else {
+		    return;
+	    }
+	    
+	   $photoObject = DataObject::get_by_id($class, $photoID);
+	   $newObject = $photoObject->toMap();
+	   $newObject = new ArrayData($newObject); //cast to array that can be displayed on template
+	    
+	    if (isset($arguments["size"])){
+		    $newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
+	    }
+	    else {
+		    $customise['size'] = 'normal';
+	    }
+	  
+		$template = new SSViewer($class);
+
+		$picture = $photoObject->Picture();
+		$newObject->setField('filename', $picture->getFilename());
 		
-		//print_r($filename);
-	    //$pictureHTML = '<img src="' . $filename . '" . width="' . $photoWidth . '" height="' . $photoHeight . '"/>';
-		//
-		return $pictureHTML;		
+		return $template->process($newObject);		
 	}
 
 /**
