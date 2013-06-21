@@ -10,6 +10,7 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <script src="{$ThemeDir}/javascript/jquery.magnific-popup.min.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry"></script>
     <script src="{$ThemeDir}/javascript/script.js" type="text/javascript"></script>
     <link href='{$ThemeDir}/css/layout.css' rel='stylesheet' type='text/css'>
     <link href='{$ThemeDir}/css/magnific-popup.css' rel='stylesheet' type='text/css'>
