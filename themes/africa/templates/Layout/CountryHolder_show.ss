@@ -150,7 +150,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<p>$Religion</p>
 				<h3>Literacy</h3>
 				<p>$Literacy</p>
-				<h3>Principle Language</h3>
+				<h3>Principal Language</h3>
 				<p>$PrincipalLanguage</p>
 				<h3>Official Language</h3>
 				<p>$OfficialLanguage</p>

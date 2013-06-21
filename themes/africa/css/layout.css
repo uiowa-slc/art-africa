@@ -385,6 +385,8 @@ button {
   font-size: 1.125rem;
   line-height: 1.75rem;
   margin: 1.5rem 0;
+  font-weight: normal;
+  text-transform: none;
 }
 
 #main_content::selection,
@@ -555,4 +557,19 @@ article.page {
   width: auto;
   max-width: 500px;
   margin: 20px auto;
+}
+
+.artPic{
+	width: 50% !important;
+	margin: auto;
+	margin-bottom: 5%;
+}
+
+.artPic img {
+	width: 100%;
+	position: static !important;
+}
+
+.title {
+	text-align: center;
 }
