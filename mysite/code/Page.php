@@ -450,6 +450,7 @@ class Page_Controller extends ContentController {
 	    }
 	    
 	   $photoObject = DataObject::get_by_id("ArtPhoto", $photoID);
+	   //$photoObject = ArtPhoto::get()->filter(array()
 	   $newObject = $photoObject->toMap();
 	   $newObject = new ArrayData($newObject); //cast to array that can be displayed on template
 	    

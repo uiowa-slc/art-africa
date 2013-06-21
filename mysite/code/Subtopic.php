@@ -4,7 +4,6 @@ class Subtopic extends Page {
  
   
   private static $db = array(	
-  'Title' => 'Varchar',
   'Description' => 'Text',
   'Tags' => 'Text',
   /*
