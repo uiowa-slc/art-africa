@@ -77,8 +77,8 @@ class Page_Controller extends ContentController {
 	    $countries = new ArrayList();
 	    $audioPieces = new ArrayList();
 	    $videoPieces = new ArrayList();
-	    $photos = new ArrayList();
-	    $photos = new ArrayList();
+	    $artPhotos = new ArrayList();
+	    $fieldPhotos = new ArrayList();
 	    
 	      $data = array(
 	      'Subtopic' => $subtopics,
@@ -87,13 +87,14 @@ class Page_Controller extends ContentController {
 		  'Country' => $countries,
 		  'AudioPiece' => $audioPieces,
 		  'VideoPiece' => $videoPieces,
-		  'ArtPhoto' => $photos,
-		  'FieldPhoto' => $photos,
+		  'ArtPhoto' => $artPhotos,
+		  'FieldPhoto' => $fieldPhotos,
 		  'Query' => $keyword
 			); 
 	    
+	    /*ADD IN CLASSES TO BE SEARCHED HERE */
 	    $siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
-	    $dataObjectClasses = array('Country', 'Essay', 'People'); //add in your DataObjects
+	    $dataObjectClasses = array('Country', 'Essay', 'People', 'ArtPhoto', 'FieldPhoto'); //add in your DataObjects, 
 	    $bibliographyClasses = array('Essay', 'MediaPiece'); //add classes with the Bibliography field
 	    
 	    //When the bibliography check box is checked, only search classes that have the Bibliography field + Essays
@@ -165,9 +166,6 @@ class Page_Controller extends ContentController {
 		         }
 	         }    
           }
-
-		   
-		 
 	    $pages->sort(array(
 	      'Relevance' => 'DESC',
 	      'Title' => 'ASC'
@@ -495,6 +493,16 @@ class Page_Controller extends ContentController {
 		$newObject->setField('filename', $picture->getFilename());
 		
 		return $template->process($newObject);		
+	}
+	
+	public function loadTest(){
+		for ($iter = 0; $iter <= 100; $iter++){
+			$artPhoto = ArtPhoto::get()->byID(7);
+			$newPhoto = $artPhoto->duplicate();
+			
+		}
+		return $this->renderWith('Page');
+
 	}
 
 /**
