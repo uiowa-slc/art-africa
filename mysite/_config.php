@@ -52,5 +52,7 @@ ShortcodeParser::get('default')->register(
     'FieldPhoto', array('Page_Controller', 'fieldPhotoHandler')
 );
 
+Object::add_extension("DataObject","AfricaDataObjectExtension");
+
 FulltextSearchable::enable();
 //Object::add_extension('CollectionPiece', "FulltextSearchable('Keywords')");

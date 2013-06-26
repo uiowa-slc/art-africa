@@ -349,8 +349,10 @@ class Page_Controller extends ContentController {
 
 			if(isset($object)){
 				$showTemplate = $otherClass . 'Holder_show';
+				print_r("THIS SHOW IS CALLED");
+				print_r($object);
 				return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
-
+			
 			}else{
 				// If Object isn't set/found, return a 404 error.
 				$this->httpError(404);
@@ -359,6 +361,7 @@ class Page_Controller extends ContentController {
 		else {
 			return $this->renderWith('Page');
 		}
+	
 
 	}
 	
