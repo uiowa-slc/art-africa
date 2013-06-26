@@ -1,6 +1,6 @@
 <?php
  
-class People extends DataObject {
+class People extends AfricaDataObject {
  
   
   private static $db = array(	
