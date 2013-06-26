@@ -1,106 +1,4 @@
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script>
-var map;
-var country = new google.maps.LatLng(7.6219, 6.9743);
-
-var MY_MAPTYPE_ID = 'custom_style';
-
-function initialize() {
-
-  var featureOpts = [
-  {
-    "featureType": "water",
-    "stylers": [
-      { "visibility": "on" },
-      { "color": "#0b0be6" },
-      { "lightness": 88 },
-      { "saturation": -45 }
-    ]
-  },{
-    "featureType": "landscape.natural",
-    "stylers": [
-      { "color": "#828080" },
-      { "lightness": 100 }
-    ]
-  },{
-    "featureType": "administrative.country",
-    "elementType": "geometry",
-    "stylers": [
-      { "color": "#e62033" },
-      { "visibility": "on" },
-      { "weight": 1.3 }
-    ]
-  },{
-    "featureType": "road",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "poi.park",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "poi.park",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  }
-];
-
-  var mapOptions = {
-    zoom: 6,
-    center: country,
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
-    },
-    mapTypeId: MY_MAPTYPE_ID
-  };
-
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-
-  var styledMapOptions = {
-    name: 'Custom Style'
-  };
-
-  var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
-
-  map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-
-<style>
-#map-canvas, #map_canvas {
-  height: 500px;
-}
-
-.map-page .content {
-	/*-webkit-column-width: 500px;
-	column-width:500px;
-	-moz-column-width:500px; */
-}
-
-#main_content .map-page p {
-	margin: 0.3em 0;
-}
-#main_content .map-page h2 {
-	font-size: 3em;
-	border-bottom: 1px solid #ccc;
-	padding: 0.3em 0;
-	margin: 0.2em 0;
-}
-#main_content .map-page h3 {
-	
-}
-.country-info-container{
-	padding: 1em 0;
-	
-}
-</style>
 <div class="content-container typography map-page">	
 	<article>
 		<h1>$Title</h1>
@@ -108,7 +6,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		<div class="content container-fluid">$Content
 		<!--$Picture -->
 		<div class="row-fluid">
-			<section class="country-info-container span4">
+			<section class="country-info-container span6">
 				<h2>Basic Info</h2>
 				<h3>Capital</h3>
 				<p>$CapitalCity</p>
@@ -124,23 +22,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<p>$Area</p>
 			</section>
 			
-			<section class="country-info-container span4">
-				<h2>Politics</h2>
-				<h3>Head Of State</h3>
-				<p>$HeadOfState</p>
-				<h3>Type of Government</h3>
-				<p>$TypeOfGovernment</p>
-				<h3>Date of Independence</h3>
-				<p>$DateOfIndependence</p>
-				<h3>Major Exports</h3>
-				<p>$MajorExports</p>
-				<h3>Precolonial History</h3>
-				<p>$PrecolonialHistory</p>
-				<h3>Postcolonial History</h3>
-				<p>$PostcolonialHistory</p>
-			</section>
-			
-			<section class="country-info-container span4">
+			<section class="country-info-container span6">
 				<h2>People</h2>
 				<h3>Nationality</h3>
 				<p>$Nationality</p>
@@ -155,7 +37,24 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<h3>Official Language</h3>
 				<p>$OfficialLanguage</p>
 			</section>
-			
+		</div>
+		<div class="row-fluid">
+			<section class="country-info-container span12">
+				<h2>Politics</h2>
+				<h3>Head Of State</h3>
+				<p>$HeadOfState</p>
+				<h3>Type of Government</h3>
+				<p>$TypeOfGovernment</p>
+				<h3>Date of Independence</h3>
+				<p>$DateOfIndependence</p>
+				<h3>Major Exports</h3>
+				<p>$MajorExports</p>
+				<h3>Precolonial History</h3>
+				<p>$PrecolonialHistory</p>
+				<h3>Postcolonial History</h3>
+				<p>$PostcolonialHistory</p>			
+			</section>
+		</div>
 			
 		</div>
 		<h2>Items associated with $Name</h2>

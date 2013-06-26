@@ -18,27 +18,30 @@
 			 
 			  <div class="content columns">
 			       <% loop $getPaginatedPages %>
-			        $Content</a></li>
+			        $Content
 			      <% end_loop %>
 			   </div>
-			    <% if $getPaginatedPages.MoreThanOnePage %>
-				    <% if $getPaginatedPages.NotFirstPage %>
-				        <a class="prev" href="$getPaginatedPages.PrevLink">Prev</a>
-				    <% end_if %>
-				    <% loop $getPaginatedPages.Pages %>
-				        <% if $CurrentBool %>
-				            $PageNum
-				        <% else %>
-				            <% if $Link %>
-				                <a href="$Link">$PageNum</a>
-				            <% else %>
-				                ...
-				            <% end_if %>
-				        <% end_if %>
-				        <% end_loop %>
-				    <% if $getPaginatedPages.NotLastPage %>
-				        <a class="next" href="$getPaginatedPages.NextLink">Next</a>
-				    <% end_if %>
+			   
+			  <% if $getPaginatedPages.MoreThanOnePage %>
+			    <div class="pagination">
+			    <% if $getPaginatedPages.NotFirstPage %>
+			        <a class="prev" href="$getPaginatedPages.PrevLink">Prev</a>
+			    <% end_if %>
+			    <% loop $getPaginatedPages.Pages %>
+			        <% if $CurrentBool %>
+			            <span>$PageNum</span>
+			        <% else %>
+			            <% if $Link %>
+			                <a href="$Link">$PageNum</a>
+			            <% else %>
+			                ...
+			            <% end_if %>
+			        <% end_if %>
+			        <% end_loop %>
+			    <% if $getPaginatedPages.NotLastPage %>
+			        <a class="next" href="$getPaginatedPages.NextLink">Next</a>
+			    <% end_if %>
+					</div>
 				<% end_if %>
 			
 			People
