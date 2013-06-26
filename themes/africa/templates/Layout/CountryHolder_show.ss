@@ -6,7 +6,7 @@
 		<div class="content container-fluid">$Content
 		<!--$Picture -->
 		<div class="row-fluid">
-			<section class="country-info-container span6">
+			<section class="country-info-container span4">
 				<h2>Basic Info</h2>
 				<h3>Capital</h3>
 				<p>$CapitalCity</p>
@@ -22,7 +22,23 @@
 				<p>$Area</p>
 			</section>
 			
-			<section class="country-info-container span6">
+			<section class="country-info-container span4">
+				<h2>Politics</h2>
+				<h3>Head Of State</h3>
+				<p>$HeadOfState</p>
+				<h3>Type of Government</h3>
+				<p>$TypeOfGovernment</p>
+				<h3>Date of Independence</h3>
+				<p>$DateOfIndependence</p>
+				<h3>Major Exports</h3>
+				<p>$MajorExports</p>
+				<h3>Precolonial History</h3>
+				<p>$PrecolonialHistory</p>
+				<h3>Postcolonial History</h3>
+				<p>$PostcolonialHistory</p>
+			</section>
+			
+			<section class="country-info-container span4">
 				<h2>People</h2>
 				<h3>Nationality</h3>
 				<p>$Nationality</p>
@@ -37,24 +53,7 @@
 				<h3>Official Language</h3>
 				<p>$OfficialLanguage</p>
 			</section>
-		</div>
-		<div class="row-fluid">
-			<section class="country-info-container span12">
-				<h2>Politics</h2>
-				<h3>Head Of State</h3>
-				<p>$HeadOfState</p>
-				<h3>Type of Government</h3>
-				<p>$TypeOfGovernment</p>
-				<h3>Date of Independence</h3>
-				<p>$DateOfIndependence</p>
-				<h3>Major Exports</h3>
-				<p>$MajorExports</p>
-				<h3>Precolonial History</h3>
-				<p>$PrecolonialHistory</p>
-				<h3>Postcolonial History</h3>
-				<p>$PostcolonialHistory</p>			
-			</section>
-		</div>
+			
 			
 		</div>
 		<h2>Items associated with $Name</h2>
