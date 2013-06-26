@@ -77,8 +77,13 @@ class Page_Controller extends ContentController {
 	    $countries = new ArrayList();
 	    $audioPieces = new ArrayList();
 	    $videoPieces = new ArrayList();
+
 	    $artPhotos = new ArrayList();
 	    $fieldPhotos = new ArrayList();
+
+	    $photos = new ArrayList();
+	    $photos = new ArrayList();
+
 	    
 	      $data = array(
 	      'Subtopic' => $subtopics,
@@ -86,7 +91,7 @@ class Page_Controller extends ContentController {
 	      'Essay' => $essays,
 		  'Country' => $countries,
 		  'AudioPiece' => $audioPieces,
-		  'VideoPiece' => $videoPieces,
+
 		  'ArtPhoto' => $artPhotos,
 		  'FieldPhoto' => $fieldPhotos,
 		  'Query' => $keyword
@@ -95,6 +100,15 @@ class Page_Controller extends ContentController {
 	    /*ADD IN CLASSES TO BE SEARCHED HERE */
 	    $siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
 	    $dataObjectClasses = array('Country', 'Essay', 'People', 'ArtPhoto', 'FieldPhoto'); //add in your DataObjects, 
+
+		  'ArtPhoto' => $photos,
+		  'FieldPhoto' => $photos,
+		  'Query' => $keyword
+			); 
+	    
+	    $siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
+	    $dataObjectClasses = array('Country', 'Essay', 'People'); //add in your DataObjects
+
 	    $bibliographyClasses = array('Essay', 'MediaPiece'); //add classes with the Bibliography field
 	    
 	    //When the bibliography check box is checked, only search classes that have the Bibliography field + Essays
@@ -166,6 +180,10 @@ class Page_Controller extends ContentController {
 		         }
 	         }    
           }
+
+		   
+		 
+
 	    $pages->sort(array(
 	      'Relevance' => 'DESC',
 	      'Title' => 'ASC'
@@ -503,7 +521,9 @@ class Page_Controller extends ContentController {
 		}
 		return $this->renderWith('Page');
 
+
 	}
+
 
 /**
    * Process and render search results.

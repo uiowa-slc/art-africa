@@ -31,8 +31,8 @@
           <div></div>
         </div>
         <div id="logo">
-          <a href="{$BaseHref}">Art &amp; Life<br>
-          in Africa</a>
+          Art &amp; Life<br>
+          in Africa
         </div>
         <nav class="nav1 toggle">
           <ul>

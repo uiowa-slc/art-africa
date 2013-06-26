@@ -39,10 +39,6 @@ p {
 a {
   text-decoration: none;
   color: #AA2F13;
-  -webkit-transition:color 0.1s ease-in;  
-  -moz-transition:color 0.1s ease-in;  
-  -o-transition:color 0.1s ease-in;  
-  transition:color 0.1s ease-in;  
 }
 
 a:hover {
@@ -107,14 +103,6 @@ button {
   background-position: 14.5rem 4.375rem;
 }
 
-#logo a {
-	color: #fff;
-}
-#logo a:hover {
-	color: #aaa;
-	text-decoration: none;
-}
-
 .hamburger {
   float: right;
   width: 28px;
@@ -164,11 +152,6 @@ button {
 
 .nav1 a {
   color: #fff;
-}
-
-.nav1 a:hover{
-	color: #aaa;
-	text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -273,10 +256,7 @@ button {
   display: block;
   padding: 0.75rem 1.25rem;
 }
-#middle .nav2 >ul>li>a:hover {
-	color: #9e9595;
-	text-decoration: none;
-}
+
 #main_content {
   background: white;
   padding: 1.25rem 1.25rem 0 1.25rem;
