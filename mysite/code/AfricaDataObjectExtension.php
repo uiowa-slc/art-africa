@@ -1,15 +1,9 @@
 <?php
  
-class AfricaDataObject extends DataObject {
- 
-  
-  private static $db = array(	
-
-
-  );
+class AfricaDataObjectExtension extends DataExtension {
  
   public function SplitKeywords(){
-	    $keywords = $this->Tags;
+	    $keywords = $this->Title;
 	    
 	    if($keywords){
 		   $splitKeywords = explode(',', $keywords); 
@@ -25,7 +19,7 @@ class AfricaDataObject extends DataObject {
 			return $keywordsList; 
 			}
     }
-  
+    
   
 }
 

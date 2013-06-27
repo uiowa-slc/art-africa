@@ -144,7 +144,7 @@ class ArtPhoto extends Photo {
 			return $keywordsList; 
 			}
     }
-  
+   
   
   
   

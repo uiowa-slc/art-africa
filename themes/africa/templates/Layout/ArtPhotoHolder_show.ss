@@ -2,9 +2,9 @@
 	<article>
 		<div class="content container-fluid">
 			<h1 class="title">$Title</h1>
-			<div class="artPic" style="width: {$Picture.getWidth}px">
-				$Picture
-				$CreditLine
+			<div class="artPic">
+				<img src={$Picture.Filename} />
+				<p>$CreditLine</p>
 			</div>
 		</div>
 		<div class="row-fluid">
@@ -36,7 +36,7 @@
 			</section>
 			<section class="artPhoto-info-container span4">
 				<% if TraditionalName %>
-					<h3>TraditionalName</h3>
+					<h3>Traditional Name</h3>
 					<p>$TraditionalName</p>
 				<% end_if %>
 				<% if Material %>

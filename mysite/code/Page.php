@@ -77,8 +77,13 @@ class Page_Controller extends ContentController {
 	    $countries = new ArrayList();
 	    $audioPieces = new ArrayList();
 	    $videoPieces = new ArrayList();
+
+	    $artPhotos = new ArrayList();
+	    $fieldPhotos = new ArrayList();
+
 	    $photos = new ArrayList();
 	    $photos = new ArrayList();
+
 	    
 	      $data = array(
 	      'Subtopic' => $subtopics,
@@ -86,14 +91,17 @@ class Page_Controller extends ContentController {
 	      'Essay' => $essays,
 		  'Country' => $countries,
 		  'AudioPiece' => $audioPieces,
-		  'VideoPiece' => $videoPieces,
-		  'ArtPhoto' => $photos,
-		  'FieldPhoto' => $photos,
+
+		  'ArtPhoto' => $artPhotos,
+		  'FieldPhoto' => $fieldPhotos,
 		  'Query' => $keyword
 			); 
 	    
+	    /*ADD IN CLASSES TO BE SEARCHED HERE */
 	    $siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
-	    $dataObjectClasses = array('Country', 'Essay', 'People'); //add in your DataObjects
+	    $dataObjectClasses = array('Country', 'Essay', 'People', 'ArtPhoto', 'FieldPhoto'); //add in your DataObjects, 
+
+		  
 	    $bibliographyClasses = array('Essay', 'MediaPiece'); //add classes with the Bibliography field
 	    
 	    //When the bibliography check box is checked, only search classes that have the Bibliography field + Essays
@@ -168,6 +176,7 @@ class Page_Controller extends ContentController {
 
 		   
 		 
+
 	    $pages->sort(array(
 	      'Relevance' => 'DESC',
 	      'Title' => 'ASC'
@@ -326,28 +335,34 @@ class Page_Controller extends ContentController {
 	
 	//Displays a data object of the class childPage, which is found in the controller of the holder class show is called on
 	public function show (){
-							
+
 		$otherClass = $this::$childPage;
+		$objectID = Convert::raw2xml($this->request->param('ID'));
 
-		$objectID = $this->request->param('ID');
 		if ($objectID){
-		
-		    $object = $otherClass::get_by_id($otherClass, $objectID);
-		    
-		    if(isset($object)){
-		    	
-			       $showTemplate = $otherClass . 'Holder_show';
+			if (is_numeric($objectID)){
 
-				   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
-				
-			   
-		    }else{
-		    }		   
+				$object = $otherClass::get_by_id($otherClass, $objectID);
+			}else{
+				$object = $otherClass::get($otherClass)->filter('Title',$objectID)->first();
+			}
+
+			if(isset($object)){
+				$showTemplate = $otherClass . 'Holder_show';
+				print_r("THIS SHOW IS CALLED");
+				print_r($object);
+				return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
+			
+			}else{
+				// If Object isn't set/found, return a 404 error.
+				$this->httpError(404);
+			}
 		}
 		else {
 			return $this->renderWith('Page');
 		}
 	
+
 	}
 	
 	
@@ -496,6 +511,18 @@ class Page_Controller extends ContentController {
 		
 		return $template->process($newObject);		
 	}
+	
+	public function loadTest(){
+		for ($iter = 0; $iter <= 100; $iter++){
+			$artPhoto = ArtPhoto::get()->byID(7);
+			$newPhoto = $artPhoto->duplicate();
+			
+		}
+		return $this->renderWith('Page');
+
+
+	}
+
 
 /**
    * Process and render search results.
