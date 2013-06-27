@@ -115,119 +115,141 @@ function getCountry(results) {
 }
 
 function initialize() {
+  if (! /\/countries\//.test(document.location.pathname)) { return; }
 
   var featureOpts = [
-  {
-    "featureType": "water",
-    "stylers": [
-      { "visibility": "on" },
-      { "color": "#0b0be6" },
-      { "lightness": 88 },
-      { "saturation": -45 }
-    ]
-  },{
-    "featureType": "landscape.natural",
-    "stylers": [
-      { "color": "#828080" },
-      { "lightness": 100 }
-    ]
-  },{
-    "featureType": "administrative.country",
-    "elementType": "geometry",
-    "stylers": [
-      { "color": "#e62033" },
-      { "visibility": "on" },
-      { "weight": 1.3 }
-    ]
-  },{
-    "featureType": "road",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "poi.park",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "poi.park",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  }
-];
+    {
+      "featureType": "water",
+      "stylers": [
+        { "visibility": "on" },
+        { "color": "#0b0be6" },
+        { "lightness": 88 },
+        { "saturation": -45 }
+      ]
+    },{
+      "featureType": "landscape.natural",
+      "stylers": [
+        { "color": "#828080" },
+        { "lightness": 100 }
+      ]
+    },{
+      "featureType": "administrative.country",
+      "elementType": "geometry",
+      "stylers": [
+        { "color": "#e62033" },
+        { "visibility": "on" },
+        { "weight": 1.3 }
+      ]
+    },{
+      "featureType": "road",
+      "stylers": [
+        { "visibility": "off" }
+      ]
+    },{
+      "featureType": "poi.park",
+      "stylers": [
+        { "visibility": "off" }
+      ]
+    },{
+      "featureType": "poi.park",
+      "stylers": [
+        { "visibility": "off" }
+      ]
+    }
+  ];
 
   var geocoder;
   var marker;
   geocoder = new google.maps.Geocoder();
+  var countryNameToStartMapOn;
+  var zoomLevel;
 
-  var mapOptions = {
-    zoom: 6,
-    center: country,
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
-    },
-    mapTypeId: MY_MAPTYPE_ID,
-    draggableCursor: 'pointer'
-  };
+  if (/countries(\/)?$/.test(document.location.pathname)) {
+    countryNameToStartMapOn = 'Central African Republic';
+    zoomLevel = 3;
+  } else {
+    countryNameToStartMapOn = [$('.capital_city').text(), $('#main_content h1:first').text()].join(', ');
+    zoomLevel = 6;
+  }
 
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+  geocoder.geocode({ 'address': countryNameToStartMapOn }, function (results, status) {
+    // if (status == google.maps.GeocoderStatus.OK) {
+    //   map.setCenter(results[0].geometry.location);
+    // }
 
-  var styledMapOptions = {
-    name: 'Custom Style'
-  };
+    var mapOptions = {
+      zoom: zoomLevel,
+      center: results[0].geometry.location,
+      mapTypeControlOptions: {
+        mapTypeIds: [ google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID ]
+      },
+      mapTypeId: MY_MAPTYPE_ID,
+      draggableCursor: 'pointer'
+    };
 
-  var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-  map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+    var styledMapOptions = { name: 'Custom Style' };
 
-  // var marker = new google.maps.Marker({
-  //   position: country,
-  //   map:      map,
-  //   title:    'Example Country',
-  //   url:      'https://www.google.com/'
-  // });
-  //http://gmaps-samples-v3.googlecode.com/svn/trunk/country_explorer/country_explorer.html
-  google.maps.event.addListener(map, 'click', function(mouseEvent) {
-    geocoder.geocode(
-      {'latLng': mouseEvent.latLng},
-      function(results, status) {
-        // var headingP = document.getElementById('country');
-        if (status == google.maps.GeocoderStatus.OK) {
-          var country = getCountry(results);
-          console.log(country);
-          var matchingCountryLink = $('.nav2 a').filter(function () {
-            var countryName = $(this).text();
-            return countryName === country.long_name;
-          });
-          if (matchingCountryLink.length === 1) {
-            document.location = matchingCountryLink.attr('href');
-          } else {
-            alert(country.long_name + ' not found in Africa.');
+    var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
+
+    map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+
+    var marker = new google.maps.Marker({
+      position: country,
+      map:      map,
+      title:    'Example Country',
+      url:      'https://www.google.com/'
+      // icon:     'http://cdn.iphoneincanada.ca/wp-content/uploads/2012/09/Google-Maps-icon.png'
+    });
+    google.maps.event.addListener(marker, 'click', function (mouseEvent) {
+      document.location = marker.url;
+    });
+    //http://gmaps-samples-v3.googlecode.com/svn/trunk/country_explorer/country_explorer.html
+    google.maps.event.addListener(map, 'click', function (mouseEvent) {
+      geocoder.geocode(
+        {'latLng': mouseEvent.latLng},
+        function (results, status) {
+          // var headingP = document.getElementById('country');
+          if (status == google.maps.GeocoderStatus.OK) {
+            var country = getCountry(results);
+            var matchingCountryLink = $('.nav2 a').filter(function () {
+              var countryName = $(this).text();
+              return countryName === country.long_name;
+            });
+            if (matchingCountryLink.length === 1) {
+              document.location = matchingCountryLink.attr('href');
+            } else {
+              alert(country.long_name + ' not found in Africa.');
+            }
+            // marker.setPosition(mouseEvent.latLng);
+            // marker.setIcon(getCountryIcon(country));
+            // headingP.innerHTML = country.long_name+ ' <br> ';
           }
-          // marker.setPosition(mouseEvent.latLng);
-          // marker.setIcon(getCountryIcon(country));
-          // headingP.innerHTML = country.long_name+ ' <br> ';
+          // if (status == google.maps.GeocoderStatus.ZERO_RESULTS) {
+          //   marker.setPosition(mouseEvent.latLng);
+          //   marker.setIcon(
+          //       getMsgIcon('Oups, I have no idea, are you on water?'));
+          //   headingP.innerHTML = 'Oups, ' +
+          //       'I have no idea, are you on water?';
+          // }
+          // if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+          //   marker.setPosition(mouseEvent.latLng);
+          //   marker.setIcon(
+          //       getMsgIcon('Whoa! Hold your horses :) You are quick! ' +
+          //           'too quick!')
+          //       );
+          //   headingP.innerHTML = 'Whoa! You are just too quick!';
+          // }
         }
-        // if (status == google.maps.GeocoderStatus.ZERO_RESULTS) {
-        //   marker.setPosition(mouseEvent.latLng);
-        //   marker.setIcon(
-        //       getMsgIcon('Oups, I have no idea, are you on water?'));
-        //   headingP.innerHTML = 'Oups, ' +
-        //       'I have no idea, are you on water?';
-        // }
-        // if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
-        //   marker.setPosition(mouseEvent.latLng);
-        //   marker.setIcon(
-        //       getMsgIcon('Whoa! Hold your horses :) You are quick! ' +
-        //           'too quick!')
-        //       );
-        //   headingP.innerHTML = 'Whoa! You are just too quick!';
-        // }
-      }
-    );
+      );
+    });
   });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+$(document).on('click', '#map-canvas-notice button', function () {
+  $('#map-canvas-notice > div').fadeOut({ duration: 100 });
+  $('#map-canvas-notice').fadeOut({ duration: 200 });
+});

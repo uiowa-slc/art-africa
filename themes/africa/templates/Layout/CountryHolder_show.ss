@@ -3,13 +3,24 @@
 	<article>
 		<h1>$Title</h1>
 		<div id="map-canvas"></div>
+		<!-- <div id="map-canvas-notice">
+			<div>
+				<h1>Welcome to Africa!</h1>
+				<p>
+					Click on a country&rsquo;s name for information.
+				</p>
+				<p>
+					<button>Take a Safari</button>
+				</p>
+			</div>
+		</div> -->
 		<div class="content container-fluid">$Content
 		<!--$Picture -->
 		<div class="row-fluid">
 			<section class="country-info-container span4">
 				<h2>Basic Info</h2>
 				<h3>Capital</h3>
-				<p>$CapitalCity</p>
+				<p class="capital_city">$CapitalCity</p>
 				<h3>Population</h3>
 				<p>$Population</p>
 				<h3>Climate</h3>
