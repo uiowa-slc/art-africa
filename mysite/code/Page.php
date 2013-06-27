@@ -349,8 +349,8 @@ class Page_Controller extends ContentController {
 
 			if(isset($object)){
 				$showTemplate = $otherClass . 'Holder_show';
-				print_r("THIS SHOW IS CALLED");
-				print_r($object);
+				// print_r("THIS SHOW IS CALLED");
+				// print_r($object);
 				return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
 			
 			}else{
