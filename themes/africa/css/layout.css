@@ -113,7 +113,9 @@ button {
 
 #logo a {
 	color: #fff;
+  display: inline-block;
 }
+
 #logo a:hover {
 	color: #aaa;
 	text-decoration: none;

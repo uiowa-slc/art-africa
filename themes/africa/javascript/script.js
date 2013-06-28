@@ -88,7 +88,7 @@ $(document).on('click', '.mfp-img', function (event) {
       ap  = $('.artPhoto[data-mfp-src="' + src + '"]:first');
 
   console.log(ap.length);
-  document.location = ap.attr('data-mfp-href');
+  window.location.href = ap.attr('data-mfp-href');
 });
 
 
@@ -115,7 +115,7 @@ function getCountry(results) {
 }
 
 function initialize() {
-  if (! /\/countries\//.test(document.location.pathname)) { return; }
+  if (! /\/countries\//.test(window.location.pathname)) { return; }
 
   var featureOpts = [
     {
@@ -164,12 +164,13 @@ function initialize() {
   var countryNameToStartMapOn;
   var zoomLevel;
 
-  if (/countries(\/)?$/.test(document.location.pathname)) {
+  if (/countries(\/)?$/.test(window.location.pathname)) {
     countryNameToStartMapOn = 'Central African Republic';
     zoomLevel = 3;
   } else {
-    countryNameToStartMapOn = [$('.capital_city').text(), $('#main_content h1:first').text()].join(', ');
-    zoomLevel = 6;
+    // countryNameToStartMapOn = [$('.capital_city').text(), $('#main_content h1:first').text()].join(', ');
+    countryNameToStartMapOn = $('#main_content h1:first').text();
+    zoomLevel = 5;
   }
 
   geocoder.geocode({ 'address': countryNameToStartMapOn }, function (results, status) {
@@ -195,16 +196,28 @@ function initialize() {
 
     map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
 
-    var marker = new google.maps.Marker({
-      position: country,
-      map:      map,
-      title:    'Example Country',
-      url:      'https://www.google.com/'
-      // icon:     'http://cdn.iphoneincanada.ca/wp-content/uploads/2012/09/Google-Maps-icon.png'
+    $('.nav2 a').each(function (i) {
+      var nav2a = $(this);
+      var countryName = nav2a.text();
+      var countryHref = nav2a.attr('href');
+      geocoder.geocode({ 'address': countryName }, function (results, status) {
+        setTimeout(function () {
+          var countryMarker = new google.maps.Marker({
+            position:  results[0].geometry.location,
+            map:       map,
+            title:     'Example Country',
+            url:       'https://www.google.com/',
+            animation: google.maps.Animation.DROP
+            // icon:      'http://cdn.iphoneincanada.ca/wp-content/uploads/2012/09/Google-Maps-icon.png'
+          });
+          google.maps.event.addListener(countryMarker, 'click', function (mouseEvent) {
+            // countryMarker.setAnimation(google.maps.Animation.DROP);
+            window.location.href = countryHref;
+          });
+        }, i * 100);
+      });
     });
-    google.maps.event.addListener(marker, 'click', function (mouseEvent) {
-      document.location = marker.url;
-    });
+
     //http://gmaps-samples-v3.googlecode.com/svn/trunk/country_explorer/country_explorer.html
     google.maps.event.addListener(map, 'click', function (mouseEvent) {
       geocoder.geocode(
@@ -218,9 +231,9 @@ function initialize() {
               return countryName === country.long_name;
             });
             if (matchingCountryLink.length === 1) {
-              document.location = matchingCountryLink.attr('href');
+              window.location.href = matchingCountryLink.attr('href');
             } else {
-              alert(country.long_name + ' not found in Africa.');
+              console.log(country.long_name + ' not found in Countries list.');
             }
             // marker.setPosition(mouseEvent.latLng);
             // marker.setIcon(getCountryIcon(country));
