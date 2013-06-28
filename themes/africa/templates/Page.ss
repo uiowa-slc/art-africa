@@ -50,46 +50,46 @@
           <ul>
             <!-- Chapters -->
             <% if $Level(1).Title == 'Chapters' %>
-            <% loop ChildrenOf('chapters') %>
-            <li>
-              <a href="$Link">$MenuTitle</a>
-              <% if LinkOrSection = section %>
-              <nav class="nav3">
-                <ul>
-                  <% loop Children %>
-                  <li>
-                    <a href="$Link"<% if LinkOrCurrent = current %> class="selected"<% end_if %>>
-                      $MenuTitle
-                    </a>
-                  </li>
-                  <% end_loop %>
-                </ul>
-              </nav>
-              <% end_if %>
-            </li>
-            <% end_loop %>
+              <% loop ChildrenOf('chapters') %>
+              <li>
+                <a href="$Link">$MenuTitle</a>
+                <% if LinkOrSection = section %>
+                  <nav class="nav3">
+                    <ul>
+                      <% loop Children %>
+                      <li>
+                        <a href="$Link"<% if LinkOrCurrent = current %> class="selected"<% end_if %>>
+                          $MenuTitle
+                        </a>
+                      </li>
+                      <% end_loop %>
+                    </ul>
+                  </nav>
+                <% end_if %>
+              </li>
+              <% end_loop %>
             <% end_if %>
 
             <!-- Countries -->
             <% if $Level(1).Title == 'Countries' %>
-            <% loop getCountries %>
-            <% if Name %>
-              <li><a href="countries/show/{$ID}" data-gmaps="{$CapitalCity}, {$Name}">$Name</a></li>
-            <% else_if Title %>
-              <li><a href="countries/show/{$ID}" data-gmaps="{$CapitalCity}, {$Title}">$Title</a></li>
-            <% end_if %>
-            <% end_loop %>
+              <% loop getCountries %>
+                <% if Name %>
+                  <li><a href="countries/show/{$ID}" data-gmaps="{$CapitalCity}, {$Name}">$Name</a></li>
+                <% else_if Title %>
+                  <li><a href="countries/show/{$ID}" data-gmaps="{$CapitalCity}, {$Title}">$Title</a></li>
+                <% end_if %>
+              <% end_loop %>
             <% end_if %>
 
             <!-- Peoples -->
             <% if $Level(1).Title == 'Peoples' %>
-            <% loop getPeople %>
-            <% if Name %>
-              <li><a href="$Link">$Name</a></li>
-            <% else_if Title %>
-              <li><a href="$Link">$Title</a></li>
-            <% end_if %>
-            <% end_loop %>
+              <% loop getPeople %>
+                <% if Name %>
+                  <li><a href="$Link">$Name</a></li>
+                <% else_if Title %>
+                  <li><a href="$Link">$Title</a></li>
+                <% end_if %>
+              <% end_loop %>
             <% end_if %>
 
             <!-- Photos -->
@@ -102,13 +102,13 @@
 
             <!-- Field Essays -->
             <% if $Level(1).Title == 'Field Essays' %>
-            <% loop getEssays %>
-            <% if Name %>
-              <li><a href="$Link(false)">$Name</a></li>
-            <% else_if Title %>
-              <li><a href="$Link(false)">$Title</a></li>
-            <% end_if %>
-            <% end_loop %>
+              <% loop getEssays %>
+                <% if Name %>
+                  <li><a href="$Link(false)">$Name</a></li>
+                <% else_if Title %>
+                  <li><a href="$Link(false)">$Title</a></li>
+                <% end_if %>
+              <% end_loop %>
             <% end_if %>
           </ul>
         </nav>
