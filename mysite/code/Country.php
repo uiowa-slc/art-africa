@@ -144,6 +144,15 @@ class Country extends DataObject {
 		return $fields;	
   }
   
+  public function Link(){
+	  
+	  $countryHolder = DataObject::get_one("CountryHolder");
+	  $countryTitle = $this->Title;
+	  $countryTitle = str_replace(' ', '+', $countryTitle);
+	  $link = $countryHolder->Link().'show/'.$countryTitle;
+	  
+	  return $link;
+  }
  
   /*
   public function onBeforeWrite(){

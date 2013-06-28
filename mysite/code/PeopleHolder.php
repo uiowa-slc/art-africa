@@ -25,7 +25,8 @@ class PeopleHolder extends Page {
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("People", "People", People::get(), $gridFieldConfigPeople);		
-		$fields->addFieldToTab('Root.People', $gridfield);
+		$fields->addFieldToTab('Root.Main', $gridfield, 'Content');
+		$fields->renameField("Content", "Introduction Text");
 		
 		return $fields;		
   }

@@ -12,7 +12,7 @@ class MediaHolder extends Page {
 
   );
   
-  private static $allowed_children = array("AudioPiece", "VideoPiece");
+  //private static $allowed_children = array("AudioPiece", "VideoPiece");
   
   private static $belongs_many_many = array();
   
@@ -21,7 +21,6 @@ class MediaHolder extends Page {
   public function getCMSFields() {
   		
  		$fields = parent::getCMSFields();
-	
 		$fields->removeFieldFromTab("Root.Main","Content");
 		//$fields->addFieldToTab("Root.Main")
 		$content = new HTMLEditorField("Content", "Content -- Use this field to edit the introduction to the audio and video that shows up on the front-end of the site.  Use Art Photos and Field Photos to edit the photos themselves.");

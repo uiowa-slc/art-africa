@@ -338,15 +338,13 @@ class Page_Controller extends ContentController {
 
 		$otherClass = $this::$childPage;
 		$objectID = Convert::raw2xml($this->request->param('ID'));
-
+		//We can '/show/ID' or '/show/object+name'
 		if ($objectID){
 			if (is_numeric($objectID)){
-
 				$object = $otherClass::get_by_id($otherClass, $objectID);
 			}else{
 				$object = $otherClass::get($otherClass)->filter('Title',$objectID)->first();
 			}
-
 			if(isset($object)){
 				$showTemplate = $otherClass . 'Holder_show';
 				// print_r("THIS SHOW IS CALLED");

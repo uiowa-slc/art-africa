@@ -119,6 +119,16 @@ class People extends DataObject {
 
 		return $fields;		
   }
+  
+  public function Link(){
+	  
+	  $peopleHolder = DataObject::get_one("PeopleHolder");
+	  $peopleTitle = $this->Title;
+	  $peopleTitle = str_replace(' ', '+', $peopleTitle);
+	  $link = $peopleHolder->Link().'show/'.$peopleTitle;
+	  
+	  return $link;
+  }
 }
 
 
