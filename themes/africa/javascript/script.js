@@ -198,7 +198,7 @@ function initialize() {
 
     $('.nav2 a').each(function (i) {
       var nav2a = $(this);
-      var countryName = nav2a.text();
+      var countryName = nav2a.data('gmaps');
       var countryHref = nav2a.attr('href');
       geocoder.geocode({ 'address': countryName }, function (results, status) {
         setTimeout(function () {

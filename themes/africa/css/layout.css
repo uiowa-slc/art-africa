@@ -636,7 +636,8 @@ article.page {
 #map-canvas-notice p {
   color: #ccc;
   text-shadow: 1px 1px 4px black;
-  width: 40%;
+  width: 50%;
+  max-width: 35rem;
   margin: 0.625em auto 1em auto !important;
   font-size: 1.25rem;
   line-height: 1.625em;

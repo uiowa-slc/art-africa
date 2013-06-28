@@ -7,7 +7,7 @@
 				<div>
 					<h1>Welcome to Africa!</h1>
 					<p>
-						Click on a country for information on its geography, politics, and people.
+						Click on a country or its capital city for information on its geography, politics, and people.
 					</p>
 					<p>
 						<button>Take Safari</button>
