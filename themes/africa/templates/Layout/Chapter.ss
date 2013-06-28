@@ -10,11 +10,11 @@
 			Tags: $Tags<br><br>
 		</div>
 	</article>
-		Subtopics:<br><br>
-		<% loop Children %>
-			<a href="{$Link}">$Title<br></a>
-		<% end_loop %>
-		<br><br>
-		$testDescription
+	Subtopics:<br><br>
+	<% loop Children %>
+		<a href="{$Link}">$Title<br></a>
+	<% end_loop %>
+	<br><br>
+	$testDescription
 </div> 
 <% include SideBar %>

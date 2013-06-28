@@ -4,22 +4,26 @@
 		Layout/Page.ss in the building
 		<div class="content">$filteredContent</div>
 	</article>
-		$Form
-		$PageComments
-		
+	$Form
+	$PageComments
 </div>
 
-
-
-
 <script type="text/javascript">
-
 	$('.open-glossary-popup').magnificPopup({
-	  
-	  type:'inline',
-	  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-	 });
-
+		type:'inline',
+		midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+	});
 </script>
-<% include SideBar %>
 
+<% if $Level(1).Title == 'Chapters' %>
+	<ul>
+		<% loop ChildrenOf('chapters') %>
+			<li>
+			  <a href="$Link">$MenuTitle</a>
+			  <p>$Description</p>
+			</li>
+		<% end_loop %>
+	</ul>
+<% end_if %>
+
+<% include SideBar %>
