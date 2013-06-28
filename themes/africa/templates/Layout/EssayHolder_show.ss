@@ -2,9 +2,6 @@
 	<article>
 		<h1>$Title</h1>
 		<div class="content">$Content
-
-			
-			
 		
 			Author: $Author<br><br>
 			DateWritten: $DateWritten<br><br>

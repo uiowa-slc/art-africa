@@ -305,7 +305,7 @@ class Page_Controller extends ContentController {
 	public function filteredField($field, $ID, $class){
 		
 		$object = DataObject::get_by_id($class, $ID);
-		print_r($object);
+		//print_r($object);
 		$pageContent = $object->$field;		
 		$wordArray = Word::get();
 		$iter = 0;

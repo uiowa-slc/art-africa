@@ -20,6 +20,34 @@ class AfricaDataObjectExtension extends DataExtension {
 			}
     }
     
+  public function Holder(){
+  	  $holderClass = $this->owner->ClassName;
+	  $holderClass = $holderClass.'Holder';
+	  $holder = DataObject::get_one($holderClass);
+	  if($holder){
+	  	return $holder;
+	  }else{
+		  return false;
+	  }
+  }
+    
+  public function Link($use_id = false){
+  
+	  $holder = $this->Holder();
+	  if($use_id == false){
+		  $title = $this->owner->Title;
+		  $title = str_replace(' ', '+', $title);
+		  $link = $holder->Link().'show/'.$title;
+	  }else{
+	  	  $id = $this->owner->ID;
+		  $link = $holder->Link().'show/'.$id;
+		  
+	  }
+	  
+	  
+	  
+	  return $link;
+  }  
   
 }
 

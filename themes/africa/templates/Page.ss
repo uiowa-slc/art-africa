@@ -2,7 +2,7 @@
 <html lang="$ContentLocale">
   <head>
     <% base_tag %>
-    <title>Art &amp; Life in Africa</title>
+    <title>$Title - Art &amp; Life in Africa - The University of Iowa Museum of Art</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
     $MetaTags(false)
     <link href="{$ThemeDir}/css/bootstrap.min.css" rel="stylesheet">
@@ -85,9 +85,9 @@
             <% if $Level(1).Title == 'Peoples' %>
             <% loop getPeople %>
             <% if Name %>
-              <li><a href="peoples/show/{$ID}">$Name</a></li>
+              <li><a href="$Link">$Name</a></li>
             <% else_if Title %>
-              <li><a href="peoples/show/{$ID}">$Title</a></li>
+              <li><a href="$Link">$Title</a></li>
             <% end_if %>
             <% end_loop %>
             <% end_if %>
@@ -104,9 +104,9 @@
             <% if $Level(1).Title == 'Field Essays' %>
             <% loop getEssays %>
             <% if Name %>
-              <li><a href="essays/show/{$ID}">$Name</a></li>
+              <li><a href="$Link(false)">$Name</a></li>
             <% else_if Title %>
-              <li><a href="essays/show/{$ID}">$Title</a></li>
+              <li><a href="$Link(false)">$Title</a></li>
             <% end_if %>
             <% end_loop %>
             <% end_if %>

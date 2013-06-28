@@ -25,7 +25,16 @@ class AfricaDataObject extends DataObject {
 			return $keywordsList; 
 			}
     }
-  
+  public function Link(){
+	  $holderClass = $this->holderClass;
+	  $holder = DataObject::get_one($holderClass);
+	  
+	  $title = $this->Title;
+	  $title = str_replace(' ', '+', $title);
+	  $link = $holder->Link().'show/'.$title;
+	  
+	  return $link;
+  }  
   
 }
 
