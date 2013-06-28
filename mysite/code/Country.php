@@ -53,7 +53,7 @@ class Country extends DataObject {
   
   private static $plural_name = "Countries";
   
-
+  
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
   
@@ -144,7 +144,7 @@ class Country extends DataObject {
 		return $fields;	
   }
   
-  public function Link(){
+ /* public function Link(){
 	  
 	  $countryHolder = DataObject::get_one("CountryHolder");
 	  $countryTitle = $this->Title;
@@ -152,7 +152,7 @@ class Country extends DataObject {
 	  $link = $countryHolder->Link().'show/'.$countryTitle;
 	  
 	  return $link;
-  }
+  }*/
  
   /*
   public function onBeforeWrite(){

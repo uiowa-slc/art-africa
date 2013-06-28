@@ -5,26 +5,26 @@
 		Videos <br><br>
 		<% loop getObjects('VideoPiece') %>
 			<% if Title %>
-				<li><a href="{$Up.getHolderLink('VideoPieceHolder')}/show/{$ID}">$Title</a></li><br>
+				<li><a href="$Link(false)">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		Audio <br><br>
 		<% loop getObjects('AudioPiece') %>
 			<% if Title %>
-				<li><a href="{$Up.getHolderLink('AudioPieceHolder')}/show/{$ID}">$Title</a></li><br>
+				<li><a href="$Link(false)">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		Art Photos <br><br>
 		<% loop getObjects('ArtPhoto') %>
 			<% if Title %>
-				<li><a href="{$Up.getHolderLink('ArtPhotoHolder')}/show/{$ID}">$Title</a></li><br>
+				<li><a href="$Link(false)">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		
 		Field Photos <br><br>
 		<% loop getObjects('FieldPhoto') %>
 			<% if Title %>
-				<li><a href="{$Up.getHolderLink('FieldPhotoHolder')}/show/{$ID}">$Title</a></li><br>
+				<li><a href="$Link(false)">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		

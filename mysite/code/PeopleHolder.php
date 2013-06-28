@@ -31,8 +31,6 @@ class PeopleHolder extends Page {
 		return $fields;		
   }
   
- 
-  
 
 }
 
