@@ -273,3 +273,15 @@ $(document).on('click', '#map-canvas-notice button', function () {
   $('#map-canvas-notice > div').fadeOut({ duration: 100 });
   $('#map-canvas-notice').fadeOut({ duration: 200 });
 });
+
+$(document).on('click', '.grid-item', function () {
+  window.location.href = $(this).find('a').attr('href');
+});
+
+$(document).on('mouseover', '.grid-item', function () {
+  $(this).find('a').addClass('hover');
+});
+
+$(document).on('mouseout', '.grid-item', function () {
+  $(this).find('a').removeClass('hover');
+});

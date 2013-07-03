@@ -1,7 +1,7 @@
 <div class="content-container typography">
   <article class="page">
     <h1>$Title</h1>
-    Layout/Page.ss in the building
+    <!-- Layout/Page.ss in the building -->
     <div class="content">$filteredContent</div>
   </article>
   $Form
@@ -16,14 +16,15 @@
 </script>
 
 <% if $Level(1).Title == 'Chapters' %>
-  <ul class="columns">
+  <div class="grid">
     <% loop ChildrenOf('chapters') %>
-      <li>
-        <a href="$Link">$MenuTitle</a>
+      <div class="grid-item">
+        <p><img src="{$ThemeDir}/images/african-vase.jpg" alt=""></p>
+        <a class="grid-item-title" href="$Link">$MenuTitle</a>
         <p>$Description</p>
-      </li>
+      </div>
     <% end_loop %>
-  </ul>
+  </div>
 <% end_if %>
 
 <% include SideBar %>
