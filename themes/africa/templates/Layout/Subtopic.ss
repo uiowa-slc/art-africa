@@ -1,6 +1,7 @@
 <div class="content-container typography">
   <article>
     <h1>$Title</h1>
+    <img src="{$ThemeDir}/images/homepage-pic.jpg" class="full-width" alt="">
     <div class="description">
       $Description
     </div>
@@ -9,7 +10,7 @@
         $Content
       <% end_loop %>
     </div>
-    
+
     <% if $getPaginatedPages('EssayPages').MoreThanOnePage %>
       <div class="pagination">
       <% if $getPaginatedPages('EssayPages').NotFirstPage %>
@@ -37,4 +38,4 @@
   </article>
 </div>
 
-<% include SideBar %>
+<%# include SideBar %>

@@ -1,6 +1,7 @@
 <div class="content-container typography">	
 	<article>
 		<h1>$Title</h1>
+		<img src="{$ThemeDir}/images/homepage-pic.jpg" class="full-width" alt="">
 		<div class="content columns">
 			$Content
 		</div>
@@ -16,5 +17,6 @@
 	<% end_loop %>
 	<br><br>
 	$testDescription
-</div> 
-<% include SideBar %>
+</div>
+
+<%# include SideBar %>

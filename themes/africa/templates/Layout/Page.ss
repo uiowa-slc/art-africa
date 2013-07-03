@@ -27,4 +27,4 @@
   </div>
 <% end_if %>
 
-<% include SideBar %>
+<%# include SideBar %>

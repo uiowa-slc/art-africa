@@ -55,6 +55,18 @@ a.hover {
   text-decoration: underline;
 }
 
+img.full-width {
+  display: block;
+  margin: 1rem 0 1.25rem 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  img.full-width {
+    margin: 2rem 0 2.5rem 0;
+  }
+}
+
 #main_content a {
   color: #AA2F13;
 }

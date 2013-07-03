@@ -22,23 +22,23 @@ $(document).on('click', '[data-toggle]', function () {
  * #main_content img
  * =================
  */
-function sizeMainContentImages () {
-  // var $mc = $('#main_content');
-  // $mc.find('img:not([width])').css('width', ($mc.outerWidth()+2).toString() + 'px')
-  //                             .css('position', 'relative')
-  //                             .css('left', '-' + $mc.css('padding-left'));
+function sizeFullWidthImages () {
+  var $mc = $('#main_content');
+  $mc.find('img.full-width').css('width', ($mc.outerWidth()+2).toString() + 'px')
+                              .css('position', 'relative')
+                              .css('left', '-' + $mc.css('padding-left'));
 }
-function setMainContentImgMaxWidth () {
-  // $('#main_content img:not([width])').each(function () {
-  //   $(this).on('load', function () {
-  //     var nw = this.naturalWidth;
-  //     $(this).css('max-width', nw.toString() + 'px')
-  //   });
-  // });
+function setFullWidthImagesMaxWidth () {
+  $('#main_content img.full-width').each(function () {
+    $(this).on('load', function () {
+      var nw = this.naturalWidth;
+      $(this).css('max-width', nw.toString() + 'px');
+    });
+  });
 }
-$(document).ready(setMainContentImgMaxWidth);
-$(document).ready(sizeMainContentImages);
-$(window).on('resize', sizeMainContentImages);
+$(document).ready(setFullWidthImagesMaxWidth);
+$(document).ready(sizeFullWidthImages);
+$(window).on('resize', sizeFullWidthImages);
 
 /*
  * #main_content min-height
