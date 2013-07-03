@@ -46,7 +46,7 @@ class ChapterHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ();
+	private static $allowed_actions = array ('loadTest');
 	
 	
 	

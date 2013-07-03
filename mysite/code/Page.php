@@ -39,7 +39,8 @@ class Page_Controller extends ContentController {
 		"queryTest",
 		"SplitKeywords",
 		"results",
-		'show'
+		'show',
+		'loadTest'
 	);
 
 
@@ -52,7 +53,6 @@ class Page_Controller extends ContentController {
 		
 		$jsFiles = array(
 			$themeFolder.'/javascript/jquery.magnific-popup.min.js',
-			$themeFolder.'/javascript/jquery.sticky.js',
 			$themeFolder. '/javascript/script.js'
 		);
 		
@@ -450,10 +450,10 @@ class Page_Controller extends ContentController {
 
 
 
-		$photoObject = DataObject::get_by_id("FieldPhoto", $photoID);
+		//$photoObject = DataObject::get_by_id("FieldPhoto", $photoID);
+		
+		
 		$picture = $photoObject->Picture();
-
-
 
 		$customise["picture"] = $picture;
 
@@ -482,8 +482,7 @@ class Page_Controller extends ContentController {
 			return;
 		}
 
-		//$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);
-		
+		//$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);		
 		$photoObject = DataObject::get("ArtPhoto")->filter(array('ArtID' => $photoID))->First();
 		
 		if ($photoObject){
