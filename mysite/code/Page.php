@@ -482,24 +482,33 @@ class Page_Controller extends ContentController {
 			return;
 		}
 
-		$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);
-		//$photoObject = ArtPhoto::get()->filter(array()
-		$newObject = $photoObject->toMap();
-		$newObject = new ArrayData($newObject); //cast to array that can be displayed on template
-
-		if (isset($arguments["size"])) {
-			$newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
+		//$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);
+		
+		$photoObject = DataObject::get("ArtPhoto")->filter(array('ArtID' => $photoID))->First();
+		
+		if ($photoObject){
+		
+			//$photoObject = ArtPhoto::get()->filter(array()
+			$newObject = $photoObject->toMap();
+			$newObject = new ArrayData($newObject); //cast to array that can be displayed on template
+	
+			if (isset($arguments["size"])) {
+				$newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
+			}
+			else {
+				$customise['size'] = 'normal';
+			}
+	
+			$template = new SSViewer('ArtPhoto');
+	
+			$picture = $photoObject->Picture();
+			$newObject->setField('filename', $picture->getFilename());
+	
+			return $template->process($newObject);
 		}
 		else {
-			$customise['size'] = 'normal';
+			return;
 		}
-
-		$template = new SSViewer('ArtPhoto');
-
-		$picture = $photoObject->Picture();
-		$newObject->setField('filename', $picture->getFilename());
-
-		return $template->process($newObject);
 
 	}
 
