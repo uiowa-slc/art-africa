@@ -1,6 +1,6 @@
 <?php
  
-class ChapterHolder extends Page {
+class HomePage extends Page {
  
   
   private static $db = array(	
@@ -12,7 +12,6 @@ class ChapterHolder extends Page {
 
   );
   
-  private static $allowed_children = array("Chapter");
   
   private static $belongs_many_many = array();
   
@@ -29,7 +28,7 @@ class ChapterHolder extends Page {
 }
 
 
-class ChapterHolder_Controller extends Page_Controller {
+class HomePage_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -46,8 +45,11 @@ class ChapterHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ('loadTest');
+	private static $allowed_actions = array ();
 	
-	
+	public function init() {
+		parent::init();
+		Requirements::css("themes/africa/css/homepage.css");
+	}
 	
 }
