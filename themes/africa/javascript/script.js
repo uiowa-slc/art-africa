@@ -81,7 +81,7 @@ $(document).ready(function () {
     }
   });
   
-  $(".nav2").sticky({topSpacing:0});
+  $(".nav2.interior-page").sticky({topSpacing:0});
   //$("#chapters_heading").sticky({topSpacing:0});
   
   

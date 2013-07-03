@@ -45,7 +45,7 @@
         <!-- for chapter pages -->
         <div id="subnav-container">
         <div id="chapters_heading">$Level(1).Title</div>
-        <nav class="nav2">
+        <nav class="nav2 interior-page">
           <ul>
             <!-- Chapters -->
             <% if $Level(1).Title == 'Chapters' %>
