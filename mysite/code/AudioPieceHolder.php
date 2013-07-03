@@ -21,7 +21,7 @@ class AudioPieceHolder extends Page {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
 
-		$gridFieldConfigAudio = GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfigAudio = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("AudioPieces", "Audio Pieces", AudioPiece::get(), $gridFieldConfigAudio);		
 		$fields->addFieldToTab('Root.AudioPieces', $gridfield);
 		

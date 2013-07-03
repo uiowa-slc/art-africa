@@ -21,7 +21,7 @@ class ArtPhotoHolder extends Page {
  		$fields = parent::getCMSFields();
 		
 		
-		$gridFieldConfigArtPhoto = GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfigArtPhoto = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("ArtPhoto", "ArtPhotos", ArtPhoto::get(), $gridFieldConfigArtPhoto);		
 		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
 		

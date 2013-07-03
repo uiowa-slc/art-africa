@@ -23,8 +23,8 @@ class PeopleHolder extends Page {
  		$fields = parent::getCMSFields();
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
-		$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
-		$gridfield = new GridField("People", "People", People::get(), $gridFieldConfigPeople);		
+		$gridFieldConfigPeople = GridFieldConfig_RecordEditor::create(); 
+		$gridfield = new GridField("People", "Peoples", People::get(), $gridFieldConfigPeople);		
 		$fields->addFieldToTab('Root.Main', $gridfield, 'Content');
 		$fields->renameField("Content", "Introduction Text");
 		

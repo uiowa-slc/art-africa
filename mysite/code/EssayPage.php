@@ -27,6 +27,9 @@ class EssayPage extends DataObject {
 	  $fields = parent::getCMSFields();
 	  
 	  $fields->addFieldToTab('Root.Main', new HTMLEditorField('Content'));
+	  $fields->removeFieldFromTab('Root.Main', 'Subtopic');
+	  $fields->removeFieldFromTab('Root.Main', 'Essay');
+
 	  
 	  return $fields;
 	 			

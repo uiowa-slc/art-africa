@@ -119,6 +119,7 @@ class Page_Controller extends ContentController {
 		/*ADD IN CLASSES TO BE SEARCHED HERE */
 		$siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
 		$dataObjectClasses = array('Country', 'Essay', 'People', 'ArtPhoto', 'FieldPhoto'); //add in your DataObjects,
+	
 
 
 		$bibliographyClasses = array('Essay', 'MediaPiece'); //add classes with the Bibliography field
@@ -130,6 +131,8 @@ class Page_Controller extends ContentController {
 
 			$bibliographyFlag = true; //bibliography search
 		}
+		
+		
 
 		$objects = array();
 
@@ -165,6 +168,7 @@ class Page_Controller extends ContentController {
 	     */
 
 		foreach ($dataObjectClasses as $c) {
+			
 			$dataObjectsItemMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, '', $bibliographyFlag); //This function is in Page.php
 
 			$query = DataList::create($c)->where($dataObjectsItemMatch);
@@ -506,6 +510,7 @@ class Page_Controller extends ContentController {
 			return $template->process($newObject);
 		}
 		else {
+
 			return;
 		}
 

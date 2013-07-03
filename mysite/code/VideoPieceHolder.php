@@ -21,7 +21,7 @@ class VideoPieceHolder extends Page {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
 		
-		$gridFieldConfigVideo = GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfigVideo = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("VideoPieces", "Video Pieces", VideoPiece::get(), $gridFieldConfigVideo);		
 		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
 		

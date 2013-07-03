@@ -28,11 +28,19 @@ class CountryHolder extends Page {
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 		
 		$fields->removeFieldFromTab("Root.Main","Content");		
-		$gridFieldConfigCountries = GridFieldConfig_RecordEditor::create(); 
-		$gridfield = new GridField("Countries", "Countries", Country::get(), $gridFieldConfigCountries);		
+		$gridFieldConfigCountry = GridFieldConfig_RecordEditor::create(); 
+		$gridfield = new GridField("Countries", "Countries!", Country::get(), $gridFieldConfigCountry);		
 		$fields->addFieldToTab('Root.Main', $gridfield);
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField("Content","Introduction Text"));
 		
+		/*
+		
+		$gridFieldConfigPeople = GridFieldConfig_RecordEditor::create(); 
+		$gridfield = new GridField("People", "Peoples", People::get(), $gridFieldConfigPeople);		
+		$fields->addFieldToTab('Root.Main', $gridfield, 'Content');
+		$fields->renameField("Content", "Introduction Text");
+		
+		*/
 		return $fields;		
   }
   

@@ -62,6 +62,7 @@ class Essay extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Bibliography', 'Bibliography'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
+ 		//$fields->removeFieldByName('EssayPages');
  		
  			
 		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
