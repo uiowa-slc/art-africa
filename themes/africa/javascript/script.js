@@ -80,6 +80,12 @@ $(document).ready(function () {
       navigateByImgClick: false
     }
   });
+  
+  $(".nav2").sticky({topSpacing:0});
+  //$("#chapters_heading").sticky({topSpacing:0});
+  
+  
+  
 });
 
 $(document).on('click', '.mfp-img', function (event) {
