@@ -16,7 +16,7 @@
 </script>
 
 <% if $Level(1).Title == 'Chapters' %>
-  <ul>
+  <ul class="columns">
     <% loop ChildrenOf('chapters') %>
       <li>
         <a href="$Link">$MenuTitle</a>

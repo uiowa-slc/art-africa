@@ -26,7 +26,12 @@ body {
   padding: 0px !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
@@ -176,6 +181,7 @@ button {
 	color: #aaa;
 	text-decoration: none;
 }
+
 @media (max-width: 768px) {
   .nav1.toggle {
     display: none;
@@ -278,10 +284,12 @@ button {
   display: block;
   padding: 0.75rem 1.25rem;
 }
+
 #middle .nav2 >ul>li>a:hover {
 	color: #9e9595;
 	text-decoration: none;
 }
+
 #main_content {
   background: white;
   padding: 1.25rem 1.25rem 0 1.25rem;
@@ -305,6 +313,7 @@ button {
     -moz-column-gap: 2rem; /* Firefox */
     -webkit-column-gap: 2rem; /* Safari and Chrome */
   }
+
   .columns > *:first-child { /* prevents top of element from being different than other columns */
     margin-top: 0 !important;
   }
@@ -318,14 +327,17 @@ button {
   }
 }
 
-.columns p {
-  /*
+.columns li {
   -webkit-column-break-inside: avoid;
   -moz-column-break-inside: avoid;
   -o-column-break-inside: avoid;
   -ms-column-break-inside: avoid;
   column-break-inside: avoid;
-  */
+  /*-webkit-column-break-after: column;
+  -moz-column-break-after: column;
+  -o-column-break-after: column;
+  -ms-column-break-after: column;
+  column-break-after: column;*/
 }
 
 @media (min-width: 769px) {
@@ -592,7 +604,7 @@ article.page {
   padding: 0.75rem 1rem;
 }
 
-.pagination >*:not(:last-child) {
+.pagination > *:not(:last-child) {
   margin-right: 0.5rem;
 }
 
@@ -659,15 +671,18 @@ article.page {
 #main_content .map-page p {
   margin: 0.3em 0;
 }
+
 #main_content .map-page h2 {
   font-size: 3em;
   border-bottom: 1px solid #ccc;
   padding: 0.3em 0;
   margin: 0.2em 0;
 }
+
 #main_content .map-page h3 {
   
 }
+
 .country-info-container{
   padding: 1em 0;
 }

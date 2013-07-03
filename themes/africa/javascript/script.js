@@ -164,6 +164,7 @@ function initialize() {
   var countryNameToStartMapOn;
   var zoomLevel;
 
+  // if the url ends in /countries/ (trailing slash optional)
   if (/countries(\/)?$/.test(window.location.pathname)) {
     countryNameToStartMapOn = 'Central African Republic';
     zoomLevel = 3;
@@ -205,8 +206,8 @@ function initialize() {
           var countryMarker = new google.maps.Marker({
             position:  results[0].geometry.location,
             map:       map,
-            title:     'Example Country',
-            url:       'https://www.google.com/',
+            // title:     'Example Country',
+            // url:       'https://www.google.com/',
             animation: google.maps.Animation.DROP
             // icon:      'http://cdn.iphoneincanada.ca/wp-content/uploads/2012/09/Google-Maps-icon.png'
           });
