@@ -23,7 +23,7 @@ class MediaHolder extends Page {
  		$fields = parent::getCMSFields();
 		$fields->removeFieldFromTab("Root.Main","Content");
 		//$fields->addFieldToTab("Root.Main")
-		$content = new HTMLEditorField("Content", "Content -- Use this field to edit the introduction to the audio and video that shows up on the front-end of the site.  Use Art Photos and Field Photos to edit the photos themselves.");
+		$content = new HTMLEditorField("Content", "Content -- Use this field to edit the introduction to the audio and video that shows up on the front-end of the site.  Use the Audio and Video pages to edit the photos themselves.");
 		$fields->addFieldToTab("Root.Main", $content);
 		return $fields;	
 		

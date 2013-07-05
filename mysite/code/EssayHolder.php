@@ -21,9 +21,11 @@ class EssayHolder extends Page {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
 		
+		$fields->removeFieldFromTab("Root.Main","Content");	
 		$gridFieldConfigEssays = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("Essay", "Essays", Essay::get(), $gridFieldConfigEssays);		
-		$fields->addFieldToTab('Root.Essays', $gridfield);
+		$fields->addFieldToTab('Root.Main', $gridfield);
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField("Content","Introduction Text"));
 
 		
 		

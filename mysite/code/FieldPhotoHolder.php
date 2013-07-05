@@ -23,8 +23,10 @@ class FieldPhotoHolder extends Page {
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 			
 		$gridFieldConfigFieldPhoto = GridFieldConfig_RecordEditor::create(); 
-		$gridfield = new GridField("FieldPhoto", "FieldPhotos", FieldPhoto::get(), $gridFieldConfigFieldPhoto);		
-		$fields->addFieldToTab('Root.FieldPhotos', $gridfield);
+		$gridfield = new GridField("FieldPhoto", "Field Photos", FieldPhoto::get(), $gridFieldConfigFieldPhoto);		
+		$fields->addFieldToTab('Root.Main', $gridfield, 'Content');
+		$fields->renameField('Content', 'Introduction Text');
+		
 		
 		return $fields;		
   }

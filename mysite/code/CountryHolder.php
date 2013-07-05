@@ -26,12 +26,12 @@ class CountryHolder extends Page {
  		$fields = parent::getCMSFields();
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
-		
-		$fields->removeFieldFromTab("Root.Main","Content");		
+			
 		$gridFieldConfigCountry = GridFieldConfig_RecordEditor::create(); 
-		$gridfield = new GridField("Countries", "Countries!", Country::get(), $gridFieldConfigCountry);		
-		$fields->addFieldToTab('Root.Main', $gridfield);
-		$fields->addFieldToTab('Root.Main', new HTMLEditorField("Content","Introduction Text"));
+		$gridfield = new GridField("Countries", "Countries", Country::get(), $gridFieldConfigCountry);		
+		$fields->addFieldToTab('Root.Main', $gridfield, 'Content');
+		$fields->renameField("Content", "Introduction Text");
+		
 		
 		/*
 		

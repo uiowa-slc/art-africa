@@ -22,8 +22,12 @@ class ArtPhotoHolder extends Page {
 		
 		
 		$gridFieldConfigArtPhoto = GridFieldConfig_RecordEditor::create(); 
-		$gridfield = new GridField("ArtPhoto", "ArtPhotos", ArtPhoto::get(), $gridFieldConfigArtPhoto);		
-		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
+		//$gridFieldConfigArtPhoto->removeComponent('GridFieldPaginator');
+		//$gridFieldConfigArtPhoto->addComponent(new GridFieldPaginator(2));
+		$gridfield = new GridField("ArtPhoto", "Art Photos", ArtPhoto::get(), $gridFieldConfigArtPhoto);		
+		$fields->addFieldToTab('Root.Main', $gridfield, 'Content');
+		$fields->renameField("Content", "Introduction Text");
+		
 		
 		return $fields;		
   }

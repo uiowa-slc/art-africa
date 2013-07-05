@@ -23,7 +23,9 @@ class AudioPieceHolder extends Page {
 
 		$gridFieldConfigAudio = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("AudioPieces", "Audio Pieces", AudioPiece::get(), $gridFieldConfigAudio);		
-		$fields->addFieldToTab('Root.AudioPieces', $gridfield);
+		$fields->addFieldToTab('Root.Main', $gridfield, 'Content');
+		$fields->renameField("Content", "Introduction Text");
+		
 		
 		return $fields;		
   }

@@ -23,7 +23,9 @@ class VideoPieceHolder extends Page {
 		
 		$gridFieldConfigVideo = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("VideoPieces", "Video Pieces", VideoPiece::get(), $gridFieldConfigVideo);		
-		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
+		$fields->addFieldToTab('Root.Main', $gridfield, 'Content');
+		$fields->renameField("Content", "Introduction Text");
+		
 		
 		return $fields;		
   }
