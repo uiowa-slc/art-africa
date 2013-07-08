@@ -55,7 +55,7 @@ class MediaHolder_Controller extends Page_Controller {
 	
 	public function show (){
 	//Displays a data object
-		echo "hellow";			
+					
 		$otherClass = 'Media';
 		
 		$objectID = $this->request->param('ID');
