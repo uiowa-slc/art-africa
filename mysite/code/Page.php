@@ -53,6 +53,7 @@ class Page_Controller extends ContentController {
 		
 		$jsFiles = array(
 			$themeFolder.'/javascript/jquery.magnific-popup.min.js',
+			$themeFolder.'/javascript/jquery.sticky.js',
 			$themeFolder. '/javascript/script.js'
 		);
 		
@@ -359,7 +360,7 @@ class Page_Controller extends ContentController {
 
 	//Displays a data object of the class childPage, which is found in the controller of the holder class show is called on
 	public function show() {
-
+	
 		$otherClass = $this::$childPage;
 		$objectID = Convert::raw2xml($this->request->param('ID'));
 		//We can '/show/ID' or '/show/object+name'

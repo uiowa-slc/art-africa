@@ -55,8 +55,7 @@ class MediaHolder_Controller extends Page_Controller {
 	
 	public function show (){
 	//Displays a data object
-	
-						
+					
 		$otherClass = 'Media';
 		
 		$objectID = $this->request->param('ID');
@@ -65,6 +64,7 @@ class MediaHolder_Controller extends Page_Controller {
 		    $object = $otherClass::get_by_id($otherClass, $objectID);
 		    
 		    if(isset($object)){
+		    	
 		       $showTemplate = $class . 'Holder_show';
 			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
 			   

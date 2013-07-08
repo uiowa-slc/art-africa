@@ -82,8 +82,9 @@ $(document).ready(function () {
     }
   });
 
-  $(".nav2.interior-page").sticky({ topSpacing: 0 });
-  //$("#chapters_heading").sticky({ topSpacing: 0 });
+  $(".nav2.interior-page").sticky({topSpacing:0});
+  //$(".sticky").sticky({topSpacing:0});
+  //$("#chapters_heading").sticky({topSpacing:0});
 });
 
 $(document).on('click', '.mfp-img', function (event) {
