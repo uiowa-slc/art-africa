@@ -1,16 +1,46 @@
-#view.homepage #middle,
-#view:not(.homepage) #pic {
-  display: none;
+#view.homepage {
+  overflow-x: hidden; /* was getting a weird horizontal scrolling issue from the #footer */
 }
 
-#pic {
-  background-size: contain;
-  position: fixed;
-  top: 9.5rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
+#view.homepage #footer {
+  background: white;
+  margin-top: 0;
+}
+
+#view.homepage #footer .c {
+  padding: 0 1.25rem;
+}
+
+#view.homepage #footer a {
+  color: #AA2F13;
+}
+
+@media (min-width: 769px) {
+  #view.homepage #footer {
+    display: none;
+  }
+}
+
+#homepage-pic {
   background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  #homepage-pic {
+    min-height: 30rem;
+  }
+}
+
+@media (min-width: 769px) {
+  #homepage-pic {
+    position: fixed;
+    top: 9.5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 #pic.toggle {
@@ -54,8 +84,14 @@ a .arrow {
   position:  static !important;
 }
 
+#homepage-fixed-footer {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
 @media (max-width: 768px) {
-  #footer {
-    padding: 2.5rem 1.5rem;
+  #homepage-fixed-footer {
+    display: none;
   }
 }

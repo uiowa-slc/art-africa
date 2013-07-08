@@ -72,6 +72,7 @@ $(document).ready(function () {
   //     enabled: true
   //   }
   // });
+
   $('#main_content').magnificPopup({
     delegate: '.artPhoto',
     type: 'image',
@@ -80,12 +81,9 @@ $(document).ready(function () {
       navigateByImgClick: false
     }
   });
-  
-  $(".nav2.interior-page").sticky({topSpacing:0});
-  //$("#chapters_heading").sticky({topSpacing:0});
-  
-  
-  
+
+  $(".nav2.interior-page").sticky({ topSpacing: 0 });
+  //$("#chapters_heading").sticky({ topSpacing: 0 });
 });
 
 $(document).on('click', '.mfp-img', function (event) {
@@ -97,9 +95,8 @@ $(document).on('click', '.mfp-img', function (event) {
   window.location.href = ap.attr('data-mfp-href');
 });
 
-
 var map;
-var country = new google.maps.LatLng(7.6219, 6.9743);
+// var country = new google.maps.LatLng(7.6219, 6.9743);
 
 var MY_MAPTYPE_ID = 'custom_style';
 
@@ -189,7 +186,10 @@ function initialize() {
       zoom: zoomLevel,
       center: results[0].geometry.location,
       mapTypeControlOptions: {
-        mapTypeIds: [ google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID ]
+        mapTypeIds: [
+          google.maps.MapTypeId.ROADMAP,
+          MY_MAPTYPE_ID
+        ]
       },
       mapTypeId: MY_MAPTYPE_ID,
       draggableCursor: 'pointer'
@@ -205,7 +205,7 @@ function initialize() {
 
     $('.nav2 a').each(function (i) {
       var nav2a = $(this);
-      var countryName = nav2a.data('gmaps');
+      var countryName = nav2a.text();
       var countryHref = nav2a.attr('href');
       geocoder.geocode({ 'address': countryName }, function (results, status) {
         setTimeout(function () {
