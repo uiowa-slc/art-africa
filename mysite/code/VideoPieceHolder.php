@@ -1,8 +1,7 @@
 <?php
  
 class VideoPieceHolder extends Page {
- 
-  
+
   private static $db = array(	
 
   );
@@ -17,19 +16,17 @@ class VideoPieceHolder extends Page {
   private static $belongs_many_many = array();
   
 
- // tidy up the CMS by not showing these fields
+	// tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		
+
 		$gridFieldConfigVideo = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("VideoPieces", "Video Pieces", VideoPiece::get(), $gridFieldConfigVideo);		
 		$fields->addFieldToTab('Root.Main', $gridfield, 'Content');
 		$fields->renameField("Content", "Introduction Text");
-		
-		
+
 		return $fields;		
   }
-  
 
 }
 

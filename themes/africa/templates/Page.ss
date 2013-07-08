@@ -9,7 +9,7 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
-	<script src="{$ThemeDir}/javascript/jquery.magnific-popup.min.js" type="text/javascript"></script>
+    <script src="{$ThemeDir}/javascript/jquery.magnific-popup.min.js" type="text/javascript"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry"></script>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="icon" type="image/png" href="/art-africa/themes/africa/images/logo.png">
@@ -29,7 +29,7 @@
           <div></div>
         </div>
         <div id="logo">
-			<a href="{$BaseHref}">Art &amp; Life<br>in Africa</a>
+          <a href="{$BaseHref}">Art &amp; Life<br>in Africa</a>
         </div>
         <nav class="nav1 toggle">
           <ul>
@@ -94,6 +94,39 @@
             <!-- Media -->
             <% if $Level(1).Title == 'Media' %>
             <% end_if %>
+
+                <!-- Video -->
+                <% if $Level(1).Title == 'Video' %>
+                  <% loop getVideoPieces %>
+                    <% if Name %>
+                      <li><a href="$Link(false)">$Name</a></li>
+                    <% else_if Title %>
+                      <li><a href="$Link(false)">$Title</a></li>
+                    <% end_if %>
+                  <% end_loop %>
+                <% end_if %>
+
+                <!-- Audio -->
+                <% if $Level(1).Title == 'Audio' %>
+                  <% loop getAudio %>
+                    <% if Name %>
+                      <li><a href="$Link(false)">$Name</a></li>
+                    <% else_if Title %>
+                      <li><a href="$Link(false)">$Title</a></li>
+                    <% end_if %>
+                  <% end_loop %>
+                <% end_if %>
+
+                <!-- ArtPhotos -->
+                <% if $Level(1).Title == 'Art Photos' %>
+                  <% loop getArtPhotos %>
+                    <% if Name %>
+                      <li><a href="$Link(false)">$Name</a></li>
+                    <% else_if Title %>
+                      <li><a href="$Link(false)">$Title</a></li>
+                    <% end_if %>
+                  <% end_loop %>
+                <% end_if %>
 
             <!-- Field Essays -->
             <% if $Level(1).Title == 'Field Essays' %>
