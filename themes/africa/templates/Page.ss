@@ -91,10 +91,6 @@
               <% end_loop %>
             <% end_if %>
 
-            <!-- Photos -->
-            <% if $Level(1).Title == 'Photos' %>
-            <% end_if %>
-
             <!-- Media -->
             <% if $Level(1).Title == 'Media' %>
             <% end_if %>

@@ -74,7 +74,9 @@ class EssayHolder_Controller extends Page_Controller {
 		 $list->setPageLength(1);
 		 return $list;
 	}
-	
-	
-	
+
+	public function getEssays () {
+		$essays = Essay::get();
+		return $essays;
+	}
 }
