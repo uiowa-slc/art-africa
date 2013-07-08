@@ -2,13 +2,7 @@
 	<article>
 		<h1>$Title</h1>
 		<div class="content">
-		<% loop getObjects('Essay') %>
-			<% if Title %>
-				<li><a href="$Link(false)">$Title</a></li><br>
-			<% end_if %>
-		<% end_loop %>
-		
-		<br><br>
+			$Content
 		</div>
 	</article>
 		

@@ -30,7 +30,7 @@ class Photo extends DataObject {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
  		
- 		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID', 'Database ID.  Use this to get a photo using a short code' ));
+ 		//$fields->addFieldToTab('Root.Main', new ReadonlyField('ID', 'Database ID.  Use this to get a photo using a short code' ));
  		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
  		$fields->addFieldToTab('Root.Main', new TextField('PhotoID', 'Photo ID'));
  		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));

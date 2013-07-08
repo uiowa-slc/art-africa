@@ -3,7 +3,7 @@
 class AfricaDataObjectExtension extends DataExtension {
  
   public function SplitKeywords(){
-	    $keywords = $this->Title;
+	    $keywords = $this->Tags;
 	    
 	    if($keywords){
 		   $splitKeywords = explode(',', $keywords); 
