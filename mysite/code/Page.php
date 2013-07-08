@@ -53,6 +53,7 @@ class Page_Controller extends ContentController {
 		
 		$jsFiles = array(
 			$themeFolder.'/javascript/jquery.magnific-popup.min.js',
+			$themeFolder.'/javascript/jquery.sticky.js',
 			$themeFolder. '/javascript/script.js'
 		);
 		
