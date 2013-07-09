@@ -32,7 +32,7 @@ class Photo extends DataObject {
  		
  		//$fields->addFieldToTab('Root.Main', new ReadonlyField('ID', 'Database ID.  Use this to get a photo using a short code' ));
  		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
- 		$fields->addFieldToTab('Root.Main', new TextField('PhotoID', 'Photo ID'));
+ 		//$fields->addFieldToTab('Root.Main', new TextField('PhotoID', 'Photo ID'));
  		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
  		$fields->addFieldToTab('Root.Main', new TextField('Photographer', 'Photographer'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));

@@ -4,7 +4,7 @@ class ArtPhoto extends Photo {
  
   
   private static $db = array(	
-  'ArtID' => 'Text',
+  'AccessionNumber' => 'Text',
   'TraditionalName' => 'Text',
   'Material' => 'Text',
   'Size' => 'Text',
@@ -52,7 +52,7 @@ class ArtPhoto extends Photo {
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 
-		$fields->addFieldToTab('Root.Main', new TextField('ArtID', 'Art ID'));
+		$fields->addFieldToTab('Root.Main', new TextField('AccessionNumber', 'Accession Number'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));
   		$fields->addFieldToTab('Root.Main', new TextField('TraditionalName', 'Traditional Name'));
  		$fields->addFieldToTab('Root.Main', new TextField('Material', 'Material'));

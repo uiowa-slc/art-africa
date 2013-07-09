@@ -488,7 +488,7 @@ class Page_Controller extends ContentController {
 		}
 
 		//$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);		
-		$photoObject = DataObject::get("ArtPhoto")->filter(array('ArtID' => $photoID))->First();
+		$photoObject = DataObject::get("ArtPhoto")->filter(array('ID' => $photoID))->First();
 		
 		if ($photoObject){
 		

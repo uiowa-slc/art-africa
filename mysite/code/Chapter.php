@@ -28,7 +28,8 @@ class Chapter extends Page {
 
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		
+		$fields->removeFieldFromTab('Root.Main', 'Content');
+
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Chapter Name'), 'URLSegment');
 		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));

@@ -42,7 +42,7 @@ class Subtopic extends Page {
  	
  		$fields = parent::getCMSFields();
  		
- 		//$fields->removeFieldFromTab('Root.Main', 'Content');
+ 		$fields->removeFieldFromTab('Root.Main', 'Content');
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Topic Name'));
 		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
