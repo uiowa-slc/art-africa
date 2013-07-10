@@ -8,17 +8,17 @@ html {
 
 @media (min-width: 1680px) {
   html { font-size: 1.125em; }
-  #view { margin: 0 2%; }
+  /*#view { margin: 0 2%; }*/
 }
 
 @media (min-width: 1920px) {
   html { font-size: 1.25em; }
-  #view { margin: 0 4%; }
+  /*#view { margin: 0 4%; }*/
 }
 
 @media (min-width: 2560px) {
   html { font-size: 1.5em; }
-  #view { margin: 0 6%; }
+  /*#view { margin: 0 6%; }*/
 }
 
 body {
