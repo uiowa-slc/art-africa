@@ -2,6 +2,7 @@
 	<article>
 		<h1>$Title</h1>
 		<img src="{$ThemeDir}/images/homepage-pic.jpg" class="full-width" alt="">
+		<h2>Introduction</h2>
 		<% include EssayPages %>
 		<div>
 			Name: $Name<br><br>

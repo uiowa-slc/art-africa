@@ -4,7 +4,6 @@ class FieldPhoto extends Photo {
  
   
   private static $db = array(	
-  'Test' => 'Text'
   );
  
   // One-to-one relationship with gallery page
