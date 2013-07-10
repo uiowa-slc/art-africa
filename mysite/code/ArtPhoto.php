@@ -34,7 +34,8 @@ class ArtPhoto extends Photo {
    'Countries' => 'Country',
    'Subtopics' => 'Subtopic',
    'AudioPieces' => 'AudioPiece',
-   'VideoPieces' => 'VideoPiece'
+   'VideoPieces' => 'VideoPiece',
+   'Chapters' => 'Chapter'
 
   
   );
@@ -51,7 +52,8 @@ class ArtPhoto extends Photo {
  		$fields = parent::getCMSFields();
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
-
+		$fields = $this->addCommonFields($fields);
+		
 		$fields->addFieldToTab('Root.Main', new TextField('AccessionNumber', 'Accession Number'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));
   		$fields->addFieldToTab('Root.Main', new TextField('TraditionalName', 'Traditional Name'));
@@ -63,7 +65,7 @@ class ArtPhoto extends Photo {
  		$fields->addFieldToTab('Root.Main', new TextField('Collection', 'Collection'));
  		$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
 
-		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
+		/*$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);
 		$fields->addFieldToTab('Root.AudioPieces', $gridfield);
 
@@ -117,7 +119,7 @@ class ArtPhoto extends Photo {
 
 		$gridFieldConfigVideoPiecesViewer = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("VideoPiecesViewer", "View All Video Pieces", VideoPiece::get(), $gridFieldConfigVideoPiecesViewer);
-		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
+		$fields->addFieldToTab('Root.VideoPieces', $gridfield);*/
 
 
 		return $fields;		

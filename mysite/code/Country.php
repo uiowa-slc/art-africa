@@ -47,7 +47,8 @@ class Country extends DataObject {
   );
   
   private static $belongs_many_many = array(
-  'Subtopics' => 'Subtopic'
+  'Subtopics' => 'Subtopic',
+  'Chapters' => 'Chapter'
   
   );
   
@@ -58,6 +59,7 @@ class Country extends DataObject {
   public function getCMSFields() {
   
  		$fields = parent::getCMSFields();
+ 		$fields = $this->addCommonFields($fields);
  		
  		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID', 'Temporary ID Field'));
  		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
@@ -83,7 +85,7 @@ class Country extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
  		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
  		
- 		$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
+ 		/*$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("AudioPieces", "Audio Pieces", $this->AudioPieces(), $gridFieldConfigAudioPieces);
 		$fields->addFieldToTab('Root.AudioPieces', $gridfield);
 
@@ -138,7 +140,7 @@ class Country extends DataObject {
 
 		$gridFieldConfigVideoPiecesViewer = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("VideoPiecesViewer", "View All Video Pieces", VideoPiece::get(), $gridFieldConfigVideoPiecesViewer);
-		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
+		$fields->addFieldToTab('Root.VideoPieces', $gridfield);*/
 
 		return $fields;	
   }

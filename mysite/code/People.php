@@ -36,7 +36,8 @@ class People extends DataObject {
   
   private static $belongs_many_many = array(
   'Subtopics' => 'Subtopic',
-  'Countries' => 'Country'
+  'Countries' => 'Country',
+  'Chapters' => 'Chapter'
 
   );
   
@@ -46,7 +47,7 @@ class People extends DataObject {
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
- 		
+ 		$fields = $this->addCommonFields($fields);
  		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID', 'Temporary ID Field'));		
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
 		$fields->addFieldToTab('Root.Main', new TextField('AlternateNames', 'Alternate Name(s)'));
@@ -62,7 +63,7 @@ class People extends DataObject {
 		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
 		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
 
-		$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
+		/*$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("Essays", "Essays", $this->Essays(), $gridFieldConfigEssays);		
 		$fields->addFieldToTab('Root.Essays', $gridfield);
 
@@ -116,7 +117,7 @@ class People extends DataObject {
 
 		$gridFieldConfigCountriesViewer = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("CountriesViewer", "View All Countries", Country::get(), $gridFieldConfigCountriesViewer);	
-		$fields->addFieldToTab('Root.Countries', $gridfield);
+		$fields->addFieldToTab('Root.Countries', $gridfield);*/
 
 
 		return $fields;		

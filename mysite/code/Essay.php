@@ -32,6 +32,7 @@ class Essay extends DataObject {
   'Subtopics' => 'Subtopic',
   'Countries' => 'Country',
   'People' => 'People',
+  'Chapters' => 'Chapter'
 
   
   );
@@ -43,11 +44,11 @@ class Essay extends DataObject {
 
   public function getCMSFields() {
   
- 			$fields = parent::getCMSFields();
- 		
+ 		$fields = parent::getCMSFields();
+ 		$fields = $this->addCommonFields($fields);
  		 //$fields->removeByName('');
  		 
- 		 $gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
+ 		$gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
 		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));
 		$gridFieldConfigEssayPages->getComponentByType('GridFieldPaginator')->setItemsPerPage(20);
@@ -66,7 +67,8 @@ class Essay extends DataObject {
  		//$fields->removeFieldByName('EssayPages');
  		
  			
-		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
+		/*
+$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
 		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
 
@@ -122,6 +124,7 @@ class Essay extends DataObject {
 		$gridFieldConfigVideoPiecesViewer = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("VideoPiecesViewer", "View All Video Pieces", VideoPiece::get(), $gridFieldConfigVideoPiecesViewer);
 		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
+*/
 
 
 

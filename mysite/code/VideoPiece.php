@@ -21,7 +21,8 @@ class VideoPiece extends MediaPiece {
    'Subtopics' => 'Subtopic',
    'ArtPhotos' => 'ArtPhoto',
    'FieldPhotos' => 'FieldPhoto',
-   'AudioPieces' => 'AudioPiece'
+   'AudioPieces' => 'AudioPiece',
+   'Chapters' => 'Chapter'
   );
   
   private static $plural_name = "Video Pieces";
@@ -29,10 +30,10 @@ class VideoPiece extends MediaPiece {
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
+ 		$fields = addCommonFields($fields);
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 		
-		$fields = parent::getCMSFields();
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 		$fields->removeFieldFromTab("Root.Main","MediaFile");
@@ -40,7 +41,7 @@ class VideoPiece extends MediaPiece {
 		
 		//$fields->addFieldToTab('Root.Main', new TextField('Link', 'Link'));
 
-		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
+		/*$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
 		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
 		
@@ -96,7 +97,7 @@ class VideoPiece extends MediaPiece {
 		
 		$gridFieldConfigEssaysViewer = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("EssaysViewer", "View All Essays", Essay::get(), $gridFieldConfigEssaysViewer);		
-		$fields->addFieldToTab('Root.Essays', $gridfield);
+		$fields->addFieldToTab('Root.Essays', $gridfield);*/
 		
 		return $fields;		
   }

@@ -29,6 +29,7 @@ class EssayPage extends DataObject {
 	  
 	  $fields->addFieldToTab('Root.Main', new HTMLEditorField('Content'));
 	  $fields->removeByName('SubtopicID');
+	  $fields->removeByName('Chapter');
 	  $fields->removeByName('EssayID');
 
 	  

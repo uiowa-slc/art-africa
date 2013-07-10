@@ -22,7 +22,8 @@ class AudioPiece extends MediaPiece {
    'Countries' => 'Country',
    'Subtopics' => 'Subtopic',
    'ArtPhotos' => 'ArtPhoto',
-   'FieldPhotos' => 'FieldPhoto'
+   'FieldPhotos' => 'FieldPhoto',
+   'Chapters' => 'Chapter'
   );
   
   private static $plural_name = "Audio Pieces";
@@ -35,7 +36,7 @@ class AudioPiece extends MediaPiece {
 		
 		
 
-		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
+		/*$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
 		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
 		
@@ -89,7 +90,7 @@ class AudioPiece extends MediaPiece {
 
 		$gridFieldConfigVideoPiecesViewer = GridFieldConfig_RecordEditor::create(); 
 		$gridfield = new GridField("VideoPiecesViewer", "View All Video Pieces", VideoPiece::get(), $gridFieldConfigVideoPiecesViewer);
-		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
+		$fields->addFieldToTab('Root.VideoPieces', $gridfield);*/
 
 
 

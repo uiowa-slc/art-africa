@@ -23,7 +23,8 @@ class FieldPhoto extends Photo {
    'Essays' => 'Essay',
    'Countries' => 'Country',
    'ArtPhotos' => 'ArtPhoto',
-   'Subtopics' => 'Subtopic'
+   'Subtopics' => 'Subtopic',
+   'Chapters' => 'Chapter'
 
   );
   
@@ -36,10 +37,11 @@ class FieldPhoto extends Photo {
  // tidy up the CMS by not showing these fields
  public function getCMSFields() {
  		$fields = parent::getCMSFields();
+ 		$fields = $this->addCommonFields($fields);
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 
-		$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
+		/*$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("ArtPhotos", "Art Photos", $this->ArtPhotos(), $gridFieldConfigArtPhotos);
 		$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
 
@@ -65,7 +67,7 @@ class FieldPhoto extends Photo {
 
 		$gridFieldConfigVideoPieces= GridFieldConfig_RelationEditor::create(); 
 		$gridfield = new GridField("VideoPieces", "Video Pieces", $this->VideoPieces(), $gridFieldConfigVideoPieces);
-		$fields->addFieldToTab('Root.VideoPieces', $gridfield);
+		$fields->addFieldToTab('Root.VideoPieces', $gridfield);*/
 
 		return $fields;	
   }

@@ -10,13 +10,25 @@ class Chapter extends Page {
  
   // One-to-one relationship with gallery page
   private static $has_one = array(
-  'Picture' => 'Image'
+  	'Picture' => 'Image'
   );
   
 
    private static $allowed_children = array(
-    	"Subtopic"
+    "Subtopic"
    );
+   
+  private static $many_many = array(
+   'People' => 'People',
+   'Essays' => 'Essay',
+   'Countries' => 'Country',
+   'AudioPieces' => 'AudioPiece',
+   'VideoPieces' => 'VideoPiece',
+   'ArtPhotos' => 'ArtPhoto',
+   'FieldPhotos' => 'FieldPhoto'
+
+  
+  );
   
   private static $has_many = array('EssayPages' => 'EssayPage');
   
@@ -28,11 +40,13 @@ class Chapter extends Page {
 
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
+ 		$fields = $this->addCommonFields($fields);
 		$fields->removeFieldFromTab('Root.Main', 'Content'); 
 		$gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
 		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));
 		$gridFieldConfigEssayPages->getComponentByType('GridFieldPaginator')->setItemsPerPage(20);
+		
 		$gridfield = new GridField("EssayPages", "Introduction Essay Pages", $this->EssayPages(), $gridFieldConfigEssayPages);
 		$fields->addFieldToTab('Root.Main', $gridfield);
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Chapter Name'), 'URLSegment');
