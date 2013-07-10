@@ -18,7 +18,7 @@ class Chapter extends Page {
     	"Subtopic"
    );
   
- 
+  private static $has_many = array('EssayPages' => 'EssayPage');
   
   private static $belongs_many_many = array(
   
@@ -28,11 +28,18 @@ class Chapter extends Page {
 
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		//$fields->removeFieldFromTab('Root.Main', 'Content'); 
-
+		$fields->removeFieldFromTab('Root.Main', 'Content'); 
+		$gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
+		$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
+		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));
+		$gridFieldConfigEssayPages->getComponentByType('GridFieldPaginator')->setItemsPerPage(20);
+		$gridfield = new GridField("EssayPages", "Introduction Essay Pages", $this->EssayPages(), $gridFieldConfigEssayPages);
+		$fields->addFieldToTab('Root.Main', $gridfield);
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Chapter Name'), 'URLSegment');
-		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Topic Description'));
+		//$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
+
+
 		
 	
 		

@@ -44,9 +44,6 @@ class Subtopic extends Page {
  		
  		$fields->removeFieldFromTab('Root.Main', 'Content');
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Topic Name'));
-		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Topic Description'));
-		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
-		//$fields->addFieldToTab('Root.Main', new HTMLEditorField('Content', 'First content page'));
 		
 		$gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
@@ -54,6 +51,11 @@ class Subtopic extends Page {
 		$gridFieldConfigEssayPages->getComponentByType('GridFieldPaginator')->setItemsPerPage(20);
 		$gridfield = new GridField("EssayPages", "Essay Pages", $this->EssayPages(), $gridFieldConfigEssayPages);
 		$fields->addFieldToTab('Root.Main', $gridfield);
+
+		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
+		//$fields->addFieldToTab('Root.Main', new HTMLEditorField('Content', 'First content page'));
+		
+
 		/*
 		$fields->addFieldToTab('Root.Pages', new HTMLEditorField('Content2', 'Second content page'));
 		$fields->addFieldToTab('Root.Pages', new HTMLEditorField('Content3', 'Third content page'));

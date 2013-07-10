@@ -2,9 +2,7 @@
 	<article>
 		<h1>$Title</h1>
 		<img src="{$ThemeDir}/images/homepage-pic.jpg" class="full-width" alt="">
-		<div class="content columns">
-			$Content
-		</div>
+		<% include EssayPages %>
 		<div>
 			Name: $Name<br><br>
 			Description: $Description<br><br>
@@ -16,7 +14,7 @@
 		<a href="{$Link}">$Title<br></a>
 	<% end_loop %>
 	<br><br>
-	$testDescription
+	
 </div>
 
 <%# include SideBar %>

@@ -13,6 +13,7 @@ class EssayPage extends DataObject {
 
   private static $has_one = array(
   'Subtopic' => 'Subtopic',
+  'Chapter'=> 'Chapter',
   'Essay' => 'Essay');
   
   static $searchable_fields = array('PageNo', 'Content');
