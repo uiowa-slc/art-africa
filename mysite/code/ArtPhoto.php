@@ -52,6 +52,7 @@ class ArtPhoto extends Photo {
  		$fields = parent::getCMSFields();
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
+		
 		$fields = $this->addCommonFields($fields);
 		
 		$fields->addFieldToTab('Root.Main', new TextField('AccessionNumber', 'Accession Number'));
