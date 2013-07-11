@@ -30,7 +30,7 @@ Security::setDefaultAdmin('admin', 'nimlok');
 error_reporting(E_ALL);
 
 
-Director::set_environment_type("test");
+Director::set_environment_type("dev");
 //Object::add_extension('Country', "FulltextSearchable('Name,Location')");
 
 
