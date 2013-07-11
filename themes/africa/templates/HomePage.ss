@@ -33,20 +33,19 @@
           </ul>
         </nav>
       </div>
-      <div id="homepage-pic" style="background-image:url('{$ThemeDir}/images/homepage-pic.jpg')">
-        <div id="homepage-fixed-footer">
-          <img src="{$ThemeDir}/images/home/uiowa-logo.png" width="200" style="margin-right: 2rem;position:relative;top:-1rem;">
-          <img src="{$ThemeDir}/images/home/UIMA-newlogo-white.png" width="160" style="margin-right: 1.125rem;">
-          <a href="http://www.youtube.com/user/CDROYburkina" target="_blank" class="img-link">
-            <img width="42" src="{$ThemeDir}/images/home/youtube-icon-white.png" style="margin-right: 0.5rem">
-          </a>
-          <a href="#" class="img-link">
-            <img width="42" src="{$ThemeDir}/images/home/facebook-icon-white.png" style="margin-right: 0.5rem">
-          </a>
-          <a href="#" class="img-link">
-            <img width="42" src="{$ThemeDir}/images/home/twitter-icon-white.png">
-          </a>
-        </div>
+      <div id="homepage-pic" style="background-image:url('{$ThemeDir}/images/homepage-pic.jpg')"></div>
+      <div id="homepage-fixed-footer">
+        <img src="{$ThemeDir}/images/home/uiowa-logo.png" width="200" style="margin-right: 2rem;position:relative;top:-1rem;">
+        <img src="{$ThemeDir}/images/home/UIMA-newlogo-white.png" width="160" style="margin-right: 1.125rem;">
+        <a href="http://www.youtube.com/user/CDROYburkina" target="_blank" class="img-link">
+          <img width="42" src="{$ThemeDir}/images/home/youtube-icon-white.png" style="margin-right: 0.5rem">
+        </a>
+        <a href="#" class="img-link">
+          <img width="42" src="{$ThemeDir}/images/home/facebook-icon-white.png" style="margin-right: 0.5rem">
+        </a>
+        <a href="#" class="img-link">
+          <img width="42" src="{$ThemeDir}/images/home/twitter-icon-white.png">
+        </a>
       </div>
       <div id="footer">
         <div class="c">
@@ -94,5 +93,32 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+      $(document).on('click', '#homepage-pic', function () {
+        $(this).animate(
+          {
+            opacity: 0
+          },
+          {
+            duration: 400,
+            complete: function () {
+              var hp = $('#homepage-pic');
+
+              if (hp.hasClass('alt-pic')) {
+                hp.css('background-image', 'url(themes/africa/images/homepage-pic.jpg)')
+              } else {
+                hp.css('background-image', 'url(http://www.hdwallpapersplus.com/wp-content/uploads/2013/06/Abstract_Wallpapers_35.jpg)')
+              }
+
+              hp.toggleClass('alt-pic');
+              hp.animate(
+                          { opacity: 1 },
+                          { duration: 600 }
+                        );
+            }
+          }
+        );
+      });
+    </script>
   </body>
 </html>
