@@ -14,7 +14,7 @@ class Chapter extends Page {
   );
   
 
-   private static $allowed_children = array(
+   private static $default_child = array(
     "Subtopic"
    );
    

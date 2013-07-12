@@ -57,7 +57,14 @@
 			</div>
 		</div>
 		<div>
-			<h2>$Title Media</h2>
+			<h2>Media Related to $Title</h2>
+			
+			<h3>Art</h3>
+			
+			<% loop ArtPhotos %>
+				<% include ArtPhotoGrid %>
+			<% end_loop %>
+			
 			<!--People
 			<% loop People %>
 				$Title<br>
