@@ -119,7 +119,7 @@ function getCountry(results) {
 }
 
 function initialize() {
-  if (! /\/countries\//.test(window.location.pathname)) { return; }
+  if (! /\/countries(\/)?/.test(window.location.pathname)) { return; }
 
   var featureOpts = [
     {
@@ -265,6 +265,12 @@ function initialize() {
         }
       );
     });
+
+    setDraggable(map);
+
+    $(window).on('resize', function () {
+      setDraggable(map);
+    });
   });
 }
 
@@ -286,3 +292,24 @@ $(document).on('mouseover', '.grid-item', function () {
 $(document).on('mouseout', '.grid-item', function () {
   $(this).find('a').removeClass('hover');
 });
+
+$(document).ready(function () {
+  if ((/\/countries(\/)?/).test( window.location.pathname )) {
+    $('#main_content').css('padding', 0);
+    $('#footer').css('margin-left', 0)
+                .css('margin-right', 0)
+                .addClass('padded');
+  }
+});
+
+function setDraggable (map) {
+  var draggable = window.outerWidth > 768;
+
+  var options = {
+    draggable: draggable,
+    panControl: draggable,
+    scrollwheel: draggable
+  };
+
+  map.setOptions(options);
+}

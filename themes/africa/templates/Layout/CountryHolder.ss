@@ -14,14 +14,15 @@
 					</p>
 				</div>
 			</div>
-		<% loop getObjects('Country') %>
- 
-			<% if Title %>
-				<li><a href="$Link">$Title</a></li><br>
-			<% end_if %>
-		<% end_loop %>
-		
-		<br><br>
+			<div class="padded">
+				<ul>
+					<% loop getObjects('Country') %>
+						<% if Title %>
+							<li><a href="$Link">$Title</a></li>
+						<% end_if %>
+					<% end_loop %>
+				</ul>
+			</div>
 		</div>
 	</article>
 		

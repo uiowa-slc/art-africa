@@ -689,20 +689,26 @@ article.page {
   #map-canvas,
   #map_canvas,
   #map-canvas-notice {
-    display: none !important;
+    /*display: none !important;*/
   }
 }
 
 #map-canvas-notice {
   position: absolute;
   /*top: 6rem;*/
-  top: 2.5rem;
-  left: 2.5rem;
-  right: 2.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
   background: rgba(0,0,0, 0.75);
   text-align: center;
   display: table;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  #map-canvas-notice {
+    top: 3.625rem;
+  }
 }
 
 #map-canvas-notice > div {

@@ -1,8 +1,8 @@
 <div class="content-container typography map-page">	
 	<article>
-		<h1>$Title</h1>
+		<h1 class="padded" style="padding-bottom:2.5rem">$Title</h1>
 		<div id="map-canvas"></div>
-		<div class="content container-fluid">
+		<div class="content container-fluid padded" style="padding-top:0">
 			$Content
 			<!--$Picture -->
 			<div class="row-fluid">
@@ -56,7 +56,7 @@
 				</section>
 			</div>
 		</div>
-		<div>
+		<div class="padded" style="padding-top:0">
 			<h2>Media Related to $Title</h2>
 			
 			<h3>Art</h3>
