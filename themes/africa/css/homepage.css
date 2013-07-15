@@ -95,3 +95,36 @@ a .arrow {
     display: none;
   }
 }
+
+#homepage-pic-switchers {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  #homepage-pic-switchers {
+    right: 2.25rem;
+    text-align: center;
+  }
+}
+
+#homepage-pic-switchers .switcher {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 0.0625rem 0.125rem #000;
+  margin-right: 0.75rem;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.1s ease-in;
+  -moz-transition: opacity 0.1s ease-in;
+  transition: opacity 0.1s ease-in;
+  cursor: pointer;
+}
+
+#homepage-pic-switchers .switcher:hover,
+#homepage-pic-switchers .switcher.selected {
+  opacity: 0.75;
+}
