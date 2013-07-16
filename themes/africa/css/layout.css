@@ -404,6 +404,10 @@ ul.columns li {
   text-transform: uppercase;
 }
 
+.padded {
+  padding: 1.25rem 1.25rem 0 1.25rem;
+}
+
 @media (min-width: 769px) {
   #main_content {
     padding: 2.5rem 2.5rem 0 2.5rem;
@@ -412,6 +416,9 @@ ul.columns li {
     left: 18rem;
     right: 0;
     box-shadow: -0.125rem 0.125rem 0.375rem rgba(24,20,21, 0.5);
+  }
+  .padded {
+    padding: 2.5rem 2.5rem 0 2.5rem;
   }
 }
 
@@ -682,20 +689,26 @@ article.page {
   #map-canvas,
   #map_canvas,
   #map-canvas-notice {
-    display: none !important;
+    /*display: none !important;*/
   }
 }
 
 #map-canvas-notice {
   position: absolute;
   /*top: 6rem;*/
-  top: 2.5rem;
-  left: 2.5rem;
-  right: 2.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
   background: rgba(0,0,0, 0.75);
   text-align: center;
   display: table;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  #map-canvas-notice {
+    top: 3.625rem;
+  }
 }
 
 #map-canvas-notice > div {

@@ -33,7 +33,15 @@
           </ul>
         </nav>
       </div>
-      <div id="homepage-pic" style="background-image:url('{$ThemeDir}/images/homepage-pic.jpg')"></div>
+      <div style="position:relative">
+        <div id="homepage-pic" onclick="void(0)">
+          <div id="homepage-pic-switchers">
+            <span class="switcher selected" data-img-url="{$ThemeDir}/images/homepage-pic.jpg"></span>
+            <span class="switcher" data-img-url="http://interfacelift.com/wallpaper/D47cd523/03305_nforksmithriverfalls_1920x1200.jpg"></span>
+            <span class="switcher" data-img-url="http://interfacelift.com/wallpaper/D47cd523/03309_damnationcreektrail_1920x1200.jpg"></span>
+          </div>
+        </div>
+      </div>
       <div id="homepage-fixed-footer">
         <img src="{$ThemeDir}/images/home/uiowa-logo.png" width="200" style="margin-right: 2rem;position:relative;top:-1rem;">
         <img src="{$ThemeDir}/images/home/UIMA-newlogo-white.png" width="160" style="margin-right: 1.125rem;">
@@ -55,7 +63,7 @@
             </p>
             <p>
               1375 Highway One West<br>
-              1840 Studio Arts Building</br>
+              1840 Studio Arts Building<br>
               Iowa City, IA 52242<br>
               Telephone (319) 335-1727<br>
               Fax (319) 335-3677
@@ -65,7 +73,7 @@
             <h3>See the African Art collection in person</h3>
             <p>
               1375 Highway One West<br>
-              1840 Studio Arts Building</br>
+              1840 Studio Arts Building<br>
               Iowa City, IA 52242<br>
               Telephone (319) 335-1727
             </p>
@@ -84,9 +92,9 @@
             </p>
             <ul>
               <% loop Menu(1) %>
-              <li>
-                <a href="$Link">$MenuTitle</a>
-              </li>
+                <li>
+                  <a href="$Link">$MenuTitle</a>
+                </li>
               <% end_loop %>
             </ul>
           </div>
@@ -94,31 +102,52 @@
       </div>
     </div>
     <script type="text/javascript">
-      $(document).on('click', '#homepage-pic', function () {
-        $(this).animate(
-          {
-            opacity: 0
-          },
-          {
-            duration: 400,
+      $(document).ready(function () {
+        $('#homepage-pic').css('background-image', 'url(' + $('.switcher.selected').data('img-url') + ')');
+      });
+
+      $(document).on('click', '.switcher:not(.selected)', function () {
+        switchTo(this);
+      });
+
+      $(document).on('click', '#homepage-pic', function (event) {
+        if (! event.target.classList.contains('switcher')) { switchToNext(); }
+      });
+
+      function switchTo (switcherElement) {
+        var hp = $('#homepage-pic');
+        var switcher = $(switcherElement);
+
+        switcher.addClass('selected')
+                .siblings().removeClass('selected');
+
+        $('#homepage-pic').animate(
+          { opacity: 0 },
+          { duration: 400,
             complete: function () {
-              var hp = $('#homepage-pic');
+              hp.css('background-image', 'url(' + switcher.data('img-url') + ')');
 
-              if (hp.hasClass('alt-pic')) {
-                hp.css('background-image', 'url(themes/africa/images/homepage-pic.jpg)')
-              } else {
-                hp.css('background-image', 'url(http://www.hdwallpapersplus.com/wp-content/uploads/2013/06/Abstract_Wallpapers_35.jpg)')
-              }
-
-              hp.toggleClass('alt-pic');
-              hp.animate(
-                          { opacity: 1 },
-                          { duration: 600 }
-                        );
+              hp.animate({ opacity: 1 },
+                         { duration: 600 });
             }
           }
         );
-      });
+
+        clearTimeout(slideshowTimeout);
+        slideshowTimeout = setTimeout(switchToNext, slideshowInterval);
+      }
+
+      function switchToNext () {
+        var nextEl = document.querySelector('.switcher.selected').nextElementSibling;
+        if (nextEl) {
+          switchTo(nextEl);
+        } else {
+          switchTo(document.querySelector('.switcher'));
+        }
+      }
+
+      var slideshowInterval = 10000;
+      var slideshowTimeout = setTimeout(switchToNext, slideshowInterval);
     </script>
   </body>
 </html>
