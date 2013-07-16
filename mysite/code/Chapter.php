@@ -10,7 +10,7 @@ class Chapter extends Page {
  
   // One-to-one relationship with gallery page
   private static $has_one = array(
-  	'Picture' => 'Image'
+  	'CoverImage' => 'Image'
   );
   
 
@@ -41,7 +41,8 @@ class Chapter extends Page {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
  		$fields = $this->addCommonFields($fields);
-		$fields->removeFieldFromTab('Root.Main', 'Content'); 
+		$fields->removeFieldFromTab('Root.Main', 'Content');
+		
 		$gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
 		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));
@@ -50,6 +51,7 @@ class Chapter extends Page {
 		$gridfield = new GridField("EssayPages", "Introduction Essay Pages", $this->EssayPages(), $gridFieldConfigEssayPages);
 		$fields->addFieldToTab('Root.Main', $gridfield);
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Chapter Name'), 'URLSegment');
+		$fields->addFieldToTab('Root.Main', new UploadField('CoverImage', 'Cover Image'));
 		//$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Topic Description'));
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
 

@@ -14,7 +14,10 @@ class Subtopic extends Page {
   'Content6' => 'Text'*/
   );
 
-  
+  private static $has_one = array(
+  	'CoverImage' => 'Image'
+  );
+    
    private static $many_many = array(
    'People' => 'People',
    'Essays' => 'Essay',
@@ -46,7 +49,7 @@ class Subtopic extends Page {
  		
  		$fields->removeFieldFromTab('Root.Main', 'Content');
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Topic Name'));
-		
+		$fields->addFieldToTab('Root.Main', new UploadField('CoverImage', 'Cover Image'));
 		$gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
 		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));

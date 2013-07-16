@@ -2,6 +2,8 @@
 	<article>
 		<h1>$Title</h1>
 		<div id="map-canvas"></div>
+		<h2>Art</h2>
+				<% include ArtPhotoGrid %>
 		<div class="content container-fluid">
 			$Content
 			<!--$Picture -->
@@ -57,13 +59,8 @@
 			</div>
 		</div>
 		<div>
-			<h2>Media Related to $Title</h2>
-			
-			<h3>Art</h3>
-			
-			<% loop ArtPhotos %>
-				<% include ArtPhotoGrid %>
-			<% end_loop %>
+			<h2>Other Media Related to $Title</h2>
+	
 			
 			<!--People
 			<% loop People %>

@@ -775,3 +775,45 @@ article.page {
 }
 
 /* Media Grid Stuff */
+.media-grid-container {
+	background: #ddd;
+	border-radius: 5px;
+	padding: 0.2em;
+	
+}
+
+.media-grid-container ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.media-grid-container ul li{
+	vertical-align: top;
+	
+}
+
+.media-grid-container ul li img{
+	width: 100%;
+	
+}
+@media (min-width: 480px) {
+	.media-grid-container ul li{
+		display: inline-block;
+		width: 30%;
+	}
+}
+
+@media (min-width: 768px) {
+	.media-grid-container ul li{
+		width: 20%;
+	}
+	
+	.media-grid-container ul{
+		height: 130px;
+		white-space:nowrap;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		
+	}
+}
