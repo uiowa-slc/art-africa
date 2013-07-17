@@ -12,6 +12,9 @@ class HomePage extends Page {
 
   );
   
+  private static $has_many = array(
+  'FieldPhotos' => 'FieldPhoto'
+  );
   
   private static $belongs_many_many = array();
   
@@ -20,7 +23,17 @@ class HomePage extends Page {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
-		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
+		$fields->removeFieldFromTab("Root.Main","SortOrder");*/		
+		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
+		$gridfield = new GridField("FieldPhotos", "Homepage Pictures", $this->FieldPhotos(), $gridFieldConfigFieldPhotos);
+		$fields->addFieldToTab('Root.Main', $gridfield);
+		
+		$gridFieldConfigFieldPhotosViewer = GridFieldConfig_RecordViewer ::create(); 
+		$gridfield = new GridField("Picture Possibilities", null, FieldPhoto::get(), $gridFieldConfigFieldPhotosViewer);
+		$fields->addFieldToTab('Root.Main', $gridfield);
+		
+		$fields->removeFieldFromTab("Root.Main","Content");
+
 		return $fields;		
   }
   

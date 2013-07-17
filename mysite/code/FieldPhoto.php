@@ -8,6 +8,7 @@ class FieldPhoto extends Photo {
  
   // One-to-one relationship with gallery page
   private static $has_one = array(
+  'HomePage' => 'HomePage'
 
   );
   
