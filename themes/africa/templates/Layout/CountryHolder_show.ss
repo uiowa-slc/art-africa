@@ -3,10 +3,11 @@
 		<h1 class="padded" style="padding-bottom:2.5rem">$Title</h1>
 		<div id="map-canvas"></div>
 
-		<h2>Art</h2>
-				<% include ArtPhotoGrid %>
+		<div class="padded" style="padding-top:1rem">
+			<h2>Art</h2>
+			<% include ArtPhotoGrid %>
+		</div>
 		<div class="content container-fluid padded" style="padding-top:0">
->>>>>>> 7897f0ebf2ecb15804c878680774642fca3e8526
 			$Content
 			<!--$Picture -->
 			<div class="row-fluid">
@@ -60,21 +61,9 @@
 				</section>
 			</div>
 		</div>
-<<<<<<< HEAD
-		<div>
-			<h2>Other Media Related to $Title</h2>
-	
-=======
 		<div class="padded" style="padding-top:0">
-			<h2>Media Related to $Title</h2>
-			
-			<h3>Art</h3>
-			
-			<% loop ArtPhotos %>
-				<% include ArtPhotoGrid %>
-			<% end_loop %>
->>>>>>> 7897f0ebf2ecb15804c878680774642fca3e8526
-			
+			<h2>Other Media Related to $Title</h2>
+
 			<!--People
 			<% loop People %>
 				$Title<br>
