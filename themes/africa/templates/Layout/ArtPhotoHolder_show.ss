@@ -3,7 +3,7 @@
 		<div class="content container-fluid">
 			<h1 class="title">$Title</h1>
 			<div class="artPic">
-				<img src={$Picture.Filename} />
+				<img src="{$Picture.Filename}">
 				<p>$CreditLine</p>
 			</div>
 		</div>

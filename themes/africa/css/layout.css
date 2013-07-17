@@ -730,7 +730,23 @@ article.page {
   margin: 0.625em auto 1em auto !important;
   font-size: 1.25rem;
   line-height: 1.625em;
-  min-width: 23.375rem;
+}
+
+@media (min-width: 769px) {
+  #map-canvas-notice p {
+    min-width: 23.375rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #map-canvas-notice p {
+    width: 90%;
+    font-size: 1em;
+  }
+
+  #map-canvas-notice h1 {
+    font-size: 2.5em;
+  }
 }
 
 #map-canvas-notice button {
@@ -777,6 +793,7 @@ article.page {
 }
 
 .title {
+  margin-bottom: 1rem;
 	text-align: center;
 }
 
