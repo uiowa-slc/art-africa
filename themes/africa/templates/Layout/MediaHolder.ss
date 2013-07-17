@@ -1,7 +1,9 @@
 <div class="content-container typography">
   <article>
     <h1>$Title</h1>
+    $Content
     <div class="content columns">
+      
       <h4>Videos</h4>
       <ul>
       <% loop getObjects('VideoPiece') %>

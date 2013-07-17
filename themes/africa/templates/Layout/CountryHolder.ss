@@ -5,11 +5,7 @@
 			<div id="map-canvas"></div>
 			<div id="map-canvas-notice">
 				<div>
-					<h1>Welcome to Africa!</h1>
-					<p>
-						Click on a country or its capital city for information on its geography, politics, and people.
-					</p>
-					<p>
+					$Content
 						<button>Take Safari</button>
 					</p>
 				</div>
