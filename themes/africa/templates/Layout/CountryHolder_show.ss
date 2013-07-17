@@ -8,7 +8,7 @@
 			<% include ArtPhotoGrid %>
 		</div>
 		<div class="content container-fluid padded" style="padding-top:0">
-			$Content
+			<!-- $Content -->
 			<!--$Picture -->
 			<div class="row-fluid">
 				<section class="country-info-container span6">
