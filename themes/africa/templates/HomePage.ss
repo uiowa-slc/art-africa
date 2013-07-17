@@ -121,7 +121,8 @@
         var switcher = $(switcherElement);
 
         switcher.addClass('selected')
-                .siblings().removeClass('selected');
+                .siblings()
+                .removeClass('selected');
 
         $('#homepage-pic').animate(
           { opacity: 0 },

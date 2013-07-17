@@ -774,7 +774,6 @@ article.page {
 	width: 100% !important;
 	position: static !important;
 	max-width: 100% !important;
-	
 }
 
 .title {
@@ -792,7 +791,6 @@ article.page {
 	background: #ddd;
 	border-radius: 5px;
 	padding: 0.2em;
-	
 }
 
 .media-grid-container ul {
@@ -803,13 +801,12 @@ article.page {
 
 .media-grid-container ul li{
 	vertical-align: top;
-	
 }
 
 .media-grid-container ul li img{
 	width: 100%;
-	
 }
+
 @media (min-width: 480px) {
 	.media-grid-container ul li{
 		display: inline-block;
@@ -821,12 +818,11 @@ article.page {
 	.media-grid-container ul li{
 		width: 20%;
 	}
-	
+
 	.media-grid-container ul{
 		height: 130px;
-		white-space:nowrap;
-		overflow-x: scroll;
+		white-space: nowrap;
+		overflow-x: auto;
 		overflow-y: hidden;
-		
 	}
 }
