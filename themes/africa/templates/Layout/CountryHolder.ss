@@ -6,8 +6,7 @@
 			<div id="map-canvas-notice">
 				<div>
 					$Content
-						<button>Take Safari</button>
-					</p>
+					<button>Take Safari</button>
 				</div>
 			</div>
 			<div class="padded">
@@ -21,6 +20,6 @@
 			</div>
 		</div>
 	</article>
-		
 </div>
+
 <% include SideBar %>
