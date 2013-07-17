@@ -8,10 +8,6 @@ class Page extends SiteTree {
 	private static $has_one = array(
 	);
 
-	private static $defaults = array(
-		'ShowInMenus' => 0
-	);
-
 	//static $searchable_fields = array('Keywords', 'Content', 'Title');
 
 
