@@ -38,9 +38,14 @@
       <div style="position:relative">
         <div id="homepage-pic" onclick="void(0)">
           <div id="homepage-pic-switchers">
-            <span class="switcher selected" data-img-url="{$ThemeDir}/images/homepage-pic.jpg"></span>
-            <span class="switcher" data-img-url="http://interfacelift.com/wallpaper/D47cd523/03305_nforksmithriverfalls_1920x1200.jpg"></span>
-            <span class="switcher" data-img-url="http://interfacelift.com/wallpaper/D47cd523/03309_damnationcreektrail_1920x1200.jpg"></span>
+          <% loop FieldPhotos %>
+            
+            <% if First %>
+	            <span class="switcher selected" data-img-url="{$Picture.URL}"></span>
+            <% else %>
+            	<span class="switcher" data-img-url="{$Picture.URL}"></span>
+            <% end_if %>
+          <% end_loop %>
           </div>
         </div>
       </div>
