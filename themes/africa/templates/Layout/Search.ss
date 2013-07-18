@@ -1,12 +1,13 @@
 <div class="content-container typography">	
 	<h2> Search Query: $Query</h2>
+	<div id="bibliography-results"><label>Search bibliographic references only </label><input type="checkbox" id="bibliography-checkbox" name="Search Bibliography" /></div>
 	
 	<section class="search-results">
-		
+	<ul id="searchResults">	
 		<!--$searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'-->
 
 		<% if Subtopic %>
-		<br>Subtopics<br>
+		<li>Subtopics</li>
 		<ul>
 			<% loop Subtopic %>
 					<% if Name %>
@@ -18,7 +19,7 @@
 		<% end_if %>
 		</ul>
 		<% if People %>
-		<br>People<br>
+		<li>People</li>
 			<ul>
 				<% loop People %>
 						<% if Name %>
@@ -31,7 +32,7 @@
 			</ul>	
 		<% end_if %>
 		<% if Essay %>
-		<br>Essays<br>
+		<li>Essays</li>
 		<ul>
 				<% loop Essay %>
 						<% if Name %>
@@ -43,7 +44,7 @@
 			</ul>	
 	    <% end_if %>
 	    <% if Country %>
-		<br>Countries<br>
+		<li>Countries</li>
 			<ul>
 				<% loop Country %>
 						<% if Name %>
@@ -55,7 +56,7 @@
 			</ul>	
 		<% end_if %>
 	    <% if AudioPiece %>
-		<br>Audio Pieces<br>
+		<li>Audio Pieces</li>
 			<ul>
 				<% loop AudioPiece %>
 						<% if Name %>
@@ -67,7 +68,7 @@
 			</ul>	
 		<% end_if %>
 		<% if VideoPiece %>
-		<br>Video Pieces<br>
+		<li>Video Pieces</li>
 			<ul>
 				<% loop VideoPiece %>
 						<% if Name %>
@@ -79,7 +80,7 @@
 			</ul>
 		<% end_if %>
 		<% if ArtPhoto %>	
-		<br>Art Photos<br>
+		<li>Art Photos</li>
 			<ul>
 				<% loop ArtPhoto %>
 						<% if Name %>
@@ -91,7 +92,7 @@
 			</ul>
 		<% end_if %>
 		<% if FieldPhoto %>	
-		<br>Field Photos<br>
+		<li>Field Photos</li>
 			<ul>
 				<% loop FieldPhoto %>
 						<% if Name %>
@@ -104,7 +105,7 @@
 		<% end_if %>
 		
 			
-			
+	</ul>		
 	</section>
 </div>
 <% include SideBar %>
