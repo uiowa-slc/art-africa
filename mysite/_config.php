@@ -54,5 +54,7 @@ ShortcodeParser::get('default')->register(
 
 Object::add_extension("DataObject","AfricaDataObjectExtension");
 
+
+
 FulltextSearchable::enable();
 //Object::add_extension('CollectionPiece', "FulltextSearchable('Keywords')");

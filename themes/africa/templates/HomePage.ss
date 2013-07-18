@@ -38,12 +38,12 @@
       <div style="position:relative">
         <div id="homepage-pic" onclick="void(0)">
           <div id="homepage-pic-switchers">
-          <% loop FieldPhotos %>
+          <% loop HomepagePics %>
             
             <% if First %>
-	            <span class="switcher selected" data-img-url="{$Picture.URL}"></span>
+	            <span class="switcher selected" data-img-url="{$getFilename}"></span>
             <% else %>
-            	<span class="switcher" data-img-url="{$Picture.URL}"></span>
+            	<span class="switcher" data-img-url="{$getFilename}"></span>
             <% end_if %>
           <% end_loop %>
           </div>
