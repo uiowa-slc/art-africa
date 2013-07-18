@@ -38,6 +38,7 @@
               <a href="$Link">$MenuTitle</a>
             </li>
             <% end_loop %>
+            <% include SearchForm %>
           </ul>
         </nav>
       </div>
@@ -148,7 +149,6 @@
             <a class="gal-link" href="/art-africa/themes/africa/images/UIMA-newlogo-black.png">adsfasd</a>
             <a class="gal-link" href="/art-africa/themes/africa/images/facebook-icon.png">adsfasd</a>
           </div> -->
-          <% include SearchForm %>
           <!-- <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
           <div class="content-container typography">
             <article>

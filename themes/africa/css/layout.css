@@ -654,6 +654,25 @@ article.page {
 	width: 125% !important;
 }
 
+#searchInput {
+	border-radius: 3px;
+}
+
+#submitSearch {
+	background-image: url('../images/magnifier-icon.svg');
+	background-size: 100%;
+	background-color: white;
+	position: relative;	
+	top: 4px;
+	background-color: #591202;
+	border-radius: 3px;
+}
+
+.fieldHolder {
+	float: right;
+	margin: 1%;
+}
+
 .artPhoto img {
 	position: static !important;
 }
