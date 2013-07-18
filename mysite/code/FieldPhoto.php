@@ -38,6 +38,7 @@ class FieldPhoto extends Photo {
  public function getCMSFields() {
  		$fields = parent::getCMSFields();
  		$fields = $this->addCommonFields($fields);
+ 		$fields->removeByName("HomePageID");
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 
