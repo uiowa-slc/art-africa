@@ -127,7 +127,7 @@ class People extends DataObject {
 	  
 	  $peopleHolder = DataObject::get_one("PeopleHolder");
 	  $peopleTitle = $this->Title;
-	  $peopleTitle = str_replace(' ', '+', $peopleTitle);
+	  $peopleTitle = urlencode($peopleTitle);
 	  $link = $peopleHolder->Link().'show/'.$peopleTitle;
 	  
 	  return $link;

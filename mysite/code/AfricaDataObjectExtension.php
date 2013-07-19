@@ -36,7 +36,7 @@ class AfricaDataObjectExtension extends DataExtension {
 	  $holder = $this->Holder();
 	  if($use_id == false){
 		  $title = $this->owner->Title;
-		  $title = str_replace(' ', '+', $title);
+		  $title = urlencode($title);
 		  $link = $holder->Link().'show/'.$title;
 	  }else{
 	  	  $id = $this->owner->ID;

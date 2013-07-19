@@ -30,7 +30,7 @@ class AfricaDataObject extends DataObject {
 	  $holder = DataObject::get_one($holderClass);
 	  
 	  $title = $this->Title;
-	  $title = str_replace(' ', '+', $title);
+	  $title = urlencode($title);
 	  $link = $holder->Link().'show/'.$title;
 	  
 	  return $link;
