@@ -32,6 +32,9 @@
               <a href="$Link">$MenuTitle</a>
             </li>
             <% end_loop %>
+            <li class="search-li">
+              <% include SearchForm %>
+            </li>
           </ul>
         </nav>
       </div>

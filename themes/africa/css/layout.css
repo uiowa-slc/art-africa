@@ -213,6 +213,9 @@ button {
   .nav1 >ul>li:nth-child(6)>a { background: #454545; }
   .nav1 >ul>li:nth-child(7)>a { background: #505050; }
   .nav1 >ul>li:nth-child(8)>a { background: #555555; }
+  .nav1 >ul>li.search-li { padding: 1.125rem 1.25rem; }
+  .nav1 >ul>li.search-li form { width: 100%; }
+  .nav1 >ul>li.search-li input[type="text"] { width: 16rem; }
 }
 
 @media (min-width: 769px) {
@@ -254,6 +257,22 @@ button {
   padding: 0.75rem 1.25rem;
   border-left: 2px solid #333;
   margin-left: 1.25rem;
+}
+
+.nav1 form {
+  display: inline-block;
+}
+
+.nav1 input[type="text"] {
+  border: 0;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.nav1 input[type="submit"] {
+  border: 0;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
 }
 
 .nav1 .nav2 >ul>li>a:active {
@@ -668,7 +687,7 @@ article.page {
 	border-radius: 3px;
 }
 
-.fieldHolder {
+#middle .fieldHolder {
 	float: right;
 	margin: 1%;
 }
