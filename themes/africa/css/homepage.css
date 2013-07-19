@@ -25,6 +25,7 @@
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -124,7 +125,28 @@ a .arrow {
   cursor: pointer;
 }
 
+#homepage-pic-switchers .switcher:last-of-type {
+  margin-right: 0;
+}
+
 #homepage-pic-switchers .switcher:hover,
 #homepage-pic-switchers .switcher.selected {
   opacity: 0.75;
+}
+
+#homepage-pic-desc {
+  color: #fff;
+  opacity: 0.8;
+  text-shadow: 1px 1px 1px #000;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 769px) {
+  #homepage-pic-desc {
+    position: relative;
+    bottom: 0.25rem;
+    margin-left: 1rem;
+    display: inline-block;
+  }
 }

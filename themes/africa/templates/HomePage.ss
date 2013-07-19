@@ -56,6 +56,7 @@
               </span>
             <% end_if %>
           <% end_loop %>
+            <div id="homepage-pic-desc"></div>
           </div>
         </div>
       </div>
@@ -121,6 +122,7 @@
     <script type="text/javascript">
       $(document).ready(function () {
         $('#homepage-pic').css('background-image', 'url(' + $('.switcher.selected').data('img-url') + ')');
+        $('#homepage-pic-desc').text( $('.switcher.selected').data('desc') );
       });
 
       $(document).on('click', '.switcher:not(.selected)', function () {
@@ -128,7 +130,9 @@
       });
 
       $(document).on('click', '#homepage-pic', function (event) {
-        if (! event.target.classList.contains('switcher')) { switchToNext(); }
+        if (! event.target.classList.contains('switcher')) {
+          window.location.href = $('.switcher.selected').data('link');
+        }
       });
 
       function switchTo (switcherElement) {
@@ -139,12 +143,12 @@
                 .siblings()
                 .removeClass('selected');
 
-        $('#homepage-pic').animate(
+        hp.animate(
           { opacity: 0 },
           { duration: 400,
             complete: function () {
+              $('#homepage-pic-desc').text( switcher.data('desc') );
               hp.css('background-image', 'url(' + switcher.data('img-url') + ')');
-
               hp.animate({ opacity: 1 },
                          { duration: 600 });
             }
@@ -157,7 +161,7 @@
 
       function switchToNext () {
         var nextEl = document.querySelector('.switcher.selected').nextElementSibling;
-        if (nextEl) {
+        if (nextEl && nextEl.id !== 'homepage-pic-desc') {
           switchTo(nextEl);
         } else {
           switchTo(document.querySelector('.switcher'));
