@@ -42,12 +42,17 @@ p {
 }
 
 a {
+  outline: none;
   text-rendering: optimizeLegibility;
   text-decoration: none;
   -webkit-transition:color 0.1s ease-in;
   -moz-transition:color 0.1s ease-in;
   -o-transition:color 0.1s ease-in;
   transition:color 0.1s ease-in;
+}
+
+button {
+  outline: none;
 }
 
 a:hover,

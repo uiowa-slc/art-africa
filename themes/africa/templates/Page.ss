@@ -87,9 +87,9 @@
             <% if $Level(1).Title == 'Peoples' %>
               <% loop getPeople %>
                 <% if Name %>
-                  <li><a href="$Link">$Name</a></li>
+                  <li><a href="$Link(false)">$Name</a></li>
                 <% else_if Title %>
-                  <li><a href="$Link">$Title</a></li>
+                  <li><a href="$Link(false)">$Title</a></li>
                 <% end_if %>
               <% end_loop %>
             <% end_if %>

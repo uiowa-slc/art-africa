@@ -136,8 +136,8 @@
       });
 
       function switchTo (switcherElement) {
-        var hp = $('#homepage-pic');
-        var switcher = $(switcherElement);
+        var hp = $('#homepage-pic'),
+            switcher = $(switcherElement);
 
         switcher.addClass('selected')
                 .siblings()

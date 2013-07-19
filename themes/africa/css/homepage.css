@@ -117,7 +117,7 @@ a .arrow {
   border-radius: 0.75rem;
   background: #fff;
   box-shadow: 0 0.0625rem 0.125rem #000;
-  margin-right: 0.75rem;
+  margin-right: 1rem;
   opacity: 0.5;
   -webkit-transition: opacity 0.1s ease-in;
   -moz-transition: opacity 0.1s ease-in;
