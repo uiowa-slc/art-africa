@@ -161,6 +161,7 @@
 
       function switchToNext () {
         var nextEl = document.querySelector('.switcher.selected').nextElementSibling;
+
         if (nextEl && nextEl.id !== 'homepage-pic-desc') {
           switchTo(nextEl);
         } else {
@@ -168,8 +169,8 @@
         }
       }
 
-      var slideshowInterval = 10000;
-      var slideshowTimeout = setTimeout(switchToNext, slideshowInterval);
+      var slideshowInterval = 10000,
+          slideshowTimeout  = setTimeout(switchToNext, slideshowInterval);
     </script>
   </body>
 </html>
