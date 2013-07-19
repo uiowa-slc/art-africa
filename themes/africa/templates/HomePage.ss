@@ -42,11 +42,18 @@
         <div id="homepage-pic" onclick="void(0)">
           <div id="homepage-pic-switchers">
           <% loop HomepagePics %>
-            
             <% if First %>
-	            <span class="switcher selected" data-img-url="{$getFilename}"></span>
+              <span class="switcher selected"
+                    data-img-url="{$getFilename}"
+                    data-link=""
+                    data-desc="">
+              </span>
             <% else %>
-            	<span class="switcher" data-img-url="{$getFilename}"></span>
+              <span class="switcher"
+                    data-img-url="{$getFilename}"
+                    data-link=""
+                    data-desc="">
+              </span>
             <% end_if %>
           <% end_loop %>
           </div>
