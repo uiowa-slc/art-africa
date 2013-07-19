@@ -895,3 +895,7 @@ article.page {
 #bibliography-checkbox {
 	margin-left: .5%;
 }
+
+.content-container ul {
+  line-height: 2rem;
+}

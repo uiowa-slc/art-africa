@@ -4,7 +4,7 @@
     <% base_tag %>
     <title>Art &amp; Life in Africa</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
-    <link rel="icon" type="image/png" href="http://localhost:8888/art-africa/themes/africa/images/logo.png">
+    <link rel="icon" type="image/png" href="{$BaseHref}{$ThemeDir}/images/logo.png">
     $MetaTags(false)
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
@@ -41,21 +41,13 @@
       <div style="position:relative">
         <div id="homepage-pic" onclick="void(0)">
           <div id="homepage-pic-switchers">
-          <% loop HomepagePics %>
-            <% if First %>
-              <span class="switcher selected"
+            <% loop HomepagePics %>
+              <span class="switcher<% if First %> selected<% end_if %>"
                     data-img-url="{$getFilename}"
-                    data-link=""
-                    data-desc="">
+                    data-link="$Link"
+                    data-desc="$CreditLine">
               </span>
-            <% else %>
-              <span class="switcher"
-                    data-img-url="{$getFilename}"
-                    data-link=""
-                    data-desc="">
-              </span>
-            <% end_if %>
-          <% end_loop %>
+            <% end_loop %>
             <div id="homepage-pic-desc"></div>
           </div>
         </div>
