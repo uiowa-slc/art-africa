@@ -12,8 +12,8 @@ class HomePage extends Page {
   'TestPic' => 'Image'
   );
   
-  private static $many_many = array(
-  'HomepagePics' => 'Image'
+  private static $has_many = array(
+  'HomepagePics' => 'HomepagePic'
   );
   
   private static $belongs_many_many = array();
@@ -24,11 +24,17 @@ class HomePage extends Page {
  		$fields = parent::getCMSFields();
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/	
-		$fields->addFieldToTab('Root.Main', new UploadField('HomepagePics', 'Homepage Pictures', $this->HomepagePics()));
+		//$fields->addFieldToTab('Root.Main', new UploadField('HomepagePics', 'Homepage Pictures', $this->HomepagePics()));
 		
 			
 		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigFieldPhotos->addComponent(new GridFieldManyRelationHandler());
+		$gridFieldConfigFieldPhotos->addComponent(new GridFieldSortableRows('PageNo'));
+		$gridFieldConfigFieldPhotos->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'CreditLine', 'PageLink'));
+	
+			/*$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
+		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));*/
+		
 		$gridfield = new GridField("HomepagePics", "Homepage Pictures", $this->HomepagePics(), $gridFieldConfigFieldPhotos);
 		$fields->addFieldToTab('Root.Main', $gridfield);
 		
@@ -68,5 +74,10 @@ class HomePage_Controller extends Page_Controller {
 		parent::init();
 		Requirements::css("themes/africa/css/homepage.css");
 	}
+	/*
+	public function getHomepagePics(){
+		$homepagePics = homepagePics::get()->
+	}
+	*/
 	
 }

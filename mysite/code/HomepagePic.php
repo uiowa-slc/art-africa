@@ -4,8 +4,9 @@ class HomepagePic extends DataObject {
  
   
   private static $db = array(
-  'Link' => 'Text',
-  'CreditLine' = 'Text',
+  'PageLink' => 'Text',
+  'CreditLine' => 'Text',
+  'PageNo' => 'Int'
     );
  
   // One-to-one relationship with gallery page
@@ -14,6 +15,11 @@ class HomepagePic extends DataObject {
   'HomePage' => 'HomePage'
   );
   
+  static $searchable_fields = array('PageNo', 'PageLink');
+  
+  private static $summary_fields = array('PageNo', 'PageLink', 'CreditLine');
+  
+  private static $default_sort='PageNo';
   
   private static $many_many = array(
   
@@ -31,9 +37,9 @@ class HomepagePic extends DataObject {
  		
  		
  		$fields->addFieldToTab('Root.Main', new UploadField('HomepagePic', 'Homepage Pic'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Link', 'Link'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('PageLink', 'Link'));
  		$fields->addFieldToTab('Root.Main', new TextField('CreditLine', 'Credit Line'));
-
+ 		$fields->removeByName('HomePageID');
 
 		return $fields;	
   }

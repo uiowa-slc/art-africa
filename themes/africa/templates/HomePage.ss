@@ -43,9 +43,9 @@
           <div id="homepage-pic-switchers">
             <% loop HomepagePics %>
               <span class="switcher<% if First %> selected<% end_if %>"
-                    data-img-url="{$getFilename}"
-                    data-link="$Link"
-                    data-desc="$CreditLine">
+                    data-img-url="{$HomepagePic.URL}"
+                    data-link="{$PageLink}"
+                    data-desc="{$CreditLine}">
               </span>
             <% end_loop %>
             <div id="homepage-pic-desc"></div>
