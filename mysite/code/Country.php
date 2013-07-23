@@ -149,7 +149,7 @@ class Country extends DataObject {
 	  
 	  $countryHolder = DataObject::get_one("CountryHolder");
 	  $countryTitle = $this->Title;
-	  $countryTitle = str_replace(' ', '+', $countryTitle);
+	  $countryTitle = urlencode($countryTitle);
 	  $link = $countryHolder->Link().'show/'.$countryTitle;
 	  
 	  return $link;

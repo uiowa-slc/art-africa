@@ -2,15 +2,17 @@
 	<article>
 		<h1>$Title</h1>
 		<div class="content">
-		<% loop getObjects('People') %>
-			<% if Title %>
-				<li><a href="$Link">$Title</a></li><br>
-			<% end_if %>
-		<% end_loop %>
-		
-		<br><br>
+			$Content
+
+			<ul>
+				<% loop getObjects('People') %>
+					<% if Title %>
+						<li><a href="$Link(false)">$Title</a></li>
+					<% end_if %>
+				<% end_loop %>
+			</ul>
 		</div>
 	</article>
-		
 </div>
+
 <% include SideBar %>

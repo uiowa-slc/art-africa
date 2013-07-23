@@ -38,6 +38,9 @@
               <a href="$Link">$MenuTitle</a>
             </li>
             <% end_loop %>
+            <li class="search-li">
+              <% include SearchForm %>
+            </li>
           </ul>
         </nav>
       </div>
@@ -84,9 +87,9 @@
             <% if $Level(1).Title == 'Peoples' %>
               <% loop getPeople %>
                 <% if Name %>
-                  <li><a href="$Link">$Name</a></li>
+                  <li><a href="$Link(false)">$Name</a></li>
                 <% else_if Title %>
-                  <li><a href="$Link">$Title</a></li>
+                  <li><a href="$Link(false)">$Title</a></li>
                 <% end_if %>
               <% end_loop %>
             <% end_if %>
@@ -148,7 +151,6 @@
             <a class="gal-link" href="/art-africa/themes/africa/images/UIMA-newlogo-black.png">adsfasd</a>
             <a class="gal-link" href="/art-africa/themes/africa/images/facebook-icon.png">adsfasd</a>
           </div> -->
-          <% include SearchForm %>
           <!-- <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
           <div class="content-container typography">
             <article>

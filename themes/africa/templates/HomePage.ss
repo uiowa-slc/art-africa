@@ -4,7 +4,7 @@
     <% base_tag %>
     <title>Art &amp; Life in Africa</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
-    <link rel="icon" type="image/png" href="http://localhost:8888/art-africa/themes/africa/images/logo.png">
+    <link rel="icon" type="image/png" href="{$BaseHref}{$ThemeDir}/images/logo.png">
     $MetaTags(false)
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
@@ -20,8 +20,10 @@
           <div></div>
         </div>
         <div id="logo">
-          Art &amp; Life<br>
-          in Africa
+          <a href="{$BaseHref}">
+            Art &amp; Life<br>
+            in Africa
+          </a>
         </div>
         <nav class="nav1 toggle">
           <ul>
@@ -30,15 +32,23 @@
               <a href="$Link">$MenuTitle</a>
             </li>
             <% end_loop %>
+            <li class="search-li">
+              <% include SearchForm %>
+            </li>
           </ul>
         </nav>
       </div>
       <div style="position:relative">
         <div id="homepage-pic" onclick="void(0)">
           <div id="homepage-pic-switchers">
-            <span class="switcher selected" data-img-url="{$ThemeDir}/images/homepage-pic.jpg"></span>
-            <span class="switcher" data-img-url="http://interfacelift.com/wallpaper/D47cd523/03305_nforksmithriverfalls_1920x1200.jpg"></span>
-            <span class="switcher" data-img-url="http://interfacelift.com/wallpaper/D47cd523/03309_damnationcreektrail_1920x1200.jpg"></span>
+            <% loop HomepagePics %>
+              <span class="switcher<% if First %> selected<% end_if %>"
+                    data-img-url="{$HomepagePic.URL}"
+                    data-link="{$PageLink}"
+                    data-desc="{$CreditLine}">
+              </span>
+            <% end_loop %>
+            <div id="homepage-pic-desc"></div>
           </div>
         </div>
       </div>
@@ -104,6 +114,7 @@
     <script type="text/javascript">
       $(document).ready(function () {
         $('#homepage-pic').css('background-image', 'url(' + $('.switcher.selected').data('img-url') + ')');
+        $('#homepage-pic-desc').text( $('.switcher.selected').data('desc') );
       });
 
       $(document).on('click', '.switcher:not(.selected)', function () {
@@ -111,22 +122,25 @@
       });
 
       $(document).on('click', '#homepage-pic', function (event) {
-        if (! event.target.classList.contains('switcher')) { switchToNext(); }
+        if (! event.target.classList.contains('switcher')) {
+          window.location.href = $('.switcher.selected').data('link');
+        }
       });
 
       function switchTo (switcherElement) {
-        var hp = $('#homepage-pic');
-        var switcher = $(switcherElement);
+        var hp = $('#homepage-pic'),
+            switcher = $(switcherElement);
 
         switcher.addClass('selected')
-                .siblings().removeClass('selected');
+                .siblings()
+                .removeClass('selected');
 
-        $('#homepage-pic').animate(
+        hp.animate(
           { opacity: 0 },
           { duration: 400,
             complete: function () {
+              $('#homepage-pic-desc').text( switcher.data('desc') );
               hp.css('background-image', 'url(' + switcher.data('img-url') + ')');
-
               hp.animate({ opacity: 1 },
                          { duration: 600 });
             }
@@ -139,15 +153,16 @@
 
       function switchToNext () {
         var nextEl = document.querySelector('.switcher.selected').nextElementSibling;
-        if (nextEl) {
+
+        if (nextEl && nextEl.id !== 'homepage-pic-desc') {
           switchTo(nextEl);
         } else {
           switchTo(document.querySelector('.switcher'));
         }
       }
 
-      var slideshowInterval = 10000;
-      var slideshowTimeout = setTimeout(switchToNext, slideshowInterval);
+      var slideshowInterval = 10000,
+          slideshowTimeout  = setTimeout(switchToNext, slideshowInterval);
     </script>
   </body>
 </html>

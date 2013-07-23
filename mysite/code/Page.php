@@ -8,10 +8,6 @@ class Page extends SiteTree {
 	private static $has_one = array(
 	);
 
-	private static $defaults = array(
-		'ShowInMenus' => 0
-	);
-
 	//static $searchable_fields = array('Keywords', 'Content', 'Title');
 
 
@@ -151,7 +147,6 @@ class Page_Controller extends ContentController {
 			$records = DB::query($query->sql());
 
 
-
 			//$objects = array();
 			foreach ( $records as $record ) {
 
@@ -180,7 +175,6 @@ class Page_Controller extends ContentController {
 			$query->addSelect(array('Relevance' => $dataObjectsItemMatch));
 
 			$records = DB::query($query->sql());
-
 
 
 			foreach ( $records as $record ) $objects[] = new $record['ClassName']($record);
@@ -262,7 +256,16 @@ class Page_Controller extends ContentController {
 
 	public function getItemMatch($class, $request, $keywordArray, $keywordHTML, $resultString = '', $bibSearch = false) {
 
+		
 		$fields = DataObject::custom_database_fields($class);
+		
+		//Both Art Photo and Field Photo extend from Photo, so if that class is getting searched, get those fields
+	
+		if (($class == 'ArtPhoto') || ($class == 'FieldPhoto')){
+			$photoFields = DataObject::custom_database_fields('Photo');
+			$fields = array_merge($fields, $photoFields);
+		}
+		
 		$count = count($fields);
 		$iter = 0;
 

@@ -8,6 +8,7 @@ class FieldPhoto extends Photo {
  
   // One-to-one relationship with gallery page
   private static $has_one = array(
+  'HomePage' => 'HomePage'
 
   );
   
@@ -37,6 +38,7 @@ class FieldPhoto extends Photo {
  public function getCMSFields() {
  		$fields = parent::getCMSFields();
  		$fields = $this->addCommonFields($fields);
+ 		$fields->removeByName("HomePageID");
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 

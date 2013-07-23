@@ -42,12 +42,17 @@ p {
 }
 
 a {
+  outline: none;
   text-rendering: optimizeLegibility;
   text-decoration: none;
   -webkit-transition:color 0.1s ease-in;
   -moz-transition:color 0.1s ease-in;
   -o-transition:color 0.1s ease-in;
   transition:color 0.1s ease-in;
+}
+
+button {
+  outline: none;
 }
 
 a:hover,
@@ -213,6 +218,9 @@ button {
   .nav1 >ul>li:nth-child(6)>a { background: #454545; }
   .nav1 >ul>li:nth-child(7)>a { background: #505050; }
   .nav1 >ul>li:nth-child(8)>a { background: #555555; }
+  .nav1 >ul>li.search-li { padding: 1.125rem 1.25rem; }
+  .nav1 >ul>li.search-li form { width: 100%; }
+  .nav1 >ul>li.search-li input[type="text"] { width: 16rem; }
 }
 
 @media (min-width: 769px) {
@@ -254,6 +262,22 @@ button {
   padding: 0.75rem 1.25rem;
   border-left: 2px solid #333;
   margin-left: 1.25rem;
+}
+
+.nav1 form {
+  display: inline-block;
+}
+
+.nav1 input[type="text"] {
+  border: 0;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.nav1 input[type="submit"] {
+  border: 0;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
 }
 
 .nav1 .nav2 >ul>li>a:active {
@@ -654,6 +678,25 @@ article.page {
 	width: 125% !important;
 }
 
+#searchInput {
+	border-radius: 3px;
+}
+
+#submitSearch {
+	background-image: url('../images/magnifier-icon.svg');
+	background-size: 100%;
+	background-color: white;
+	position: relative;	
+	top: 4px;
+	background-color: #591202;
+	border-radius: 3px;
+}
+
+#middle .fieldHolder {
+	float: right;
+	margin: 1%;
+}
+
 .artPhoto img {
 	position: static !important;
 }
@@ -730,7 +773,23 @@ article.page {
   margin: 0.625em auto 1em auto !important;
   font-size: 1.25rem;
   line-height: 1.625em;
-  min-width: 23.375rem;
+}
+
+@media (min-width: 769px) {
+  #map-canvas-notice p {
+    min-width: 23.375rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #map-canvas-notice p {
+    width: 90%;
+    font-size: 1em;
+  }
+
+  #map-canvas-notice h1 {
+    font-size: 2.5em;
+  }
 }
 
 #map-canvas-notice button {
@@ -774,10 +833,10 @@ article.page {
 	width: 100% !important;
 	position: static !important;
 	max-width: 100% !important;
-	
 }
 
 .title {
+  margin-bottom: 1rem;
 	text-align: center;
 }
 
@@ -792,7 +851,6 @@ article.page {
 	background: #ddd;
 	border-radius: 5px;
 	padding: 0.2em;
-	
 }
 
 .media-grid-container ul {
@@ -803,13 +861,12 @@ article.page {
 
 .media-grid-container ul li{
 	vertical-align: top;
-	
 }
 
 .media-grid-container ul li img{
 	width: 100%;
-	
 }
+
 @media (min-width: 480px) {
 	.media-grid-container ul li{
 		display: inline-block;
@@ -821,12 +878,24 @@ article.page {
 	.media-grid-container ul li{
 		width: 20%;
 	}
-	
+
 	.media-grid-container ul{
 		height: 130px;
-		white-space:nowrap;
-		overflow-x: scroll;
+		white-space: nowrap;
+		overflow-x: auto;
 		overflow-y: hidden;
-		
 	}
+}
+
+#bibliography-results {
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+#bibliography-checkbox {
+	margin-left: .5%;
+}
+
+.content-container ul {
+  line-height: 2rem;
 }
