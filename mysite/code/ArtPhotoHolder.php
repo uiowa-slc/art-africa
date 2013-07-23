@@ -54,4 +54,6 @@ class ArtPhotoHolder_Controller extends Page_Controller {
 		$artPhotos = ArtPhoto::get();
 		return $artPhotos;
 	}
+	
+	
 }

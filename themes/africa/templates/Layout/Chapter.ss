@@ -7,9 +7,10 @@
 		<h2>Introduction</h2>
 		<% include EssayPages %>
 		<div>
+		<!--
 			Name: $Name<br><br>
 			Description: $Description<br><br>
-			Tags: $Tags<br><br>
+			Tags: $Tags<br><br>-->
 		</div>
 	</article>
 	Subtopics:<br><br>
@@ -20,4 +21,4 @@
 	
 </div>
 
-<%# include SideBar %>
+<% include SideBar %>

@@ -131,6 +131,9 @@ class Subtopic extends Page {
 
   }
   
+ 
+
+  
   
   
     
@@ -154,7 +157,6 @@ class Subtopic_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ();
 	
 	public function show (){
 	//Displays a data object

@@ -29,8 +29,8 @@ class HomePage extends Page {
 			
 		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigFieldPhotos->addComponent(new GridFieldManyRelationHandler());
-		$gridFieldConfigFieldPhotos->addComponent(new GridFieldSortableRows('PageNo'));
-		$gridFieldConfigFieldPhotos->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'CreditLine', 'PageLink'));
+		$gridFieldConfigFieldPhotos->addComponent(new GridFieldSortableRows('PicNo'));
+		$gridFieldConfigFieldPhotos->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('CreditLine', 'PageLink'));
 	
 			/*$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
 		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));*/
