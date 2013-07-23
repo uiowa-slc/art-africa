@@ -10,35 +10,29 @@
 		</div>
 		<div class="row-fluid">
 			<section class="artPhoto-info-container span4">
-				<% if Name %>
-					<h3>Name:</h3>
-					<p>$Name</p>
-				<% end_if %>
+	
 				<% if Photographer %>
 					<h3>Photographer:</h3>
 					<p>$Photographer</p>
 				<% end_if %>
-			
-			</section>
-			<section class="artPhoto-info-container span4">
-			  	<% if Description %>
+				<% if Description %>
 					<h3>Description: </h3>
 					<p>$Description </p>
 				<% end_if %>
+			
+			</section>
+			<section class="artPhoto-info-container span4">
 				<% if Date %>
 					<h3>Date: </h3>
 					<p>$Date</p>
-				<% end_if %>		
-			</section>
-			<section class="artPhoto-info-container span4">
+				<% end_if %>
 				<% if Location %>
 					<h3>Location: </h3>
 					<p>$Location </p>
-				<% end_if %>
-				<% if CreditLine %>
-					<h3>CreditLine: </h3>
-					<p> $CreditLine </p>
-				<% end_if %>
+				<% end_if %>		
+			</section>
+			<section class="artPhoto-info-container span4">
+
 				<% if Tags %>
 					<h3>Tags:</h3> 
 					<p>$Tags</p>

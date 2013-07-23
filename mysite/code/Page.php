@@ -373,7 +373,8 @@ class Page_Controller extends ContentController {
 			}else {
 				$object = $otherClass::get($otherClass)->filter('Title', $objectID)->first();
 			}
-			if (isset($object)) {
+	
+			if ($object) {
 				$showTemplate = $otherClass . 'Holder_show';
 				// print_r("THIS SHOW IS CALLED");
 				// print_r($object);
