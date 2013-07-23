@@ -56,3 +56,5 @@ Object::add_extension("Image","ImageExtension");
 
 FulltextSearchable::enable();
 //Object::add_extension('CollectionPiece', "FulltextSearchable('Keywords')");
+
+Security::setDefaultAdmin("admin", "nimlok");
