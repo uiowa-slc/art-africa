@@ -1,7 +1,9 @@
 <div class="content-container typography">
 	<article>
 		<h1>$Title</h1>
-		<img src="{$ThemeDir}/images/homepage-pic.jpg" class="full-width" alt="">
+		<% if $CoverImage %>
+		<img src="$CoverImage.URL" class="full-width" alt="">
+		<% end_if %>
 		<h2>Introduction</h2>
 		<% include EssayPages %>
 		<div>

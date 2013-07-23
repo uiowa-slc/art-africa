@@ -19,7 +19,7 @@
   <div class="grid">
     <% loop ChildrenOf('chapters') %>
       <div class="grid-item">
-        <p><img src="{$ThemeDir}/images/african-vase.jpg" alt=""></p>
+        <p><img src="$CoverImage.URL" alt=""></p>
         <a class="grid-item-title" href="$Link">$MenuTitle</a>
         <p>$Description</p>
       </div>
