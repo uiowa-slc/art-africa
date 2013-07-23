@@ -58,32 +58,7 @@ class FieldPhotoHolder_Controller extends Page_Controller {
 	
 	public static $childPage = 'FieldPhoto';
 	
-	public function show (){
-	//Displays a data object
-	
-						
-		$class = $this->ClassName;
 		
-		$objectID = $this->request->param('ID');
-		
-		
-		if ($objectID){
-		
-		    $object = $class::get_by_id($class, $objectID);
-		    
-		    if(isset($object)){
-		       $showTemplate = $class . 'Holder_show';
-			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
-			   
-		    }else{
-		    }		   
-		}
-		else {
-			return $this->renderWith('Page');
-		}
-	
-	}
-	
 	public function testFunction(){
 		$returnString = "HI";
 		return $returnString;
