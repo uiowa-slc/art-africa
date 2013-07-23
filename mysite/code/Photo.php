@@ -8,7 +8,7 @@ class Photo extends DataObject {
   'PhotoID' => 'Text',
   'Photographer' => 'Text',
   'Description' => 'Text',
-  'Date' => 'Date',
+  'Date' => 'Text',
   'Location' => 'Text',
   'CreditLine' => 'Text',
   'Tags' => 'Text',
