@@ -446,39 +446,33 @@ class Page_Controller extends ContentController {
 		else {
 			return;
 		}
+		
+		$photoObject = DataObject::get("FieldPhoto")->filter(array('PhotoID' => $photoID))->First();
 
-		$customise = array();
-
-		if (isset($arguments["size"])) {
-			$customise['size'] = $arguments["size"] . 'Image';
+		if ($photoObject){
+		
+			//$photoObject = ArtPhoto::get()->filter(array()
+			$newObject = $photoObject->toMap();
+			$newObject = new ArrayData($newObject); //cast to array that can be displayed on template
+	
+			if (isset($arguments["size"])) {
+				$newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
+			}
+			else {
+				$newObject->setField('size', 'mediumImage');
+			}
+	
+			$template = new SSViewer('FieldPhoto');
+	
+			$picture = $photoObject->Picture();
+			$newObject->setField('filename', $picture->getFilename());
+	
+			return $template->process($newObject);
 		}
 		else {
-			$customise['size'] = 'normal';
+
+			return;
 		}
-
-
-
-		//$photoObject = DataObject::get_by_id("FieldPhoto", $photoID);
-		
-		
-		$picture = $photoObject->Picture();
-
-		$customise["picture"] = $picture;
-
-		$customise["CreditLine"] = $photoObject->CreditLine;
-
-		$customise['filename'] = $picture->getFilename();
-
-		$customise['ID'] = $photoObject->ID;
-
-		$template = new SSViewer('FieldPhoto');
-
-		return $template->process(new ArrayData($customise));
-
-		//print_r($filename);
-		//$pictureHTML = '<img src="' . $filename . '" . width="' . $photoWidth . '" height="' . $photoHeight . '"/>';
-		//
-		return $pictureHTML;
 	}
 
 
@@ -503,7 +497,7 @@ class Page_Controller extends ContentController {
 				$newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
 			}
 			else {
-				$customise['size'] = 'normal';
+				$newObject->setField('size', 'mediumImage');
 			}
 	
 			$template = new SSViewer('ArtPhoto');
