@@ -1,19 +1,51 @@
 <div class="content-container typography">	
 	<article>
-		<h1>$Title</h1>
-		<div class="content">$Content
-
-		
-			Name: $Name<br><br>
-			PhotoID: $PhotoID<br><br>
-			Photographer: $Photographer<br><br>
-			Description: $Description<br><br>
-			Date: $Date<br><br>
-			Location: $Location<br><br>
-			CreditLine: $CreditLine<br><br>
-			Tags: $Tags<br><br>
+	<article>
+		<div class="content container-fluid">
+			<h1 class="title">$Title</h1>
+			<div class="artPic">
+				<img src="{$Picture.Filename}">
+				<p>$CreditLine</p>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<section class="artPhoto-info-container span4">
+				<% if Name %>
+					<h3>Name:</h3>
+					<p>$Name</p>
+				<% end_if %>
+				<% if Photographer %>
+					<h3>Photographer:</h3>
+					<p>$Photographer</p>
+				<% end_if %>
 			
-			<br>
+			</section>
+			<section class="artPhoto-info-container span4">
+			  	<% if Description %>
+					<h3>Description: </h3>
+					<p>$Description </p>
+				<% end_if %>
+				<% if Date %>
+					<h3>Date: </h3>
+					<p>$Date</p>
+				<% end_if %>		
+			</section>
+			<section class="artPhoto-info-container span4">
+				<% if Location %>
+					<h3>Location: </h3>
+					<p>$Location </p>
+				<% end_if %>
+				<% if CreditLine %>
+					<h3>CreditLine: </h3>
+					<p> $CreditLine </p>
+				<% end_if %>
+				<% if Tags %>
+					<h3>Tags:</h3> 
+					<p>$Tags</p>
+				<% end_if %>
+			</section>
+			
+			<!--
 			
 			People
 			<% loop People %>
@@ -50,12 +82,12 @@
 			<% loop FieldPhotos %>
 				$Title<br>
 			<% end_loop %>
-			<br><br>
+			<br><br> -->
 			
-			Image<br><br> 
-			$Picture
+		
 			
-			
+	
+		
 			
 	
 		</div>
