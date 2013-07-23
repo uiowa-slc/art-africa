@@ -1,4 +1,4 @@
-    <div class="content columns">
+    <div class="content columns" id="essay">
        <% loop $getPaginatedPages('EssayPages') %>
         $Content
       <% end_loop %>
@@ -7,21 +7,21 @@
     <% if $getPaginatedPages('EssayPages').MoreThanOnePage %>
       <div class="pagination">
       <% if $getPaginatedPages('EssayPages').NotFirstPage %>
-        <a class="prev" href="$getPaginatedPages('EssayPages').PrevLink">Prev</a>
+        <a class="prev" href="{$getPaginatedPages('EssayPages').PrevLink}#essay">Prev</a>
       <% end_if %>
       <% loop $getPaginatedPages('EssayPages').Pages %>
         <% if $CurrentBool %>
           <span>$PageNum</span>
         <% else %>
           <% if $Link %>
-            <a href="$Link">$PageNum</a>
+            <a href="{$Link}#essay">$PageNum</a>
           <% else %>
             ...
           <% end_if %>
         <% end_if %>
       <% end_loop %>
       <% if $getPaginatedPages('EssayPages').NotLastPage %>
-        <a class="next" href="$getPaginatedPages('EssayPages').NextLink">Next</a>
+        <a class="next" href="{$getPaginatedPages('EssayPages').NextLink}#essay">Next</a>
       <% end_if %>
       </div>
     <% end_if %>
