@@ -22,6 +22,11 @@
       <% end_loop %>
       <% if $getPaginatedPages('EssayPages').NotLastPage %>
         <a class="next" href="{$getPaginatedPages('EssayPages').NextLink}#essay">Next</a>
+      <% else %>
+       	<% if $Level(1).Title == 'Chapters' %>
+	   		<a href="{$getNextSubtopic($Title)}">Next Chapter</a>
+	   	<% end_if %>
       <% end_if %>
+      
       </div>
     <% end_if %>
