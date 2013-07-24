@@ -1,16 +1,17 @@
-/*
- * Functions
- * =========
- */
+// rems(1) => 16
+// takes the font-size of the <html> element (root element/rem) and multiplies
+// it by n and returns an integer
 function rems (n) {
   var htmlElement = document.getElementsByTagName('html')[0];
   return parseInt(getComputedStyle(htmlElement, null).getPropertyValue('font-size')) * n;
 }
 
-/*
- * toggle
- * ======
- */
+
+
+// <span data-toggle="#nav">Toggle nav</span>
+//
+// By giving an HTML element a `data-toggle` value,
+// clicking it will toggle elements matching the selector
 $(document).on('click', '[data-toggle]', function () {
   var $el = $(this);
   var toggleSelector = $el.attr('data-toggle');
@@ -18,16 +19,20 @@ $(document).on('click', '[data-toggle]', function () {
   $toggleEls.toggleClass('toggle');
 });
 
-/*
- * #main_content img
- * =================
- */
+
+
+// make certain images take up the entire width of their container
+// even if it has padding. Don't let the width exceed the image's
+// natural width
 function sizeFullWidthImages () {
   var $mc = $('#main_content');
   $mc.find('img.full-width').css('width', ($mc.outerWidth()+2).toString() + 'px')
-                              .css('position', 'relative')
-                              .css('left', '-' + $mc.css('padding-left'));
+                            .css('position', 'relative')
+                            .css('left', '-' + $mc.css('padding-left'));
 }
+$(document).ready(sizeFullWidthImages);
+$(window).on('resize', sizeFullWidthImages);
+
 function setFullWidthImagesMaxWidth () {
   $('#main_content img.full-width').each(function () {
     $(this).on('load', function () {
@@ -37,32 +42,8 @@ function setFullWidthImagesMaxWidth () {
   });
 }
 $(document).ready(setFullWidthImagesMaxWidth);
-$(document).ready(sizeFullWidthImages);
-$(window).on('resize', sizeFullWidthImages);
 
-/*
- * #main_content min-height
- * ========================
- */
-// $(document).ready(function () {
-//   setMainContentMinHeight();
-// });
-// $(window).on('resize', function () {
-//   setMainContentMinHeight();
-// });
-// function setMainContentMinHeight () {
-//   if (window.outerWidth <= 768) {
-//     $('#main_content').css('min-height', '0px');
-//   } else {
-//     $('#main_content').css('min-height', $('#middle .nav2').outerHeight().toString() + 'px');
-//   }
-// }
 
-window.addEventListener('load', function() {
-  setTimeout(function () {
-    window.scrollTo(0, 1); // Hide the address bar on iOS
-  }, 0);
-});
 
 $(document).ready(function () {
   // $('.gal').magnificPopup({
