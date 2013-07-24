@@ -668,12 +668,12 @@ article.page {
 	width: 50% !important;
 }
 
-.veryLargeImage {
+.largeImage {
 	height: 75% !important;
 	width: 75% !important;
 }
 
-.hugeImage {
+.veryLargeImage {
 	height: 125% !important;
 	width: 125% !important;
 }
