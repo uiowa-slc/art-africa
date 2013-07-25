@@ -26,8 +26,6 @@ class MediaHolder extends Page {
 		$content = new HTMLEditorField("Content", "Content -- Use this field to edit the introduction to the audio and video that shows up on the front-end of the site.  Use the Audio and Video pages to edit the photos themselves.");
 		$fields->addFieldToTab("Root.Main", $content);
 		return $fields;	
-		
-		return $fields;		
   }
   
 
