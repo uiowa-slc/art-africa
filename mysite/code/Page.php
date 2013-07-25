@@ -316,7 +316,7 @@ class Page_Controller extends ContentController {
 
 	//Get a DataList for an object type.  Object type passed through in template
 	public function getObjects($type) {
-		$desiredDataList = $type::get();
+		$desiredDataList = $type::get()->sort('Title');
 		return $desiredDataList;
 	}
 

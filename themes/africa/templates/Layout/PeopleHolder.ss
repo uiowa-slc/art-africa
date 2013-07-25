@@ -5,7 +5,7 @@
 			$Content
 
 			<ul>
-				<% loop getObjects('People') %>
+				<% loop getPeople %>
 					<% if Title %>
 						<li><a href="$Link(false)">$Title</a></li>
 					<% end_if %>

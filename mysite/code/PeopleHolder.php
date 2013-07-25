@@ -58,7 +58,7 @@ class PeopleHolder_Controller extends Page_Controller {
 	
 
 	public function getPeople(){
-	$people = People::get();
+	$people = People::get()->sort('Title');
 	return $people;
 	}
 	
