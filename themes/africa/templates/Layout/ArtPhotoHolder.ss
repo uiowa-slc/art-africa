@@ -2,7 +2,9 @@
 <script src="{$ThemeDir}/javascript/jquery.lazyload.js"></script>
 
 <style>
-
+.lazy {
+  display: none;
+}
 </style>
 <div class="content-container typography">
 	<h1>Art Photos</h1>
@@ -10,7 +12,9 @@
  		<div class="js-masonry" data-masonry-options='{ "itemSelector": ".item", "columnWidth": 200, "gutter": 10 }'>
  		<% loop $getArtPhotos %>
  			<div class="item">
-
+ 				<% with $Picture.SetWidth(200) %>
+	 			<img class="lazy" data-original="$URL" src="{$ThemeDir}/images/blank.gif" width=$Width height=$Height />
+	 			<% end_with %>
 	 			$Picture.SetWidth(200)
 
  			</div>
@@ -36,6 +40,7 @@
 	  itemSelector: '.item',
 	  columnWidth: 200
 	});
+	$("img.lazy").lazyload();
 	/*var $container = $('#media-container');
 	$container.imagesLoaded(function(){
 	    $container.masonry({
