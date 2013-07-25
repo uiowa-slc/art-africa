@@ -150,3 +150,18 @@ a .arrow {
     display: inline-block;
   }
 }
+
+#homepage-pic-shadow {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12rem;
+  background: -webkit-linear-gradient(top, transparent, rgba(0,0,0, 0.9));
+}
+
+@media (max-width: 768px) {
+  #homepage-pic-shadow {
+    display: none;
+  }
+}

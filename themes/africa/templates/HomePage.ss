@@ -41,6 +41,7 @@
       <div style="position:relative">
         <div id="homepage-pic" onclick="void(0)">
           <div id="homepage-pic-switchers">
+            <div id="homepage-pic-shadow"></div>
             <% loop HomepagePics %>
               <span class="switcher<% if First %> selected<% end_if %>"
                     data-img-url="{$HomepagePic.URL}"
