@@ -24,7 +24,7 @@
         <a class="next" href="{$getPaginatedPages('EssayPages').NextLink}#essay">Next</a>
       <% else %>
        	<% if $Level(1).Title == 'Chapters' %>
-	   		<a href="{$getNextSubtopic($Title)}">Next Chapter</a>
+	   		<a href="<% cached %>{$getNextSubtopic($Title, 'Link')}<% end_cached %>">Next Chapter: <% cached %>{$getNextSubtopic($Title, 'Title')}<% end_cached %></a>
 	   	<% end_if %>
       <% end_if %>
       

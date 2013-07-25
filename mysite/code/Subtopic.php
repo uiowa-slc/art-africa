@@ -182,7 +182,7 @@ class Subtopic_Controller extends Page_Controller {
 	
 	}
 	
-	public function getNextSubtopic($title){
+	public function getNextSubtopic($title, $type){
 		$currentSubtopic = Subtopic::get()->filter(array('Title' => $title))->First();
 		$chapter = $currentSubtopic->getParent();
 		$chapterSubtopics = $chapter->Children();
@@ -190,21 +190,23 @@ class Subtopic_Controller extends Page_Controller {
 		foreach($chapterSubtopics as $subtopic){
 			if ($check == true){
 				$returnedSubtopic = $subtopic;
-				print_r('CHECK TRUE SUBTOPIC TITLE IS ');
-				print_r($subtopic->Title);
+								
 				$check = false;
 			}
 			if ($subtopic->Title == $currentSubtopic->Title){
 				$check = true;
-				print_r('equality ' . $subtopic->Title . ' ' . $currentSubtopic->Title);
-			}	
+							}	
 		}
 		
 		if (!isset($returnedSubtopic)){
 			$returnedSubtopic = $chapterSubtopics->First();
 		}
-		
-		return $returnedSubtopic->Link();
+		if ($type=='Link'){
+			return $returnedSubtopic->Link();
+		}
+		elseif ($type=='Title') {
+			return $returnedSubtopic->Title;
+		}
 	}
 	
 	
