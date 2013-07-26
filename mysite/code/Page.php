@@ -363,7 +363,7 @@ class Page_Controller extends ContentController {
 
 	//Displays a data object of the class childPage, which is found in the controller of the holder class show is called on
 	public function show() {
-	
+		
 		$otherClass = $this::$childPage;
 		$objectID = Convert::raw2xml($this->request->param('ID'));
 		//We can '/show/ID' or '/show/object+name'
@@ -448,7 +448,7 @@ class Page_Controller extends ContentController {
 			return;
 		}
 		
-		$photoObject = DataObject::get("FieldPhoto")->filter(array('PhotoID' => $photoID))->First();
+		$photoObject = DataObject::get("Image")->filter(array('PhotoID' => $photoID))->First();
 
 		if ($photoObject){
 		
@@ -486,7 +486,7 @@ class Page_Controller extends ContentController {
 		}
 
 		//$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);		
-		$photoObject = DataObject::get("ArtPhoto")->filter(array('PhotoID' => $photoID))->First();
+		$photoObject = DataObject::get("Image")->filter(array('PhotoID' => $photoID))->First();
 		
 		if ($photoObject){
 		

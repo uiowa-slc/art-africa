@@ -1,6 +1,6 @@
 <?php
  
-class PhotoHolder extends Page {
+class ImageHolder extends Page {
  
   
   private static $db = array(	
@@ -33,7 +33,7 @@ class PhotoHolder extends Page {
 }
 
 
-class PhotoHolder_Controller extends Page_Controller {
+class ImageHolder_Controller extends Page_Controller {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
@@ -52,37 +52,9 @@ class PhotoHolder_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ('show', 'getArtPhotos', 'getFieldPhotos');
 	
+	public static $childPage = 'Image';
 	
-	public function show (){
-	//Displays a data object
-	
-						
-		
-		
-		$objectID = $this->request->param('ID');
-		
 
-		
-		
-		
-		if ($objectID){
-		
-			
-		
-		    $object = $otherClass::get_by_id($otherClass, $objectID);
-		    
-		    if(isset($object)){
-		       $showTemplate = $class . 'Holder_show';
-			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
-			   
-		    }else{
-		    }		   
-		}
-		else {
-			return $this->renderWith('Page');
-		}
-	
-	}
 	
 	public function getImages(){
 		$images = new ArrayList();
@@ -102,6 +74,7 @@ class PhotoHolder_Controller extends Page_Controller {
 		$fieldPhotoImages = Image::get()->filter(array('Type' => 'FieldPhoto'));
 		return $fieldPhotoImages;
 	}
+	
 	
 	 
 	
