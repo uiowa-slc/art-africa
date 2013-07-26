@@ -900,3 +900,7 @@ article.page {
 .content-container ul {
   line-height: 2rem;
 }
+
+#main_content .art-photo-grid h2 {
+	font-size: 3rem;
+}

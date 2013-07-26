@@ -42,8 +42,11 @@
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span12" id="media">
-				<h2>Media</h2>
+				<div class="span12 art-photo-grid" id="media">
+			
+				<h2>Art</h2>
+				<% include ArtPhotoGrid %>
+				<!--
 				<h3>Audio Pieces</h3>
 				<ul>
 				<% loop AudioPieces %>
@@ -58,7 +61,7 @@
 				</ul>
 								
 				</div>
-				<!--
+				
 				Subtopics
 				<% loop Subtopics %>
 					$Name<br>

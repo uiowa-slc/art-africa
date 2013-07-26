@@ -4,11 +4,12 @@ class MediaPiece extends DataObject {
  
   
   private static $db = array(	
-  'History' => 'Text',
   'Title' => 'Text',
   'CreditLine' => 'Text',
   /*'Bibliography' => 'Text',*/
-  'Tags' => 'Text'
+  'Tags' => 'Text',
+  'Description' => 'HTMLText',
+  'Link' => 'Text'
 
 
   );
@@ -38,6 +39,7 @@ class MediaPiece extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
  		$fields->addFieldToTab('Root.Main', new TextField('CreditLine', 'CreditLine'));
  		$fields->addFieldToTab('Root.Main', new UploadField('MediaFile', 'Media File'));
+ 		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Description', 'Description'));
  		
 
 

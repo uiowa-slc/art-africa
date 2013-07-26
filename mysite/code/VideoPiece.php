@@ -4,8 +4,7 @@ class VideoPiece extends MediaPiece {
  
   
   private static $db = array(	
-  'Link' => 'Text',
-  'Content' => 'HTMLText'
+
   );
  
   // One-to-one relationship with gallery page
@@ -30,14 +29,14 @@ class VideoPiece extends MediaPiece {
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
- 		$fields = addCommonFields($fields);
+ 		$fields = $this->addCommonFields($fields);
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 		
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 		$fields->removeFieldFromTab("Root.Main","MediaFile");
-		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Content', 'Embed the Video Here'));
+		
 		
 		//$fields->addFieldToTab('Root.Main', new TextField('Link', 'Link'));
 
