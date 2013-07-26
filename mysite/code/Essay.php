@@ -24,8 +24,7 @@ class Essay extends DataObject {
   private static $many_many = array(
   'AudioPieces' => 'AudioPiece',
   'VideoPieces' => 'VideoPiece',
-  'FieldPhotos' => 'FieldPhoto',
-  'ArtPhotos' => 'ArtPhoto'
+  'Images' => 'Image'
   
   );
   private static $belongs_many_many = array(

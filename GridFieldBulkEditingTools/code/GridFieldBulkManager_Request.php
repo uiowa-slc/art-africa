@@ -24,7 +24,13 @@ class GridFieldBulkManager_Request extends RequestHandler {
 	 */
 	protected $controller;
 	
-	
+	/**
+	 *
+	 */
+	private static $allowed_actions = array(
+		'edit', 'update', 'unlink', 'delete'
+	);
+
 	/**
 	 *
 	 */
@@ -68,7 +74,7 @@ class GridFieldBulkManager_Request extends RequestHandler {
 		$actions = new FieldList();		
 		
 		$actions->push(
-			FormAction::create('SaveAll', 'Save All')
+			FormAction::create('SaveAll', _t('GridFieldBulkTools.SAVE_BTN_LABEL', 'Save All'))
 				->setAttribute('id', 'bulkEditingUpdateBtn')
 				->addExtraClass('ss-ui-action-constructive cms-panel-link')
 				->setAttribute('data-icon', 'accept')
@@ -90,7 +96,7 @@ class GridFieldBulkManager_Request extends RequestHandler {
 		}	*/
 		
 		$actions->push(
-			FormAction::create('Cancel', 'Cancel & Delete All')
+			FormAction::create('Cancel', _t('GridFieldBulkTools.CANCEL_BTN_LABEL', 'Cancel & Delete All'))
 				->setAttribute('id', 'bulkEditingUpdateCancelBtn')
 				->addExtraClass('ss-ui-action-destructive cms-panel-link')
 				->setAttribute('data-icon', 'decline')
@@ -146,7 +152,8 @@ class GridFieldBulkManager_Request extends RequestHandler {
 		$formHTML = $form->forTemplate();
 				
 		Requirements::javascript(BULK_EDIT_TOOLS_PATH . '/javascript/GridFieldBulkManager.js');	
-		Requirements::css(BULK_EDIT_TOOLS_PATH . '/css/GridFieldBulkManager.css');		
+		Requirements::css(BULK_EDIT_TOOLS_PATH . '/css/GridFieldBulkManager.css');	
+		Requirements::add_i18n_javascript(BULK_EDIT_TOOLS_PATH . '/javascript/lang');	
 		
 		$response = new SS_HTTPResponse($formHTML);
 		$response->addHeader('Content-Type', 'text/plain');

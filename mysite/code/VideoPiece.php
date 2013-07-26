@@ -21,7 +21,8 @@ class VideoPiece extends MediaPiece {
    'ArtPhotos' => 'ArtPhoto',
    'FieldPhotos' => 'FieldPhoto',
    'AudioPieces' => 'AudioPiece',
-   'Chapters' => 'Chapter'
+   'Chapters' => 'Chapter',
+   'Photos' => 'Image'
   );
   
   private static $plural_name = "Video Pieces";

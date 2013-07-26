@@ -1,3 +1,3 @@
-<a id="bulkImageUploadGFButton" href="$Link" class="action action-detail ss-ui-action-constructive ss-ui-button ui-button ui-widget ui-state-default ui-corner-all new new-link" data-icon="add">
-$Label
+<a id="bulkImageUploadGFButton" href="$Link" class="cms-panel-link ss-ui-action-constructive ss-ui-button" data-icon="drive-upload">
+<%t GridFieldBulkTools.BULK_UPLOAD_BTN_LABEL "Bulk Upload" %>
 </a>

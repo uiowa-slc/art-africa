@@ -40,6 +40,13 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 	/**
 	 *
 	 */
+	private static $allowed_actions = array(
+		'index', 'upload', 'update', 'cancel'
+	);
+
+	/**
+	 *
+	 */
 	private static $url_handlers = array(
 		'$Action!' => '$Action'
 	);
@@ -70,17 +77,62 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 	}
 	
 	/**
+	 * Get the first has_one Image relation from the GridField managed DataObject
+	 * i.e. 'MyImage' => 'Image' will return 'MyImage'
+	 * 
+	 * @return string Name of the $has_one relation
+	 */
+	function getDefaultFileRelationName()
+	{
+		$recordClass = $this->gridField->list->dataClass;
+		$recordHasOneFields = Config::inst()->get($recordClass, 'has_one', Config::INHERITED);
+		
+		$imageField = null;
+		foreach( $recordHasOneFields as $field => $type )
+		{
+			if($type == 'Image' || is_subclass_of($type, 'Image')) {
+				$imageField = $field;// . 'ID';
+				break;
+			}
+		}
+		
+		return $imageField;
+	}	
+
+	/**
 	 * Returns the name of the Image field name from the managed record
 	 * Either as set in the component config or the default one
 	 * 
 	 * @return string 
 	 */
-	function getRecordImageField()
+	function getFileRelationName()
 	{
-		$fieldName = $this->component->getConfig('imageFieldName');
-		if ( $fieldName == null ) $fieldName = $this->getDefaultRecordImageField();
+		$fieldName = $this->component->getConfig('fileRelationName');
+		if ( $fieldName == null ) $fieldName = $this->getDefaultFileRelationName();
 		
 		return $fieldName;
+	}
+
+	/**
+	 * Return the ClassName of the fileRelation
+	 * i.e. 'MyImage' => 'Image' will return 'Image'
+	 * i.e. 'MyImage' => 'File' will return 'File'
+	 *
+	 * @return string file relation className
+	 */
+	private function getFileRelationClassName()
+	{
+		$recordClass        = $this->gridField->list->dataClass;
+		$recordHasOneFields = Config::inst()->get($recordClass, 'has_one', Config::INHERITED);
+
+		$fieldName = $this->getFileRelationName();
+		if($fieldName != null)
+		{
+			return $recordHasOneFields[$fieldName];
+		}
+		else{
+			return 'File';
+		}		
 	}
 	
 	/**
@@ -95,56 +147,6 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 		if ( $fields == null ) $fields = $this->getDefaultRecordEditableFields();
 		
 		return $fields;
-	}
-	
-	/**
-	 * Get the first has_one Image realtion from the GridField managed DataObject
-	 * 
-	 * @return string 
-	 */
-	function getDefaultRecordImageField()
-	{
-		$recordClass = $this->gridField->list->dataClass;
-		$recordHasOneFields = Config::inst()->get($recordClass, 'has_one', Config::INHERITED);
-		
-		$imageField = null;
-		foreach( $recordHasOneFields as $field => $type )
-		{
-			if($type == 'Image' || is_subclass_of($type, 'Image')) {
-				$imageField = $field . 'ID';
-				break;
-			}
-		}
-		
-		return $imageField;
-	}
-
-	/**
-	 * Returns the classname of the first has_one image-relation of the managed DataObject or the
-	 * classname of the given fieldname
-	 *
-	 * @return string
-	 */
-	private function getRecordImageClass()
-	{
-		$recordClass        = $this->gridField->list->dataClass;
-		$recordHasOneFields = Config::inst()->get($recordClass, 'has_one', Config::INHERITED);
-
-		$fieldName = $this->component->getConfig('imageFieldName');
-		if($fieldName != null)
-		{
-			// filter out ID at the end:
-			$fieldName = substr($fieldName, 0, -2);
-			return $recordHasOneFields[$fieldName];
-		}
-		foreach($recordHasOneFields as $field => $type)
-		{
-			if($type == 'Image' || is_subclass_of($type, 'Image'))
-			{
-				return $type;
-			}
-		}
-		return null;
 	}
 
 	/**
@@ -163,7 +165,7 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 		
 		$recordCMSDataFields = GridFieldBulkEditingHelper::filterNonEditableRecordsFields($config, $recordCMSDataFields);
 		
-		if ( $config['imageFieldName'] == null ) $config['imageFieldName'] = $this->getDefaultRecordImageField();
+		if ( $config['fileRelationName'] == null ) $config['fileRelationName'] = $this->getDefaultFileRelationName();
 		
 		$recordCMSDataFields = GridFieldBulkEditingHelper::getModelFilteredDataFields($config, $recordCMSDataFields);
 		$recordCMSDataFields = GridFieldBulkEditingHelper::populateCMSDataFields($recordCMSDataFields, $this->gridField->list->dataClass, $recordID);
@@ -171,6 +173,110 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 		$formFieldsHTML = GridFieldBulkEditingHelper::escapeFormFieldsHTML($formFieldsHTML, $recordID);
 		
 		return $formFieldsHTML;
+	}
+
+	/**
+	 * Creates and return the bulk upload form
+	 *
+	 * @return Form
+	 */
+	public function uploadForm($id = null, $fields = null)
+	{
+		$crumbs = $this->Breadcrumbs();
+		if($crumbs && $crumbs->count()>=2)
+		{
+			$one_level_up = $crumbs->offsetGet($crumbs->count()-2);
+			$one_level_up = $one_level_up->Link;			
+		}
+
+		$actions = new FieldList();
+
+		$actions->push(
+			FormAction::create('Finish', _t('GridFieldBulkTools.FINISH_BTN_LABEL', 'Finish'))
+				->setAttribute('id', 'bulkImageUploadFinishBtn')				
+				->addExtraClass('cms-panel-link')
+				->setAttribute('data-icon', 'accept')
+				->setAttribute('href', $one_level_up)
+				->setUseButtonTag(true)
+				->setAttribute('src', '')//changes type to image so isn't hooked by default actions handlers
+		);
+		
+		$actions->push(
+			FormAction::create('SaveAll', _t('GridFieldBulkTools.SAVE_BTN_LABEL', 'Save All'))
+				->setAttribute('id', 'bulkImageUploadUpdateBtn')
+				->addExtraClass('ss-ui-action-constructive')
+				->setAttribute('data-icon', 'accept')
+				->setAttribute('data-url', $this->Link('update'))
+				->setUseButtonTag(true)
+				->setAttribute('src', '')//changes type to image so isn't hooked by default actions handlers
+		);
+		
+		$actions->push(
+			FormAction::create('Cancel', _t('GridFieldBulkTools.CANCEL_BTN_LABEL', 'Cancel & Delete All'))
+				->setAttribute('id', 'bulkImageUploadUpdateCancelBtn')
+				->addExtraClass('ss-ui-action-destructive')
+				->setAttribute('data-icon', 'decline')
+				->setAttribute('data-url', $this->Link('cancel'))
+				->setUseButtonTag(true)
+				->setAttribute('src', '')//changes type to image so isn't hooked by default actions handlers
+		);
+
+		
+		/* *
+		 * UploadField
+		 */
+		$fileRelationName = $this->getFileRelationName();
+		$uploadField = UploadField::create($fileRelationName, '');
+		$uploadField->setConfig('previewMaxWidth', 40);
+		$uploadField->setConfig('previewMaxHeight', 30);		
+		$uploadField->addExtraClass('ss-assetuploadfield');
+		$uploadField->removeExtraClass('ss-uploadfield');		
+		$uploadField->setTemplate('AssetUploadField');
+
+		$uploadField->setDownloadTemplateName('colymba-gfbiu-uploadfield-downloadtemplate');		
+
+		//always overwrite
+		$uploadField->setOverwriteWarning(false);
+
+		/* *
+		 * UploadField configs
+		 */
+		//custom upload url
+		$uploadField->setConfig('url', $this->Link('upload'));
+
+		//max file size
+		$maxFileSize = $this->component->getConfig('maxFileSize');
+		if ( $maxFileSize !== null ) 
+		{
+			$uploadField->getValidator()->setAllowedMaxFileSize( $maxFileSize );
+		}
+
+		//upload dir
+		$uploadDir = $this->component->getConfig('folderName');
+		if ( $uploadDir !== null )
+		{
+			$uploadField->setFolderName($uploadDir);
+		}	
+
+		//sequential upload
+		$uploadField->setConfig('sequentialUploads', $this->component->getConfig('sequentialUploads'));
+		
+		//Create form
+		$form = new Form(
+			$this,
+			'uploadForm',
+			new FieldList(
+				$uploadField
+			),
+			$actions
+		);
+		
+		if($one_level_up)
+		{
+			$form->Backlink = $one_level_up;
+		}
+
+		return $form;
 	}
 	
 	/**
@@ -181,93 +287,33 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 	public function index($request)
 	{	
 		Requirements::javascript(FRAMEWORK_DIR . '/javascript/AssetUploadField.js');
-		Requirements::css(FRAMEWORK_DIR . '/css/AssetUploadField.css');				
-				
-		$crumbs = $this->Breadcrumbs();
-		if($crumbs && $crumbs->count()>=2) $one_level_up = $crumbs->offsetGet($crumbs->count()-2);
-		
-		$actions = new FieldList();		
-		
-		$actions->push(
-			FormAction::create('SaveAll', 'Save All')
-				->setAttribute('id', 'bulkImageUploadUpdateBtn')
-				->addExtraClass('ss-ui-action-constructive cms-panel-link')
-				->setAttribute('data-icon', 'accept')
-				->setAttribute('data-url', $this->Link('update'))
-				->setUseButtonTag(true)
-        //->setDisabled(true)
-		);
-		
-		$actions->push(
-			FormAction::create('Cancel', 'Cancel & Delete All')
-				->setAttribute('id', 'bulkImageUploadUpdateCancelBtn')
-				->addExtraClass('ss-ui-action-destructive cms-panel-link')
-				->setAttribute('data-icon', 'decline')
-				->setAttribute('data-url', $this->Link('cancel'))
-				->setUseButtonTag(true)
-        //->setDisabled(true)
-		);
-		
-		
-		$uploadField = UploadField::create('BulkImageUploadField', '');
-		$uploadField->setConfig('previewMaxWidth', 40);
-		$uploadField->setConfig('previewMaxHeight', 30);
-		
-		$uploadField->addExtraClass('ss-assetuploadfield');
-		$uploadField->removeExtraClass('ss-uploadfield');
-		
-		$uploadField->setTemplate('AssetUploadField');
-		$uploadField->setConfig('downloadTemplateName','GridFieldBulkImageUpload_downloadtemplate');   
-    $uploadField->setConfig('sequentialUploads', $this->component->getConfig('sequentialUploads'));
-				
-		$maxFileSize = $this->component->getConfig('maxFileSize');
-		if ( $maxFileSize !== null ) 
-		{
-			$uploadField->getValidator()->setAllowedMaxFileSize( $maxFileSize );
-		}
-		
-		$uploadField->setConfig('url', $this->Link('upload'));
-		
-		//$uploadField->setFolderName(ASSETS_DIR);
-		
-		
-		$form = new Form(
-			$this,
-			'bulkImageUploadForm',
-			new FieldList(
-				$uploadField
-			),
-			$actions
-		);
-				
+		Requirements::css(FRAMEWORK_DIR . '/css/AssetUploadField.css');
+
+		$form = $this->uploadForm();
 		$form->setTemplate('LeftAndMain_EditForm');
-		//$form->addExtraClass('center cms-edit-form cms-content');
-		$form->addExtraClass('center cms-content');
-		$form->setAttribute('data-pjax-fragment', 'CurrentForm Content');
-		
-		if($crumbs && $crumbs->count()>=2){
-			$form->Backlink = $one_level_up->Link;
-		}
-		
-		// this actually fixes the JS Requirements issue.
-		// Calling forTemplate() before other requirements forces SS to add the Form's X-Include-JS before
-		$formHTML = $form->forTemplate();
-				
+		$form->addExtraClass('cms-content center LeftAndMain'); //not using cms-edit-form to avoid btn being hooked with default handlers
+		$form->setAttribute('data-pjax-fragment', 'Content');
+
+		Requirements::javascript(THIRDPARTY_DIR . '/javascript-templates/tmpl.js'); 
+
 		Requirements::javascript(BULK_EDIT_TOOLS_PATH . '/javascript/GridFieldBulkImageUpload.js');	
 		Requirements::css(BULK_EDIT_TOOLS_PATH . '/css/GridFieldBulkImageUpload.css');
-		Requirements::javascript(BULK_EDIT_TOOLS_PATH . '/javascript/GridFieldBulkImageUpload_downloadtemplate.js');		
-		
-		$response = new SS_HTTPResponse($formHTML);
-		$response->addHeader('Content-Type', 'text/plain');
-		$response->addHeader('X-Title', 'SilverStripe - Bulk '.$this->gridField->list->dataClass.' Image Upload');
-		if($request->isAjax()) {
+		Requirements::javascript(BULK_EDIT_TOOLS_PATH . '/javascript/GridFieldBulkImageUpload_downloadtemplate.js');
+		Requirements::add_i18n_javascript(BULK_EDIT_TOOLS_PATH . '/javascript/lang');
+
+		if($request->isAjax())
+		{			
+			$response = new SS_HTTPResponse(
+				Convert::raw2json(array( 'Content' => $form->forAjaxTemplate()->getValue() ))
+			);
+			$response->addHeader('X-Pjax', 'Content');
+			$response->addHeader('Content-Type', 'text/json');
+			$response->addHeader('X-Title', 'SilverStripe - Bulk '.$this->gridField->list->dataClass.' Image Upload');
 			return $response;
-		} else {
+		}
+		else {
 			$controller = $this->getToplevelController();
-			// If not requested by ajax, we need to render it within the controller context+template
-			return $controller->customise(array(
-				'Content' => $response->getBody(),
-			));	
+			return $controller->customise(array( 'Content' => $form ));
 		}
 	}
 	
@@ -287,88 +333,53 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 	}
 	
 	/**
-	 * Process image upload and Object creation
-	 * Create new DataObject and add image relation
-	 * returns Image data and editable Fields forms
-	 * 
-	 * Overides UploadField's upload method by Zauberfisch
-	 * Kept original file upload/processing but removed unessesary processing
-	 * and adds DataObject creation and editableFields processing
-	 * 
-	 * @author Zauberfisch original upload() method
-	 * @see UploadField->upload()
+	 * Process upload through UploadField,
+	 * creates new record and link newly uploaded file
+	 * adds record to GrifField relation list
+	 * and return image/file data and record edit form
+	 *
 	 * @param SS_HTTPRequest $request
 	 * @return string json
 	 */
 	public function upload(SS_HTTPRequest $request)
 	{
+		//create record
 		$recordClass = $this->gridField->list->dataClass;		
 		$record = Object::create($recordClass);
+		$record->write();
 
 		// passes the current gridfield-instance to a call-back method on the new object
 		$record->extend("onBulkImageUpload", $this->gridField);
-		
+
+		//get uploadField and process upload
+		$fileRelationName = $this->getFileRelationName();
+		$uploadField = $this->uploadForm()->Fields()->fieldByName($fileRelationName);
+		$uploadField->setRecord($record);
+		$uploadResponse = $uploadField->upload( $request );
+
+		//get uploaded File
+		$uploadResponse = Convert::json2array( $uploadResponse->getBody() );
+		$uploadResponse = array_shift( $uploadResponse );
+		$uploadedFile = DataObject::get_by_id( $this->getFileRelationClassName(), $uploadResponse['id'] );
+
+		// Attach the file to record.				
+		$record->{"{$fileRelationName}ID"} = $uploadedFile->ID;					
 		$record->write();
+
+		// attached record to gridField relation
 		$this->gridField->list->add($record->ID);
-		
-		$upload = new Upload();		
-		$tmpfile = $request->postVar('BulkImageUploadField');
-		
-		// Check if the file has been uploaded into the temporary storage.
-		if (!$tmpfile) {
-			$return = array('error' => _t('UploadField.FIELDNOTSET', 'File information not found'));
-		} else {
-			$return = array(
-				'name' => $tmpfile['name'],
-				'size' => $tmpfile['size'],
-				'type' => $tmpfile['type'],
-				'error' => $tmpfile['error']
-			);
-		}
-		
-		// Process the uploaded file
-		if (!$return['error']) {
-			$fileObject = Object::create($this->getRecordImageClass());
 
-			// Get the uploaded file into a new file object.
-			try {
-				$upload->loadIntoFile($tmpfile, $fileObject, $this->component->getConfig('folderName'));
-			} catch (Exception $e) {
-				// we shouldn't get an error here, but just in case
-				$return['error'] = $e->getMessage();
-			}
-
-			if (!$return['error']) {
-				if ($upload->isError()) {
-					$return['error'] = implode(' '.PHP_EOL, $upload->getErrors());
-				} else {
-					$file = $upload->getFile();
-
-					// Attach the file to the related record.		
-					$record->setField($this->getRecordImageField(), $file->ID);					
-					$record->write();
-					
-					//get record's CMS Fields
-					$recordEditableFormFields = $this->getRecordHTMLFormFields( $record->ID );
-					
-					// Collect all output data.
-					$return = array_merge($return, array(
-						'id' => $file->ID,
-						'name' => $file->getTitle() . '.' . $file->getExtension(),
-						'url' => $file->getURL(),
-						'preview_url' => $file->setHeight(55)->Link(),
-						'thumbnail_url' => $file->SetRatioSize(40,30)->getURL(),
-						'size' => $file->getAbsoluteSize(),
-						//'buttons' => $file->UploadFieldFileButtons,
-						'record' => array(
-							'ID' => $record->ID,
-							'fields' => $recordEditableFormFields
-						)
-					));
-										
-				}
-			}
-		}
+		//get record's CMS Fields
+		$recordEditableFormFields = $this->getRecordHTMLFormFields( $record->ID );
+		
+		// Collect all output data.
+		$return = array_merge($uploadResponse, array(
+			'preview_url' => $uploadedFile->setHeight(55)->Link(),
+			'record' => array(
+				'ID' => $record->ID,
+				'fields' => $recordEditableFormFields
+			)
+		));
 				
 		$response = new SS_HTTPResponse(Convert::raw2json(array($return)));
 		$response->addHeader('Content-Type', 'text/plain');
@@ -415,8 +426,8 @@ class GridFieldBulkImageUpload_Request extends RequestHandler {
 		$recordClass = $this->gridField->list->dataClass;
 		$record = DataObject::get_by_id($recordClass, $data['ID']);	
 		
-		$imageField = $this->getRecordImageField();
-		$imageID = $record->$imageField;
+		$imageField = $this->getFileRelationName();
+		$imageID = $record->$imageField.'ID';
 		$image = DataObject::get_by_id('Image', $imageID);
 		
 		$return[$data['ID']]['imageID'] = $imageID;			

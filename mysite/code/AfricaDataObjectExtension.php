@@ -49,26 +49,34 @@ class AfricaDataObjectExtension extends DataExtension {
   
   public function addCommonFields($fields){
 	  	$owner = $this->owner;
-	  
-	  	if ($owner->ClassName != 'ArtPhoto'){
-		  	$gridFieldConfigArtPhotos= GridFieldConfig_RelationEditor::create(); 
-			$gridfield = new GridField("ArtPhotos", "Art Photos", $owner->ArtPhotos(), $gridFieldConfigArtPhotos);
-			$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
-			$fields->addFieldToTab('Root.ArtPhotos', new LiteralField('ArtPhotosViewerHeader', '<h2>All Art Photos Listed Below</h2>'));
-			$gridFieldConfigArtPhotosViewer= GridFieldConfig_Base ::create(); 
-			$gridfield = new GridField("ArtPhotosViewer", null, ArtPhoto::get(), $gridFieldConfigArtPhotosViewer);
-			$fields->addFieldToTab('Root.ArtPhotos', $gridfield);
+	  	//print_r($owner->Images());
+	  /*	if (($owner->ClassName != 'ArtImage') && ($owner->ClassName != 'Image')){
+		  	$gridFieldConfigArtImages= GridFieldConfig_RelationEditor::create(); 
+			$gridfield = new GridField("ArtImages", "Art Images", $owner->ArtImages(), $gridFieldConfigArtImages);
+			$fields->addFieldToTab('Root.ArtImages', $gridfield);
+			$fields->addFieldToTab('Root.ArtImages', new LiteralField('ArtImagesViewerHeader', '<h2>All Art Images Listed Below</h2>'));
+			$gridFieldConfigArtImagesViewer= GridFieldConfig_Base ::create(); 
+			$gridfield = new GridField("ArtImagesViewer", null, ArtImage::get(), $gridFieldConfigArtImagesViewer);
+			$fields->addFieldToTab('Root.ArtImages', $gridfield);
+		}*/
+		
+		if ($owner->ClassName != 'Image'){
+		
+		  	$gridFieldConfigImages= GridFieldConfig_RelationEditor::create(); 
+			$gridfield = new GridField("Images", "Images", $owner->Images(), $gridFieldConfigImages);
+			$gridFieldConfigImages->addComponent(new GridFieldBulkManager());
+			$fields->addFieldToTab('Root.Images', $gridfield);
+			
+			$fields->addFieldToTab('Root.Images', new LiteralField('ImagesViewerHeader', '<h2>All Images Listed Below</h2>'));
+			
+			$gridFieldConfigImagesViewer= GridFieldConfig_Base ::create(); 
+			$gridfield = new GridField("ImagesViewer", null, Image::get(), $gridFieldConfigImagesViewer);
+			$fields->addFieldToTab('Root.Images', $gridfield);
+			
+			
 		}
 		
-		if($owner->ClassName != 'AudioPiece'){
-			$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
-			$gridfield = new GridField("AudioPieces", "Audio Pieces", $owner->AudioPieces(), $gridFieldConfigAudioPieces);
-			$fields->addFieldToTab('Root.AudioPieces', $gridfield);
-			$fields->addFieldToTab('Root.AudioPieces', new LiteralField('AudioPieceViewerHeader', '<h2>All Audio Pieces Listed Below</h2>'));
-			$gridFieldConfigAudioPiecesViewer= GridFieldConfig_Base ::create(); 
-			$gridfieldViewer = new GridField("AudioPiecesViewer", null, AudioPiece::get(), $gridFieldConfigAudioPiecesViewer);
-			$fields->addFieldToTab('Root.AudioPieces', $gridfieldViewer);
-		}
+
 		
 		if($owner->ClassName != 'Country'){
 
@@ -91,15 +99,7 @@ class AfricaDataObjectExtension extends DataExtension {
 			$fields->addFieldToTab('Root.Essays', $gridfield);
 		}
 		
-		if($owner->ClassName != 'FieldPhoto'){
-			$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
-			$gridfield = new GridField("FieldPhotos", "Field Photos", $owner->FieldPhotos(), $gridFieldConfigFieldPhotos);
-			$fields->addFieldToTab('Root.FieldPhotos', $gridfield);
-			$fields->addFieldToTab('Root.FieldPhotos', new LiteralField('FieldPhotoViewerHeader', '<h2>All Field Photos Listed Below</h2>'));
-			$gridFieldConfigFieldPhotosViewer = GridFieldConfig_Base ::create(); 
-			$gridfield = new GridField("FieldPhotosViewer", null, FieldPhoto::get(), $gridFieldConfigFieldPhotosViewer);
-			$fields->addFieldToTab('Root.FieldPhotos', $gridfield);
-		}
+
 		if($owner->ClassName != 'People'){
 			$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
 			$gridfield = new GridField("People", "People", $owner->People(), $gridFieldConfigPeople);
@@ -118,6 +118,16 @@ class AfricaDataObjectExtension extends DataExtension {
 			$gridFieldConfigVideoPiecesViewer = GridFieldConfig_Base ::create(); 
 			$gridfield = new GridField("VideoPiecesViewer", null, VideoPiece::get(), $gridFieldConfigVideoPiecesViewer);
 			$fields->addFieldToTab('Root.VideoPieces', $gridfield);
+		}
+
+		if($owner->ClassName != 'AudioPiece'){
+			$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
+			$gridfield = new GridField("AudioPieces", "Audio Pieces", $owner->AudioPieces(), $gridFieldConfigAudioPieces);
+			$fields->addFieldToTab('Root.AudioPieces', $gridfield);
+			$fields->addFieldToTab('Root.AudioPieces', new LiteralField('AudioPieceViewerHeader', '<h2>All Audio Pieces Listed Below</h2>'));
+			$gridFieldConfigAudioPiecesViewer= GridFieldConfig_Base ::create(); 
+			$gridfieldViewer = new GridField("AudioPiecesViewer", null, AudioPiece::get(), $gridFieldConfigAudioPiecesViewer);
+			$fields->addFieldToTab('Root.AudioPieces', $gridfieldViewer);
 		}
 		
 		return $fields;

@@ -24,8 +24,7 @@ class Chapter extends Page {
    'Countries' => 'Country',
    'AudioPieces' => 'AudioPiece',
    'VideoPieces' => 'VideoPiece',
-   'ArtPhotos' => 'ArtPhoto',
-   'FieldPhotos' => 'FieldPhoto'
+   'Images' => 'Image'
 
   
   );
