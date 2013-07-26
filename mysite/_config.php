@@ -50,6 +50,10 @@ ShortcodeParser::get('default')->register(
     'FieldPhoto', array('Page_Controller', 'fieldPhotoHandler')
 );
 
+ShortcodeParser::get('default')->register(
+    'Image', array('Page_Controller', 'imageHandler')
+);
+
 Object::add_extension("DataObject","AfricaDataObjectExtension");
 
 Object::add_extension("Image","ImageExtension");

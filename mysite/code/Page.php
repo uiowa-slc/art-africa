@@ -438,7 +438,7 @@ class Page_Controller extends ContentController {
 		return;
 	}
 
-
+	/*
 	public function fieldPhotoHandler($arguments) {
 
 		if (isset($arguments["ID"])) {
@@ -475,8 +475,9 @@ class Page_Controller extends ContentController {
 			return;
 		}
 	}
+	*/
 
-
+	/*
 	public function artPhotoHandler($arguments) {
 		if (isset($arguments["ID"])) {
 			$photoID = $arguments["ID"];
@@ -514,6 +515,49 @@ class Page_Controller extends ContentController {
 		}
 
 	}
+	*/
+	
+	public function imageHandler($arguments){		
+		print_r("CALLS FUNCTION");
+		if (isset($arguments["ID"])) {
+			$photoID = $arguments["ID"];
+		}
+		else {
+			return;
+		}
+		
+		//$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);		
+		$photoObject = Image::get()->filter(array('PhotoID' => $photoID))->First();
+		print_r('PHOTO OBJECT IS');
+		print_r($photoObject);
+
+		
+		if ($photoObject){
+			print_r("IS PHOTO OBJECT");
+			//$photoObject = ArtPhoto::get()->filter(array()
+			$newObject = $photoObject->toMap();
+			$newObject = new ArrayData($newObject); //cast to array that can be displayed on template
+	
+			if (isset($arguments["size"])) {
+				$newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
+			}
+			else {
+				$newObject->setField('size', 'mediumImage');
+			}
+	
+			$template = new SSViewer('ArtPhoto');
+	
+			//$picture = $photoObject->Picture();
+			//$newObject->setField('filename', $picture->getFilename());
+	
+			return $template->process($newObject);
+		}
+		else {
+
+			return;
+		}
+		
+	}
 
 
 	public function shortCodeHandler($arguments, $class) {
@@ -542,6 +586,8 @@ class Page_Controller extends ContentController {
 
 		return $template->process($newObject);
 	}
+	
+	
 
 
 	public function loadTest() {
