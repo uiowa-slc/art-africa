@@ -4,8 +4,7 @@
 		<div id="map-canvas"></div>
 
 		<div class="padded" style="padding-top:1rem">
-			<h2>Art</h2>
-			<% include ArtPhotoGrid %>
+			<% include ImageGrid %>
 		</div>
 		<div class="content container-fluid padded" style="padding-top:0">
 			<!-- $Content -->
@@ -98,7 +97,7 @@
 			</div>
 		</div>
 		<div class="padded" style="padding-top:0">
-			<h2>Other Media Related to $Title</h2>
+			<h2>More...</h2>
 
 			<!--People
 			<% loop People %>

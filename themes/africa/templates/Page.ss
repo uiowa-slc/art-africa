@@ -97,6 +97,10 @@
 
             <!-- Media -->
             <% if $Level(1).Title == 'Media' %>
+            	<li><a href="#">All</a></li>
+				<li><a href="#">By Country</a></li>
+				<li><a href="#">By Chapter</a></li>
+				<li><a href="#">By Subtopic</a></li>
             <% end_if %>
 
                 <!-- Video -->

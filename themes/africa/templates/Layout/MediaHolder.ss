@@ -24,21 +24,13 @@
 
       <h4>Art Photos</h4>
       <ul>
-      <% loop getObjects('ArtPhoto') %>
+      <% loop getObjects('Image') %>
         <% if Title %>
           <li><a href="$Link(false)">$Title</a></li>
         <% end_if %>
       <% end_loop %>
       </ul>
-      
-      <h4>Field Photos</h4>
-      <ul>
-      <% loop getObjects('FieldPhoto') %>
-        <% if Title %>
-          <li><a href="$Link(false)">$Title</a></li>
-        <% end_if %>
-      <% end_loop %>
-      </ul>
+
     </div>
   </article>
 </div>

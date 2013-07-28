@@ -5,8 +5,8 @@
 			<div id="map-canvas"></div>
 			<div id="map-canvas-notice">
 				<div>
-					$Content
-					<button>Take Safari</button>
+					<p>Tap a country's marker</p>
+					<button>Begin</button>
 				</div>
 			</div>
 			<div class="padded">
