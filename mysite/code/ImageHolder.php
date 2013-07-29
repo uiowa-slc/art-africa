@@ -61,9 +61,10 @@ class ImageHolder_Controller extends Page_Controller {
 		$images->merge($fieldPhotoImages);*/
 		
 		//temporary image getter to get only chris roy images for testing purposes
-		$images = Image::get()->filter(array("Filename:PartialMatch" => "CDR"));
+		$images = Image::get();
 		$paginatedImageList = new PaginatedList($images, $this->request);
-		$paginatedImageList->setPageLength(10);
+		$paginatedImageList->setPageLength(25);
+		$paginatedImageList->sort('RAND()');
 		return $paginatedImageList;
 	}	
 	

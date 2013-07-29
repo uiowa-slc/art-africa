@@ -1,6 +1,6 @@
 <% if getImages.MoreThanOnePage %>
 	
-		<div class="item-list" id="pagination">
+		<div class="item-list" id="pagination" style="display:none">
 		<ul class="pager">	
 		
 	    <% if getImages.PrevLink %>

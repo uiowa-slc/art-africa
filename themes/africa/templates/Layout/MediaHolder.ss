@@ -1,4 +1,4 @@
-<div class="content-container typography">
+<!--<div class="content-container typography">
   <article>
     <h1>$Title</h1>
     $Content
@@ -36,3 +36,48 @@
 </div>
 
 <% include SideBar %>
+-->
+
+
+<style>
+.lazy {
+  display: none;
+}
+.item {
+	margin-bottom: 10px;
+}
+</style>
+
+
+<div class="content-container typography">
+	<h1>Imagery</h1>
+ 	<div id="media-container" class="fluid">
+ 		<div class="js-masonry">
+ 		<% loop $getImages %>
+ 			<div class="item">
+	 			$SetWidth(200)
+ 			</div>
+ 		<% end_loop %>
+ 		</div>
+ 	</div>
+ 	<% include LargeImageGridPagination %>
+</div>
+
+<script type="text/javascript">
+  $('.open-glossary-popup').magnificPopup({
+    type:'inline',
+    midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+  });
+</script>
+<script src="{$ThemeDir}/javascript/masonry.pkgd.min.js"></script>
+<script src="{$ThemeDir}/javascript/imagesloaded.js"></script>
+<!--<script src="{$ThemeDir}/javascript/jquery-ias.js"></script>
+<script src="{$ThemeDir}/javascript/ias-init.js"></script>-->
+
+<script src="{$ThemeDir}/javascript/jquery.infinitescroll.min.js"></script>
+<script src="{$ThemeDir}/javascript/infinite-init.js"></script>
+
+
+<%# include SideBar %>
+
+

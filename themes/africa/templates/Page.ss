@@ -97,7 +97,18 @@
 
             <!-- Media -->
             <% if $Level(1).Title == 'Media' %>
-            	<li><a href="#">All</a></li>
+            	<li><a href="#">All</a>
+				<nav class="nav3">
+                    <ul>
+                    	<li><a href="#">Art Photos</a></li>
+                    	<li><a href="#">Field Photos</a></li>
+                    	<li><a href="#">Video</a></li>
+                    	<li><a href="#">Audio</a></li>
+
+                    </ul>
+				</nav>
+
+            	</li>
 				<li><a href="#">By Country</a></li>
 				<li><a href="#">By Chapter</a></li>
 				<li><a href="#">By Subtopic</a></li>
