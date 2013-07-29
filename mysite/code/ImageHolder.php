@@ -26,9 +26,6 @@ class ImageHolder extends Page {
 		$fields->addFieldToTab("Root.Main", $content);
 		return $fields;		
   }
-  
-  
-  
 
 }
 
@@ -57,12 +54,17 @@ class ImageHolder_Controller extends Page_Controller {
 
 	
 	public function getImages(){
-		$images = new ArrayList();
+		/*$images = new ArrayList();
 		$artPhotoImages = Image::get()->filter(array('Type' => 'ArtPhoto'));
 		$fieldPhotoImages = Image::get()->filter(array('Type' => 'FieldPhoto'));
 		$images->merge($artPhotoImages);
-		$images->merge($fieldPhotoImages);
-		return $images;
+		$images->merge($fieldPhotoImages);*/
+		
+		//temporary image getter to get only chris roy images for testing purposes
+		$images = Image::get()->filter(array("Filename:PartialMatch" => "CDR"));
+		$paginatedImageList = new PaginatedList($images, $this->request);
+		$paginatedImageList->setPageLength(10);
+		return $paginatedImageList;
 	}	
 	
 	public function getArtPhotos(){

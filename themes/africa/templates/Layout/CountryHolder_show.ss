@@ -2,10 +2,7 @@
 	<article>
 		<h1 class="padded" style="padding-bottom:2.5rem">$Title</h1>
 		<div id="map-canvas"></div>
-
-		<div class="padded" style="padding-top:1rem">
-			<% include ImageGrid %>
-		</div>
+		<% include ImageGrid %>
 		<div class="content container-fluid padded" style="padding-top:0">
 			<!-- $Content -->
 			<!--$Picture -->

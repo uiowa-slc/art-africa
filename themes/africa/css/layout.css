@@ -849,8 +849,8 @@ article.page {
 
 /* Media Grid Stuff */
 .media-grid-container {
-	background: #ddd;
-	border-radius: 5px;
+	/*background: #ddd;
+	border-radius: 5px;*/
 	padding: 0.2em;
 }
 
