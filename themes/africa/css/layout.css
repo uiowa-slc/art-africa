@@ -659,14 +659,13 @@ article.page {
 }
 
 .smallImage {
-	height: 25% !important;
-	width: 25% !important;
-}
-
-.mediumImage {
 	height: 50% !important;
 	width: 50% !important;
+	float: right;
+	padding: 1rem;
 }
+
+
 
 .largeImage {
 	height: 75% !important;

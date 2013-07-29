@@ -66,16 +66,11 @@
 				$Title<br>
 			<% end_loop %>
 			<br><br><br>
-			ArtPhotos
-			<% loop ArtPhotos %>
+			Images
+			<% loop Images %>
 				$Title<br>
 			<% end_loop %>
-			<br><br><br>
-			FieldPhotos
-			<% loop FieldPhotos %>
-				$Title<br>
-			<% end_loop %>
-			<br><br><br>
+			
 			Essay Pages
 			
 	

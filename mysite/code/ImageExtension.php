@@ -4,8 +4,7 @@ class ImageExtension extends DataExtension {
 		
   private static $db = array(
   
-  'Title' => 'Text',
-  'PhotoID' => 'Text',
+   'PhotoID' => 'Text',
   'Photographer' => 'Text',
   'Description' => 'Text',
   'Date' => 'Text',

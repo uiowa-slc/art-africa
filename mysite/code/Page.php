@@ -518,7 +518,8 @@ class Page_Controller extends ContentController {
 	*/
 	
 	public function imageHandler($arguments){		
-		print_r("CALLS FUNCTION");
+		
+		//ID actually points to title attribute
 		if (isset($arguments["ID"])) {
 			$photoID = $arguments["ID"];
 		}
@@ -527,13 +528,12 @@ class Page_Controller extends ContentController {
 		}
 		
 		//$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);		
-		$photoObject = Image::get()->filter(array('PhotoID' => $photoID))->First();
-		print_r('PHOTO OBJECT IS');
-		print_r($photoObject);
-
+		$photoObject = Image::get()->filter(array('Title' => $photoID))->First();
+		
+	
 		
 		if ($photoObject){
-			print_r("IS PHOTO OBJECT");
+			
 			//$photoObject = ArtPhoto::get()->filter(array()
 			$newObject = $photoObject->toMap();
 			$newObject = new ArrayData($newObject); //cast to array that can be displayed on template
@@ -542,10 +542,10 @@ class Page_Controller extends ContentController {
 				$newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
 			}
 			else {
-				$newObject->setField('size', 'mediumImage');
+				
 			}
 	
-			$template = new SSViewer('ArtPhoto');
+			$template = new SSViewer('Image');
 	
 			//$picture = $photoObject->Picture();
 			//$newObject->setField('filename', $picture->getFilename());
