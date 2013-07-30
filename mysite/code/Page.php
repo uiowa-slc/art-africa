@@ -542,7 +542,7 @@ class Page_Controller extends ContentController {
 				$newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
 			}
 			else {
-				
+				$newObject->setField('size', 'fullWidthImage');
 			}
 	
 			$template = new SSViewer('Image');

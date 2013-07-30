@@ -665,6 +665,9 @@ article.page {
 	padding: 1rem;
 }
 
+.fullWidthImage {
+	width: 100% !important;
+}
 
 
 .largeImage {
