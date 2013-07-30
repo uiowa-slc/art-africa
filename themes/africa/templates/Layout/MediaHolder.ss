@@ -24,11 +24,11 @@
 
       <h4>Art Photos</h4>
       <ul>
-      <% loop getObjects('Image') %>
+      <%-- loop getObjects('Image') --%>
         <% if Title %>
           <li><a href="$Link(false)">$Title</a></li>
         <% end_if %>
-      <% end_loop %>
+      <%-- end_loop --%>
       </ul>
 
     </div>
@@ -50,14 +50,16 @@
 
 
 <div class="content-container typography">
-	<h1>Imagery</h1>
  	<div id="media-container" class="fluid">
  		<div class="js-masonry">
+ 		<% cached %>
  		<% loop $getImages %>
  			<div class="item">
-	 			$SetWidth(200)
+ 		
+<img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="{$Link(false)}" />
  			</div>
  		<% end_loop %>
+ 		<% end_cached %>
  		</div>
  	</div>
  	<% include LargeImageGridPagination %>
