@@ -692,11 +692,17 @@ article.page {
 	top: 4px;
 	background-color: #591202;
 	border-radius: 3px;
+	height: 33px;
 }
 
 #middle .fieldHolder {
 	float: right;
 	margin: 1%;
+}
+
+.fieldHolder {
+	float: right;
+	clear: both;
 }
 
 .artPhoto img {

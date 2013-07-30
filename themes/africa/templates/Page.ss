@@ -31,7 +31,9 @@
         </div>
         <div id="logo">
           <a href="{$BaseHref}">Art &amp; Life<br>in Africa</a>
+          <% include SearchForm %>
         </div>
+        
         <nav class="nav1 toggle">
           <ul>
             <% loop Menu(1) %>
@@ -39,9 +41,9 @@
               <a href="$Link">$MenuTitle</a>
             </li>
             <% end_loop %>
-            <li class="search-li">
-              <% include SearchForm %>
-            </li>
+           
+              
+
           </ul>
         </nav>
       </div>
