@@ -2,16 +2,7 @@
 	<article>
 		<h1>$Title</h1>
 		<div class="content">$Content
-		
-			Author: $Author<br><br>
-			DateWritten: $DateWritten<br><br>
-			University: $University<br><br>
-			Consultant: $Consultant<br><br>
-			Title: $Title<br><br>
-			Source: $Source<br><br>
-			Bibliography: $Bibliography<br><br>
-			Tags: $Tags<br><br>
-			<br><br><br>   
+
 			 
 			  <div class="content columns">
 			       <% loop $getPaginatedPages %>
@@ -40,8 +31,16 @@
 			    <% end_if %>
 					</div>
 				<% end_if %>
-			
-			People
+			<br />	
+			<br />	
+			$Author<br>
+			$DateWritten<br>
+			$University<br>
+			$Consultant<br>
+			$Source<br>
+			$Bibliography<br>
+			Tags: $Tags<br>
+			<!--People
 			<% loop People %>
 				$Title<br>
 			<% end_loop %>
@@ -71,7 +70,7 @@
 				$Title<br>
 			<% end_loop %>
 			
-			Essay Pages
+			Essay Pages-->
 			
 	
 		</div>
