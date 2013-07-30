@@ -9,7 +9,7 @@
         itemSelector: '.item',
         columnWidth: 200,
         gutter: 10,
-        bufferPx: 40,
+        bufferPx: 70,
       });
     });
 

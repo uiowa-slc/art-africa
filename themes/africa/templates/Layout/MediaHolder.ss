@@ -52,14 +52,12 @@
 <div class="content-container typography">
  	<div id="media-container" class="fluid">
  		<div class="js-masonry">
- 		<% cached %>
  		<% loop $getImages %>
  			<div class="item">
  		
 <img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="{$Link(false)}" />
  			</div>
  		<% end_loop %>
- 		<% end_cached %>
  		</div>
  	</div>
  	<% include LargeImageGridPagination %>

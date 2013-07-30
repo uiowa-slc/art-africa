@@ -84,8 +84,8 @@ class MediaHolder_Controller extends Page_Controller {
 		//temporary image getter to get only chris roy images for testing purposes
 		$images = Image::get();
 		$paginatedImageList = new PaginatedList($images, $this->request);
-		$paginatedImageList->setPageLength(25);
-		$paginatedImageList->sort('RAND()');
+		$paginatedImageList->setPageLength(20);
+		
 		return $paginatedImageList;
 	}		
 	public function testFunction(){

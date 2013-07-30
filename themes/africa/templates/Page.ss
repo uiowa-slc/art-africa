@@ -100,8 +100,7 @@
             	<li><a href="#">All</a>
 				<nav class="nav3">
                     <ul>
-                    	<li><a href="#">Art Photos</a></li>
-                    	<li><a href="#">Field Photos</a></li>
+                    	<li><a href="#">Photos</a></li>
                     	<li><a href="#">Video</a></li>
                     	<li><a href="#">Audio</a></li>
 

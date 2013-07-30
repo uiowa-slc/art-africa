@@ -3,14 +3,14 @@
 		<div class="content container-fluid">
 			<h1 class="title">$Title</h1>
 			<div class="artPic">
-				<img src="{$Picture.Filename}">
+				<img src="{$URL}">
 				<p>$CreditLine</p>
 			</div>
 		</div>
 		<div class="row-fluid">
 			<section class="artPhoto-info-container span4">
 				<% if Name %>
-					<h3>Name/h3>
+					<h3>Name</h3>
 					<p>$Name</p>
 				<% end_if %>
 				<% if Photographer %>
