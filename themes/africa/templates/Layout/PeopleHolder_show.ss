@@ -45,7 +45,7 @@
 				<div class="span12 art-photo-grid" id="media">
 			
 				<h2>Art</h2>
-				<% include ImageGrid %>
+				<% include SmallImageScroller %>
 				<!--
 				<h3>Audio Pieces</h3>
 				<ul>

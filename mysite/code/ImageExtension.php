@@ -10,6 +10,7 @@ class ImageExtension extends DataExtension {
   'Date' => 'Text',
   'Location' => 'Text',
   'CreditLine' => 'Text',
+  'Caption' => 'Text',
   'Tags' => 'Text',
   
   'Type' => "Enum('Image, ArtPhoto, FieldPhoto', 'Image')",

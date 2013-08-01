@@ -2,7 +2,7 @@
 	<article>
 		<h1 class="padded" style="padding-bottom:2.5rem">$Title</h1>
 		<div id="map-canvas"></div>
-		<% include ImageGrid %>
+		<% include SmallImageScroller %>
 		<div class="content container-fluid padded" style="padding-top:0">
 			<!-- $Content -->
 			<!--$Picture -->

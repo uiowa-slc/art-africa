@@ -24,7 +24,7 @@
  		<% end_loop %>
  		</div>
  	</div>
- 	<% include LargeImageGridPagination %>
+ 	<% include SmallImageScroller %>
 </div>
 
 <script type="text/javascript">
