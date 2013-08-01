@@ -83,7 +83,8 @@ class MediaHolder_Controller extends Page_Controller {
 		
 		//temporary image getter to get only chris roy images for testing purposes
 		$images = Image::get();
-		$paginatedImageList = new PaginatedList($images, $this->request);
+		
+		$paginatedImageList = new PaginatedImageList($images, $this->request);
 		$paginatedImageList->setPageLength(20);
 		
 		return $paginatedImageList;
@@ -92,6 +93,57 @@ class MediaHolder_Controller extends Page_Controller {
 		$returnString = "HI";
 		return $returnString;
 	}
+	
+	public function index(){
+
+		//print_r($this->request);
+
+		$getVars = $this->request->getVars();
+		
+		if (isset($getVars['start'])){
+			$startParam = $getVars['start'];
+		}
+	
+		
+		
+		if (isset($startParam)){
+			$returnList = Image::get()->limit(20, $startParam);
+			
+			/*
+			$htmlString = '';
+		
+			if ($returnList){
+				foreach($returnList as $item){
+					$newHTML = '<div class="item"><img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="{$Link(false)}" /></div>';
+					$newHTML .= $item;			
+						
+				}
+			}
+			$temp = new ArrayList();
+			
+			$tempObj = new DataObject();
+			$tempObj->setField('List', $returnList);
+			$temp->push($tempObj);
+			
+			*/
+
+			
+			$template = new SSViewer('LoadNewMedia');
+			return $this->customise(array("imageList"=>$returnList))->renderwith('LoadNewMedia');
+		}
+		else {
+				
+			    print_r('Hi');
+			    return $this->renderWith(array('MediaHolder', 'Page'));
+			
+		}
+		
+		
+	
+	} 
+	
+	
+
 	
 	
 	
