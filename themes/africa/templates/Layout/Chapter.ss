@@ -1,9 +1,11 @@
 <div class="content-container typography">
 	<article>
 		<h1>$Title</h1>
+		<!--
 		<% if $CoverImage %>
 		<img src="$CoverImage.URL" class="full-width" alt="">
-		<% end_if %>
+		<% end_if %>-->
+		<% include LargeImageScroller %>
 		<h2>Introduction</h2>
 		<% include EssayPages %>
 		<div>
