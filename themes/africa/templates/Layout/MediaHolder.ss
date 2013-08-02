@@ -55,12 +55,12 @@
  		<% loop $getImages %>
  			<div class="item">
  		
-<img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="{$Link(false)}" />
+<img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="{$PageLink}" />
  			</div>
  		<% end_loop %>
  		</div>
  	</div>
- 	<% include SmallImageScroller %>
+ 	<% include LargeImageGridPagination %>
 </div>
 
 <script type="text/javascript">

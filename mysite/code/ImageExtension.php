@@ -80,7 +80,16 @@ class ImageExtension extends DataExtension {
  		$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
 
 
-	}	
+	}
+
+  public function Link(){
+    echo "Hello, Link";
+    $imageHolder = ImageHolder::get_one("ImageHolder");
+
+    return $imageHolder->Link().'/show/'.$this->ID;
+
+
+  }
 		
 		
 		
