@@ -43,9 +43,9 @@
 					<h3>Material</h3>
 					<p>$Material</p>
 				<% end_if %>
-				<% if Size %>
-					<h3>Size</h3>
-					<p>$Size</p>
+				<% if Dimensions %>
+					<h3>Dimensions</h3>
+					<p>$ArtDimensions</p>
 				<% end_if %>
 				<% if Function %>
 					<h3>Function</h3>

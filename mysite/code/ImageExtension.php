@@ -18,7 +18,7 @@ class ImageExtension extends DataExtension {
   'AccessionNumber' => 'Text',
   'TraditionalName' => 'Text',
   'Material' => 'Text',
-  'Size' => 'Text',
+  'ArtDimensions' => 'Text',
   'Function' => 'Text',
   'Style' => 'Text',
   'Substyle' => 'Text',
@@ -57,41 +57,29 @@ class ImageExtension extends DataExtension {
  		$fields->addFieldToTab('Root.Main', new TextField('PhotoID', 'Photo ID'));
  		$fields->addFieldToTab('Root.Main', new TextField('Photographer', 'Photographer'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));
-
  		$fields->addFieldToTab('Root.Main', new TextField('Date', 'Date')); 
-
- 		
  		$fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
  		 		
  		$creditField = new TextField('CreditLine', 'Credit Line');
  		$fields->addFieldToTab('Root.Main', $creditField);
  		
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
- 		
  		$fields->addFieldToTab('Root.Main', new TextField('AccessionNumber', 'Accession Number'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));
-  		$fields->addFieldToTab('Root.Main', new TextField('TraditionalName', 'Traditional Name'));
+  	$fields->addFieldToTab('Root.Main', new TextField('TraditionalName', 'Traditional Name'));
  		$fields->addFieldToTab('Root.Main', new TextField('Material', 'Material'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Size', 'Size'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('ArtDimensions', 'Dimensions'));
  		$fields->addFieldToTab('Root.Main', new TextField('Function', 'Function'));
  		$fields->addFieldToTab('Root.Main', new TextField('Style', 'Style'));
  		$fields->addFieldToTab('Root.Main', new TextField('Substyle', 'Substyle'));
  		$fields->addFieldToTab('Root.Main', new TextField('Collection', 'Collection'));
  		$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
 
-
 	}
 
-  public function Link(){
-    echo "Hello, Link";
+  public function ShowLink(){
     $imageHolder = ImageHolder::get_one("ImageHolder");
-
-    return $imageHolder->Link().'/show/'.$this->ID;
-
-
+    return $imageHolder->Link().'show/'.$this->owner->ID;
   }
-		
-		
-		
-		
+
 	}
