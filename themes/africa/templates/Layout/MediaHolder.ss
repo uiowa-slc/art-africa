@@ -54,8 +54,8 @@
  		<div class="js-masonry">
  		<% loop $getImages %>
  			<div class="item">
- 		
-<img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="{$PageLink}" />
+ 		<p>
+<img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click the image for more info. {$CreditLine}" data-mfp-href="{$ShowLink}" />
  			</div>
  		<% end_loop %>
  		</div>

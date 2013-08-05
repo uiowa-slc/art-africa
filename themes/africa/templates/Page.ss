@@ -98,19 +98,29 @@
             <!-- Media -->
             <% if $Level(1).Title == 'Media' %>
             	<li><a href="#">All</a>
-				<nav class="nav3">
-                    <ul>
-                    	<li><a href="#">Photos</a></li>
-                    	<li><a href="#">Video</a></li>
-                    	<li><a href="#">Audio</a></li>
+        				<nav class="nav3">
+                  <ul>
+                  	<li><a href="#">Art Photos</a></li>
+                    <li><a href="#">Field Photos</a></li>
+                  	<li><a href="#">Video</a></li>
+                  	<li><a href="#">Audio</a></li>
 
-                    </ul>
-				</nav>
-
+                  </ul>
+        				</nav>
             	</li>
-				<li><a href="#">By Country</a></li>
-				<li><a href="#">By Chapter</a></li>
-				<li><a href="#">By Subtopic</a></li>
+      				<!--<li><a href="#">By Country</a></li>
+      				<li><a href="#">By Chapter</a></li>
+      				<li><a href="#">By Subtopic</a></li>-->
+              <li><a href="#">Advanced Filters</a>
+                <nav class="nav3">
+                  <ul>
+                    <li><a href="#">Countries</a></li>
+                    <li><a href="#">Peoples</a></li>
+                    <li><a href="#">Chapters</a></li>
+                    <li><a href="#">Subtopics</a></li>
+
+                  </ul>
+                </nav>
             <% end_if %>
 
                 <!-- Video -->
