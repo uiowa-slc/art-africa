@@ -917,3 +917,16 @@ article.page {
 #main_content .art-photo-grid h2 {
 	font-size: 3rem;
 }
+
+.media-filter-form label {
+  display: none;
+}
+.media-filter-form select {
+  margin: 0.2em 0;
+}
+
+.media-filter-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}

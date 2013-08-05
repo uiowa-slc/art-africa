@@ -80,18 +80,58 @@ class MediaHolder_Controller extends Page_Controller {
 		$fieldPhotoImages = Image::get()->filter(array('Type' => 'FieldPhoto'));
 		$images->merge($artPhotoImages);
 		$images->merge($fieldPhotoImages);*/
-		
-		//temporary image getter to get only chris roy images for testing purposes
+
+		$filters = $this->getFilters();
+
 		$images = Image::get();
-		
+
+		if($filters['Country'] != ''){
+			$images = $images->addFilter((array('Countries.ID' => $filters['Country'])));
+		}
+
+		if($filters['People'] != ''){
+			$images = $images->addFilter((array('Peoples.ID' => $filters['People'])));
+		}
+
+		if($filters['Chapter'] != ''){
+			$images = $images->addFilter((array('Chapters.ID' => $filters['Chapter'])));
+		}
+		if($filters['Subtopic'] != ''){
+			$images = $images->addFilter((array('Chapters.ID' => $filters['Subtopic'])));
+		}
+
+
+		//$images = $images->addFilter(array('Chapters.ID' => 27));
+
+		//$images2 = $images->filter(array('Chapters.ID' => 27));
+
+		//print_r($images2);
+
+
 		$paginatedImageList = new PaginatedImageList($images, $this->request);
 		$paginatedImageList->setPageLength(20);
 		
 		return $paginatedImageList;
 	}		
-	public function testFunction(){
-		$returnString = "HI";
-		return $returnString;
+
+	public function getFilters(){
+
+		$getVars = $this->request->getVars();
+
+		$filters = array(
+			"Country" => "",
+			"People" => "",
+			"Subtopic" => "",
+			"Chapter" => ""
+			);
+
+		foreach($getVars as $key=>$value){
+			$filters[$key] = "".$value;
+		}
+
+		return $filters;
+
+
 	}
 	
 	public function index(){
@@ -103,48 +143,24 @@ class MediaHolder_Controller extends Page_Controller {
 		if (isset($getVars['start'])){
 			$startParam = $getVars['start'];
 		}
-	
-		
-		
-		if (isset($startParam)){
-			$returnList = Image::get()->limit(20, $startParam);
-			
-			/*
-			$htmlString = '';
-		
-			if ($returnList){
-				foreach($returnList as $item){
-					$newHTML = '<div class="item"><img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="{$Link(false)}" /></div>';
-					$newHTML .= $item;			
-						
-				}
-			}
-			$temp = new ArrayList();
-			
-			$tempObj = new DataObject();
-			$tempObj->setField('List', $returnList);
-			$temp->push($tempObj);
-			
-			*/
 
+		if (isset($startParam)){
+			$returnList = $this->getImages()->limit(20, $startParam);
 			
 			$template = new SSViewer('LoadNewMedia');
 			return $this->customise(array("imageList"=>$returnList))->renderwith('LoadNewMedia');
 		}
 		else {
-				
-			    print_r('Hi');
-			    return $this->renderWith(array('MediaHolder', 'Page'));
+			
+			return $this->renderWith(array('MediaHolder', 'Page'));
 			
 		}
-		
-		
-	
-	} 
-	
-	
 
-	
+	} 
+
+    public function MediaFilterForm() {
+        return new MediaFilterForm($this, 'MediaFilterForm');
+    }	
 	
 	
 	

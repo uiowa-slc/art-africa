@@ -112,15 +112,12 @@
       				<li><a href="#">By Chapter</a></li>
       				<li><a href="#">By Subtopic</a></li>-->
               <li><a href="#">Advanced Filters</a>
-                <nav class="nav3">
-                  <ul>
-                    <li><a href="#">Countries</a></li>
-                    <li><a href="#">Peoples</a></li>
-                    <li><a href="#">Chapters</a></li>
-                    <li><a href="#">Subtopics</a></li>
-
-                  </ul>
+                 <form>
+                <nav class="nav3 media-filter-form">
+                 $MediaFilterForm
+                  
                 </nav>
+                </form>
             <% end_if %>
 
                 <!-- Video -->
