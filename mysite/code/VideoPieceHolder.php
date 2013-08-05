@@ -1,6 +1,6 @@
 <?php
  
-class VideoPieceHolder extends Page {
+class VideoPieceHolder extends MediaHolder {
 
   private static $db = array(	
 

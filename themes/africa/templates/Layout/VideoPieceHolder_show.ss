@@ -4,7 +4,7 @@
 			<h1 class="title">$Title</h1>
 			<div class="artPic">
 				<iframe id="ytplayer" type="text/html" width="640" height="390"
-  src="http://www.youtube.com/embed/M7lc1UVf-VE?origin=http://example.com"
+  src="http://www.youtube.com/embed/{$formattedIFrameURL}"
   frameborder="0"></iframe>
 				<p>$CreditLine</p>
 			</div>
@@ -22,7 +22,8 @@
 					<p>$Tags</p>
 				<% end_if %>
 			</section>
-		
+			fo = $testFunction
+		    
 				
 			<br>
 			

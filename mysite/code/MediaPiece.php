@@ -9,7 +9,7 @@ class MediaPiece extends DataObject {
   /*'Bibliography' => 'Text',*/
   'Tags' => 'Varchar(255)',
   'Description' => 'HTMLText',
-  'Link' => 'Varchar(255)'
+  'MediaLink' => 'Varchar(255)'
 
 
   );
