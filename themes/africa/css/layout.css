@@ -862,6 +862,13 @@ article.page {
 	padding: 0;
 }
 
+.media-grid-container ul.large-image-grid {
+	list-style-type: none;
+	margin: 0;
+	padding: 0; 
+	height: 650px;
+}
+
 .media-grid-container ul li{
 	vertical-align: top;
 }

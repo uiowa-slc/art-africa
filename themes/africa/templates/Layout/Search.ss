@@ -79,30 +79,19 @@
 				<% end_loop %>
 			</ul>
 		<% end_if %>
-		<% if ArtPhoto %>	
-		<li>Art Photos</li>
+		<% if Image %>	
+		<li>Images</li>
 			<ul>
-				<% loop ArtPhoto %>
+				<% loop Image %>
 						<% if Name %>
-							<li><a href="art-photos/show{$ID}">$Name</a></li>
+							<li><a href="images/show{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="art-photos/show/{$ID}">$Title</a></li>
+							<li><a href="images/show/{$ID}">$Title</a></li>
 						<% end_if %>
 				<% end_loop %>
 			</ul>
 		<% end_if %>
-		<% if FieldPhoto %>	
-		<li>Field Photos</li>
-			<ul>
-				<% loop FieldPhoto %>
-						<% if Name %>
-							<li><a href="field-photos/show/{$ID}">$Name</a></li>
-						<% else_if Title %>
-							<li><a href="field-photos/show/{$ID}">$Title</a></li>
-						<% end_if %>
-				<% end_loop %>
-			</ul>	
-		<% end_if %>
+			
 		
 			
 	</ul>		

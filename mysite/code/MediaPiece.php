@@ -4,12 +4,12 @@ class MediaPiece extends DataObject {
  
   
   private static $db = array(	
-  'Title' => 'Text',
-  'CreditLine' => 'Text',
+  'Title' => 'Varchar(255)',
+  'CreditLine' => 'Varchar(255)',
   /*'Bibliography' => 'Text',*/
-  'Tags' => 'Text',
+  'Tags' => 'Varchar(255)',
   'Description' => 'HTMLText',
-  'Link' => 'Text'
+  'Link' => 'Varchar(255)'
 
 
   );
@@ -34,7 +34,6 @@ class MediaPiece extends DataObject {
  		
  		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID'));
  		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
- 		$fields->addFieldToTab('Root.Main', new TextAreaField('History', 'History'));
  		//$fields->addFieldToTab('Root.Main', new TextAreaField('Bibliography', 'Bibliography'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
  		$fields->addFieldToTab('Root.Main', new TextField('CreditLine', 'CreditLine'));

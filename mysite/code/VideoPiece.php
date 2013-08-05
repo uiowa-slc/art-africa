@@ -18,8 +18,7 @@ class VideoPiece extends MediaPiece {
    'Essays' => 'Essay',
    'Countries' => 'Country',
    'Subtopics' => 'Subtopic',
-   'ArtPhotos' => 'ArtPhoto',
-   'FieldPhotos' => 'FieldPhoto',
+   'Images' => 'Image',
    'AudioPieces' => 'AudioPiece',
    'Chapters' => 'Chapter',
    'Photos' => 'Image'

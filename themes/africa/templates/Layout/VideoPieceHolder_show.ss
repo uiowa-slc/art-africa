@@ -4,8 +4,8 @@
 			<h1 class="title">$Title</h1>
 			<div class="artPic">
 				<iframe id="ytplayer" type="text/html" width="640" height="390"
-  src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
-  frameborder="0"/>
+  src="http://www.youtube.com/embed/M7lc1UVf-VE?origin=http://example.com"
+  frameborder="0"></iframe>
 				<p>$CreditLine</p>
 			</div>
 		</div>
@@ -18,11 +18,11 @@
 			</section>
 			<section class="artPhoto-info-container span6">
 				<% if Tags %>
-					h3>Tags</h3>
+					<h3>Tags</h3>
 					<p>$Tags</p>
 				<% end_if %>
 			</section>
-
+		
 				
 			<br>
 			

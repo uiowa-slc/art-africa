@@ -55,7 +55,7 @@ class VideoPieceHolder_Controller extends Page_Controller {
 	public function show (){
 	//Displays a data object
 	
-						
+					
 		$otherClass = 'VideoPiece';
 		
 		$objectID = $this->request->param('ID');
@@ -65,6 +65,7 @@ class VideoPieceHolder_Controller extends Page_Controller {
 		    
 		    if(isset($object)){
 		       $showTemplate = $otherClass . 'Holder_show';
+		       //print_r($object);
 			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
 			   
 		    }else{

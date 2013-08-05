@@ -59,12 +59,12 @@ class ImageExtension extends DataExtension {
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Description'));
 
  		$fields->addFieldToTab('Root.Main', new TextField('Date', 'Date')); 
-
  		
  		$fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
  		 		
  		$creditField = new TextField('CreditLine', 'Credit Line');
  		$fields->addFieldToTab('Root.Main', $creditField);
+ 		$fields->addFieldToTab('Root.Main', new TextField('Caption', 'Caption'));
  		
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
  		
