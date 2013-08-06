@@ -4,7 +4,7 @@
 		<div class="content">
 		<% loop getObjects('AudioPiece') %>
 			<% if Title %>
-				<li><a href="{$Up.getHolderLink('AudioHolder')}/show/{$ID}">$Title</a></li><br>
+				<li><a href="{$BaseHref}/media/audio/show/{$ID}">$Title</a></li><br>
 			<% end_if %>
 		<% end_loop %>
 		

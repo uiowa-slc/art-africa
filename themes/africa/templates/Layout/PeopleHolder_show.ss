@@ -9,16 +9,27 @@
 			
 			<div class="row-fluid">
 				<div class="span8">
-					<h3>Types of Art</h3>
-					<p>$TypesOfArt</p>
-					<h3>History</h3>
-					<p>$History</p>
-					<h3>Economy</h3>
-					<p>$Economy</p>
-					<h3>Political Systems</h3>
-					<p>$PoliticalSystems</p>
-					<h3>Religion</h3>
-					<p>$Religion</p>			
+					<% if TypesOfArt %>
+						<h3>Types of Art</h3>
+						<p>$TypesOfArt</p>
+						
+					<% end_if %>
+					<% if History %>
+						<h3>History</h3>
+						<p>$History</p>
+					<% end_if %>
+					<% if Economy %>
+						<h3>Economy</h3>
+						<p>$Economy</p>
+					<% end_if %>
+					<% if PoliticalSystems %>
+						<h3>Political Systems</h3>
+						<p>$PoliticalSystems</p>
+					<% end_if %>
+					<% if Religion %>
+						<h3>Religion</h3>
+						<p>$Religion</p>	
+					<% end_if %>		
 				</div>
 				
 				<div class="span4 sticky">

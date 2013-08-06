@@ -101,16 +101,7 @@ class VideoPiece extends MediaPiece {
 		return $fields;		
   }
   
-  public function formattedIFrameURL(){
-  	  $link = $this->MediaLink;
-  	  $parsedLink = parse_url($link);
 
-  	  if (isset($parsedLink['path'])){
-  	  	$URLFragment = $parsedLink['path'];
-  	  	return $URLFragment;
-  	  }
-
-  }
   
   
   

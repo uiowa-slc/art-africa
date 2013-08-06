@@ -2,11 +2,11 @@
 	<article>
 		<div class="content container-fluid">
 			<h1 class="title">$Title</h1>
-			<div class="artPic">
+			<div class="mediaItem">
 				<iframe id="ytplayer" type="text/html" width="640" height="390"
   src="http://www.youtube.com/embed/{$formattedIFrameURL}"
   frameborder="0"></iframe>
-				<p>$CreditLine</p>
+				<span class="credit-line">$CreditLine</span>
 			</div>
 		</div>
 		<div class="row-fluid">
@@ -22,7 +22,7 @@
 					<p>$Tags</p>
 				<% end_if %>
 			</section>
-			fo = $testFunction
+			
 		    
 				
 			<br>

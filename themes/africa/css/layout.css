@@ -937,3 +937,7 @@ article.page {
   padding: 0;
   margin: 0;
 }
+
+.mediaItem {
+	margin: auto; width: 640px; margin-bottom: 3%;
+}
