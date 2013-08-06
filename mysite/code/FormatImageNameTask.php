@@ -25,23 +25,18 @@ class FormatImageNameTask extends BuildTask {
 		$imageListIterator = $imageList->getIterator();
 		$iter = 0;
 		foreach ($imageListIterator as $image){
+			
 			$imageTitle = $image->Title;
+			print_r($imageTitle);
+			print_r('<br><br>');
+			continue;
 			//Match IDs like CMS380, AFR101, whatever
-			$pattern = '/[A-Z]{3}[0-9]{3}/';
+			$pattern = '/[A-Z]{3}[0-9]{1,3}[" "]?[A-Z]?[0-9]?/';
 			preg_match($pattern, $imageTitle, $matches, PREG_OFFSET_CAPTURE);
 			if (isset($matches[0][0])){
 				$match = $matches[0][0];
-				
-				$pattern = '/[" "][A-Z]/';
-
-				//Clearly I don't know how to do regex, because I use this to handle cases with a space and a letter after instead of combining it into the original expression
-				$imageTitleSubstr = substr($imageTitle, -2);
-				preg_match($pattern, $imageTitleSubstr, $substrMatches, PREG_OFFSET_CAPTURE);
-				if (isset($substrMatches[0][0])){
-					$match = $match . $substrMatches[0][0];
-				}
-
 				print_r($match);
+				
 			}
 			else {
 				print_r($imageTitle);
