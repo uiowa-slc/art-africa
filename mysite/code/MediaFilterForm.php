@@ -9,14 +9,14 @@ class MediaFilterForm extends Form {
               "Subtopic" => ""
             )) {
         $fields = new FieldList(
-
             DropdownField::create("Country", "Countries", Country::get()->map('ID','Title'), $filters['Country'])->setEmptyString('Any Country'),
             DropdownField::create("People", "Peoples", People::get()->map('ID','Title'), $filters['People'])->setEmptyString('Any People'),
             DropdownField::create("Chapter", "Chapters", Chapter::get()->map('ID','Title'), $filters['Chapter'])->setEmptyString('Any Chapter'),
-            DropdownField::create("Subtopic", "Subtopics", Subtopic::get()->map('ID','Title'), $filters['Subtopic'] )->setEmptyString('Any Subtopic')
+            DropdownField::create("Subtopic", "Subtopics", Subtopic::get()->map('ID','Title'), $filters['Subtopic'] )->setEmptyString('Any Subtopic'),
+            LiteralField::create("TypeLabel", "<h4>Media Type</h4>"),
+            DropdownField::create("MediaType", "MediaType", array( "Art Photo" => "ArtPhoto", "Field Photo" => "FieldPhoto", "Audio Piece" => "AudioPiece","Video Piece" => "VideoPiece"))
         );
-        $actions = new FieldList(FormAction::create("login")->setTitle("Search"));
-         
+        $actions = new FieldList(FormAction::create("doFilter", "Searchsies"));
         parent::__construct($controller, $name, $fields, $actions);
     }
      

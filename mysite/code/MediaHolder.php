@@ -49,7 +49,7 @@ class MediaHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ();
+	private static $allowed_actions = array ("doFilter", "filters");
 	
 	public function show (){
 	//Displays a data object
@@ -97,7 +97,7 @@ class MediaHolder_Controller extends Page_Controller {
 			$images = $images->addFilter((array('Chapters.ID' => $filters['Chapter'])));
 		}
 		if($filters['Subtopic'] != ''){
-			$images = $images->addFilter((array('Chapters.ID' => $filters['Subtopic'])));
+			$images = $images->addFilter((array('Subtopics.ID' => $filters['Subtopic'])));
 		}
 
 		$paginatedImageList = new PaginatedImageList($images, $this->request);
@@ -125,6 +125,11 @@ class MediaHolder_Controller extends Page_Controller {
 
 
 	}
+
+	public function doFilter(){
+		echo "filtered";
+
+	}
 	
 	public function index(){
 
@@ -150,8 +155,8 @@ class MediaHolder_Controller extends Page_Controller {
 
 	} 
 
-    public function MediaFilterForm() {
-        return new MediaFilterForm($this, 'MediaFilterForm');
+    public function filters() {
+        return new MediaFilterForm($this, 'filters');
     }	
 	
 	

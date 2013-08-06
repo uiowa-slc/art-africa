@@ -71,8 +71,6 @@
 </script>
 <script src="{$ThemeDir}/javascript/masonry.pkgd.min.js"></script>
 <script src="{$ThemeDir}/javascript/imagesloaded.js"></script>
-<!--<script src="{$ThemeDir}/javascript/jquery-ias.js"></script>
-<script src="{$ThemeDir}/javascript/ias-init.js"></script>-->
 
 <script src="{$ThemeDir}/javascript/jquery.infinitescroll.min.js"></script>
 <script src="{$ThemeDir}/javascript/infinite-init.js"></script>

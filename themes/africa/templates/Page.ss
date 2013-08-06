@@ -98,26 +98,13 @@
             <!-- Media -->
             <% if $Level(1).Title == 'Media' %>
             	<li><a href="#">All</a>
-        				<nav class="nav3">
+        				<nav class="nav3 media-filter-form">
                   <ul>
-                  	<li><a href="#">Art Photos</a></li>
-                    <li><a href="#">Field Photos</a></li>
-                  	<li><a href="#">Video</a></li>
-                  	<li><a href="#">Audio</a></li>
-
+                      <li><h3>Filters</h3></li>
+                        $filters
                   </ul>
         				</nav>
             	</li>
-      				<!--<li><a href="#">By Country</a></li>
-      				<li><a href="#">By Chapter</a></li>
-      				<li><a href="#">By Subtopic</a></li>-->
-              <li><a href="#">Advanced Filters</a>
-                 <form>
-                <nav class="nav3 media-filter-form">
-                 $MediaFilterForm
-                  
-                </nav>
-                </form>
             <% end_if %>
 
                 <!-- Video -->
