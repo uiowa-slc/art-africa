@@ -64,7 +64,10 @@ class Page_Controller extends ContentController {
 
 
 	/**
-	 * Create custom search results when a user searches
+	
+		IMPORTANT!!!
+		
+	 * Create custom search results when a user searches.  Pages and data object arrays are combined to form the final result array
 	 */
 
 
@@ -94,28 +97,31 @@ class Page_Controller extends ContentController {
 		$audioPieces = new ArrayList();
 		$videoPieces = new ArrayList();
 
-		$artPhotos = new ArrayList();
-		$fieldPhotos = new ArrayList();
-
+		$images = new ArrayList();
+		
 		$photos = new ArrayList();
 		$photos = new ArrayList();
 
 
+		
+		/*THIS ARRAY IS WHAT THE SEARCH TEMPLATE IS CUSTOMISED WITH*/ 
 		$data = array(
 			'Subtopic' => $subtopics,
 			'People' => $people,
 			'Essay' => $essays,
 			'Country' => $countries,
 			'AudioPiece' => $audioPieces,
-
-			'ArtPhoto' => $artPhotos,
-			'FieldPhoto' => $fieldPhotos,
+			'VideoPiece' => $videoPieces,
+			'Image' => $images,
 			'Query' => $keyword
 		);
+		
+		
+		
 
 		/*ADD IN CLASSES TO BE SEARCHED HERE */
 		$siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
-		$dataObjectClasses = array('Country', 'Essay', 'People', 'ArtPhoto', 'FieldPhoto'); //add in your DataObjects,
+		$dataObjectClasses = array('Country', 'Essay', 'People', 'Image'); //add in your DataObjects,
 	
 
 
@@ -164,10 +170,16 @@ class Page_Controller extends ContentController {
 	     */
 
 		foreach ($dataObjectClasses as $c) {
+		
+			
 			
 			$dataObjectsItemMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, '', $bibliographyFlag); //This function is in Page.php
+			
+			//print_r("class = " . $c. " dataObjectsItemMatch = " . $dataObjectsItemMatch . "<br><br>");
 
 			$query = DataList::create($c)->where($dataObjectsItemMatch);
+			
+
 
 			$query = $query->dataQuery()->query();
 
@@ -176,12 +188,14 @@ class Page_Controller extends ContentController {
 
 			$records = DB::query($query->sql());
 
-
 			foreach ( $records as $record ) $objects[] = new $record['ClassName']($record);
 
 			$dataObjects->merge($objects);
 		}
-
+		
+		/*
+		
+		Populates data array with results from objects array */
 		foreach ($objects as $object) {
 			foreach ($data as $key=>$value) {
 				if ($object->ClassName == $key) {
@@ -201,6 +215,9 @@ class Page_Controller extends ContentController {
 				'Relevance' => 'DESC',
 				'Date' => 'DESC'
 			));
+			
+		
+		
 
 		/*
 	    $data = array(
@@ -224,7 +241,7 @@ class Page_Controller extends ContentController {
 	      return;
 	     */
 
-
+		 
 		return $this->customise($data)->renderWith(array('Search', 'Page'));
 	}
 

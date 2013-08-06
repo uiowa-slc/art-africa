@@ -18,8 +18,7 @@ class VideoPiece extends MediaPiece {
    'Essays' => 'Essay',
    'Countries' => 'Country',
    'Subtopics' => 'Subtopic',
-   'ArtPhotos' => 'ArtPhoto',
-   'FieldPhotos' => 'FieldPhoto',
+   'Images' => 'Image',
    'AudioPieces' => 'AudioPiece',
    'Chapters' => 'Chapter',
    'Photos' => 'Image'
@@ -100,6 +99,17 @@ class VideoPiece extends MediaPiece {
 		$fields->addFieldToTab('Root.Essays', $gridfield);*/
 		
 		return $fields;		
+  }
+  
+  public function formattedIFrameURL(){
+  	  $link = $this->MediaLink;
+  	  $parsedLink = parse_url($link);
+
+  	  if (isset($parsedLink['path'])){
+  	  	$URLFragment = $parsedLink['path'];
+  	  	return $URLFragment;
+  	  }
+
   }
   
   

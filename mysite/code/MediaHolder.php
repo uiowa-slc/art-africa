@@ -100,14 +100,6 @@ class MediaHolder_Controller extends Page_Controller {
 			$images = $images->addFilter((array('Chapters.ID' => $filters['Subtopic'])));
 		}
 
-
-		//$images = $images->addFilter(array('Chapters.ID' => 27));
-
-		//$images2 = $images->filter(array('Chapters.ID' => 27));
-
-		//print_r($images2);
-
-
 		$paginatedImageList = new PaginatedImageList($images, $this->request);
 		$paginatedImageList->setPageLength(20);
 		
