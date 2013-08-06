@@ -26,16 +26,17 @@ class FormatImageNameTask extends BuildTask {
 		$iter = 0;
 		foreach ($imageListIterator as $image){
 			
+			
 			$imageTitle = $image->Title;
-			print_r($imageTitle);
-			print_r('<br><br>');
-			continue;
+			
 			//Match IDs like CMS380, AFR101, whatever
 			$pattern = '/[A-Z]{3}[0-9]{1,3}[" "]?[A-Z]?[0-9]?/';
 			preg_match($pattern, $imageTitle, $matches, PREG_OFFSET_CAPTURE);
 			if (isset($matches[0][0])){
 				$match = $matches[0][0];
 				print_r($match);
+				$image->Title = $match;
+				$image->write();
 				
 			}
 			else {
@@ -44,16 +45,21 @@ class FormatImageNameTask extends BuildTask {
 			
 			print_r('<br><br>');
 			$iter++;
-			/*
-			Limit iterations for testing */
+	
 			
-			if ($iter > 500){
-				break;
-			}
+			
 			
 		}
+		print_r("<br><br><br><br><br><br>");
+		print_r("AFTER TASK");
+		print_r("<br><br><br><br><br><br>");
 		
-		print_r($matches);
+		foreach($imageListIterator as $image){
+			print_r($image->Title);
+			print_r("<br><br>");
+		}
+		
+		
     }
 }
 
