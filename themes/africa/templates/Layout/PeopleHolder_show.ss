@@ -34,8 +34,10 @@
 				
 				<div class="span4 sticky">
 					<h2>Facts about $Title</h2>
-					<h3>Location</h3>
-					<p>$Location</p>
+					<% if Location %>
+						<h3>Location</h3>
+						<p>$Location</p>
+					<% end_if %>
 					<h3>Countries</h3>
 					<ul>
 						<% loop Countries %>

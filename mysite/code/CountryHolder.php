@@ -50,7 +50,7 @@ class CountryHolder extends Page {
 
 class CountryHolder_Controller extends Page_Controller {
 
-	private static $allowed_actions = array ('show', 'getCountries');
+	private static $allowed_actions = array ('show', 'getCountries', 'loadTest');
 	
 	public static $childPage = 'Country';
 	
@@ -87,5 +87,11 @@ class CountryHolder_Controller extends Page_Controller {
 	
 		return $allRelationships;
 	}
-
+	
+	public function loadTest() {
+		for ($iter = 0; $iter <= 10; $iter++) {
+			$video = AudioPiece::get()->First();
+			$newVideo = $video->duplicate();
+		}
+	}
 }
