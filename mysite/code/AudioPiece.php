@@ -30,6 +30,8 @@ class AudioPiece extends MediaPiece {
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
+ 		
+ 		$fields = $this->addCommonFields($fields);
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 	
@@ -37,12 +39,7 @@ class AudioPiece extends MediaPiece {
 
 
 		return $fields;		
-			
 	
-		
-
-		
-		return $fields;		
   }
   
   
