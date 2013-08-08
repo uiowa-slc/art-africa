@@ -539,6 +539,7 @@ class Page_Controller extends ContentController {
 		//ID actually points to title attribute
 		if (isset($arguments["ID"])) {
 			$photoID = $arguments["ID"];
+			$photoID = strtoupper($photoID);
 		}
 		else {
 			return;

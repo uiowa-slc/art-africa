@@ -636,6 +636,7 @@ ul.columns li {
 
 .artPhoto {
 	position: static !important;
+	
 }
 
 article.page {
@@ -662,7 +663,7 @@ article.page {
 	height: 50% !important;
 	width: 50% !important;
 	float: right;
-	padding: 1rem;
+	margin: 1rem;
 }
 
 .fullWidthImage {
@@ -712,6 +713,11 @@ article.page {
 
 .artPhoto img {
 	position: static !important;
+}
+
+.essay .artPhoto {
+	border-width: 1px;
+	border-style: solid;
 }
 
 .white-popup {
@@ -866,6 +872,8 @@ article.page {
 	/*background: #ddd;
 	border-radius: 5px;*/
 	padding: 0.2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 .media-grid-container ul {

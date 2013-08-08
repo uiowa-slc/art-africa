@@ -66,15 +66,45 @@ class EssayHolder_Controller extends Page_Controller {
 		return $essays;
 	}
 	
+	//Called by show template
 	public function getPaginatedPages(){
 		 $ID = $this->request->param('ID');
-		 $object = DataObject::get_by_id('Essay', $ID);
+		 //$object = DataObject::get_by_id('Essay', $ID);
+		 
+		 $object = Essay::get()->byID($ID);
 		 $relation = $object->EssayPages();
 		 $list = new PaginatedList($relation, $this->request);
 		 $list->setPageLength(1);
 		 return $list;
 	}
+	
+	public function getEssayImages(){
+		 $ID = $this->request->param('ID');
+		 $object = Essay::get()->byID($ID);
+		 $relation = $object->EssayPages();
+		 
+		 $essayImages = new ArrayList();
+		 
+		 foreach($relation as $page){
+			 $content = $page->Content;
+			 $pattern = '/[A-Z]{3}[0-9]{1,3}[" "]?[A-Z]?[0-9]?/';
+			 preg_match($pattern, $content, $matches, PREG_OFFSET_CAPTURE);
+			 foreach ($matches as $match){	 
+			 	$newImage = Image::get()->filter(array('Title' => $match))->first();
+			 	
+			 	if ($newImage){
+				 	$essayImages->add($newImage);
+				 	
+			 	}
+			 }
+		 }
+		 
+		 //print_r($essayImages);
+		 return $essayImages;
+	}
+	
 
+	
 	public function getEssays () {
 		$essays = Essay::get();
 		return $essays;

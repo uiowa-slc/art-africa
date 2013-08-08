@@ -1,4 +1,4 @@
-<div class="content-container typography">	
+<div class="content-container typography essay">	
 	<article>
 		<h1>$Title</h1>
 		<div class="content">$Content
@@ -15,7 +15,7 @@
 			    <% if $getPaginatedPages.NotFirstPage %>
 			        <a class="prev" href="$getPaginatedPages.PrevLink">Prev</a>
 			    <% end_if %>
-			    <% loop $getPaginatedPages.Pages %>
+			    <% loop $getPaginatedPages.PaginationSummary(7) %>
 			        <% if $CurrentBool %>
 			            <span>$PageNum</span>
 			        <% else %>
@@ -31,15 +31,10 @@
 			    <% end_if %>
 					</div>
 				<% end_if %>
+			<% include EssayImages %>
 			<br />	
 			<br />	
-			$Author<br>
-			$DateWritten<br>
-			$University<br>
-			$Consultant<br>
-			$Source<br>
-			$Bibliography<br>
-			Tags: $Tags<br>
+			
 			<!--People
 			<% loop People %>
 				$Title<br>
