@@ -100,6 +100,10 @@ class MediaHolder_Controller extends Page_Controller {
 			$images = $images->addFilter((array('Subtopics.ID' => $filters['Subtopic'])));
 		}
 
+		if($filters['MediaType'] != ''){
+			$images = $images->addFilter((array('Type' => $filters['MediaType'])));
+		}
+
 		$paginatedImageList = new PaginatedImageList($images, $this->request);
 		$paginatedImageList->setPageLength(20);
 		
@@ -114,7 +118,8 @@ class MediaHolder_Controller extends Page_Controller {
 			"Country" => "",
 			"People" => "",
 			"Subtopic" => "",
-			"Chapter" => ""
+			"Chapter" => "",
+			'MediaType' => ""
 			);
 
 		foreach($getVars as $key=>$value){
@@ -123,11 +128,6 @@ class MediaHolder_Controller extends Page_Controller {
 
 		return $filters;
 
-
-	}
-
-	public function doFilter(){
-		echo "filtered";
 
 	}
 	
@@ -153,11 +153,18 @@ class MediaHolder_Controller extends Page_Controller {
 			
 		}
 
-	} 
+	}
 
-    public function filters() {
-        return new MediaFilterForm($this, 'filters');
-    }	
+
+    /*public function filter() {
+        //return new MediaFilterForm($this, 'filters');
+        $this->renderWith(array('MediaHolder', 'Page'));
+    }	*/
+
+	public function MediaFilterForm(){
+		return new MediaFilterForm($this, 'index', $this->getFilters());
+	}
+
 	
 	
 	

@@ -9,7 +9,7 @@
         itemSelector: '.item',
         columnWidth: 200,
         gutter: 10,
-        bufferPx: 40,
+        
       });
     });
 
@@ -17,6 +17,7 @@
       navSelector  : '#pagination',    // selector for the paged navigation
       nextSelector : '.next',  // selector for the NEXT link (to page 2)
       itemSelector : '.item',     // selector for all items you'll retrieve
+      bufferPx: 20,
       loading: {
           finishedMsg: 'No more pages to load.',
           img: 'http://i.imgur.com/6RMhx.gif'

@@ -50,7 +50,11 @@ class Page_Controller extends ContentController {
 		$jsFiles = array(
 			$themeFolder.'/javascript/jquery.magnific-popup.min.js',
 			$themeFolder.'/javascript/jquery.sticky.js',
-			$themeFolder. '/javascript/script.js'
+			$themeFolder. '/javascript/script.js',
+			$themeFolder. '/javascript/masonry.pkgd.min.js',
+			$themeFolder. '/javascript/imagesloaded.js',
+			$themeFolder. '/javascript/jquery.infinitescroll.min.js',
+			$themeFolder. '/javascript/infinite-init.js',
 		);
 		
 		$cssFiles = array(
