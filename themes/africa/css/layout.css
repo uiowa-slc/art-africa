@@ -636,6 +636,7 @@ ul.columns li {
 
 .artPhoto {
 	position: static !important;
+	
 }
 
 article.page {
@@ -662,7 +663,7 @@ article.page {
 	height: 50% !important;
 	width: 50% !important;
 	float: right;
-	padding: 1rem;
+	margin: 1rem;
 }
 
 .fullWidthImage {
@@ -712,6 +713,11 @@ article.page {
 
 .artPhoto img {
 	position: static !important;
+}
+
+.essay .artPhoto {
+	border-width: 1px;
+	border-style: solid;
 }
 
 .white-popup {
@@ -830,7 +836,8 @@ article.page {
 }
 
 #main_content .map-page h3 {
-  
+  padding: 0.3em 0;
+  margin: 0.2em 0
 }
 
 .country-info-container{
@@ -868,6 +875,8 @@ article.page {
 	/*background: #ddd;
 	border-radius: 5px;*/
 	padding: 0.2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 .media-grid-container ul {
@@ -945,3 +954,53 @@ article.page {
 	font-size: 3rem;
 }
 
+.media-filter-form label {
+  display: none;
+}
+.media-filter-form select {
+  margin: 0.2em 0;
+}
+
+.media-filter-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mediaItem {
+	margin: auto; width: 640px; margin-bottom: 3%;
+}
+
+#video-scroller .play {
+    position:relative;
+    width:50px;
+    height:50px;
+    border:3px solid #fff;
+    top:50%;
+    right:50%;
+    margin:-28px;
+    border-radius:30px;
+    box-shadow:1px 1px 2px rgba(0,0,0,.2);
+}
+#video-scroller .play span {
+    position:relative;
+    width:0;
+    height:0;
+    border-top:12px solid transparent;
+    border-bottom:12px solid transparent;
+    border-left:20px solid #fff;
+    top:15px;
+    left:18px;
+}
+
+#video-scroller .play-icon {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	top: -180px;
+	right: 220px;
+}
+
+.videoThumbnail {
+	z-index: -9999;
+}

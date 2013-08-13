@@ -95,7 +95,13 @@
 		</div>
 		<div class="padded" style="padding-top:0">
 			<h2>More...</h2>
+			<h3>Video</h3>
 
+			<% include VideoScroller %>
+			
+			<h3>Audio</h3>
+
+			<% include AudioScroller %>
 			<!--People
 			<% loop People %>
 				$Title<br>
