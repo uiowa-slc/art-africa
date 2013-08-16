@@ -223,7 +223,7 @@ button {
   .nav1 >ul>li.search-li input[type="text"] { width: 16rem; }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 769px) {
   .nav1 {
     position: absolute;
     right: 0;
