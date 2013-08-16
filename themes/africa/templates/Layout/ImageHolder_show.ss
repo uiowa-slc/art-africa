@@ -1,7 +1,6 @@
 <div class="content-container typography">	
 	<article>
 		<div class="content container-fluid">
-			<h1 class="title">$Title</h1>
 			<div class="artPic">
 				<img src="{$URL}">
 				<p>$CreditLine</p>

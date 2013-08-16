@@ -1,3 +1,5 @@
 .DS_Store
 mysite/code/WorkOfArt.php
 assets/*
+
+silverstripe-cache/www-data/.cache.framework.admin.templates.Includes.CMSLoadingScreen.ss

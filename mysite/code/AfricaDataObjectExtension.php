@@ -76,7 +76,15 @@ class AfricaDataObjectExtension extends DataExtension {
 			
 		}
 		
-
+		if($owner->ClassName != 'Chapter'){
+			$gridFieldConfigChapters = GridFieldConfig_RelationEditor::create(); 
+			$gridfield = new GridField("Chapters", "Chapters", $owner->Chapters(), $gridFieldConfigChapters);
+			$fields->addFieldToTab('Root.Chapters', $gridfield);
+			$fields->addFieldToTab('Root.Chapters', new LiteralField('PeopleViewerHeader', '<h2>All Peoples Listed Below</h2>'));
+			$gridFieldConfigChaptersViewer = GridFieldConfig_Base ::create(); 
+			$gridfield = new GridField("ChaptersViewer", null, Chapter::get(), $gridFieldConfigChaptersViewer);
+			$fields->addFieldToTab('Root.Chapters', $gridfield);
+		}
 		
 		if($owner->ClassName != 'Country'){
 
@@ -89,16 +97,6 @@ class AfricaDataObjectExtension extends DataExtension {
 			$fields->addFieldToTab('Root.Countries', $gridfield);
 		}
 
-		if($owner->ClassName != 'Essay'){
-			$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
-			$gridfield = new GridField("Essays", "Essays", $owner->Essays(), $gridFieldConfigEssays);		
-			$fields->addFieldToTab('Root.Essays', $gridfield);
-			$fields->addFieldToTab('Root.Essays', new LiteralField('EssayViewerHeader', '<h2>All Essays Listed Below</h2>'));
-			$gridFieldConfigEssaysViewer = GridFieldConfig_Base ::create(); 
-			$gridfield = new GridField("EssaysViewer", null, Essay::get(), $gridFieldConfigEssaysViewer);		
-			$fields->addFieldToTab('Root.Essays', $gridfield);
-		}
-		
 
 		if($owner->ClassName != 'People'){
 			$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
@@ -108,6 +106,16 @@ class AfricaDataObjectExtension extends DataExtension {
 			$gridFieldConfigPeopleViewer = GridFieldConfig_Base ::create(); 
 			$gridfield = new GridField("PeopleViewer", null, People::get(), $gridFieldConfigPeopleViewer);
 			$fields->addFieldToTab('Root.People', $gridfield);
+		}
+
+		if($owner->ClassName != 'Essay'){
+			$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
+			$gridfield = new GridField("Essays", "Essays", $owner->Essays(), $gridFieldConfigEssays);		
+			$fields->addFieldToTab('Root.Essays', $gridfield);
+			$fields->addFieldToTab('Root.Essays', new LiteralField('EssayViewerHeader', '<h2>All Essays Listed Below</h2>'));
+			$gridFieldConfigEssaysViewer = GridFieldConfig_Base ::create(); 
+			$gridfield = new GridField("EssaysViewer", null, Essay::get(), $gridFieldConfigEssaysViewer);		
+			$fields->addFieldToTab('Root.Essays', $gridfield);
 		}
 		
 		if($owner->ClassName != 'VideoPiece'){

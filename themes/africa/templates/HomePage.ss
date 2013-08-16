@@ -33,7 +33,7 @@
             </li>
             <% end_loop %>
             <li class="search-li">
-              <% include SearchForm %>
+              $SearchForm
             </li>
           </ul>
         </nav>
