@@ -60,10 +60,6 @@
 					<h3>Substyle</h3>
 					<p>$Substyle</p>
 				<% end_if %>
-				<% if Collection %>
-					<h3>Collection</h3>
-					<p>$Collection</p>
-				<% end_if %>
 				<% if Source %>
 					<h3>Source</h3>
 					<p>$Source</p>
