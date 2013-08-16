@@ -237,11 +237,11 @@ button {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
   #middle .nav2 { display: none; }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 769px) {
   .nav1 .nav2 { display: none; }
 }
 
