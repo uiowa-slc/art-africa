@@ -224,7 +224,7 @@ button {
   .nav1 >ul>li.search-li input[type="text"] { width: 16rem; }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 769px) {
   .nav1 {
     position: absolute;
     right: 0;
@@ -238,11 +238,11 @@ button {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
   #middle .nav2 { display: none; }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 769px) {
   .nav1 .nav2 { display: none; }
 }
 

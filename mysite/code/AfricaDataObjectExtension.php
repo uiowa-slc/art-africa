@@ -76,7 +76,7 @@ class AfricaDataObjectExtension extends DataExtension {
 			
 		}
 		
-		if($owner->ClassName != 'Chapter'){
+		if(($owner->ClassName != 'Chapter') && ($owner->ClassName != 'Subtopic')){
 			$gridFieldConfigChapters = GridFieldConfig_RelationEditor::create(); 
 			$gridfield = new GridField("Chapters", "Chapters", $owner->Chapters(), $gridFieldConfigChapters);
 			$fields->addFieldToTab('Root.Chapters', $gridfield);
