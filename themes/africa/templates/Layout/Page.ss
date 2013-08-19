@@ -1,6 +1,7 @@
 <div class="content-container typography">
+  <h1>$Title</h1>
   <article class="page">
-    <h1>$Title</h1>
+    
     <!-- Layout/Page.ss in the building -->
     <div class="content">$filteredContent</div>
   </article>

@@ -64,8 +64,19 @@ $(document).ready(function () {
   });
 
   $(".nav2.interior-page").sticky({topSpacing:0});
-  //$(".sticky").sticky({topSpacing:0});
-  //$("#chapters_heading").sticky({topSpacing:0});
+
+    /* back to top link */
+    var topOffset = 220;
+    var topDuration = 500;
+    jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > topOffset) {
+            jQuery('.top-link').fadeIn(topDuration);
+        } else {
+            jQuery('.top-link').fadeOut(topDuration);
+        }
+    });
+
+
 });
 
 $(document).on('click', '.mfp-img', function (event) {

@@ -41,9 +41,14 @@
 						<h3>Nationality</h3>
 						<p>$Nationality</p>
 					<% end_if %>
-					<% if MajorPeoples %>
-						<h3>Major Peoples</h3>
-						<p>$MajorPeoples</p>
+
+					<% if People %>
+					<h3>Major Peoples</h3>
+					<p>
+						<% loop People %>
+						<a href="$Link">$Title</a><% if not $Last %>, <% end_if %>
+						<% end_loop %>
+					</p>
 					<% end_if %>
 					<% if Religion %>
 						<h3>Religion</h3>

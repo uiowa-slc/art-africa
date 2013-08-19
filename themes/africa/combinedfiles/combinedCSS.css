@@ -38,6 +38,12 @@ h6 {
   text-rendering: optimizeLegibility;
 }
 
+h1{ margin: 1rem 0;}
+h2 {margin: 1.1rem 0;}
+h3 {margin: 1.2rem 0;}
+h4 {margin: 1.3rem 0;}
+h5 {margin: 1.4rem 0;}
+h6 {margin: 1.5rem 0;}
 p {
   text-rendering: optimizeLegibility;
 }
@@ -265,6 +271,8 @@ button {
   margin-left: 1.25rem;
 }
 
+
+
 .nav1 form {
   display: inline-block;
 }
@@ -321,6 +329,13 @@ button {
   text-transform: uppercase;
   display: block;
   padding: 0.75rem 1.25rem;
+}
+
+/* Countries Page Subnav Padding */
+
+#middle .nav2 >ul.countries >li>a {
+  font-size: 0.9rem;
+  padding: 0.2rem 1.25rem;
 }
 
 #middle .nav2 >ul>li>a:hover {

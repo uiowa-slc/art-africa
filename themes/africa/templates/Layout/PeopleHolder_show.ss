@@ -12,7 +12,6 @@
 					<% if TypesOfArt %>
 						<h3>Types of Art</h3>
 						<p>$TypesOfArt</p>
-						
 					<% end_if %>
 					<% if History %>
 						<h3>History</h3>
@@ -39,66 +38,22 @@
 						<p>$Location</p>
 					<% end_if %>
 					<h3>Countries</h3>
-					<ul>
-						<% loop Countries %>
-							<li><a href="$Link">$Title</a></li>
-						<% end_loop %>
-					</ul>
+					<p>
+					<% loop Countries %>
+						<a href="$Link">$Title</a><% if not $Last %>, <% end_if %>
+					<% end_loop %>
+				</p>
 					<h3>Languages</h3>
 					<p>$filteredField("Languages", $ID, "People")</p>
 					<h3>Population</h3>
 					<p>$Population</p>
 					<h3>Tags</h3>
-					<p>$Tags</p>	
-					<h3>Media</h3>
-					<p><a href="#media">View All $Title Media</a></p>		
+					<p>$Tags</p>		
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span12 art-photo-grid" id="media">
-			
-				<h2>Art</h2>
 				<% include SmallImageScroller %>
-				<!--
-				<h3>Audio Pieces</h3>
-				<ul>
-				<% loop AudioPieces %>
-					<li>$Name</li>
-				<% end_loop %>
-				</ul>
-				<h3>Video Pieces</h3>
-				<ul>
-				<% loop VideoPieces %>
-					<li>$Name</li>
-				<% end_loop %>
-				</ul>
-								
-				</div>
-				
-				Subtopics
-				<% loop Subtopics %>
-					$Name<br>
-				<% end_loop %>
-				<br><br><br>
-				Video Pieces
-				<% loop VideoPieces %>
-					$Name<br>
-				<% end_loop %>
-				<br><br><br>
-				Countries
-				<% loop Countries %>
-					$Name<br>
-				<% end_loop %>
-				<br><br><br>
-				ArtPhotos
-				<% loop ArtPhotos %>
-					$Name<br>
-				<% end_loop %>
-				<br><br><br>
-				FieldPhotos
-				<% loop FieldPhotos %>
-					$Name<br>
-				<% end_loop %>-->
 			
 		</div>
 	</article>

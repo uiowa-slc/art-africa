@@ -21,6 +21,7 @@
   <body>
   
     <div id="view">
+      <div class="top-link"><a href="#"><% if $Parent %>$Parent.Title<% else %>$Title<% end_if %> &#8593;</a></div>
       <div id="top">
         <div class="hamburger m" data-toggle=".nav1" onclick="void(0)">
           <div></div>
@@ -48,7 +49,7 @@
         <div id="subnav-container">
         <div id="chapters_heading">$Level(1).Title</div>
         <nav class="nav2 interior-page">
-          <ul>
+          <ul class="$URLSegment">
             <!-- Chapters -->
             <% if $Level(1).Title == 'Chapters' %>
               <% loop ChildrenOf('chapters') %>
@@ -75,9 +76,9 @@
             <% if $Level(1).Title == 'Countries' %>
               <% loop getCountries %>
                 <% if Name %>
-                  <li><a href="countries/show/{$ID}" data-gmaps="{$CapitalCity}, {$Name}">$Name</a></li>
+                  <li><a href="$Link" data-gmaps="{$CapitalCity}, {$Name}">$Name</a></li>
                 <% else_if Title %>
-                  <li><a href="countries/show/{$ID}" data-gmaps="{$CapitalCity}, {$Title}">$Title</a></li>
+                  <li><a href="$Link" data-gmaps="{$CapitalCity}, {$Title}">$Title</a></li>
                 <% end_if %>
               <% end_loop %>
             <% end_if %>
@@ -95,7 +96,7 @@
 
             <!-- Media -->
             <% if $Level(1).Title == 'Media' %>
-        				<nav class="nav3 media-filter-form">
+        				<nav class="media-filter-form">
                   $MediaFilterForm
         				</nav>
             <% end_if %>
@@ -144,6 +145,7 @@
               <% end_loop %>
             <% end_if %>
           </ul>
+
         </nav>
         </div>
         <div id="main_content" class="$ClassName">

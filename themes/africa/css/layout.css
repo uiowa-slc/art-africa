@@ -37,6 +37,12 @@ h6 {
   text-rendering: optimizeLegibility;
 }
 
+h1{ margin: 1rem 0;}
+h2 {margin: 1.1rem 0;}
+h3 {margin: 1.2rem 0;}
+h4 {margin: 1.3rem 0;}
+h5 {margin: 1.4rem 0;}
+h6 {margin: 1.5rem 0;}
 p {
   text-rendering: optimizeLegibility;
 }
@@ -189,16 +195,48 @@ button {
 }
 
 .nav1 >ul>li {
+  display: inline-block;
+  margin-top: 1.0625rem;
+  margin-right: 0.4rem;
 }
+
+
 
 .nav1 a {
   color: #fff;
+  font-size: 0.7rem;
 }
 
+
+#searchInput {
+  font-size: 0.7rem;
+}
+
+@media (min-width: 1024px) {
+
+
+  .nav1 a, #searchInput {
+    font-size: 0.9rem;
+  }
+
+  .nav1 >ul>li {
+    
+    margin-right: 1.25rem;
+    margin-top: 1.0625rem;
+  }
+
+}
+
+@media (min-width: 1100px) {
+  .nav1 a, #searchInput {
+    font-size: 1rem;
+  }
+}
 .nav1 a:hover{
 	color: #aaa;
 	text-decoration: none;
 }
+
 
 @media (max-width: 768px) {
   .nav1.toggle {
@@ -230,11 +268,7 @@ button {
     bottom: 1.3125rem;
   }
 
-  .nav1 >ul>li {
-    display: inline-block;
-    margin-right: 1.25rem;
-    margin-top: 1.0625rem;
-  }
+
 }
 
 @media (max-width: 768px) {
@@ -263,6 +297,8 @@ button {
   border-left: 2px solid #333;
   margin-left: 1.25rem;
 }
+
+
 
 .nav1 form {
   display: inline-block;
@@ -322,11 +358,35 @@ button {
   padding: 0.75rem 1.25rem;
 }
 
+/* Countries Page Subnav Padding */
+
+#middle .nav2 >ul.countries >li>a {
+  font-size: 0.9rem;
+  padding: 0.2rem 1.25rem;
+}
+
 #middle .nav2 >ul>li>a:hover {
 	color: #9e9595;
 	text-decoration: none;
 }
 
+/* Back to Top Link */
+
+.top-link {
+  background: #591202;
+  padding: 0.5rem;
+  position: fixed;
+  bottom:0;
+  right: 0;
+  z-index: 1000;
+  display: none;
+
+}
+.top-link a{
+  font-size: 1.2rem;
+  color: white;
+  text-transform: uppercase;
+}
 #main_content {
   background: white;
   padding: 1.25rem 1.25rem 0 1.25rem;
@@ -532,6 +592,7 @@ ul.columns li {
   margin: 2.5rem -2.5rem 0 -2.5rem;
   padding: 2.5rem;
   border-top: 0.5rem solid #591202;
+  border-bottom: 40px solid #591202;
 }
 
 #footer .c {
@@ -924,7 +985,15 @@ article.page {
   display: none;
 }
 .media-filter-form select {
-  margin: 0.2em 0;
+  background: #444;
+  padding: 0.4em 1em 0.5em 0.75em;
+  -webkit-appearance: none;
+  background: #444 url("../images/media-filter-bg.png") no-repeat right center;
+ -webkit-background-size: 1600px 32px;
+  color: white;
+  border: none;
+  width: 100%;
+
 }
 
 .media-filter-form fieldset {
@@ -933,6 +1002,10 @@ article.page {
   margin: 0;
 }
 
+#MediaFilterForm_index_action_ {
+  width: 100%;
+  text-align: center;
+}
 .mediaItem {
   margin: auto; width: 640px; margin-bottom: 3%;
 }
