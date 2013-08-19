@@ -55,10 +55,15 @@ ShortcodeParser::get('default')->register(
 );
 
 Object::add_extension("DataObject","AfricaDataObjectExtension");
-
 Object::add_extension("Image","ImageExtension");
-
 FulltextSearchable::enable();
 //Object::add_extension('CollectionPiece', "FulltextSearchable('Keywords')");
 
-Security::setDefaultAdmin("admin", "nimlok");
+//Security::setDefaultAdmin("admin", "nimlok");
+
+
+HtmlEditorConfig::get('cms')->setOption('paste_remove_spans','true');
+HtmlEditorConfig::get('cms')->setOption('paste_auto_cleanup_on_paste','true');
+HtmlEditorConfig::get('cms')->setOption('paste_remove_styles','true');
+HtmlEditorConfig::get('cms')->setOption('paste_remove_styles_if_webkit','true');
+HtmlEditorConfig::get('cms')->setOption('paste_strip_class_attributes','true');
