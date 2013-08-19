@@ -3,7 +3,7 @@
 class AfricaDataObjectExtension extends DataExtension {
  
   public function SplitKeywords(){
-	    $keywords = $this->Tags;
+	    $keywords = $this->owner->Tags;
 	    
 	    if($keywords){
 		   $splitKeywords = explode(',', $keywords); 
@@ -13,7 +13,7 @@ class AfricaDataObjectExtension extends DataExtension {
 			$keywordsList = new ArrayList(); 
 			foreach($splitKeywords as $data) { 
 				$do=new DataObject(); 
-				$do->Keyword = $data; 
+				$do->Keyword = trim($data); 
 				$keywordsList->push($do); 
 			} 
 			return $keywordsList; 

@@ -9,7 +9,7 @@ class ImageExtension extends DataExtension {
   'Description' => 'HTMLText',
   'Date' => 'Text',
   'Location' => 'Text',
-  'CreditLine' => 'Text',
+  'CreditLine' => 'HTMLText',
   'Caption' => 'HTMLText',
   'Tags' => 'Text',
   
@@ -62,7 +62,8 @@ class ImageExtension extends DataExtension {
  		$fields->addFieldToTab('Root.Main', new TextField('Date', 'Date')); 
  		$fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
  		 		
- 		$creditField = new TextField('CreditLine', 'Credit Line');
+ 		$creditField = new HTMLEditorField('CreditLine', 'Credit Line');
+ 		$creditField->setRows(1);
  		$fields->addFieldToTab('Root.Main', $creditField);
 
     $captionField = new HTMLEditorField('Caption', 'Caption');

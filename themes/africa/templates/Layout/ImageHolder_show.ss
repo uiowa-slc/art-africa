@@ -3,15 +3,16 @@
 		<div class="content container-fluid">
 			<div class="artPic">
 				<img src="{$URL}">
-				<p>$CreditLine</p>
+				$Caption
+				$CreditLine
+				<% if AccessionNumber %>
+					<p>Accession Number: $AccessionNumber</p>
+				<% end_if %>
 			</div>
 		</div>
 		<div class="row-fluid">
 			<section class="artPhoto-info-container span4">
-				<% if Name %>
-					<h3>Name</h3>
-					<p>$Name</p>
-				<% end_if %>
+
 				<% if Photographer %>
 					<h3>Photographer</h3>
 					<p>$Photographer</p>
@@ -28,10 +29,10 @@
 					<h3>Location</h3>
 					<p>$Location</p>
 				<% end_if %>
-				<% if CreditLine %>
-					<h3>CreditLine</h3>
-					<p>$CreditLine</p>
+				<% if Countries %>
+					<% include Countries %>
 				<% end_if %>
+				
 			</section>
 			<section class="artPhoto-info-container span4">
 				<% if TraditionalName %>
@@ -42,13 +43,16 @@
 					<h3>Material</h3>
 					<p>$Material</p>
 				<% end_if %>
-				<% if Dimensions %>
+				<% if ArtDimensions %>
 					<h3>Dimensions</h3>
 					<p>$ArtDimensions</p>
 				<% end_if %>
 				<% if Function %>
 					<h3>Function</h3>
 					<p>$Function</p>
+				<% end_if %>
+				<% if People %>
+					<% include People %>
 				<% end_if %>
 			</section>
 			<section class="artPhoto-info-container span4">
