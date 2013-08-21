@@ -1,6 +1,8 @@
 <div class="content-container typography">
 	<article>
 		<h1>$Title</h1>
+		<% if Author %><h3>by $Author</h3><% end_if %>
+		<% if University %><h3>$University</h3><% end_if %>
 		<!--
 		<% if $CoverImage %>
 		<img src="$CoverImage.URL" class="full-width" alt="">

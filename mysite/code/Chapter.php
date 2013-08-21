@@ -5,6 +5,8 @@ class Chapter extends Page {
   
   private static $db = array(	
   'Description' => 'Text',
+  'Author' => 'Varchar(255)',
+  'University' => 'Varchar(255)',
   'Tags' => 'Text'
   );
  
@@ -52,6 +54,9 @@ class Chapter extends Page {
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Chapter Name'), 'URLSegment');
 		$fields->addFieldToTab('Root.Main', new UploadField('CoverImage', 'Cover Image'));
 		//$fields->addFieldToTab('Root.Main', new TextAreaField('Description', 'Topic Description'));
+		$fields->addFieldToTab('Root.Main', new TextField('Author', 'Author'));
+		$fields->addFieldToTab('Root.Main', new TextField('University', 'University'));
+
 		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
 
 

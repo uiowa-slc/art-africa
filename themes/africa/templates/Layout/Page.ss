@@ -3,7 +3,7 @@
   <article class="page">
     
     <!-- Layout/Page.ss in the building -->
-    <div class="content">$filteredContent</div>
+    <div class="content">$Content</div>
   </article>
   $Form
   $PageComments

@@ -1,12 +1,15 @@
 <div class="content-container typography essay">	
 	<article>
 		<h1>$Title</h1>
+		<h3>by $Author</h3>
+		<h3>$University</h3>
 		<div class="content">$Content
 
 			 
 			  <div class="content columns">
 			       <% loop $getPaginatedPages %>
 			        $Content
+
 			      <% end_loop %>
 			   </div>
 			   
@@ -31,6 +34,7 @@
 			    <% end_if %>
 					</div>
 				<% end_if %>
+				
 			<% include EssayImages %>
 			<br />	
 			<br />	

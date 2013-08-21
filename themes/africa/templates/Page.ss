@@ -134,8 +134,8 @@
                   <% end_loop %>
                 <% end_if %>
 
-            <!-- Field Essays -->
-            <% if $Level(1).Title == 'Field Essays' %>
+            <!-- Field Essays (refered to on front end as topic essays)-->
+            <% if $Level(1).Title == 'Topic Essays' %>
               <% loop getEssays %>
                 <% if Name %>
                   <li><a href="$Link(false)">$Name</a></li>

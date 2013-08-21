@@ -4,10 +4,7 @@
 			<div class="artPic">
 				<img src="{$URL}">
 				$Caption
-				$CreditLine
-				<% if AccessionNumber %>
-					<p>Accession Number: $AccessionNumber</p>
-				<% end_if %>
+				
 			</div>
 		</div>
 		<div class="row-fluid">

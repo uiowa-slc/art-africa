@@ -39,14 +39,6 @@ class EssayPage extends DataObject {
 }
 
 
-class EssayPage_Controller extends ContentController {
-
-	
-	public function HI(){
-		print_r("Hi");
-	}
-	
-}
   
   
     

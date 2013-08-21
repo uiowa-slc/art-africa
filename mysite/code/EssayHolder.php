@@ -23,7 +23,7 @@ class EssayHolder extends Page {
 		
 		$fields->removeFieldFromTab("Root.Main","Content");	
 		$gridFieldConfigEssays = GridFieldConfig_RecordEditor::create(); 
-		$gridfield = new GridField("Essay", "Essays", Essay::get(), $gridFieldConfigEssays);		
+		$gridfield = new GridField("Essay", "Essays", Essay::get()->sort('Title'), $gridFieldConfigEssays);		
 		$fields->addFieldToTab('Root.Main', $gridfield);
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField("Content","Introduction Text"));
 
