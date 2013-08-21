@@ -41,9 +41,14 @@
     left: 0;
     right: 0;
     bottom: 0;
+    background-position: 0 10%;
   }
 }
-
+@media (min-width: 2000px) {
+  #homepage-pic {
+    background-position: 0 5%;
+  }
+}
 #pic.toggle {
   display: none;
 }
