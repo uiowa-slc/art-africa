@@ -87,7 +87,7 @@ class ImageExtension extends DataExtension {
  		$fields->addFieldToTab('Root.Main', new TextField('Style', 'Style'));
  		$fields->addFieldToTab('Root.Main', new TextField('Substyle', 'Substyle'));
  		//$fields->addFieldToTab('Root.Main', new TextField('Collection', 'Collection'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
+ 		//$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
 
 	}
 

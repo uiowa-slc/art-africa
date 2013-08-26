@@ -72,7 +72,7 @@ class Country extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextField('Area', 'Area'));
  		$fields->addFieldToTab('Root.Main', new TextField('TypeOfGovernment', 'Type Of Government'));
  		$fields->addFieldToTab('Root.Main', new TextField('Currency', 'Currency'));
- 		$fields->addFieldToTab('Root.Main', new TextField('MajorPeoples', 'Major Peoples'));
+ 		//$fields->addFieldToTab('Root.Main', new TextField('MajorPeoples', 'Major Peoples'));
  		$fields->addFieldToTab('Root.Main', new TextField('Religion', 'Religion'));
  		$fields->addFieldToTab('Root.Main', new TextField('Climate', 'Climate'));
  		$fields->addFieldToTab('Root.Main', new TextField('Literacy', 'Literacy'));
