@@ -8,7 +8,7 @@
 </style>
 
 
-<div class="content-container typography">
+<div class="content-container typography" style="/*min-height: 3000px*/" >
  	<div id="media-container" class="fluid">
  		<div class="js-masonry">
  		<% loop $getImages %>
