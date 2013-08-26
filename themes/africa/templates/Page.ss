@@ -33,6 +33,14 @@
         </div>
         <nav class="nav1 toggle">
           <ul>
+            <li class="mobile-filter-container visible-phone">
+                         <!-- Media -->
+            <% if Title == 'Media' %>
+                <nav class="media-filter-form">
+                  $MediaFilterForm
+                </nav>
+            <% end_if %>
+            </li>
             <% loop Menu(1) %>
             <li>
               <a href="$Link">$MenuTitle</a>
@@ -40,7 +48,10 @@
             <% end_loop %>
             <li class="search-li">
               $SearchForm
+
+
             </li>
+
           </ul>
         </nav>
       </div>
