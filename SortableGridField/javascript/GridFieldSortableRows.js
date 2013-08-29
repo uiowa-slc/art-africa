@@ -4,8 +4,9 @@
 			onmatch: function() {
 				var self=this;
 				var refCheckbox=$(this);
-				
 				var gridField=this.getGridField();
+				var form=gridField.closest('form');
+				var pageSort=false;
 				
 				if($(this).is(':checked')) {
 					gridField.find('table').addClass('dragSorting');
@@ -25,9 +26,14 @@
 													return ui;
 												},
 												update: function(event, ui) {
+													if(pageSort) {
+														pageSort=false;
+														return;
+													}
+													
 													var dataRows=[];
 													var gridItems=gridField.getItems();
-													var button=refCheckbox.parent().find('.sortablerows-toggle');
+													var button=refCheckbox.parent().find('.sortablerows-savesort');
 													
 													
 													for(var i=0;i<gridItems.length;i++) {
@@ -44,7 +50,9 @@
 																					name: 'ItemIDs',
 																					value: dataRows
 																				}
-																			]});
+																			]},function() {
+																				form.removeClass('loading');
+																			});
 												}
 											}).disableSelection();
 				
@@ -55,7 +63,7 @@
 																			activeClass: 'sortablerows-droptarget',
 																			tolerance: 'pointer',
 																			drop: function(event, ui) {
-																				gridField.find('tbody').sortable('cancel');
+																				pageSort=true;
 																				
 																				var button=refCheckbox.parent().find('.sortablerows-sorttopage');
 																				var itemID=$(ui.draggable).data('id');
@@ -84,9 +92,6 @@
 																												value: target
 																											}
 																										]});
-																				
-																				event.stopPropagation();
-																				event.stopImmediatePropagation();
 																			}
 																		});
 															});
@@ -98,7 +103,7 @@
 				gridField.setState('GridFieldSortableRows', {sortableToggle: $(this).is(':checked')});
 				
 				
-				var button=$(this).parent().find('.sortablerows-disablepagenator');
+				var button=$(this).parent().find('.sortablerows-toggle');
 				gridField.reload({data: [{name: button.attr('name'), value: button.val()}]});
 			},
 			
@@ -106,6 +111,8 @@
 				var gridField=this.getGridField();
 				var form = gridField.closest('form'), 
 					focusedElName = gridField.find(':input:focus').attr('name'); // Save focused element for restoring after refresh
+				
+				form.addClass('loading');
 				
 				ajaxOpts.data = ajaxOpts.data.concat(form.find(':input').serializeArray());
 				

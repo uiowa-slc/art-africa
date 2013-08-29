@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'SilverStripe\\Cms\\Test\\Behaviour\\FeatureContext' => $baseDir . '/cms/tests/behat/features/bootstrap/FeatureContext.php',
+    'SilverStripe\\Cms\\Test\\Behaviour\\FixtureContext' => $baseDir . '/cms/tests/behat/features/bootstrap/SilverStripe/Cms/Test/Behaviour/FixtureContext.php',
     'SilverStripe\\Framework\\Test\\Behaviour\\CmsFormsContext' => $baseDir . '/framework/tests/behat/features/bootstrap/SilverStripe/Framework/Test/Behaviour/CmsFormsContext.php',
     'SilverStripe\\Framework\\Test\\Behaviour\\CmsUiContext' => $baseDir . '/framework/tests/behat/features/bootstrap/SilverStripe/Framework/Test/Behaviour/CmsUiContext.php',
     'SilverStripe\\Framework\\Test\\Behaviour\\FeatureContext' => $baseDir . '/framework/tests/behat/features/bootstrap/FeatureContext.php',

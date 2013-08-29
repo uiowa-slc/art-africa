@@ -1,5 +1,13 @@
 .DS_Store
 assets/*
+betterbuttons/
 silverstripe-cache/
 themes/africa/combinedfiles/
 assets/_combinedfiles/
+focuspoint/
+framework/
+fulltextsearch/
+gridfield-bulk-editing-tools/
+gridfieldrelationhandler/
+sortablegridfield/
+vendor/

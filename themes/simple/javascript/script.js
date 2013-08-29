@@ -1,3 +1,4 @@
+jQuery.noConflict();
 
 (function($) {    
     $(document).ready(function() {
@@ -83,6 +84,7 @@
 				searchBar.slideUp();													 
 				menu.slideToggle(200);
 			});	
+
 		}
 		
     });

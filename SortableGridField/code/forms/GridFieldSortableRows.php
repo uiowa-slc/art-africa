@@ -38,40 +38,36 @@ class GridFieldSortableRows implements GridField_HTMLProvider, GridField_ActionP
 		
 		
 		//Sort order toggle
-		$sortOrderToggle = Object::create(
-			'GridField_FormAction',
+		$sortOrderToggle = GridField_FormAction::create(
 			$gridField,
 			'sortablerows-toggle',
-			_t('GridFieldSortableRows.ALLOW_DRAG_DROP', '_Allow drag and drop re-ordering'),
-			'saveGridRowSort',
+			'sorttoggle',
+			'sortableRowsToggle',
 			null
 		)->addExtraClass('sortablerows-toggle');
 		
 		
-		//Disable Pagenator
-		$disablePagenator = Object::create(
-			'GridField_FormAction',
+		$sortOrderSave = GridField_FormAction::create(
 			$gridField,
-			'sortablerows-disablepagenator',
-			_t('GridFieldSortableRows.DISABLE_PAGINATOR', '_Disable Pagenator'),
-			'sortableRowsDisablePaginator',
+			'sortablerows-savesort',
+			'savesort',
+			'saveGridRowSort',
 			null
-		)->addExtraClass('sortablerows-disablepagenator');
+		)->addExtraClass('sortablerows-savesort');
 		
 		
-		//Disable Pagenator
-		$sortToPage = Object::create(
-			'GridField_FormAction',
+		//Sort to Page Action
+		$sortToPage = GridField_FormAction::create(
 			$gridField,
 			'sortablerows-sorttopage',
-			_t('GridFieldSortableRows.SORT_TO_PAGE', '_Sort To Page'),
+			'sorttopage',
 			'sortToPage',
 			null
 		)->addExtraClass('sortablerows-sorttopage');
 		
 		
 		$data = array('SortableToggle' => $sortOrderToggle,
-					'PagenatorToggle' => $disablePagenator,
+					'SortOrderSave' => $sortOrderSave,
 					'SortToPage' => $sortToPage,
 					'Checked' => ($state->sortableToggle == true ? ' checked = "checked"':''));
 		
@@ -134,7 +130,12 @@ class GridFieldSortableRows implements GridField_HTMLProvider, GridField_ActionP
 			$sng=singleton($gridField->getModelClass());
 			$fieldType=$sng->db($this->sortColumn);
 			if(!$fieldType || !($fieldType=='Int' || is_subclass_of('Int', $fieldType))) {
-				user_error('Sort column '.$this->sortColumn.' must be an Int, column is of type '.$fieldType, E_USER_ERROR);
+				if(is_array($fieldType)) {
+					user_error('Sort column '.$this->sortColumn.' could not be found in '.$gridField->getModelClass().'\'s ancestry', E_USER_ERROR);
+				}else {
+					user_error('Sort column '.$this->sortColumn.' must be an Int, column is of type '.$fieldType, E_USER_ERROR);
+				}
+				
 				exit;
 			}
 		}
@@ -178,6 +179,8 @@ class GridFieldSortableRows implements GridField_HTMLProvider, GridField_ActionP
 					user_error('Sort column '.$this->sortColumn.' could not be found in '.$gridField->getModelClass().'\'s ancestry', E_USER_ERROR);
 					exit;
 				}
+				
+				$baseDataClass=ClassInfo::baseDataClass($gridField->getModelClass());
 			}
 			
 			
@@ -195,6 +198,10 @@ class GridFieldSortableRows implements GridField_HTMLProvider, GridField_ActionP
 				}else {
 					DB::query('UPDATE "' . $table
 							. '" SET "' . $sortColumn . '" = ' . ($max + $i)
+							. ' WHERE "ID" = '. $obj->ID);
+							
+					DB::query('UPDATE "' . $baseDataClass
+							. '" SET "LastEdited" = \'' . date('Y-m-d H:i:s') . '\''
 							. ' WHERE "ID" = '. $obj->ID);
 				}
 				
@@ -215,7 +222,7 @@ class GridFieldSortableRows implements GridField_HTMLProvider, GridField_ActionP
 	 * @return Array Array with action identifier strings.
 	 */
 	public function getActions($gridField) {
-		return array('saveGridRowSort', 'sortableRowsDisablePaginator', 'sortToPage');
+		return array('saveGridRowSort', 'sortableRowsToggle', 'sortToPage');
 	}
 	
 	/**
@@ -303,6 +310,16 @@ class GridFieldSortableRows implements GridField_HTMLProvider, GridField_ActionP
 				user_error('Sort column '.$this->sortColumn.' could not be found in '.$gridField->getModelClass().'\'s ancestry', E_USER_ERROR);
 				exit;
 			}
+			
+			$baseDataClass=ClassInfo::baseDataClass($gridField->getModelClass());
+		}
+		
+		
+		//Event to notify the Controller or owner DataObject before list sort
+		if($owner && $owner instanceof DataObject && method_exists($owner, 'onBeforeGridFieldRowSort')) {
+			$owner->onBeforeGridFieldRowSort(clone $items);
+		}else if(Controller::has_curr() && Controller::curr() instanceof ModelAdmin && method_exists(Controller::curr(), 'onBeforeGridFieldRowSort')) {
+			Controller::curr()->onBeforeGridFieldRowSort(clone $items);
 		}
 		
 		
@@ -312,6 +329,7 @@ class GridFieldSortableRows implements GridField_HTMLProvider, GridField_ActionP
 		}
 		
 		
+		//Perform sorting
 		$ids = explode(',', $data['ItemIDs']);
 		for($sort = 0;$sort<count($ids);$sort++) {
 			$id = intval($ids[$sort]);
@@ -323,12 +341,25 @@ class GridFieldSortableRows implements GridField_HTMLProvider, GridField_ActionP
 				DB::query('UPDATE "' . $table
 						. '" SET "' . $sortColumn . '" = ' . (($sort + 1) + $pageOffset)
 						. ' WHERE "ID" = '. $id);
+				
+				DB::query('UPDATE "' . $baseDataClass
+						. '" SET "LastEdited" = \'' . date('Y-m-d H:i:s') . '\''
+						. ' WHERE "ID" = '. $id);
 			}
 		}
+		
 		
 		//End transaction if supported
 		if(DB::getConn()->supportsTransactions()) {
 			DB::getConn()->transactionEnd();
+		}
+		
+		
+		//Event to notify the Controller or owner DataObject after list sort
+		if($owner && $owner instanceof DataObject && method_exists($owner, 'onAfterGridFieldRowSort')) {
+			$owner->onAfterGridFieldRowSort(clone $items);
+		}else if(Controller::has_curr() && Controller::curr() instanceof ModelAdmin && method_exists(Controller::curr(), 'onAfterGridFieldRowSort')) {
+			Controller::curr()->onAfterGridFieldRowSort(clone $items);
 		}
 	}
 	
@@ -377,11 +408,21 @@ class GridFieldSortableRows implements GridField_HTMLProvider, GridField_ActionP
 		
 		
 		if ($data['Target'] == 'previouspage') {
-			$sortPositions = $items->limit($paginator->getItemsPerPage() + 1, ($paginator->getItemsPerPage() * ($currentPage - 1)) - 1)->column($sortColumn);
+			$items = $items->limit($paginator->getItemsPerPage() + 1, ($paginator->getItemsPerPage() * ($currentPage - 1)) - 1);
 		} else if ($data['Target'] == 'nextpage') {
-			$sortPositions = $items->limit($paginator->getItemsPerPage() + 1, $paginator->getItemsPerPage() * ($currentPage - 1))->column($sortColumn);
+			$items = $items->limit($paginator->getItemsPerPage() + 1, $paginator->getItemsPerPage() * ($currentPage - 1));
 		} else {
 			user_error('Not implemented: '.$data['Target'], E_USER_ERROR);
+		}
+		
+		$sortPositions = $items->column($sortColumn);
+		
+		
+		//Event to notify the Controller or owner DataObject before list sort
+		if($owner && $owner instanceof DataObject && method_exists($owner, 'onBeforeGridFieldPageSort')) {
+			$owner->onBeforeGridFieldPageSort(clone $items);
+		}else if(Controller::has_curr() && Controller::curr() instanceof ModelAdmin && method_exists(Controller::curr(), 'onBeforeGridFieldPageSort')) {
+			Controller::curr()->onBeforeGridFieldPageSort(clone $items);
 		}
 		
 		
@@ -454,6 +495,14 @@ class GridFieldSortableRows implements GridField_HTMLProvider, GridField_ActionP
 		//End transaction if supported
 		if(DB::getConn()->supportsTransactions()) {
 			DB::getConn()->transactionEnd();
+		}
+		
+		
+		//Event to notify the Controller or owner DataObject after list sort
+		if($owner && $owner instanceof DataObject && method_exists($owner, 'onAfterGridFieldPageSort')) {
+			$owner->onAfterGridFieldPageSort(clone $items);
+		}else if(Controller::has_curr() && Controller::curr() instanceof ModelAdmin && method_exists(Controller::curr(), 'onAfterGridFieldPageSort')) {
+			Controller::curr()->onAfterGridFieldPageSort(clone $items);
 		}
 	}
 }
