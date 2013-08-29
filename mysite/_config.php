@@ -56,10 +56,11 @@ ShortcodeParser::get('default')->register(
 
 Object::add_extension("DataObject","AfricaDataObjectExtension");
 Object::add_extension("Image","ImageExtension");
+//Object::add_extension("File","FileExtension");
 FulltextSearchable::enable();
 //Object::add_extension('CollectionPiece', "FulltextSearchable('Keywords')");
 
-//Security::setDefaultAdmin("admin", "nimlok");
+Security::setDefaultAdmin("admin", "nimlok");
 
 
 HtmlEditorConfig::get('cms')->setOption('paste_remove_spans','true');

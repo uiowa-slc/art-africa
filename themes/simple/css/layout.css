@@ -670,3 +670,7 @@ aside {
 	    max-width: 100% !important
 	}
 }
+
+.relPos {
+	position: relative !important;
+}

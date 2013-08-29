@@ -1074,6 +1074,26 @@ article.page {
 	right: 220px;
 }
 
+.media-grid-container .audioTitle {
+	color: white;
+	background-color: black;
+	position: relative;
+	left: 10px;
+	bottom: 230px;
+}
+
+div.media-grid-container a.audioLink {
+	color: white;
+	background-color: black;
+	position: relative;
+	left: 10px;
+	bottom: 200px;
+}
+
 .videoThumbnail {
 	z-index: -9999;
+}
+
+.relPos {
+	position: relative !important;
 }

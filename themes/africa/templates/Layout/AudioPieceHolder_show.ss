@@ -2,10 +2,8 @@
 	<article>
 		<div class="content container-fluid">
 			<h1 class="title">$Title</h1>
-			<div class="mediaItem">
-				<iframe id="ytplayer" type="text/html" width="640" height="390"
-  src="http://www.youtube.com/embed/{$formattedIFrameURL}"
-  frameborder="0"></iframe>
+			<div class="mediaItem" style="width:320px">
+				<video src="{$AudioFile.URL}" width="320" height="240"></video>
 				<span class="credit-line">$CreditLine</span>
 			</div>
 		</div>
@@ -72,4 +70,10 @@
 	</article>
 		
 </div>
+
+<script>
+// jQuery method
+$('video').mediaelementplayer();
+</script>
+
 <% include SideBar %> 

@@ -54,14 +54,50 @@ $(document).ready(function () {
   //   }
   // });
 
-  $('#main_content').magnificPopup({
+   $('#main_content').magnificPopup({
     delegate: '.artPhoto',
     type: 'image',
     gallery: {
       enabled: true,
       navigateByImgClick: false
     }
-  });
+  }); 
+  
+ /*  $('#main_content').magnificPopup({
+    delegate: '.open-glossary-link',
+    type: 'inline'
+    
+  });*/
+  
+  $('#main_content').magnificPopup({
+    delegate: '.avContent',
+    type: 'iframe',
+    gallery: {
+      enabled: true,
+      navigateByImgClick: false
+    }
+  }); 
+  
+  
+  
+  $('.open-glossary-link').magnificPopup({
+  type:'inline',
+  midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+  callbacks: {
+	  close: function(){
+		  $('video').mediaelementplayer(); 
+		  console.log("HII");
+	  },
+	   	  
+  }
+  
+});
+
+  
+  $('video').mediaelementplayer(); //Replaces video tags with media element player
+  
+  
+
 
   $(".nav2.interior-page").sticky({topSpacing:0});
 
