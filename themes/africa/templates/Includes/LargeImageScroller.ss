@@ -1,4 +1,4 @@
-<div class="media-grid-container">
+<div class="image-scroller-container">
   <ul class="large-image-grid">
     <% loop Images %>
     <li>
