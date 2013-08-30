@@ -1082,7 +1082,7 @@ article.page {
 	bottom: 230px;
 }
 
-div.media-grid-container a.audioLink {
+#main_content a.audioLink {
 	color: white;
 	background-color: black;
 	position: relative;
