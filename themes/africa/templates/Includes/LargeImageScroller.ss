@@ -1,8 +1,8 @@
-<div class="media-grid-container">
+<div class="image-scroller-container">
   <ul class="large-image-grid">
     <% loop Images %>
     <li>
-      <img src="{$CroppedImage(650,650).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="{$Link(false)}">
+      <img src="{$CroppedFocusedImage(650,650).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="{$ShowLink}">
     </li>
     <% end_loop %>
   </ul>

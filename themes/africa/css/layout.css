@@ -194,13 +194,6 @@ button {
   padding: 0;
 }
 
-.nav1 >ul>li {
-  display: inline-block;
-  margin-top: 1.0625rem;
-  margin-right: 0.4rem;
-}
-
-
 
 .nav1 a {
   color: #fff;
@@ -209,12 +202,23 @@ button {
 
 
 #searchInput {
-  font-size: 0.7rem;
+ width: 80%;
 }
+
+@media (min-width: 768px) {
+  #searchInput {
+    font-size: 0.7rem; 
+    width: auto;
+  }
+
+}
+
 
 @media (min-width: 1024px) {
 
-
+  #searchInput {
+    font-size: 1rem; 
+  }
   .nav1 a, #searchInput {
     font-size: 0.9rem;
   }
@@ -226,16 +230,30 @@ button {
   }
 
 }
-
+@media (min-width: 768px) {
+  .nav1 >ul>li {
+    display: inline-block;
+   /* margin-top: 1.0625rem; */
+    margin-right: 1rem;
+  }
+}
 @media (min-width: 1100px) {
   .nav1 a, #searchInput {
     font-size: 1rem;
   }
+
+  .nav1 >ul>li {
+    display: inline-block;
+   /* margin-top: 1.0625rem; */
+    margin-right: 1.25rem;
+  }
+
 }
 .nav1 a:hover{
 	color: #aaa;
 	text-decoration: none;
 }
+
 
 
 @media (max-width: 768px) {
@@ -777,8 +795,7 @@ article.page {
 }
 
 .essay .artPhoto {
-	border-width: 1px;
-	border-style: solid;
+
 }
 
 .white-popup {
@@ -931,8 +948,8 @@ article.page {
 #main_content.MediaHolder {
   padding: 10px;
 }
-/* Media Grid Stuff */
-.media-grid-container {
+/* image scroller Stuff */
+.image-scroller-container {
 	/*background: #ddd;
 	border-radius: 5px;*/
 	padding: 0.2em;
@@ -940,45 +957,49 @@ article.page {
 	margin-bottom: 1em;
 }
 
-.media-grid-container ul {
+.image-scroller-container ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-.media-grid-container ul.large-image-grid {
+.image-scroller-container ul.large-image-grid {
 	list-style-type: none;
 	margin: 0;
 	padding: 0; 
 	height: 650px;
 }
 
-.media-grid-container ul li{
+.image-scroller-container ul li{
 	vertical-align: top;
 }
 
-.media-grid-container ul li img{
+.image-scroller-container ul li img{
 	width: 100%;
 }
 
 @media (min-width: 480px) {
-	.media-grid-container ul li{
+	.image-scroller-container ul li{
 		display: inline-block;
 		/*width: 30%;*/
 	}
 }
 
 @media (min-width: 768px) {
-	.media-grid-container ul li{
+	.image-scroller-container ul li{
 		/*width: 40%;*/
 	}
 
-	.media-grid-container ul{
+	.image-scroller-container ul{
 		height: 230px;
 		white-space: nowrap;
 		overflow-x: auto;
 		overflow-y: hidden;
 	}
+}
+
+.mobile-filter-container .media-filter-form #MediaFilterForm_index{
+  width: 100%;
 }
 
 .media-filter-form label {

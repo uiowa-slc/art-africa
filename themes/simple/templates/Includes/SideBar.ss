@@ -1,16 +1,14 @@
-<aside>
-	<% if Menu(2) %>
+<aside class="sidebar unit size1of4">
+	<% if $Menu(2) %>
 		<nav class="secondary">
-			<h3>
-				<% loop Level(1) %>
-				$Title
-				<% end_loop %>
-			</h3>
-			<ul>
-				<% loop Menu(2) %>
-				<li class="$LinkingMode"><a href="$Link" title="Go to the $Title.XML page"><span class="arrow">&rarr;</span><span class="text">$MenuTitle.XML</span></a></li>
-				<% end_loop %>
-			</ul>
+			<% with $Level(1) %>
+				<h3>
+					$MenuTitle
+				</h3>
+				<ul>
+					<% include SidebarMenu %>
+				</ul>
+			<% end_with %>
 		</nav>
-	<% end_if %>  	
+	<% end_if %>
 </aside>

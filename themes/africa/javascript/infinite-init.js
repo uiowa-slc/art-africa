@@ -18,6 +18,7 @@
       nextSelector : '.next',  // selector for the NEXT link (to page 2)
       itemSelector : '.item',     // selector for all items you'll retrieve
       bufferPx: 20,
+	 debug        : true,
       loading: {
           finishedMsg: 'No more pages to load.',
           img: 'http://i.imgur.com/6RMhx.gif'

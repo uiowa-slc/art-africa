@@ -8,12 +8,12 @@
 </style>
 
 
-<div class="content-container typography">
+<div class="content-container typography" style="/*min-height: 3000px*/" >
  	<div id="media-container" class="fluid">
  		<div class="js-masonry">
  		<% loop $getImages %>
  			<div class="item">
-<img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click the image for more info. {$CreditLine}" data-mfp-href="{$ShowLink}" />
+<img src="{$SetWidth(200).URL}" data-mfp-src="{$SetWidth(600).URL}" class="artPhoto {$size}" title="Tap or click the image for more info. {$CreditLine}" data-mfp-href="{$ShowLink}" />
  			</div>
  		<% end_loop %>
  		</div>

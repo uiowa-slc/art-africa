@@ -53,7 +53,7 @@ class Page_Controller extends ContentController {
 			$themeFolder. '/javascript/script.js',
 			$themeFolder. '/javascript/masonry.pkgd.min.js',
 			$themeFolder. '/javascript/imagesloaded.js',
-			$themeFolder. '/javascript/jquery.infinitescroll.min.js',
+			$themeFolder. '/javascript/jquery.infinitescroll.js',
 			$themeFolder. '/javascript/infinite-init.js',
 		);
 		

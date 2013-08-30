@@ -20,9 +20,11 @@
   <div class="grid">
     <% loop ChildrenOf('chapters') %>
       <div class="grid-item">
-        <p><img src="$CoverImage.URL" alt=""></p>
+        <% with $CoverPhoto.CroppedFocusedImage(300,300) %>
+        <p><img src="$URL" alt=""></p>
+        <% end_with %>
         <a class="grid-item-title" href="$Link">$MenuTitle</a>
-        <p>$Description</p>
+        <p>$Top.Description</p>
       </div>
     <% end_loop %>
   </div>

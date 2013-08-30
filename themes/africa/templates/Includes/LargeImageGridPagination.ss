@@ -19,7 +19,7 @@
 		    <% end_if %>
 		 <% end_loop %>  
 		 <% if getImages.NextLink %>
-		 	<li class="pager-item"><a class="next" href="$getImages.NextLink">Next</a></li></a>
+		 	<li class="pager-item"><a class="next" href="$getImages.NextLink">Next</a></li>
 		 <% end_if %>
 		 
 		 </ul> 
