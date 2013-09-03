@@ -4,11 +4,11 @@ class AudioPiece extends MediaPiece {
  
   
   private static $db = array(	
-  
   );
  
   // One-to-one relationship with gallery page
   private static $has_one = array(
+  'AudioFile' => 'File'
 
   );
   
@@ -31,7 +31,11 @@ class AudioPiece extends MediaPiece {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
  		
+ 		$fields->addFieldToTab('Root.Main', new UploadField('AudioFile', 'Audio File (local):'));
+ 		
  		$fields = $this->addCommonFields($fields);
+ 		
+ 		
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 	

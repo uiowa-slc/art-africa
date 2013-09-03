@@ -9,8 +9,11 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry"></script>
+    <script src="{$BaseHref}mediaelement/build/mediaelement-and-player.min.js"></script>
+    
+    <link rel="stylesheet" href="{$BaseHref}mediaelement/build/mediaelementplayer.css" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link rel="icon" type="image/png" href="/art-africa/themes/africa/images/logo.png">
+    <link rel="icon" type="image/png" href="{$BaseHref}themes/africa/images/logo.png">
     <!-- Add mousewheel plugin (this is optional)
     <script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
     Add fancyBox

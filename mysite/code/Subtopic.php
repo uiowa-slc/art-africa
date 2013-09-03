@@ -109,11 +109,14 @@ class Subtopic_Controller extends Page_Controller {
 	
 	}
 	
-	public function getNextSubtopic($title, $type){
+	public function getNextSubtopic($title, $returnType){
+	//Title is used to get the next subtopic, returnType returns either a Link or the Title 
 		$currentSubtopic = Subtopic::get()->filter(array('Title' => $title))->First();
 		$chapter = $currentSubtopic->getParent();
 		$chapterSubtopics = $chapter->Children();
-		$check = false;
+		
+		$check = false; //true when match for subtopic found
+		
 		foreach($chapterSubtopics as $subtopic){
 			if ($check == true){
 				$returnedSubtopic = $subtopic;
@@ -122,16 +125,47 @@ class Subtopic_Controller extends Page_Controller {
 			}
 			if ($subtopic->Title == $currentSubtopic->Title){
 				$check = true;
-							}	
+			}	
 		}
+	
 		
 		if (!isset($returnedSubtopic)){
-			$returnedSubtopic = $chapterSubtopics->First();
+		//If returned subtopic isn't set, it's the last subtopic in a chapter -- meaning we want the next link to point to the next chapter
+			$chapterHolder = $chapter->getParent();
+			$chapters = $chapterHolder->Children();
+			
+			$check = false; //true when match for chapter found
+			
+			foreach($chapters as $loopChapter){
+			
+				if ($check == true){
+					$returnedChapter = $loopChapter;
+									
+					$check = false;
+				}
+				if ($loopChapter->Title == $chapter->Title){
+					$check = true;
+				}	
+			}
+			
+			if (!isset($returnedChapter)){
+				//We're in the last chapter, so return the first chapter's link or title
+				$returnedChapter = Chapter::get()->First();
+			}
+			
+			if ($returnType=='Link'){
+				return $returnedChapter->Link();
+			}
+			elseif ($returnType=='Title') {
+				return $returnedChapter->Title;
+			}
+				
 		}
-		if ($type=='Link'){
+		
+		if ($returnType=='Link'){
 			return $returnedSubtopic->Link();
 		}
-		elseif ($type=='Title') {
+		elseif ($returnType=='Title') {
 			return $returnedSubtopic->Title;
 		}
 	}
