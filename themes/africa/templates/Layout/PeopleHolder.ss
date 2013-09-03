@@ -3,14 +3,32 @@
 		<h1>$Title</h1>
 		<div class="content">
 			$Content
+			<div class="table-responsive ">
+			  <table class="table table-hover table-condensed">
+			    <tbody>
+			    	<tr>
+			    		<th>Name</th>
+			    		<th>Countries</th>
+			    		<th>Population</th>
 
-			<ul>
-				<% loop getPeople %>
+			    	</tr>
+			    <% loop getPeople %>
 					<% if Title %>
-						<li><a href="$Link(false)">$Title</a></li>
+					<tr>
+			    		<td><a href="$Link(false)">$Title</a></td>
+			    		<td><% loop Countries %>
+						<a href="$Link">$Title</a><% if not $Last %>, <% end_if %>
+					<% end_loop %></td>
+						<td>$Population</td>
+			    	</tr>
+					
 					<% end_if %>
 				<% end_loop %>
-			</ul>
+
+			    </tbody>
+
+			  </table>
+			</div>
 		</div>
 	</article>
 </div>

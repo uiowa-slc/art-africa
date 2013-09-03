@@ -58,6 +58,8 @@ class Page_Controller extends ContentController {
 		);
 		
 		$cssFiles = array(
+			$themeFolder. '/css/bootstrap.min.css',
+			$themeFolder. '/css/bootstrap-tables.css',
 			$themeFolder. '/css/layout.css',
 			$themeFolder. '/css/magnific-popup.css'
 		);
