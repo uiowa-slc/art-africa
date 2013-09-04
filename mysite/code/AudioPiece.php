@@ -30,10 +30,11 @@ class AudioPiece extends MediaPiece {
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
- 		
- 		$fields->addFieldToTab('Root.Main', new UploadField('AudioFile', 'Audio File (local):'));
+
  		
  		$fields = $this->addCommonFields($fields);
+ 		$fields->addFieldToTab('Root.Main', new UploadField('AudioFile', 'Audio File (local):'), 'ID');
+ 		$fields->removeByName('MediaLink');
  		
  		
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");

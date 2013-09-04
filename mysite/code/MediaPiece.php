@@ -33,12 +33,13 @@ class MediaPiece extends DataObject {
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
  		
+ 		
  		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID'));
  		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
  		
  		//$fields->addFieldToTab('Root.Main', new TextAreaField('Bibliography', 'Bibliography'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
- 		$fields->addFieldToTab('Root.Main', new TextField('CreditLine', 'CreditLine'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('CreditLine', 'Credit Line'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Caption', 'Caption'));
  		
  		$fields->addFieldToTab('Root.Main', new UploadField('Thumbnail'));

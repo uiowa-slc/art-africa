@@ -28,14 +28,19 @@ class VideoPiece extends MediaPiece {
 
  // tidy up the CMS by not showing these fields
   public function getCMSFields() {
+  
  		$fields = parent::getCMSFields();
+
  		$fields = $this->addCommonFields($fields);
+ 		
+ 		 $fields->addFieldToTab('Root.Main', new TextField('MediaLink', 'Link To Video'), 'ID');
+ 		
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
 		
 		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");*/
-		$fields->removeFieldFromTab("Root.Main","MediaFile");
+
 		
 		
 		//$fields->addFieldToTab('Root.Main', new TextField('Link', 'Link'));
