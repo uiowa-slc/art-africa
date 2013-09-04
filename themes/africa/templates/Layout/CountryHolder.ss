@@ -5,18 +5,33 @@
 			<div id="map-canvas"></div>
 			<div id="map-canvas-notice">
 				<div>
-					<p>Tap a country's marker</p>
+					<p>Tap a country's marker or choose one below.</p>
 					<button>Begin</button>
 				</div>
 			</div>
 			<div class="padded">
-				<ul>
-					<% loop getObjects('Country') %>
-						<% if Title %>
-							<li><a href="$Link">$Title</a></li>
-						<% end_if %>
-					<% end_loop %>
-				</ul>
+ <table class="table table-hover">
+			    <tbody>
+			    	<tr>
+			    		<th>Country Name</th>
+			    		<th>Capital</th>
+			    		<th>Population</th>
+
+			    	</tr>
+			    <% loop getObjects("Country") %>
+					<% if Title %>
+					<tr>
+			    		<td><a href="$Link(false)">$Title</a></td>
+			    		<td>$CapitalCity</td>
+						<td>$Population</td>
+			    	</tr>
+					
+					<% end_if %>
+				<% end_loop %>
+
+			    </tbody>
+
+			  </table>
 			</div>
 		</div>
 	</article>

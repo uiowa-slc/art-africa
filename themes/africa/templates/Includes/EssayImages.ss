@@ -1,4 +1,4 @@
-<div class="media-grid-container" id="video-scroller">
+<div class="image-scroller-container" id="video-scroller">
 <h3>Images from the essay</h3>
 			<ul>
 <% cached 'EssayImages', EssayPages.max(LastEdited) %>

@@ -5,7 +5,6 @@
     <title>$Title - Art &amp; Life in Africa - The University of Iowa Museum of Art</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
     $MetaTags(false)
-    <link href="{$ThemeDir}/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -24,7 +23,7 @@
   <body>
   
     <div id="view">
-      <div class="top-link"><a href="#"><% if $Parent %>$Parent.Title<% else %>$Title<% end_if %> &#8593;</a></div>
+      <div class="top-link"><a href="#">$Title &#8593;</a></div>
       <div id="top">
         <div class="hamburger m" data-toggle=".nav1" onclick="void(0)">
           <div></div>
@@ -46,7 +45,7 @@
             </li>
             <% loop Menu(1) %>
             <li>
-              <a href="$Link">$MenuTitle</a>
+              <a href="$Link" class="$LinkOrSection $URLSegment">$MenuTitle</a>
             </li>
             <% end_loop %>
             <li class="search-li">
@@ -61,7 +60,7 @@
       <div id="middle">
         <!-- for chapter pages -->
         <div id="subnav-container">
-        <div id="chapters_heading">$Level(1).Title</div>
+        <div id="chapters_heading"><a href="$Level(1).Link">$Level(1).Title</a></div>
         <nav class="nav2 interior-page">
           <ul class="$URLSegment">
             <!-- Chapters -->
@@ -190,13 +189,13 @@
                 </p>
               </div>
               <div class="col">
-                <h3>See the African Art collection in person</h3>
+               <!-- <h3>See the African Art collection in person</h3>
                 <p>
                   1375 Highway One West<br>
                   1840 Studio Arts Building<br>
                   Iowa City, IA 52242<br>
                   Telephone (319) 335-1727
-                </p>
+                </p>-->
               </div>
               <div class="col">
                 <p style="margin-top: 2rem">
