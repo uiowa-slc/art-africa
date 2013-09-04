@@ -54,8 +54,7 @@ $(document).ready(function () {
   //   }
   // });
 
-   $('#main_content').magnificPopup({
-    delegate: '.artPhoto',
+   $('.artPhoto').magnificPopup({
     type: 'image',
     gallery: {
       enabled: true,
