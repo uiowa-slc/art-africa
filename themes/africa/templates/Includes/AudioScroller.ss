@@ -1,13 +1,12 @@
 
-<div class="media-grid-container" id="video-scroller">
+<div class="image-scroller-container" id="audio-scroller">
   <ul>
     <% loop AudioPieces %> 
-        <li>
+        <li id="audioObject">
      
      <video class="" id="videoPiece{$Pos}" src="{$AudioFile.URL}" width="320" height="240"></video>
-     <div></div>
-     <span class="audioTitle">$Title asdTitle </span>
-     <a class="audioLink" href="{$Link}">View Track Info</a>
+
+     <span class="audioTitle">$Title.Summary(8) <br> <a href="{$Link}">View Track Info</a></span>
     
 
       <!--<a href="#videoPiece{$Pos}" data-mfp-src="#videoPiece{$Pos}" class="open-glossary-link"> <img src="{$Thumbnail.CroppedImage(225,225).URL}" class="videoThumbnail" title="{$MediaLink}" /> </a>-->

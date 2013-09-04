@@ -53,8 +53,9 @@ class AudioPieceHolder_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ('show', 'getAudio');
 	
-	public static $childPage = 'Audio';
+	public static $childPage = 'AudioPiece';
 	
+	/*
 	public function show (){
 	//Displays a data object
 	
@@ -77,7 +78,7 @@ class AudioPieceHolder_Controller extends Page_Controller {
 			return $this->renderWith('Page');
 		}
 	
-	}
+	}*/
 	
 	public function getAudio(){
 	$audio = AudioPiece::get();

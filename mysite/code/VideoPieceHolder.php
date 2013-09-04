@@ -50,7 +50,7 @@ class VideoPieceHolder_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ('show', 'getVideoPieces');
 	
-	public static $childPage = 'Video';
+	public static $childPage = 'VideoPiece';
 	
 	public function show (){
 	//Displays a data object

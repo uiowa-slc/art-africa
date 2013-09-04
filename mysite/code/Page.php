@@ -396,6 +396,7 @@ class Page_Controller extends ContentController {
 			}
 	
 			if ($object) {
+			    
 				$showTemplate = $otherClass . 'Holder_show';
 				// print_r("THIS SHOW IS CALLED");
 				// print_r($object);

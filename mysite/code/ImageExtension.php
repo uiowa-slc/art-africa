@@ -42,7 +42,7 @@ class ImageExtension extends DataExtension {
 
   );
 
-  private static $default_sort = "Name";
+
   
   private static $searchable_fields = array('Title', 'PhotoID', 'Filename', 'Name');
   

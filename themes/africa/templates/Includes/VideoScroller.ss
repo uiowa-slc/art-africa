@@ -1,4 +1,4 @@
-<div class="media-grid-container" id="video-scroller">
+<div class="image-scroller-container" id="video-scroller">
   <ul>
     <% loop VideoPieces %> 
     <li>

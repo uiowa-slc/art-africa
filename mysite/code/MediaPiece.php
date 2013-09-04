@@ -4,7 +4,7 @@ class MediaPiece extends DataObject {
  
   
   private static $db = array(	
-  'Title' => 'Varchar(255)',
+  'Title' => 'Text',
   'CreditLine' => 'Varchar(255)',
   'Caption' => 'Text',
   /*'Bibliography' => 'Text',*/

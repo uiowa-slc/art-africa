@@ -2,6 +2,8 @@ html {
   background: #181415;
 }
 
+
+
 @media (max-width: 400px) {
   html { font-size: 0.875em; }
 }
@@ -112,6 +114,7 @@ button {
 @media (max-width: 768px) {
   /*.toggle { display: none; }*/
   /*use &.toggle*/
+  
 }
 
 * {
@@ -1076,7 +1079,18 @@ article.page {
     border-radius:30px;
     box-shadow:1px 1px 2px rgba(0,0,0,.2);
 }
-#video-scroller .play span {
+
+#video-scroller .videoThumbnail {
+	width: 320px;
+	height: 210px;
+}
+
+
+li.audioObject {
+	display: inline-block;
+}
+
+.media-grid-container .play span {
     position:relative;
     width:0;
     height:0;
@@ -1091,30 +1105,55 @@ article.page {
 	width: 100px;
 	height: 100px;
 	position: relative;
-	top: -180px;
+	top: -60px;
 	right: 220px;
+} 
+
+#audio-scroller ul {
+	height: 250px;
 }
 
-.media-grid-container .audioTitle {
+@media (max-width: 768px) {
+  /*.toggle { display: none; }*/
+  /*use &.toggle*/
+  #video-scroller .play-icon {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	top: -170px;
+	left: 100px;
+  }
+  
+  #audio-scroller ul {
+	  height: auto;
+  }
+}
+
+
+#audio-scroller .audioTitle {
 	color: white;
 	background-color: black;
 	position: relative;
 	left: 10px;
 	bottom: 230px;
-}
+	font-size: 10pt;
+	}
 
 #main_content a.audioLink {
 	color: white;
 	background-color: black;
 	position: relative;
-	left: 10px;
-	bottom: 200px;
+	/*left: -140px;*/
+	/*right: 10px;
+	bottom: 200px;*/
 }
 
-.videoThumbnail {
-	z-index: -9999;
-}
 
 .relPos {
 	position: relative !important;
 }
+
+#video-scroller li {
+	width: 320px;
+}
+
