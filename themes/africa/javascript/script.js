@@ -84,8 +84,8 @@ $(document).ready(function () {
   midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
   callbacks: {
 	  close: function(){
-		  $('video').mediaelementplayer(); 
-		  console.log("HII");
+		 // $('video').mediaelementplayer(); 
+		  //console.log("HII");
 	  },
 	   	  
   }
@@ -93,7 +93,7 @@ $(document).ready(function () {
 });
 
   
-  $('video').mediaelementplayer(); //Replaces video tags with media element player
+ // $('video').mediaelementplayer(); //Replaces video tags with media element player
   
   
 
