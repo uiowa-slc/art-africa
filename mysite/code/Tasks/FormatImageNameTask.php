@@ -31,19 +31,18 @@ class FormatImageNameTask extends BuildTask {
 			print_r($imageTitle);
 			
 			//Match IDs like CMS380, AFR101, whatever
-			$pattern = '/[A-Z]{3}[0-9]{1,3}["-"]?[A-Z]?[0-9]?/';
+			$pattern = '/[A-Z]{3}[0-9]{1,3}[-]?[A-Z]?[0-9]{2}?[-]?[A-Z]?/';
 			preg_match($pattern, $imageTitle, $matches, PREG_OFFSET_CAPTURE);
-			print_r('<br><br>');
-			print_r($matches);
-			print_r('<br><br>');
+			//print_r('<br><br>');
+			//print_r($matches);
+			//print_r('<br><br>');
 
 			if (isset($matches[0][0])){
-				$match = $matches[0][0] . '.jpg';
+				$match = $matches[0][0];
 				print_r('<br><br>');
-				print_r($match);
-				//$image->setName($match);
-				//$image->setFilename($match);
-				//$image->write();
+				print_r($match . ' MATCH');
+				$image->setName($match);
+				$image->write();
 				
 			}
 			else {
