@@ -104,6 +104,8 @@ class MediaHolder_Controller extends Page_Controller {
 			$images = $images->addFilter((array('Type' => $filters['MediaType'])));
 		}
 
+		$images = $images->sort('RAND()');
+
 		$paginatedImageList = new PaginatedImageList($images, $this->request);
 		$paginatedImageList->setPageLength(20);
 		
@@ -143,6 +145,7 @@ class MediaHolder_Controller extends Page_Controller {
 
 		if (isset($startParam)){
 			$returnList = $this->getImages()->limit(20, $startParam);
+			$returnList->sort('RAND()');
 			
 			$template = new SSViewer('LoadNewMedia');
 			return $this->customise(array("imageList"=>$returnList))->renderwith('LoadNewMedia');

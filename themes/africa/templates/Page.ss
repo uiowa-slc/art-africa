@@ -44,7 +44,7 @@
             <% end_if %>
             </li>
             <% loop Menu(1) %>
-            <li>
+            <li <% if $URLSegment == "home" %>style="display: none"<% end_if %> class="$URLSegment">
               <a href="$Link" class="$LinkOrSection $URLSegment">$MenuTitle</a>
             </li>
             <% end_loop %>

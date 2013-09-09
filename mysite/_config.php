@@ -62,6 +62,7 @@ FulltextSearchable::enable();
 
 Security::setDefaultAdmin("admin", "nimlok");
 
+GD::set_default_quality(90);
 
 HtmlEditorConfig::get('cms')->setOption('paste_remove_spans','true');
 HtmlEditorConfig::get('cms')->setOption('paste_auto_cleanup_on_paste','true');

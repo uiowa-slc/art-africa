@@ -28,8 +28,8 @@
         <nav class="nav1 toggle">
           <ul>
             <% loop Menu(1) %>
-            <li>
-              <a href="$Link">$MenuTitle</a>
+            <li <% if $URLSegment == "home" %>style="display: none"<% end_if %> class="$URLSegment">
+              <a href="$Link" class="$LinkOrSection $URLSegment">$MenuTitle</a>
             </li>
             <% end_loop %>
             <li class="search-li">
@@ -44,7 +44,7 @@
             <div id="homepage-pic-shadow"></div>
             <% loop HomepagePics %>
               <span class="switcher<% if First %> selected<% end_if %>"
-                    data-img-url="{$HomepagePic.URL}"
+                    data-img-url="{$HomepagePic.CroppedFocusedImage(2000,1000).URL}"
                     data-link="{$PageLink}"
                     data-desc="{$CreditLine}">
               </span>

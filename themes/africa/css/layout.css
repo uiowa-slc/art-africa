@@ -226,6 +226,7 @@ button {
 }
 
 
+
 #searchInput {
  width: 80%;
 }
@@ -470,6 +471,125 @@ button {
   font-size: 1.25rem;
   line-height: 2rem;
   margin: 2rem 0;
+}
+/* media grid columns */
+[data-columns]::before { display: none; } /* Don't forget this. */
+
+/*.media-row[data-columns]::before {
+    content: '3 .span4';
+}
+
+@media screen and (min-width: 768px){
+  .media-row[data-columns]::before {
+    content: '4 .span3';
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .media-row[data-columns]::before {
+    content: '6 .span2';
+  }
+}
+*/
+
+/* ------- */
+
+@media screen and (max-width: 480px){
+  .media-row[data-columns]::before {
+      content: '2 .span6';
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width:819px) { 
+  .media-row[data-columns]::before {
+    content: '2 .span6';
+  }
+}
+@media screen and (min-width: 820px) and (max-width: 1300px) {
+  .media-row[data-columns]::before {
+      content: '3 .span4';
+  }
+}
+@media screen and (min-width: 1300px){
+  .media-row[data-columns]::before {
+      content: '4 .span3';
+  }
+}
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+/*@media screen and (min-width: 481px) and (max-width: 1099px) {
+  .media-row[data-columns]::before {
+      content: '5 .span2';
+  }
+}
+@media screen and (min-width: 1100px) {
+  .media-row[data-columns]::before {
+      content: '6 .span2';
+  }
+}*/
+
+.media-row .item img {
+  width: 100%;
+}
+.column {
+  float: left;
+}
+
+.one-third {
+  width: 33.3333%;
+}
+
+.one-half {
+  width: 50%;
+}
+
+.one-fourth {
+  width: 25%;
 }
 
 @media (min-width: 1024px) {
@@ -838,10 +958,47 @@ article.page {
 	border-radius: 3px;
 }
 
+@media (min-width: 480px) {
+  #submitSearch {
+    display: none;
+  }
+
+}
+@media (min-width: 1100px) {
+  #submitSearch {
+    display: inline;
+  }
+
+}
 #middle .fieldHolder {
 	float: right;
 	margin: 1%;
 }
+
+@media (min-width: 480px) {
+  .fieldHolder {
+    width: 150px;
+
+  }
+
+  #searchInput {
+    width: 80%;
+  }
+
+}
+
+@media (min-width: 1100px) {
+  .fieldHolder {
+    width: auto;
+
+  }
+
+  #searchInput {
+    width: auto;
+  }
+
+}
+
 
 .artPhoto img {
 	position: static !important;
