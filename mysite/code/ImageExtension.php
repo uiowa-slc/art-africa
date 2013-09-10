@@ -55,11 +55,20 @@ class ImageExtension extends DataExtension {
 		$fields = $this->owner->addCommonFields($fields);
 	
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
+		
+		   $captionField = new HTMLEditorField('Caption', 'Caption');
+    //å$captionField->setRows(1);
+ 		$fields->addFieldToTab('Root.Main', $captionField);
+ 		
+ 		$descriptionField = new HTMLEditorField('Description', 'Description');
+	    //$descriptionField->setRows(2);
+	    $fields->addFieldToTab('Root.Main', $descriptionField);
+ 		
 		$fields->addFieldToTab('Root.Main', new DropdownField('Type','Type of Image', $this->owner->dbObject('Type')->enumValues()));
  		//$fields->addFieldToTab('Root.Main', new TextField('PhotoID', 'Photo ID'));
  		$fields->addFieldToTab('Root.Main', new TextField('Photographer', 'Photographer'));
 
-
+ 		
 
  		$fields->addFieldToTab('Root.Main', new TextField('Date', 'Date')); 
  		$fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
@@ -68,16 +77,12 @@ class ImageExtension extends DataExtension {
  		$creditField->setRows(1);
  		$fields->addFieldToTab('Root.Main', $creditField);
 
-    $captionField = new HTMLEditorField('Caption', 'Caption');
-    $captionField->setRows(1);
- 		$fields->addFieldToTab('Root.Main', $captionField);
+ 
  		
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
  		$fields->addFieldToTab('Root.Main', new TextField('AccessionNumber', 'Accession Number'));
 
- 		$descriptionField = new HTMLEditorField('Description', 'Description');
-    $descriptionField->setRows(2);
-    $fields->addFieldToTab('Root.Main', $descriptionField);
+ 		
 
     $traditionalNameField = new HTMLEditorField('TraditionalName', 'Traditional Name');
     $traditionalNameField->setRows(1);

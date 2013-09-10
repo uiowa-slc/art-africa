@@ -1370,3 +1370,7 @@ li.audioObject {
 #video-scroller li {
 	width: 320px;
 }
+
+#caption p {
+	line-height: 1.25rem;
+}

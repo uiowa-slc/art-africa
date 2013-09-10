@@ -7,7 +7,7 @@
 											
 				    
 				    <li>
-				      <img src="{$CroppedImage(225,225).URL}" data-mfp-src="{$URL}" class="videoThumbnail artPhoto" title="{$CreditLine}" data-mfp-href="{$Link(false)}">
+				      <img src="{$CroppedFocusedImage(225,225).URL}" data-mfp-src="{$URL}" class="videoThumbnail artPhoto" title="{$CreditLine}" data-mfp-href="{$Link(false)}">
 				      <!--
 				      <span class="play">
 				            <span></span>

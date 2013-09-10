@@ -54,7 +54,12 @@ class MediaPiece extends DataObject {
   
     public function formattedIFrameURL(){
   	  $link = $this->MediaLink;
+  	  
+  	  //Breaks up link into query and path
   	  $parsedLink = parse_url($link);
+  	  
+  	  print_r($parsedLink);
+  	  
   	  if (isset($parsedLink['query'])){
 
   	  	 $query = $parsedLink['query'];

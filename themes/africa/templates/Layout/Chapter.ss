@@ -7,7 +7,9 @@
 		<% if $CoverImage %>
 		<img src="$CoverImage.URL" class="full-width" alt="">
 		<% end_if %>-->
+		<% if Images %> 
 		<% include LargeImageScroller %>
+		<% end_if %>
 		<h2>Introduction</h2>
 		<% include EssayPages %>
 		<div>

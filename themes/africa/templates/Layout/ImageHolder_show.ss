@@ -3,7 +3,7 @@
 		<div class="content container-fluid">
 			<div class="artPic">
 				<img src="{$URL}">
-				$Caption
+				<span id="caption">$Caption</p>
 				
 			</div>
 		</div>
@@ -60,11 +60,7 @@
 				<% if Substyle %>
 					<h3>Substyle</h3>
 					<p>$Substyle</p>
-				<% end_if %>
-				<% if Source %>
-					<h3>Source</h3>
-					<p>$Source</p>
-				<% end_if %>
+				<% end_if %> d
 				<% if Tags %>
 					<% include Tags %>
 				<% end_if %>
