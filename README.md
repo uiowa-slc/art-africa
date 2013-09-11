@@ -1,43 +1,16 @@
-## Overview
+A few Art And Life In Africa notes: 
 
-Base project folder for a SilverStripe ([http://silverstripe.org](http://silverstripe.org)) installation. Requires additional modules to function:
+Most of the classes on the site are related to many other classes.  Check the tabs of a page type or data object to access the grid fields used to manage each relation.  In the case these gridfields need to be edited, they are either in the AfricaDataObjectExtension class or the getCMSFields method for that page type.
 
- * [`framework`](http://github.com/silverstripe/sapphire): Module including the base framework
- * [`cms`](http://github.com/silverstripe/silverstripe-cms): Module including a Content Management System
- * `themes/simple` (optional)
+Outside of chapters and subtopics, most of the content is stored in DataObjects and rendered via the show method of that class's holder.
 
-## Server Requirements ##
+The naming format is <name of class>Holder for the appropriate holders of each class.  Make sure to keep in mind that Videos are VideoPieces (thus VideoPieces are stored within VideoPieceHolders)
 
-See [doc.silverstripe.org](http://doc.silverstripe.org/framework/en/installation/server-requirements)
+Images have relationships with Peoples and Countries via the ImageExtension defined in ImageExtension.php.  
 
-## Installation ##
+Keyword functionality was planned via the Word and Glossary classes.  That functionality doesn't work with other functionality that uses popups, so at present, those classes aren't used on the site.
 
-See [installation on different platforms](http://doc.silverstripe.org/framework/en/installation/),
-and [installation from source](http://doc.silverstripe.org/framework/en/installation/from-source).
+The site uses short codes to handle images inserted within the HTMLText content of chatpers, subtopics or essays. Those short code handlers can be found in Page.php.  
 
-## Links ##
+Possibly confusingly, the pages of an Essay are each separate DataObjects.  This was done to allow ALA staff exact control over page breaks. 
 
- * [Changelogs](http://doc.silverstripe.org/framework/en/changelogs/)
- * [Bugtracker](http://open.silverstripe.org)
- * [Forums](http://silverstripe.org/forums)
- * [Developer Mailinglist](https://groups.google.com/forum/#!forum/silverstripe-dev)
-
-## License ##
-
-	Copyright (c) 2007-2012, SilverStripe Limited - www.silverstripe.com
-	All rights reserved.
-
-	Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
-	    * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-	    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the 
-	      documentation and/or other materials provided with the distribution.
-	    * Neither the name of SilverStripe nor the names of its contributors may be used to endorse or promote products derived from this software 
-	      without specific prior written permission.
-
-	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
-	IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
-	LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE 
-	GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
-	STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
-	OF SUCH DAMAGE.
