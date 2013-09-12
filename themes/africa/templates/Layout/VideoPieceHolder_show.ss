@@ -72,4 +72,4 @@
 	</article>
 		
 </div>
-<% include SideBar %>
+

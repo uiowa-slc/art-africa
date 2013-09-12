@@ -74,43 +74,7 @@ class MediaHolder_Controller extends Page_Controller {
 		}
 	
 	}
-	public function getImages(){
-		/*$images = new ArrayList();
-		$artPhotoImages = Image::get()->filter(array('Type' => 'ArtPhoto'));
-		$fieldPhotoImages = Image::get()->filter(array('Type' => 'FieldPhoto'));
-		$images->merge($artPhotoImages);
-		$images->merge($fieldPhotoImages);*/
-
-		$filters = $this->getFilters();
-
-		$images = Image::get();
-
-		if($filters['Country'] != ''){
-			$images = $images->addFilter((array('Countries.ID' => $filters['Country'])));
-		}
-
-		if($filters['People'] != ''){
-			$images = $images->addFilter((array('Peoples.ID' => $filters['People'])));
-		}
-
-		if($filters['Chapter'] != ''){
-			$images = $images->addFilter((array('Chapters.ID' => $filters['Chapter'])));
-		}
-		if($filters['Subtopic'] != ''){
-			$images = $images->addFilter((array('Subtopics.ID' => $filters['Subtopic'])));
-		}
-
-		if($filters['MediaType'] != ''){
-			$images = $images->addFilter((array('Type' => $filters['MediaType'])));
-		}
-
-		$images = $images->sort('RAND()');
-
-		$paginatedImageList = new PaginatedImageList($images, $this->request);
-		$paginatedImageList->setPageLength(20);
-		
-		return $paginatedImageList;
-	}		
+	
 
 	public function getFilters(){
 

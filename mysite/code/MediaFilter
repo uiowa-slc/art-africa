@@ -1,6 +1,0 @@
-<?php
-class MediaFilter extends DataObject {
-	
-
-
-}

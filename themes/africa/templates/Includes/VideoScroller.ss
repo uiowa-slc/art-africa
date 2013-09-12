@@ -1,4 +1,7 @@
 <div class="image-scroller-container" id="video-scroller">
+
+<% if VideoPieces %> 
+<h3>Video</h3>
   <ul>
 	    <% loop VideoPieces %> 
 	    <li>
@@ -11,5 +14,6 @@
 	    </li>
 	    <% end_loop %>
   </ul>
+<% end_if %>
 </div>
 

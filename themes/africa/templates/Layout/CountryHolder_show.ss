@@ -69,7 +69,7 @@
 				</section>
 			</div>
 			<div class="row-fluid">
-				<section class="country-info-container span12">
+				<section class="country-info-container span6">
 					<h2>Politics</h2>
 					<% if HeadOfState %>
 						<h3>Head Of State</h3>
@@ -96,17 +96,21 @@
 						<p>$PostcolonialHistory</p>
 					<% end_if %>		
 				</section>
+				<section class="country-info-container span6">
+					
+					
+					
+				</section>
 			</div>
 		</div>
 		<div class="padded" style="padding-top:0">
+			<% if $AudioPieces || $VideoPieces %>
 			<h2>More...</h2>
+			<% end_if %> 
 			
-			<h3>Video</h3>
 
 			<% include VideoScroller %>
 			
-			<h3>Audio</h3>
-
 			<% include AudioScroller %>
 			<!--People
 			<% loop People %>
@@ -155,4 +159,4 @@
 		</div>
 	</article>
 </div>
-<% include SideBar %>
+
