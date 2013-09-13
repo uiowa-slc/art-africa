@@ -1,10 +1,10 @@
 <div class="content-container typography">
   <h1>$Title</h1>
-  <article class="page">
+
     
     <!-- Layout/Page.ss in the building -->
     <div class="content">$Content</div>
-  </article>
+
   $Form
   $PageComments
 </div>

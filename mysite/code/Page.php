@@ -632,6 +632,8 @@ class Page_Controller extends ContentController {
 
 
 	}
+	
+	
 
 	/**
 	 * Process and render search results.

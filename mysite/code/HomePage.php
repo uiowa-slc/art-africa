@@ -80,4 +80,46 @@ class HomePage_Controller extends Page_Controller {
 	}
 	*/
 	
+	public function getCountryHolder(){
+		$holder = CountryHolder::get()->First();
+		if (isset($holder)){
+			return $holder->Link();
+		}
+	}
+	
+	public function getPeopleHolder(){
+		$holder = PeopleHolder::get()->First();
+		//if (isset($holder)){
+			return $holder->Link();
+		//}
+	}
+	
+	public function getAudioPieceHolder(){
+		$holder = AudioPieceHolder::get()->First();
+		if (isset($holder)){
+			return $holder->Link();
+		}
+	}
+	
+	public function getVideoPieceHolder(){
+		$holder = VideoPieceHolder::get()->First();
+		if (isset($holder)){
+			return $holder->Link();
+		}
+	}
+	
+	public function getImageHolder(){
+		$holder = ImageHolder::get()->First();
+		if (isset($holder)){
+			return $holder->Link();
+		}
+	}
+	
+	public function getEssayHolder(){
+		$holder = EssayHolder::get()->First();
+		if (isset($holder)){
+			return $holder->Link();
+		}
+	}
+	
 }

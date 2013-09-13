@@ -1,7 +1,7 @@
 <div class="content-container typography">	
 	<h2> Search Query: $Query</h2>
-	<div id="bibliography-results"><label>Search bibliographic references only </label><input type="checkbox" id="bibliography-checkbox" name="Search Bibliography" /></div>
-	
+	<!--<div id="bibliography-results"><label>Search bibliographic references only </label><input type="checkbox" id="bibliography-checkbox" name="Search Bibliography" /></div>-->
+	Link : $Link
 	<section class="search-results">
 	<ul id="searchResults">	
 		<!--$searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'-->
@@ -23,9 +23,9 @@
 			<ul>
 				<% loop People %>
 						<% if Name %>
-							<li><a href="peoples/show/{$ID}">$Name</a></li>
+							<li><a href="{$Top.getPeopleHolder}show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="peoples/show/{$ID}">$Title</a></li>
+							<li><a href="{$Top.getPeopleHolder}show/{$ID}">$Title</a></li>
 						<% end_if %>
 	
 				<% end_loop %>
@@ -36,9 +36,9 @@
 		<ul>
 				<% loop Essay %>
 						<% if Name %>
-							<li><a href="essays/show/{$ID}">$Name</a></li>
+							<li><a href="{$Top.getEssayHolder}show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="essays/show/{$ID}">$Title</a></li>
+							<li><a href="{$Top.getEssayHolder}show/{$ID}">$Title</a></li>
 						<% end_if %>
 				<% end_loop %>
 			</ul>	
@@ -48,9 +48,9 @@
 			<ul>
 				<% loop Country %>
 						<% if Name %>
-							<li><a href="countries/show/{$ID}">$Name</a></li>
+							<li><a href="{$Top.getCountryHolder}show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="countries/show/{$ID}">$Title</a></li>
+							<li><a href="{$Top.getCountryHolder}show/{$ID}">$Title</a></li>
 						<% end_if %>
 				<% end_loop %>
 			</ul>	
@@ -60,9 +60,9 @@
 			<ul>
 				<% loop AudioPiece %>
 						<% if Name %>
-							<li><a href="audio/show/{$ID}">$Name</a></li>
+							<li><a href="{$Top.getAudioPieceHolder}show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="audio/show/{$ID}">$Title</a></li>
+							<li><a href="{$Top.getAudioPieceHolder}show/{$ID}">$Title</a></li>
 						<% end_if %>
 				<% end_loop %>
 			</ul>	
@@ -72,9 +72,9 @@
 			<ul>
 				<% loop VideoPiece %>
 						<% if Name %>
-							<li><a href="video/show/{$ID}">$Name</a></li>
+							<li><a href="{$Top.getVideoPieceHolder}show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="video/show/{$ID}">$Title</a></li>
+							<li><a href="{$Top.getVideoPieceHolder}show/{$ID}">$Title</a></li>
 						<% end_if %>
 				<% end_loop %>
 			</ul>
@@ -83,11 +83,12 @@
 		<li>Images</li>
 			<ul>
 				<% loop Image %>
+					
 						<% if Name %>
-							<li><a href="images/show{$ID}">$Name</a></li>
+							<li><a href="{$Top.getImageHolder}show/{$ID}">$Name</a></li>
 						<% else_if Title %>
-							<li><a href="images/show/{$ID}">$Title</a></li>
-						<% end_if %>
+							<li><a href="{$Top.getImageHolder}show/{$ID}">$Title</a></li>
+						<% end_if %> 
 				<% end_loop %>
 			</ul>
 		<% end_if %>
