@@ -3,7 +3,7 @@
 		<div class="content container-fluid">
 			<div class="artPic">
 				<img src="{$URL}">
-				<span id="caption">$Caption</p>
+				<span id="caption">$parsedCaption</p>
 				
 			</div>
 		</div>

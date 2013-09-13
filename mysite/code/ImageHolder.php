@@ -51,7 +51,22 @@ class ImageHolder_Controller extends Page_Controller {
 	
 	public static $childPage = 'Image';
 	
-
+	
+	
+	public function getImages(){
+		/*$images = new ArrayList();
+		$artPhotoImages = Image::get()->filter(array('Type' => 'ArtPhoto'));
+		$fieldPhotoImages = Image::get()->filter(array('Type' => 'FieldPhoto'));
+		$images->merge($artPhotoImages);
+		$images->merge($fieldPhotoImages);*/
+		
+		//temporary image getter to get only chris roy images for testing purposes
+		$images = Image::get();
+		$paginatedImageList = new PaginatedList($images, $this->request);
+		$paginatedImageList->setPageLength(25);
+		$paginatedImageList->sort('RAND()');
+		return $paginatedImageList;
+	}	
 	
 	
 	

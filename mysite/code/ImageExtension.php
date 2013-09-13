@@ -102,5 +102,95 @@ class ImageExtension extends DataExtension {
     $imageHolder = ImageHolder::get_one("ImageHolder");
     return $imageHolder->Link().'show/'.$this->owner->ID;
   }
+  
+  //returns returnedCaption
+  public function parsedCaption(){
+  
+      $returnedCaption = $this->owner->Caption; //make a copy of Caption to modify progressively in the function
+      
+  	  $captionTemp = explode("</p>", $this->owner->Caption); //Index 0 should be the first paragraph
+  	  
+  	  $captionFirstParagraph = $captionTemp[0]; //Get index 0
+  	  
+  	  $captionFirstParagraph = trim($captionFirstParagraph); //Trim off leading white space
+  	  
+  	  $captionFirstParagraph = str_replace("<p>", "", $captionFirstParagraph);
+  	  
+  	  //Take first paragraph out of what we'll be returning, as we'll be putting our own in
+  	  $returnedCaption = str_replace($captionFirstParagraph, '', $returnedCaption);
 
-	}
+	  $captionArray = explode(';', $captionFirstParagraph); //break first line of caption up into its setions
+	  
+	 /*  ----DEBUGGING-----
+	 print_r('CAPTION ARRAY IS');
+	  
+	 print_r($captionArray);*/
+	  
+	  $classOfCaptionItem = array('Country', 'People'); //these are in the order they appear using what we believe to be the standard museum format
+	  
+	  $newCaptionLine = ''; //Once completed, this is the line we want to insert at the beginning of the caption
+	  
+	  $captionSectionIndex = 0; // we will iterate through the classOfCaptionItem array by incrementing this for each run-through of the inner loop
+
+	  foreach ($captionArray as $captionSection){ //captionSection should be items that are in the class 
+	  
+	  	  if (!(isset($classOfCaptionItem[$captionSectionIndex]))){
+		  	  break;
+	  	  }
+	  	  
+	  	  $captionSection = trim($captionSection); //takes white space off beginning/end 
+	  	  		  
+		  $captionItems = explode(',', $captionSection); //The different parts of a section, separated by commas
+		  
+		  $newCaptionSection = ' '; //This is the part (I use the word 'section') of a line that's between two semicolons.  We want it to start with a space
+		 
+		  
+		  foreach ($captionItems as $captionItem){ //now we're iterating through the items in a section
+			  $captionItem = trim($captionItem); //takes white space off beginning/end
+		  
+			  $searchedForClass = $classOfCaptionItem[$captionSectionIndex]; //This is the class we're looking for using $searchedForClass::get below
+			  
+			  $newCaptionItem = '';  //We will build a new caption item and add it to the caption section (each line has multiple sections).  Once the line is completed, we will add it to the beginning of the original caption
+			  
+			  $object = $searchedForClass::get()->filter(array('Title' => $captionItem))->First(); 
+			  
+			  if ($object){
+
+				  $newCaptionItem = '<a href="' . $object->Link() . '">' . $captionItem . '</a>, '; //Note the comma -- if this is not necessary, it should be stripped off later
+
+				  //print_r($object);
+			  }
+			  
+			  else {
+			  
+			      $newCaptionItem = $captionItem . ', ';
+				 
+			  }
+			  
+			  $newCaptionSection = $newCaptionSection . $newCaptionItem; //Build the section out of each of the items
+		  }
+		  
+		  $newCaptionSection = substr($newCaptionSection, 0, -2); //Get rid of final comma and space at end of section
+		  
+		  if (!($classOfCaptionItem[$captionSectionIndex] == $classOfCaptionItem[count($classOfCaptionItem)-1])){ //If not on the last class we're going through, add a semicolon	  
+				$newCaptionSection = $newCaptionSection . ';';	  
+		  }
+		  //else {
+		  			  
+		  //}
+
+		  $newCaptionLine = $newCaptionLine . $newCaptionSection; //Add section to line
+		   
+		  $captionSectionIndex++; //Used to check what class we're searching for
+		  		  
+	  }
+	  
+	   //Add closing p tag at the end, since you exploded using it
+	  $newCaptionLine = $newCaptionLine . '</p>';
+	  
+	  $returnedCaption = $newCaptionLine . $returnedCaption; //Add line to caption
+	  
+	  return $returnedCaption; //Et voila!
+  }
+
+}
