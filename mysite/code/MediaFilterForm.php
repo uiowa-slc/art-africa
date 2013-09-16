@@ -19,8 +19,9 @@ class MediaFilterForm extends Form {
         );
         $actions = new FieldList(FormAction::create("", "Filter"));
         $this->setFormMethod("GET");
-        $this->disableSecurityToken();
+
         parent::__construct($controller, $name, $fields, $actions);
+        $this->disableSecurityToken();
     }
 
      

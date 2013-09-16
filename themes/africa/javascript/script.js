@@ -53,13 +53,24 @@ $(document).ready(function () {
   //     enabled: true
   //   }
   // });
+    var poppingUp = false;
 
    $('.artPhoto').magnificPopup({
     type: 'image',
     gallery: {
       enabled: true,
       navigateByImgClick: false
+    },
+    callbacks: {
+      open: function() {
+        $('.top-link').hide();
+        poppingUp = true;
+      },
+      close: function(){
+        poppingUp = false;
+      }
     }
+
   }); 
   
  /*  $('#main_content').magnificPopup({
@@ -90,7 +101,7 @@ $(document).ready(function () {
     var topOffset = 220;
     var topDuration = 500;
     jQuery(window).scroll(function() {
-        if (jQuery(this).scrollTop() > topOffset) {
+        if ((jQuery(this).scrollTop() > topOffset) && (poppingUp == false)) {
             jQuery('.top-link').fadeIn(topDuration);
         } else {
             jQuery('.top-link').fadeOut(topDuration);

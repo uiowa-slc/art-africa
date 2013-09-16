@@ -8,7 +8,7 @@
       $container.masonry({
         itemSelector: '.item',
         columnWidth: 200,
-        gutter: 10,
+        gutter: 0,
         
       });
     });

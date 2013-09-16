@@ -44,7 +44,7 @@
             <div id="homepage-pic-shadow"></div>
             <% loop HomepagePics %>
               <span class="switcher<% if First %> selected<% end_if %>"
-                    data-img-url="{$HomepagePic.CroppedFocusedImage(2000,1000).URL}"
+                    data-img-url="{$HomepagePic.CroppedFocusedImage(1000,500).URL}"
                     data-link="{$PageLink}"
                     data-desc="{$CreditLine}">
               </span>
@@ -81,13 +81,13 @@
             </p>
           </div>
           <div class="col">
-            <h3>See the African Art collection in person</h3>
+           <!-- <h3>See the African Art collection in person</h3>
             <p>
               1375 Highway One West<br>
               1840 Studio Arts Building<br>
               Iowa City, IA 52242<br>
               Telephone (319) 335-1727
-            </p>
+            </p>-->
           </div>
           <div class="col">
             <p style="margin-top: 2rem">

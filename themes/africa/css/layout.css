@@ -275,20 +275,20 @@ button {
   }
 
 }
-
-@media (min-width: 1100px) {
+/*
+@media (min-width: 1024px) {
   .nav1 a, #searchInput {
     font-size: 1rem;
   }
 
   .nav1 >ul>li {
     display: inline-block;
-   /* margin-top: 1.0625rem; */
+
     margin-right: 1.25rem;
   }
 
 
-}
+}*/
 @media (min-width: 1385px) {
   .nav1 >ul>li>a.home {
     display: block;
@@ -573,7 +573,7 @@ button {
   }
 }*/
 
-.media-row .item img {
+.item img {
   width: 100%;
 }
 .column {
@@ -685,7 +685,7 @@ ul.columns li {
 
 @media (min-width: 769px) {
   #main_content {
-    padding: 1.5rem 1.5rem 0 1.5rem;
+    padding: 1.5rem;
     position: absolute;
     top: 1rem;
     left: 18rem;
@@ -1177,7 +1177,7 @@ article.page {
 	list-style-type: none;
 	margin: 0;
 	padding: 0; 
-	height: 650px;
+	height: 400px;
 }
 
 .large-image-grid li span {
@@ -1189,17 +1189,26 @@ article.page {
 
 .image-scroller-container ul li{
 	vertical-align: top;
+  display: inline-block;
 }
 
 .image-scroller-container ul li img{
 	width: 100%;
 }
-
+  .image-scroller-container ul{
+    height: 230px;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
 @media (min-width: 480px) {
 	.image-scroller-container ul li{
-		display: inline-block;
+		/*display: inline-block;*/
 		/*width: 30%;*/
 	}
+  .image-scroller-container ul.large-image-grid {
+    height: 500px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1207,12 +1216,15 @@ article.page {
 		/*width: 40%;*/
 	}
 
-	.image-scroller-container ul{
+	/*.image-scroller-container ul{
 		height: 230px;
 		white-space: nowrap;
 		overflow-x: auto;
 		overflow-y: hidden;
-	}
+	}*/
+  .image-scroller-container ul.large-image-grid {
+    height: 650px;
+  }
 }
 
 .mobile-filter-container .media-filter-form #MediaFilterForm_index{

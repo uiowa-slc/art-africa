@@ -1,4 +1,4 @@
-<aside>
+<aside class="visible-phone">
 	<% if Menu(2) %>
 		<nav class="secondary">
 			<h3>

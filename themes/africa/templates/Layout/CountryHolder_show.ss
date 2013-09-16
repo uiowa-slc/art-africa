@@ -1,6 +1,6 @@
 <div class="content-container typography map-page">	
 	<article>
-		<h1 class="padded" style="padding-bottom:2.5rem">$Title</h1>
+		<h1 class="padded">$Title</h1>
 		<div id="map-canvas"></div>
 		<% include SmallImageScroller %>
 		<div class="content container-fluid padded" style="padding-top:0">
