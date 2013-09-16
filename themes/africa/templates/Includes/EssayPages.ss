@@ -26,8 +26,10 @@
        	<% if $Level(1).Title == 'Chapters' && $ClassName = 'Subtopic' %>
        	<%--This check should only occur when this include is used with a Chapter, not with a Field Essay or the introduction to a Chapter
        	    getNextSubtopic is in Subtopic.php  --%>      
-       	     	
-       		  <a href="{$getNextSubtopic($Title, 'Link')}">Next Subtopic: {$getNextSubtopic($Title, 'Title')}</a>
+       	     	<% with $getNextSubtopic($Title) %>
+	       		  <!--<a href="{$getNextSubtopic($Title, 'Link')}">Next Subtopic: {$getNextSubtopic($Title, 'Title')}</a>-->
+	       		  <a href="{$Link}">Next $ClassName: $Title</a>
+       		  <% end_with %>
 	   	<% end_if %>
       
       
