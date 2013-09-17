@@ -106,7 +106,8 @@ class EssayHolder_Controller extends Page_Controller {
 
 	
 	public function getEssays () {
-		$essays = Essay::get();
+	
+		$essays = Essay::get()->sort('Title');
 		return $essays;
 	}
 }

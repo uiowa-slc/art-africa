@@ -67,19 +67,27 @@
             <% if $Level(1).Title == 'Chapters' %>
               <% loop ChildrenOf('chapters') %>
               <li>
-                <a href="$Link">$MenuTitle</a>
+                <!--<a href="$Link">$MenuTitle</a>-->
                 <% if LinkOrSection = section %>
-                  <nav class="nav3">
-                    <ul>
-                      <% loop Children %>
-                      <li>
-                        <a href="$Link"<% if LinkOrCurrent = current %> class="selected"<% end_if %>>
-                          $MenuTitle
-                        </a>
-                      </li>
-                      <% end_loop %>
-                    </ul>
-                  </nav>
+                  <a href="$Link" class="nav3">$MenuTitle</a>
+                  <% if Children %>
+                  	
+	                  <nav class="nav3">
+	                    <ul>
+	                      <% loop Children %>
+		                      <li>
+		                        <a href="$Link"<% if LinkOrCurrent = current %> class="selected"<% end_if %>>
+		                          $MenuTitle
+		                        </a>
+		                      </li>
+	                      <% end_loop %>	                   
+	                    </ul>
+	                  </nav>
+                  <% end_if %>
+                <% else %>
+                	 
+                 <a href="$Link">$MenuTitle</a>
+                	             
                 <% end_if %>
               </li>
               <% end_loop %>

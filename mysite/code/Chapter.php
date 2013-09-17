@@ -98,6 +98,45 @@ class Chapter_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ();
 	
+	public function getNextChapter(){
 	
+		$chapterHolder = $this->getParent();
+		$chapters = $chapterHolder->Children();
+				
+		$check = false; //true when match for chapter found
+				
+			foreach($chapters as $loopChapter){
+			
+				if ($check == true){
+					$returnedItem = $loopChapter;
+									
+					$check = false;
+				}
+				if ($loopChapter->Title == $this->Title){
+					$check = true;
+				}	
+				
+			}		
+		
+		
+		if (!isset($returnedItem)){
+			//We're in the last chapter, so return the first chapter's link or title
+			$returnedItem = Chapter::get()->First();
+		}
+	    
+	    if (isset($returnedItem)){
+			return $returnedItem;
+		}
+	}
 	
+	public function hasChildren(){
+		$children = $this->Children()->First(); //just $this->Children returns an empty ArrayList that evaluates to true
+
+		if ($children){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }

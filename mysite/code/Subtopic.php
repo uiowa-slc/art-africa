@@ -109,9 +109,9 @@ class Subtopic_Controller extends Page_Controller {
 	
 	}
 	
-	public function getNextSubtopic($title){
+	public function getNextSubtopic($title, $type='Subtopic'){
 	//Title is used to get the next subtopic, returnType returns either a Link or the Title 
-		$currentSubtopic = Subtopic::get()->filter(array('Title' => $title))->First();
+		$currentSubtopic = $type::get()->filter(array('Title' => $title))->First();
 		$chapter = $currentSubtopic->getParent();
 		$chapterSubtopics = $chapter->Children();
 		
@@ -170,7 +170,6 @@ class Subtopic_Controller extends Page_Controller {
 			return $returnedSubtopic->Title;
 		}*/
 		
-		print_r($returnedItem);
 		
 		return $returnedItem;
 	}
