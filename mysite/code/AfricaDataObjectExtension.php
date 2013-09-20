@@ -47,6 +47,22 @@ class AfricaDataObjectExtension extends DataExtension {
 	  return $link;
   }  
   
+  public function getCreditLine(){
+	    
+	  $newCreditLineArray = explode('</p>', $this->owner->Caption);
+
+	  $desiredIndex = count($newCreditLineArray) - 2; //This should be the credit line portion of the caption -- the last item of the array is blank based on how the explode works
+	  if ($desiredIndex > 0){
+	  	$newCreditLine = $newCreditLineArray[$desiredIndex]; //Get credit line
+	  	
+	  	$newCreditLine = strip_tags($newCreditLine); //Takes out <p> and </p> tags 
+	    
+	    return $newCreditLine;
+	  }
+	 
+	  return;
+  }
+  
   public function addCommonFields($fields){
 	  	$owner = $this->owner;
 	  	//print_r($owner->Images());

@@ -56,6 +56,7 @@ ShortcodeParser::get('default')->register(
 
 Object::add_extension("DataObject","AfricaDataObjectExtension");
 Object::add_extension("Image","ImageExtension");
+Object::add_extension("AssetAdmin","AssetAdminExtension");
 //Object::add_extension("File","FileExtension");
 FulltextSearchable::enable();
 //Object::add_extension('CollectionPiece', "FulltextSearchable('Keywords')");

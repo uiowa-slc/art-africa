@@ -20,7 +20,7 @@ class FormatImageNameTask extends BuildTask {
 		$pattern = '/[A-Z]{3}[0-9]{3}/';
 		preg_match($pattern, $subject, $matches, PREG_OFFSET_CAPTURE);*/
 		
-		$imageList = Image::get()->where("\"ClassName\" = 'Image'");
+		$imageList = File::get()->where("\"ClassName\" = 'Image' and Name LIKE '%CMS%'");
 		
 		$imageListIterator = $imageList->getIterator();
 		$iter = 0;
@@ -41,7 +41,7 @@ class FormatImageNameTask extends BuildTask {
 				$match = $matches[0][0];
 				print_r('<br><br>');
 				print_r($match . ' MATCH');
-				$image->setName($match);
+				$image->setName($match . '.jpeg');
 				$image->write();
 				
 			}
