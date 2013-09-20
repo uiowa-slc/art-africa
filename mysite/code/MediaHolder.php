@@ -106,7 +106,7 @@ class MediaHolder_Controller extends Page_Controller {
 
 		$images = $images->sort('RAND()');
 
-		$paginatedImageList = new PaginatedImageList($images, $this->request);
+		$paginatedImageList = new PaginatedList($images, $this->request);
 		$paginatedImageList->setPageLength(20);
 		
 		return $paginatedImageList;
