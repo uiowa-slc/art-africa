@@ -23,7 +23,9 @@ class ImageExtension extends DataExtension {
   'Style' => 'Text',
   'Substyle' => 'Text',
   'Collection' => 'Text',
-  'Source' => 'Text'
+  'Source' => 'Text',
+
+  "HideFromMediaGrid" => "Boolean"
   
   );
   
@@ -55,7 +57,7 @@ class ImageExtension extends DataExtension {
 		$fields = $this->owner->addCommonFields($fields);
 	
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
-		
+		$fields->addFieldToTab('Root.Main', new CheckboxField('HideFromMediaGrid', 'Hide this image from the media grid.'));
 		   $captionField = new HTMLEditorField('Caption', 'Caption');
     //å$captionField->setRows(1);
  		$fields->addFieldToTab('Root.Main', $captionField);

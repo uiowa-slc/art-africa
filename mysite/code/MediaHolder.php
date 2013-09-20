@@ -83,7 +83,7 @@ class MediaHolder_Controller extends Page_Controller {
 
 		$filters = $this->getFilters();
 
-		$images = Image::get();
+		$images = Image::get()->filter(array('HideFromMediaGrid' => 'false'));
 
 		if($filters['Country'] != ''){
 			$images = $images->addFilter((array('Countries.ID' => $filters['Country'])));

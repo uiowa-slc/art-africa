@@ -25,13 +25,29 @@ $container.infinitescroll({
           img: 'http://i.imgur.com/6RMhx.gif'
         }
       },
-      // trigger Masonry as a callback
+      // trigger Isotope as a callback
       function( newElements ) {
         var $newElems = $( newElements ).css({ opacity: 0 });
+           $('.artPhoto').magnificPopup({
+              type: 'image',
+              gallery: {
+                enabled: true,
+                navigateByImgClick: false
+              },
+              callbacks: {
+                open: function() {
+                  $('.top-link').hide();
+                  poppingUp = true;
+                },
+                close: function(){
+                  poppingUp = false;
+                }
+              }
+            });
         // ensure that images load before adding to masonry layout
         $newElems.imagesLoaded(function(){
-
       	 $container.isotope( 'appended', $( newElements ) ); 
+
 		});
     }
     );
