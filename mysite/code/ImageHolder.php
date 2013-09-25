@@ -81,8 +81,12 @@ class ImageHolder_Controller extends Page_Controller {
 	}
 	
 	
-	 
-	
+	  public function ReturnLink(){
+
+	  	
+	  	
+	  }	 
+		
 	
 	
 }

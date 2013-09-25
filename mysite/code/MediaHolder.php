@@ -50,21 +50,30 @@ class MediaHolder_Controller extends Page_Controller {
 	 * @var array
 	 */
 	private static $allowed_actions = array ("doFilter", "filters");
-	
-	public function show (){
-	//Displays a data object
+	//This function apparently isn't being used.. yet.
+/*	public function show ($request){
 					
 		$otherClass = 'Media';
-		
+
+		$sourceID = $request->source;
+
+		if($sourceID){
+			$source = SiteTree::get_by_id("Page", $sourceID);
+		}
 		$objectID = $this->request->param('ID');
 		if ($objectID){
 		
 		    $object = $otherClass::get_by_id($otherClass, $objectID);
 		    
 		    if(isset($object)){
+
+		    	$data = array (
+		    		"object" => $object,
+		    		"source" => $source
+		    		);
 		    	
 		       $showTemplate = $class . 'Holder_show';
-			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
+			   return $this->Customise($data)->renderWith(array($showTemplate, 'Page'));
 			   
 		    }else{
 		    }		   
@@ -73,7 +82,7 @@ class MediaHolder_Controller extends Page_Controller {
 			return $this->renderWith('Page');
 		}
 	
-	}
+	}*/
 	public function getImages(){
 		/*$images = new ArrayList();
 		$artPhotoImages = Image::get()->filter(array('Type' => 'ArtPhoto'));

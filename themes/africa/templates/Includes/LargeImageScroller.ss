@@ -1,3 +1,4 @@
+<% if Images %>
 <div class="image-scroller-container">
   <ul class="large-image-grid">
     <% loop Images %>
@@ -8,3 +9,4 @@
     <% end_loop %>
   </ul>
 </div>
+<% end_if %>

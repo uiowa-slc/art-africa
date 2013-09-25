@@ -51,9 +51,11 @@ class Page_Controller extends ContentController {
 			$themeFolder.'/javascript/jquery.magnific-popup.min.js',
 			$themeFolder.'/javascript/jquery.sticky.js',
 			$themeFolder. '/javascript/jquery.infinitescroll.js',
+			$themeFolder. '/javascript/easyzoom.min.js',
 			$themeFolder. '/javascript/script.js',
 			$themeFolder. '/javascript/jquery.isotope.min.js',
 			$themeFolder. '/javascript/isotope-init.js',
+
 			/*$themeFolder. '/javascript/masonry.pkgd.min.js',*/
 			//$themeFolder. '/javascript/salvattore.js',
 			//$themeFolder. '/javascript/salvattore-init.js',
@@ -392,10 +394,34 @@ class Page_Controller extends ContentController {
 
 
 	//Displays a data object of the class childPage, which is found in the controller of the holder class show is called on
-	public function show() {
+	public function show($request) {
 		
 		$otherClass = $this::$childPage;
 		$objectID = Convert::raw2xml($this->request->param('ID'));
+
+		if($this->request->getVar('source')){
+
+			$sourceID = $this->request->getVar('source');
+			$showID = $this->request->getVar('show');
+
+			if((isset($sourceID))&&(isset($showID))){
+				//echo "shouldnt see this";
+				$sourcePage = SiteTree::get_by_id("Page", $sourceID);
+
+				//print_r($sourcePage->holds);
+				$sourceHolds = $sourcePage->holds;
+				$source = $sourceHolds::get_by_id($sourceHolds, $showID);
+				//$source = $sourcePage;
+
+			} elseif(isset($sourceID)){
+				$source = SiteTree::get_by_id("Page", $sourceID);
+			}else{
+				$source = null;
+			}
+		}
+
+
+
 		//We can '/show/ID' or '/show/object+name'
 		if ($objectID) {
 			if (is_numeric($objectID)) {
@@ -409,7 +435,21 @@ class Page_Controller extends ContentController {
 				$showTemplate = $otherClass . 'Holder_show';
 				// print_r("THIS SHOW IS CALLED");
 				// print_r($object);
-				return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
+
+
+
+				if (!isset($source)){
+					$data = array (
+						"Object" => $object,
+						);				
+				}else{
+					$data = array (
+						"Object" => $object,
+						"Source" => $source
+					);
+				}
+
+				return $this->Customise($data)->renderWith(array($showTemplate, 'Page'));
 
 			}else {
 				// If Object isn't set/found, return a 404 error.

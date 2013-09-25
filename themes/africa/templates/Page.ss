@@ -22,7 +22,7 @@
   </head>
   <body>
   
-    <div id="view">
+    <div id="view" class="$ClassName $Action">
       <div class="top-link"><a href="#">$Title &#8593;</a></div>
       <div id="top">
         <div class="hamburger m" data-toggle=".nav1" onclick="void(0)">
@@ -57,7 +57,7 @@
           </ul>
         </nav>
       </div>
-      <div id="middle">
+      <div id="middle" class="">
         <!-- for chapter pages -->
         <div id="subnav-container">
         <div id="chapters_heading"><a href="$Level(1).Link">$Level(1).Title</a></div>

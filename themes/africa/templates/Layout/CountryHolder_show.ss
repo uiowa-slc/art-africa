@@ -1,3 +1,4 @@
+<% with $Object %>
 <div class="content-container typography map-page">	
 	<article>
 		<h1 class="padded">$Title</h1>
@@ -159,4 +160,4 @@
 		</div>
 	</article>
 </div>
-
+<% end_with %>

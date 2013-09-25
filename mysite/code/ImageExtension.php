@@ -102,8 +102,51 @@ class ImageExtension extends DataExtension {
 
   public function ShowLink(){
     $imageHolder = ImageHolder::get_one("ImageHolder");
-    return $imageHolder->Link().'show/'.$this->owner->ID;
+    $sourcePage = Director::get_current_page();
+    $controller = Controller::curr();
+    //print_r($controller->customisedObject->Object);
+
+
+    if(isset($controller->customisedobject)){
+    
+    	if($controller->customisedObject->Object){
+	    	//Debug::message("hello");
+	    	$sourceShowObject = $controller->customisedObject->Object;
+    	}
+    }
+
+    $link = $imageHolder->Link().'show/'.$this->owner->ID;
+
+    if (isset($sourcePage)){
+    	$link .= '&source='.$sourcePage->ID;
+    }
+
+    if(isset($sourceShowObject)){
+    	$link .= '&show='.$sourceShowObject->ID;
+    }
+    return $link;
+    
   }
+
+
+    public function Landscape() {
+        return $this->owner->getWidth() > $this->owner->getHeight();
+    }
+     
+    public function Portrait() {
+        return $this->owner->getWidth() < $this->owner->getHeight();
+    }
+
+    public function SingleDisplay(GD $gd){
+
+    	if($this->Landscape()){
+    		return $this->owner->SetWidth(1000);
+
+    	} elseif ($this->Portrait()){
+    		return $this->owner->SetWidth(300);
+    	}
+
+    }
   
   //returns returnedCaption
   public function parsedCaption(){

@@ -1,15 +1,23 @@
+
 <div class="content-container typography">	
 	<article>
 		<div class="content container-fluid">
+			<p><a href="$Source.Link">Return to $Source.Title</a></p>
 			<div class="artPic">
-				<img src="{$URL}">
-				<span id="caption">$parsedCaption</p>
+
+			<div class="zoom-container">
+				<a id="zoom-target" href="$Object.URL">
+					<img src="{$Object.SingleDisplay.URL}" height="$Object.Height" width="$Object.Width">
+				</a>
+			</div>
+				
+				<span id="caption">$Object.parsedCaption</p>
 				
 			</div>
 		</div>
 		<div class="content columns">
 			<h2>Description</h2>
-			$Description		
+			$Object.Description		
 			
 			<!--
 			People:
