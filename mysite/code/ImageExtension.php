@@ -134,18 +134,36 @@ class ImageExtension extends DataExtension {
     }
      
     public function Portrait() {
+    	$height = $this->owner->getHeight();
+    	$width = $this->owner->getWidth();
+
         return $this->owner->getWidth() < $this->owner->getHeight();
     }
 
     public function SingleDisplay(GD $gd){
+    	$height = $this->owner->getHeight();
+    	$width = $this->owner->getWidth();
 
     	if($this->Landscape()){
     		return $this->owner->SetWidth(1000);
 
-    	} elseif ($this->Portrait()){
+    	} elseif ($this->Portrait() && $width >= 300){
     		return $this->owner->SetWidth(300);
+    	} else {
+    		return $this->owner;
     	}
 
+    }
+
+    public function NeedsZoom(){
+    	$height = $this->owner->getHeight();
+    	$width = $this->owner->getWidth();
+
+    	if(($this->Portrait()) && ($height > 700) && ($width > 300)){
+    		return true;
+    	} else {
+    		return false;
+    	}
     }
   
   //returns returnedCaption

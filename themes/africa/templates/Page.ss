@@ -232,5 +232,13 @@
         </div>
       </div>
     </div>
+    <% if $Object.NeedsZoom %>
+      <script type="text/javascript">
+        $('#zoom-target').easyZoom({
+          parent: 'div.zoom-container'
+        });
+      </script>
+    <% end_if %>
+
   </body>
 </html>

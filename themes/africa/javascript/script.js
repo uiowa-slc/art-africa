@@ -108,10 +108,6 @@ $(document).ready(function () {
         }
     });
 
-  $('#zoom-target').easyZoom({
-    parent: 'div.zoom-container'
-  });
-  
 });
 
 $(document).on('click', '.mfp-img', function (event) {
