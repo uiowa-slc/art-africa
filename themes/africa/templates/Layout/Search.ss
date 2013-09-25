@@ -1,99 +1,199 @@
 <div class="content-container typography">	
 	<h2> Search Query: $Query</h2>
 	<!--<div id="bibliography-results"><label>Search bibliographic references only </label><input type="checkbox" id="bibliography-checkbox" name="Search Bibliography" /></div>-->
-	Link : $Link
 	<section class="search-results">
 	<ul id="searchResults">	
 		<!--$searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'-->
 
 		<% if Subtopic %>
 		<li>Subtopics</li>
-		<ul>
-			<% loop Subtopic %>
-					<% if Name %>
-						<li><a href="{$Link}">$Name</a></li>
-					<% else_if Title %>
-						<li><a href="{$Link}">$Title</a></li>
-					<% end_if %>
-			<% end_loop %>
-		<% end_if %>
-		</ul>
+			<div class="padded">
+			 <table class="table table-hover">
+				<tbody>
+				<tr>
+					<th>Subtopic Name</th>
+		    		<th>Dummy field</th>
+		    		<th>Dummy field 2</th>
+				</tr>
+					<% loop Subtopic %>
+						<tr>
+							<% if Name %>
+								<td><a href="{$Link}">$Name</a></td>
+							<% else_if Title %>
+								<td><a href="{$Link}">$Title</a></td>
+							<% end_if %>
+								<td>Insert dummy field</td>
+								<td>Dummy field 2</td>
+						</tr>					
+					<% end_loop %>
+			
+				</tbody>
+			</table>
+		  </div>
+	    <% end_if %> 
+		  
 		<% if People %>
 		<li>People</li>
-			<ul>
-				<% loop People %>
-						<% if Name %>
-							<li><a href="{$Top.getPeopleHolder}show/{$ID}">$Name</a></li>
-						<% else_if Title %>
-							<li><a href="{$Top.getPeopleHolder}show/{$ID}">$Title</a></li>
-						<% end_if %>
-	
-				<% end_loop %>
-			</ul>	
+			<div class="padded">
+			 <table class="table table-hover">
+				<tbody>
+				<tr>
+					<th>People Name</th>
+		    		<th>Dummy name</th>
+		    		<th>Dummy name 2</th>
+				</tr>
+					<% loop People %>
+						<tr>
+							<% if Name %>
+								<td><a href="{$Link}">$Name</a></td>
+							<% else_if Title %>
+								<td><a href="{$Link}">$Title</a></td>
+							<% end_if %>
+								<td>Insert dummy field</td>
+								<td>Dummy field 2</td>
+						</tr>					
+					<% end_loop %>
+				</tbody>
+			</table>
+		  </div>
 		<% end_if %>
-		<% if Essay %>
-		<li>Essays</li>
-		<ul>
-				<% loop Essay %>
-						<% if Name %>
-							<li><a href="{$Top.getEssayHolder}show/{$ID}">$Name</a></li>
-						<% else_if Title %>
-							<li><a href="{$Top.getEssayHolder}show/{$ID}">$Title</a></li>
-						<% end_if %>
-				<% end_loop %>
-			</ul>	
-	    <% end_if %>
-	    <% if Country %>
-		<li>Countries</li>
-			<ul>
-				<% loop Country %>
-						<% if Name %>
-							<li><a href="{$Top.getCountryHolder}show/{$ID}">$Name</a></li>
-						<% else_if Title %>
-							<li><a href="{$Top.getCountryHolder}show/{$ID}">$Title</a></li>
-						<% end_if %>
-				<% end_loop %>
-			</ul>	
-		<% end_if %>
-	    <% if AudioPiece %>
-		<li>Audio Pieces</li>
-			<ul>
-				<% loop AudioPiece %>
-						<% if Name %>
-							<li><a href="{$Top.getAudioPieceHolder}show/{$ID}">$Name</a></li>
-						<% else_if Title %>
-							<li><a href="{$Top.getAudioPieceHolder}show/{$ID}">$Title</a></li>
-						<% end_if %>
-				<% end_loop %>
-			</ul>	
-		<% end_if %>
-		<% if VideoPiece %>
-		<li>Video Pieces</li>
-			<ul>
-				<% loop VideoPiece %>
-						<% if Name %>
-							<li><a href="{$Top.getVideoPieceHolder}show/{$ID}">$Name</a></li>
-						<% else_if Title %>
-							<li><a href="{$Top.getVideoPieceHolder}show/{$ID}">$Title</a></li>
-						<% end_if %>
-				<% end_loop %>
-			</ul>
-		<% end_if %>
-		<% if Image %>	
-		<li>Images</li>
-			<ul>
-				<% loop Image %>
-					
-						<% if Name %>
-							<li><a href="{$Top.getImageHolder}show/{$ID}">$Name</a></li>
-						<% else_if Title %>
-							<li><a href="{$Top.getImageHolder}show/{$ID}">$Title</a></li>
-						<% end_if %> 
-				<% end_loop %>
-			</ul>
-		<% end_if %>
-			
 		
+		
+		
+	<% if Essay %>
+		<li>Essays</li>
+			<div class="padded">
+			 <table class="table table-hover">
+				<tbody>
+				<tr>
+					<th>Essay Name</th>
+		    		<th>Dummy name</th>
+		    		<th>Dummy name 2</th>
+				</tr>
+					<% loop Essay %>
+						<tr>
+							<% if Name %>
+								<td><a href="{$Link}">$Name</a></td>
+							<% else_if Title %>
+								<td><a href="{$Link}">$Title</a></td>
+							<% end_if %>
+								<td>Insert dummy field</td>
+								<td>Dummy field 2</td>
+						</tr>					
+					<% end_loop %>
+				</tbody>
+			</table>
+		  </div>
+    <% end_if %>
+	    
+	<% if Country %>
+		<li>Countries</li>
+			<div class="padded">
+			 <table class="table table-hover">
+				<tbody>
+				<tr>
+					<th>Country Name</th>
+		    		<th>Dummy name</th>
+		    		<th>Dummy name 2</th>
+				</tr>
+					<% loop Country %>
+						<tr>
+							<% if Name %>
+								<td><a href="{$Link}">$Name</a></td>
+							<% else_if Title %>
+								<td><a href="{$Link}">$Title</a></td>
+							<% end_if %>
+								<td>Insert dummy field</td>
+								<td>Dummy field 2</td>
+						</tr>					
+					<% end_loop %>
+				</tbody>
+			</table>
+		  </div>
+    <% end_if %>
+    
+    <% if AudioPiece %>
+		<li>Audio Pieces</li>
+			<div class="padded">
+			 <table class="table table-hover">
+				<tbody>
+				<tr>
+					<th>Audio Piece Name</th>
+		    		<th>Dummy name</th>
+		    		<th>Dummy name 2</th>
+				</tr>
+					<% loop AudioPiece %>
+						<tr>
+							<% if Name %>
+								<td><a href="{$Link}">$Name</a></td>
+							<% else_if Title %>
+								<td><a href="{$Link}">$Title</a></td>
+							<% end_if %>
+								<td>Insert dummy field</td>
+								<td>Dummy field 2</td>
+						</tr>					
+					<% end_loop %>
+				</tbody>
+			</table>
+		  </div>
+    <% end_if %>   
+    
+        
+    <% if VideoPiece %>
+		<li>Video Pieces</li>
+			<div class="padded">
+			 <table class="table table-hover">
+				<tbody>
+				<tr>
+					<th>Video Piece Name</th>
+		    		<th>Dummy name</th>
+		    		<th>Dummy name 2</th>
+				</tr>
+					<% loop VideoPiece %>
+						<tr>
+							<% if Name %>
+								<td><a href="{$Link}">$Name</a></td>
+							<% else_if Title %>
+								<td><a href="{$Link}">$Title</a></td>
+							<% end_if %>
+								<td>Insert dummy field</td>
+								<td>Dummy field 2</td>
+						</tr>					
+					<% end_loop %>
+				</tbody>
+			</table>
+		  </div>
+    <% end_if %>        
+    
+       
+    <% if Image %>
+		<li>Images</li>
+			<div class="padded">
+			 <table class="table table-hover">
+				<tbody>
+				<tr>
+					<th>Image Name</th>
+		    		<th>Dummy name</th>
+		    		<th>Dummy name 2</th>
+				</tr>
+					<% loop Image %>
+						<tr>
+							<% if Name %>
+								<td><a href="{$Link}">$Name</a></td>
+							<% else_if Title %>
+								<td><a href="{$Link}">$Title</a></td>
+							<% end_if %>
+								<td>Insert dummy field</td>
+								<td>Dummy field 2</td>
+						</tr>					
+					<% end_loop %>
+				</tbody>
+			</table>
+		  </div>
+    <% end_if %>
+	         
+	    
+	 
 			
 	</ul>		
 	</section>

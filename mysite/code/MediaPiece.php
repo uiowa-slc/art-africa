@@ -57,7 +57,7 @@ class MediaPiece extends DataObject {
   	  
   	  //Breaks up link into query and path
   	  $parsedLink = parse_url($link);
-  	  
+  	  //
   	  print_r($parsedLink);
   	  
   	  if (isset($parsedLink['query'])){
