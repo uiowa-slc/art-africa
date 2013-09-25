@@ -178,10 +178,10 @@
 				</tr>
 					<% loop Image %>
 						<tr>
-							<% if Name %>
-								<td><a href="{$Link}">$Name</a></td>
-							<% else_if Title %>
-								<td><a href="{$Link}">$Title</a></td>
+							<% if Title %>
+								<td><a href="{$BaseHref}media/photos/show/{$Title}">$Title</a></td>
+							<% else %>
+								<td><a href="{$BaseHref}media/photos/show/{$ID}">$Name</a></td>
 							<% end_if %>
 								<td>Insert dummy field</td>
 								<td>Dummy field 2</td>

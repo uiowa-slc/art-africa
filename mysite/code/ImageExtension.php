@@ -171,6 +171,10 @@ class ImageExtension extends DataExtension {
   
       $returnedCaption = $this->owner->Caption; //make a copy of Caption to modify progressively in the function
       
+      if ($returnedCaption == '') {
+	      return $returnedCaption;
+      }
+      
   	  $captionTemp = explode("</p>", $this->owner->Caption); //Index 0 should be the first paragraph
   	  
   	  $captionFirstParagraph = $captionTemp[0]; //Get index 0

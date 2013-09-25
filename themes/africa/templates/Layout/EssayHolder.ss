@@ -1,18 +1,35 @@
 <div class="content-container typography">	
 	<article>
+	
 		<h1>$Title</h1>
-		<div class="content">
-			$Content
-
-			<ul>
-				<% loop getObjects('Essay') %>
-					<% if Title %>
-						<li><a href="$Link(false)">$Title</a></li>
-					<% end_if %>
-				<% end_loop %>
-			</ul>
-		</div>
+	
+		<div class="padded">
+			 <table class="table table-hover">
+				<tbody>
+				<tr>
+					<th>Topic Name</th>
+		    		<th>Dummy name</th>
+		    		<th>Dummy name 2</th>
+				</tr>
+					<% loop getObjects('Essay') %>
+						<tr>
+							<% if Name %>
+								<td><a href="{$Link}">$Name </a></td>
+							<% else_if Title %>
+								<td><a href="{$Link}">$Title </a></td>
+							<% else %>
+								<td>$ID</td>
+							<% end_if %>
+								<td>Insert dummy field</td>
+								<td>Dummy field 2</td>
+						</tr>					
+					<% end_loop %>
+				</tbody>
+			</table>
+		  </div>
+		
 	</article>
+	
 </div>
 
 <% include SideBar %>
