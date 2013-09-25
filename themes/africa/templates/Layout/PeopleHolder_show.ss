@@ -1,3 +1,4 @@
+<% with $Object %>
 <div class="content-container typography">	
 	<article>
 		<h1>$Title</h1>
@@ -6,8 +7,13 @@
 		<div class="content container-fluid">
 		
 			$Content
-			
 			<div class="row-fluid">
+				<div class="span12 art-photo-grid" id="media">
+				<% include SmallImageScroller %>
+			
+			</div>			
+			<div class="row-fluid">
+
 				<div class="span8">
 					<% if TypesOfArt %>
 						<h3>Types of Art</h3>
@@ -51,14 +57,16 @@
 					<p>$Tags</p>		
 				</div>
 			</div>
+
 			<div class="row-fluid">
 				<div class="span12 art-photo-grid" id="media">
 				<% include SmallImageScroller %>
 			    <% include AudioScroller %>
 			    <% include VideoScroller %>
 		</div>
+
 	</article>
 		
 </div>
 <% include SideBar %>
-
+<% end_with %>

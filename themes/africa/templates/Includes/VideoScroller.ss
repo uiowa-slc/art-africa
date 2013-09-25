@@ -1,6 +1,5 @@
-<div class="image-scroller-container" id="video-scroller">
-
 <% if VideoPieces %> 
+<div class="image-scroller-container" id="video-scroller">
 <h3>Video</h3>
   <ul>
 	    <% loop VideoPieces %> 
@@ -14,6 +13,5 @@
 	    </li>
 	    <% end_loop %>
   </ul>
-<% end_if %>
 </div>
-
+<% end_if %>

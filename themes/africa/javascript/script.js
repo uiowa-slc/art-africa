@@ -108,7 +108,6 @@ $(document).ready(function () {
         }
     });
 
-
 });
 
 $(document).on('click', '.mfp-img', function (event) {

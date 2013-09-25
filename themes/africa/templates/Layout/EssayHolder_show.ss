@@ -1,3 +1,4 @@
+<% with $Object %>
 <div class="content-container typography essay">	
 	<article>
 		<h1>$Title</h1>
@@ -76,7 +77,7 @@
 	</article>
 		
 </div>
-
+<% end_with %>
 <% include SideBar %>
 
 <script type="text/javascript">

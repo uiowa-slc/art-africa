@@ -16,6 +16,8 @@ class PeopleHolder extends Page {
   
   private static $belongs_many_many = array();
   
+  public $holds = "People";
+
   
 
  // tidy up the CMS by not showing these fields
