@@ -36,7 +36,7 @@ class Page_Controller extends ContentController {
 		"SplitKeywords",
 		"results",
 		'show',
-		'loadTest'
+		'loadTest',
 	);
 
 
@@ -78,6 +78,9 @@ class Page_Controller extends ContentController {
 
 	}
 
+		public function isPopup(){
+			return $this->getRequest()->getVar('popup');
+		}
 
 	/**
 	

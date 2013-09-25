@@ -128,7 +128,14 @@ class ImageExtension extends DataExtension {
     
   }
 
+  public function PopupLink(){
 
+  	$link = $this->ShowLink().'&popup=true';
+
+  	return $link;
+
+  
+  }
     public function Landscape() {
         return $this->owner->getWidth() > $this->owner->getHeight();
     }

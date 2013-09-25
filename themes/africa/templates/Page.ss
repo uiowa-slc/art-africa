@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
     <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script> -->
   </head>
-  <body>
+  <body <% if isPopup %> class="popup" <% end_if %>>
   
     <div id="view" class="$ClassName $Action">
       <div class="top-link"><a href="#">$Title &#8593;</a></div>
@@ -235,7 +235,7 @@
     <% if $Object.NeedsZoom %>
       <script type="text/javascript">
         $('#zoom-target').easyZoom({
-          parent: 'div.zoom-container'
+          parent: 'div.zoom-container',
         });
       </script>
     <% end_if %>

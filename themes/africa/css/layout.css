@@ -1219,10 +1219,10 @@ article.page {
   #zoom-panel {
     display: block;
     position:fixed;
-    top:138px;
-    left:400px;
-    width:30%;
-    height:520px;
+    top:40px;
+    right: 20px;
+    width:55%;
+    height:420px;
     overflow:hidden;
     background: white;
     z-index:200;
@@ -1510,4 +1510,20 @@ li.audioObject {
 #caption p {
 	line-height: 1.25rem;
   margin: 0;
+}
+
+body.popup #top {
+  display: none;
+}
+
+body.popup #chapters_heading{
+  display: none;
+}
+
+body.popup #footer {
+  display: none;
+}
+
+body.popup #top-link{
+  display: none !important;
 }

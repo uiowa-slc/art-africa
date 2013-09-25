@@ -13,7 +13,7 @@
     <!--<div class="row-fluid media-row" data-columns> -->
  		<% loop $getImages %>
  			<div class="item">
-<img src="{$SetWidth(200).URL}" data-mfp-src="{$SetWidth(600).URL}" class="artPhoto {$size}" title="Tap or click the image for more info." data-mfp-href="{$ShowLink}" />
+<a href="{$PopupLink}" class="artPhoto mfp-iframe" title="hello"><img src="{$SetWidth(200).URL}" /></a>
  			</div>
  		<% end_loop %>
    <!-- </div> -->
@@ -28,6 +28,6 @@
   });
 </script>
 
-<%# include SideBar %>
+<% include SideBar %>
 
 
