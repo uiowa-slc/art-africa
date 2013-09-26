@@ -5,7 +5,7 @@
 			<% if not isPopup %>
 			<p><a href="$Source.Link">Return to $Source.Title</a>
 				<% if $Object.NeedsZoom %>
-				<br />Hover or touch the image to zoom
+				<br />Hover over or touch the image to zoom
 				<% end_if %>
 			</p>
 			<% end_if %>
@@ -13,11 +13,13 @@
 				<a id="zoom-target" href="$Object.URL" data-easyzoom-source="$Object.URL">
 					<img class="zoom-image" src="{$Object.SingleDisplay.URL}" height="$Object.SingleDisplay.Height" width="$Object.SingleDisplay.Width">
 				</a>
-				<span id="caption">$Object.parsedCaption</p>
+				<span id="caption">$Object.parsedCaption</span>
+				<p><a href="$Object.ShowLink" target="_blank">Permanent link</a></p>
+
 			</div>
 			<% if $Object.NeedsZoom %>
 			<div class="zoom-instructions">	
-				<p>Hover or touch the image to zoom</p>		
+				<p>Hover over or touch the image to zoom</p>		
 			</div>
 			<% end_if %>
 			<div class="clearfix"></div>
@@ -26,7 +28,6 @@
 		<div class="content columns">
 			<h2>Description</h2>
 			$Object.Description	
-			<p><a href="$Object.ShowLink" target="_blank">Permanent link to this page.</a></p>
 		</div>
 	</article>
 		
