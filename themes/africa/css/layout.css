@@ -1159,11 +1159,13 @@ article.page {
 }
   
 .artPic{
-
+  float: left;
+  width: 400px;
 }
 
 .artPic.noZoom {
-
+  float: none;
+  width: 100%;
 }
 
 .artPic img {
@@ -1177,7 +1179,8 @@ article.page {
   max-width: 100% !important;
 }
 
-<!-- importing easy zoom's exact css here: -->
+.mfp-iframe-scaler {
+  padding-top: 100%; }
 
 /**
  * The actual naming of elements is not rigid, these are just examples
@@ -1213,6 +1216,9 @@ article.page {
   display: none;
 }
 
+.zoom-instructions {
+  display: none;
+}
 
 @media (min-width: 768px) {
   /* Zoom panel */
@@ -1236,6 +1242,16 @@ article.page {
 
   .zoom-panel img {
     padding: 0px;
+  }
+
+  .zoom-instructions {
+    color: #898989;
+    float: right;
+    width: 50%;
+    display: block;
+    text-align: center;
+    border: 2px dashed #898989;
+    height: 400px;
   }
 }
 

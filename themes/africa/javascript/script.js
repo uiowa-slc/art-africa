@@ -60,6 +60,8 @@ $(document).ready(function () {
     iframe: {
       titleSrc: 'title'
     },
+    alignTop: true,
+    fixedBgPos: false,
     gallery: {
       enabled: true,
       navigateByImgClick: false
