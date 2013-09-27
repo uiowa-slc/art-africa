@@ -246,7 +246,7 @@ button {
   color: #aaa;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   #searchInput {
     font-size: 0.7rem; 
     width: auto;

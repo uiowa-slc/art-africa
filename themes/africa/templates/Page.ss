@@ -199,13 +199,7 @@
                 </p>
               </div>
               <div class="col">
-               <!-- <h3>See the African Art collection in person</h3>
-                <p>
-                  1375 Highway One West<br>
-                  1840 Studio Arts Building<br>
-                  Iowa City, IA 52242<br>
-                  Telephone (319) 335-1727
-                </p>-->
+                <h3><a href="http://uima.uiowa.edu/visit-us/">Come visit us!</a></h3>
               </div>
               <div class="col">
                 <p style="margin-top: 2rem">
