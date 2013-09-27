@@ -5,6 +5,7 @@ class Country extends DataObject {
   
   private static $db = array(	
   'Title' => 'Text',
+  'AlternativeName' => 'Text',
   'Location' => 'Text',
   'DateOfIndependence' => 'Text',
   'Nationality' => 'Text',
@@ -16,6 +17,8 @@ class Country extends DataObject {
   'TypeOfGovernment' => 'Text',
   'Currency' => 'Text',
   'MajorPeoples' => 'Text',
+  'Latitude' => 'Varchar(255)',
+  'Longitude' => 'Varchar(255)',
   'Religion' => 'Text',
   'Climate' => 'Text',
   'Literacy' => 'Text',
@@ -62,6 +65,7 @@ class Country extends DataObject {
  		
  		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID', 'Temporary ID Field'));
  		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
+ 		//$fields->addFieldToTab('Root.Main', new TextField('AlternativeName', 'Put the name Google Maps uses for a country if it differs from the name used on the site:'));
  		$fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
  		$fields->addFieldToTab('Root.Main', new TextField('DateOfIndependence', 'Date Of Independence'));
  		$fields->addFieldToTab('Root.Main', new TextField('Nationality', 'Nationality'));
@@ -69,6 +73,8 @@ class Country extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextField('Population', 'Population'));
  		$fields->addFieldToTab('Root.Main', new TextField('ImportantCities', 'Important Cities'));
  		$fields->addFieldToTab('Root.Main', new TextField('HeadOfState', 'Head Of State'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Latitude'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Longitude'));
  		$fields->addFieldToTab('Root.Main', new TextField('Area', 'Area'));
  		$fields->addFieldToTab('Root.Main', new TextField('TypeOfGovernment', 'Type Of Government'));
  		$fields->addFieldToTab('Root.Main', new TextField('Currency', 'Currency'));

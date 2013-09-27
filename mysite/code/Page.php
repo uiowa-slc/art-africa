@@ -39,7 +39,10 @@ class Page_Controller extends ContentController {
 		'loadTest',
 	);
 
-
+    public function getLatitudeLongitude() {
+	    $countries = Country::get();
+	    return $countries;
+    }
 
 	public function init() {
 		parent::init();
@@ -108,7 +111,8 @@ class Page_Controller extends ContentController {
 		$bibliographyFlag = false; //set to true below if checkbox in searchform.ss is checked
 
 		//$searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'
-		//Define classes for outputting to template
+		
+		//Define classes for outputting to template -- all of these arrays are nested in array
 		$subtopics = new ArrayList();
 		$people = new ArrayList();
 		$essays = new ArrayList();
@@ -143,7 +147,10 @@ class Page_Controller extends ContentController {
 		$dataObjectClasses = array('Country', 'Essay', 'People', 'Image'); //add in your DataObjects,
 	
 
-
+		/*
+		
+		NOT IN USE CURRENTLY
+		
 		$bibliographyClasses = array('Essay', 'MediaPiece'); //add classes with the Bibliography field
 
 		//When the bibliography check box is checked, only search classes that have the Bibliography field + Essays
@@ -153,7 +160,7 @@ class Page_Controller extends ContentController {
 
 			$bibliographyFlag = true; //bibliography search
 		}
-		
+		*/
 		
 
 		$objects = array();
@@ -213,8 +220,12 @@ class Page_Controller extends ContentController {
 		}
 		
 		/*
-		
+		Objects include results from both pages and data objects 
 		Populates data array with results from objects array */
+		
+		
+			
+		//Populates each array (People, Countries and so forth) with the appropriate data
 		foreach ($objects as $object) {
 			foreach ($data as $key=>$value) {
 				if ($object->ClassName == $key) {
@@ -223,7 +234,8 @@ class Page_Controller extends ContentController {
 			}
 		}
 
-
+		print_r($data['Subtopic']);
+		print_r($data['People']);
 
 
 		$pages->sort(array(

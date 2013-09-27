@@ -231,7 +231,93 @@ function initialize() {
     var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
 
     map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
-
+    
+    coordinates = new Array();
+    
+    //If a country shows up incorrectly, the coordinates are probably flipped
+    
+    //Entry for Cameroon
+    coordinates.push([5.1167, 11.9167]);
+    
+    //Entry for Angola
+    coordinates.push([-12.3500, 17.3500]);
+    
+    //Entry for Benin
+    coordinates.push([8.8833, 2.1833]);
+    
+    //Entry for Chad
+    coordinates.push([15.4667, 19.4000]);
+    
+    
+    //Entry for Democratic Republic Of Congo
+    coordinates.push([-2.8800, 23.6560]);
+    
+     //Entry for Cote D'Ivoire
+     coordinates.push([8.0000, -6.0000]);
+    
+     //Entry for Gabon
+     coordinates.push([-0.6833, 11.5000]);
+    
+     //Entry for Ghana
+     coordinates.push([7.6833, -0.9833]);
+        
+     //Entry for Guinea-Bissau
+     coordinates.push([12.0000, -15.0000]);
+     
+     //Entry for Guinea-Conakry
+     coordinates.push([9.5092, -13.7122]);
+      
+     //Entry for Kenya
+     coordinates.push([-1.2667, 36.8000]);
+     
+     //Entry for Liberia
+     coordinates.push([6.5333, -9.7500]);
+     
+     //Entry for Mali
+     coordinates.push([17.0000, -4.3667]);
+     
+     //Entry for Niger
+     coordinates.push([16.1833, 9.6167]);
+     
+     //Entry for Nigeria
+     coordinates.push([8.0000, 10.0000]);
+     
+     //Entry for Senegal
+     coordinates.push([14.6667, -17.4167]);
+     
+     //Entry for Sierra Leone
+     coordinates.push([8.4844, -13.2344]);
+     
+     //Entry for South Africa
+     coordinates.push([-30.0000, 25.0000]);
+     
+     //Entry for Tanzania
+     coordinates.push([-6.3070, 34.8540]);
+     
+     //Entry for Togo
+     coordinates.push([8.2500, 1.1833]);
+     
+     //Entry for Zambia
+     coordinates.push([-14.1167, 27.6333]);
+     
+     //Entry for Zimbabwe
+     coordinates.push([19.0167, 30.0167]);
+     
+     //Entry for Botswana
+     coordinates.push([-24.6667, 25.9167]);
+     
+     
+     for (var i = 0; i < coordinates.length; i++){
+	     marker = new google.maps.Marker({
+		            position: new google.maps.LatLng(coordinates[i][0], coordinates[i][1]),
+		            map: map
+		}); 
+     
+     }
+       
+       
+    
+    /*
     $('.nav2 a').each(function (i) {
       var nav2a = $(this);
       var countryName = nav2a.text();
@@ -252,7 +338,7 @@ function initialize() {
           });
         }, i * 100);
       });
-    });
+    });*/
 
     //http://gmaps-samples-v3.googlecode.com/svn/trunk/country_explorer/country_explorer.html
     google.maps.event.addListener(map, 'click', function (mouseEvent) {
