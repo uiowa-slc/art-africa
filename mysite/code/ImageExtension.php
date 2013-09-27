@@ -166,11 +166,30 @@ class ImageExtension extends DataExtension {
     	$height = $this->owner->getHeight();
     	$width = $this->owner->getWidth();
 
-    	if(($this->Portrait()) && ($height > 700) && ($width > 300)){
+      $displayHeight = $this->SingleDisplay()->getHeight();
+      $displayWidth = $this->SingleDisplay()->getWidth();
+
+      $displayHeightRatio = $height / $displayHeight;
+
+      $ratio = $width / $height;
+
+      //Option 1:
+    	/*if(($this->Portrait()) && ($height > 700) && ($width > 300)){
     		return true;
     	} else {
     		return false;
-    	}
+    	}*/
+
+      //Option 2:
+
+      if(($width > 400) && ($height > 500)){
+
+        return ($ratio < 0.6);
+      }
+
+      //Option 3 (NEVER ZOOM):
+
+      //return false;
     }
   
   //returns returnedCaption

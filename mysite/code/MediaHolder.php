@@ -83,6 +83,8 @@ class MediaHolder_Controller extends Page_Controller {
 		}
 	
 	}*/
+
+
 	public function getImages(){
 		/*$images = new ArrayList();
 		$artPhotoImages = Image::get()->filter(array('Type' => 'ArtPhoto'));

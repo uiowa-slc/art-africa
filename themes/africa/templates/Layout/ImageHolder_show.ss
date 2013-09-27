@@ -11,10 +11,17 @@
 			<% end_if %>
 			<div class="artPic <% if not $Object.NeedsZoom %>noZoom <% else %>zoom-container<% end_if %>">
 				<a id="zoom-target" href="$Object.URL" data-easyzoom-source="$Object.URL">
+
+					<% if $Object.NeedsZoom %>
 					<img class="zoom-image" src="{$Object.SingleDisplay.URL}" height="$Object.SingleDisplay.Height" width="$Object.SingleDisplay.Width">
+					<% else %>
+						<img src="{$Object.URL}">
+					<% end_if %>
 				</a>
-				<span id="caption">$Object.parsedCaption</span>
-				<p><a href="$Object.ShowLink" target="_blank">Permanent link</a></p>
+				<span id="caption">$Object.parsedCaption
+									<p><a href="$Object.ShowLink" target="_blank">Permanent link </a></p>
+
+				</span>
 
 			</div>
 			<% if $Object.NeedsZoom %>
@@ -25,7 +32,7 @@
 			<div class="clearfix"></div>
 			
 		</div>
-		<div class="content columns">
+		<div class="content columns description">
 			<h2>Description</h2>
 			$Object.Description	
 		</div>

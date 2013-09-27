@@ -1,10 +1,9 @@
-<% with $Object %>
 <div class="content-container typography essay">	
 	<article>
-		<h1>$Title</h1>
-		<h3>by $Author</h3>
-		<h3>$University</h3>
-		<div class="content">$Content
+		<h1>$Object.Title</h1>
+		<h3>by $Object.Author</h3>
+		<h3>$Object.University</h3>
+		<div class="content">$Object.Content
 
 			 
 			  <div class="content columns">
@@ -77,7 +76,6 @@
 	</article>
 		
 </div>
-<% end_with %>
 <% include SideBar %>
 
 <script type="text/javascript">

@@ -51,7 +51,9 @@ class ImageHolder_Controller extends Page_Controller {
 	
 	public static $childPage = 'Image';
 	
-	
+	public function index(){
+		$this->redirect('media/');
+	}	
 	
 	public function getImages(){
 		/*$images = new ArrayList();

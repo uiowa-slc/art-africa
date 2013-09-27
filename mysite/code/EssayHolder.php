@@ -53,7 +53,7 @@ class EssayHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ('show');
+	private static $allowed_actions = array ('show', 'getPaginatedPages');
 	
 	public static $childPage = 'Essay';
 	
@@ -70,7 +70,7 @@ class EssayHolder_Controller extends Page_Controller {
 	public function getPaginatedPages(){
 		 $ID = $this->request->param('ID');
 		 //$object = DataObject::get_by_id('Essay', $ID);
-		 
+		 echo "HELLO";
 		 $object = Essay::get()->byID($ID);
 		 $relation = $object->EssayPages();
 		 $list = new PaginatedList($relation, $this->request);

@@ -1543,3 +1543,23 @@ body.popup #footer {
 body.popup #top-link{
   display: none !important;
 }
+
+body.popup #main_content {
+  padding: 0;
+}
+
+body.popup .content {
+  padding: 0px;
+}
+
+body.popup .content.description {
+  padding: 20px;
+}
+
+body.popup #caption {
+  padding: 20px;
+}
+
+body.popup .zoom-instructions {
+  margin: 20px;
+}

@@ -14,14 +14,14 @@
 					<% loop getObjects('Essay') %>
 						<tr>
 							<% if Name %>
-								<td><a href="{$Link}">$Name </a></td>
+								<td><a href="{$Link(false)}">$Name </a></td>
 							<% else_if Title %>
-								<td><a href="{$Link}">$Title </a></td>
+								<td><a href="{$Link(false)}">$Title </a></td>
 							<% else %>
 								<td>$ID</td>
 							<% end_if %>
-								<td>Insert dummy field</td>
-								<td>Dummy field 2</td>
+								<td>Another Field</td>
+								<td>Another Field</td>
 						</tr>					
 					<% end_loop %>
 				</tbody>
