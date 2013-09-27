@@ -1444,8 +1444,7 @@ article.page {
 }
 
 #video-scroller .videoThumbnail {
-	width: 320px;
-	height: 210px;
+
 }
 
 
@@ -1546,6 +1545,7 @@ body.popup #top-link{
 
 body.popup #main_content {
   padding: 0;
+  top: 0;
 }
 
 body.popup .content {
