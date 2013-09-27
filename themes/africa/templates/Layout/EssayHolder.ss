@@ -8,8 +8,8 @@
 				<tbody>
 				<tr>
 					<th>Topic Name</th>
-		    		<th>Dummy name</th>
-		    		<th>Dummy name 2</th>
+		    		<th>Author</th>
+		    		<th>Institution</th>
 				</tr>
 					<% loop getObjects('Essay') %>
 						<tr>
@@ -20,8 +20,8 @@
 							<% else %>
 								<td>$ID</td>
 							<% end_if %>
-								<td>Another Field</td>
-								<td>Another Field</td>
+								<td>$Author</td>
+								<td>$University</td>
 						</tr>					
 					<% end_loop %>
 				</tbody>
