@@ -182,10 +182,10 @@ class ImageExtension extends DataExtension {
 
       //Option 2:
 
-      if(($width > 400) && ($height > 500)){
+     /* if(($width > 400) && ($height > 500)){
 
         return ($ratio < 0.6);
-      }
+      }*/
 
       //Option 3 (NEVER ZOOM):
 

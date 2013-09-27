@@ -32,10 +32,12 @@
 			<div class="clearfix"></div>
 			
 		</div>
+		<% if $Object.Description %>
 		<div class="content columns description">
 			<h2>Description</h2>
 			$Object.Description	
 		</div>
+		<% end_if %>
 	</article>
 		
 </div>

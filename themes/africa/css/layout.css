@@ -1,7 +1,9 @@
 html {
+  /*background: #181415;*/
+}
+body {
   background: #181415;
 }
-
 
 
 @media (max-width: 400px) {
@@ -1225,7 +1227,7 @@ article.page {
   #zoom-panel {
     display: block;
     position:fixed;
-    top:40px;
+    top:20px;
     right: 20px;
     width:55%;
     height:420px;
@@ -1526,7 +1528,9 @@ li.audioObject {
 	line-height: 1.25rem;
   margin: 0;
 }
-
+body.popup {
+  background: white;
+}
 body.popup #top {
   display: none;
 }
@@ -1539,13 +1543,14 @@ body.popup #footer {
   display: none;
 }
 
-body.popup #top-link{
+body.popup .top-link{
   display: none !important;
 }
 
 body.popup #main_content {
   padding: 0;
   top: 0;
+  box-shadow: none;
 }
 
 body.popup .content {
