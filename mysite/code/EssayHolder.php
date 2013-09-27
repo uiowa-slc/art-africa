@@ -70,7 +70,6 @@ class EssayHolder_Controller extends Page_Controller {
 	public function getPaginatedPages(){
 		 $ID = $this->request->param('ID');
 		 //$object = DataObject::get_by_id('Essay', $ID);
-		 echo "HELLO";
 		 $object = Essay::get()->byID($ID);
 		 $relation = $object->EssayPages();
 		 $list = new PaginatedList($relation, $this->request);
