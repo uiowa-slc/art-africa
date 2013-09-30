@@ -33,8 +33,6 @@
 		</div>
 		<% if $Object.Description %>
 		<div class="content columns description">
-			<p><a href="$Object.ShowLink" target="_blank">Permanent link </a></p>
-
 			<h2>Description</h2>
 			$Object.Description	
 		</div>
@@ -42,4 +40,4 @@
 	</article>
 		
 </div>
-<% include SideBar %>
+<%-- include SideBar --%>

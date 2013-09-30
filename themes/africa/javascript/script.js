@@ -56,10 +56,7 @@ $(document).ready(function () {
     var poppingUp = false;
 
    $('.artPhoto').magnificPopup({
-    type: 'iframe',
-    iframe: {
-      titleSrc: 'title'
-    },
+    type: 'image',
     alignTop: true,
     fixedBgPos: false,
     gallery: {

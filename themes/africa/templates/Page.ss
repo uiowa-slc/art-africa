@@ -183,10 +183,11 @@
             </article>
           </div> -->
           <div id="footer">
-            <div class="c">
-              <div class="col">
+            <div class="container-fluid">
+              <div class="row-fluid">
+              <div class="span4">
                 <p>
-                  <img src="{$ThemeDir}/images/UIMA-newlogo-black.png">
+                  <img src="{$ThemeDir}/images/UIMA-newlogo-black.png" class="uima-logo">
                 </p>
                 <p>
                   Administrative Offices: <br />
@@ -198,10 +199,9 @@
                   Fax (319) 335-3677
                 </p>
               </div>
-              <div class="col">
-                <h3><a href="http://uima.uiowa.edu/visit-us/">Come visit us!</a></h3>
+              <div class="span4">
               </div>
-              <div class="col">
+              <div class="span4 social-media">
                 <p style="margin-top: 2rem">
                   <a class="img-link" target="_blank" href="#">
                     <img width="42" src="{$ThemeDir}/images/facebook-icon.png" style="margin-right: 0.5rem">
@@ -221,6 +221,7 @@
                   <% end_loop %>
                 </ul>
               </div>
+            </div>
             </div>
           </div>
         </div>

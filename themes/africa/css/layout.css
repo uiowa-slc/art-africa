@@ -825,10 +825,14 @@ ul.columns li {
   margin-left: 4%;
 }
 
-#footer .col:first-child img {
+#footer .uima-logo {
   max-width: 20rem !important;
-  width: 90% !important;
+  width: 100% !important;
   position: static !important;
+}
+
+#footer .social-media {
+  text-align:right;
 }
 
 @media (min-width: 769px) {

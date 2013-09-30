@@ -91,14 +91,15 @@
           </div>
           <div class="col">
             <p style="margin-top: 2rem">
-              <a href="http://www.youtube.com/user/CDROYburkina" target="_blank" class="img-link">
-                <img width="42" src="{$ThemeDir}/images/youtube-icon.png" style="margin-right: 0.5rem">
-              </a>
+
               <a href="#" class="img-link">
                 <img width="42" src="{$ThemeDir}/images/facebook-icon.png" style="margin-right: 0.5rem">
               </a>
               <a href="#" class="img-link">
                 <img width="42" src="{$ThemeDir}/images/twitter-icon.png">
+              </a>
+              <a href="http://www.youtube.com/user/CDROYburkina" target="_blank" class="img-link">
+                <img width="42" src="{$ThemeDir}/images/youtube-icon.png" style="margin-right: 0.5rem">
               </a>
             </p>
             <ul>
