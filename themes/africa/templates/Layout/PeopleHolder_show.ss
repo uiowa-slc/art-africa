@@ -60,7 +60,6 @@
 
 			<div class="row-fluid">
 				<div class="span12 art-photo-grid" id="media">
-				<% include SmallImageScroller %>
 			    <% include AudioScroller %>
 			    <% include VideoScroller %>
 		</div>

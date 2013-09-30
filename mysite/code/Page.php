@@ -234,8 +234,8 @@ class Page_Controller extends ContentController {
 			}
 		}
 
-		print_r($data['Subtopic']);
-		print_r($data['People']);
+		//print_r($data['Subtopic']);
+		//print_r($data['People']);
 
 
 		$pages->sort(array(
@@ -519,7 +519,7 @@ class Page_Controller extends ContentController {
 		$query->search('Cone', 'SiteTree_Title');
 		//print_r($query);
 		$results = singleton('MyIndex')->search($query);
-		print_r($results);
+		//print_r($results);
 		//sleep(5);
 		//print_r("HI");
 		return;
