@@ -184,7 +184,7 @@
           </div> -->
           <div id="footer">
             <div class="container-fluid">
-              <div class="row-fluid">
+              <div class="row">
               <div class="span4">
                 <p>
                   <img src="{$ThemeDir}/images/UIMA-newlogo-black.png" class="uima-logo">
@@ -199,9 +199,8 @@
                   Fax (319) 335-3677
                 </p>
               </div>
-              <div class="span4">
-              </div>
-              <div class="span4 social-media">
+
+              <div class="span4 offset4 social-media">
                 <p style="margin-top: 2rem">
                   <a class="img-link" target="_blank" href="#">
                     <img width="42" src="{$ThemeDir}/images/facebook-icon.png" style="margin-right: 0.5rem">
