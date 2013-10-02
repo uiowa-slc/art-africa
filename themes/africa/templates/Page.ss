@@ -184,7 +184,7 @@
           </div> -->
           <div id="footer">
             <div class="container-fluid">
-              <div class="row">
+              <div class="row-fluid">
               <div class="span4">
                 <p>
                   <img src="{$ThemeDir}/images/UIMA-newlogo-black.png" class="uima-logo">
