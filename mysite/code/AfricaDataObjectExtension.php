@@ -23,8 +23,10 @@ class AfricaDataObjectExtension extends DataExtension {
   public function Holder(){
   	  $holderClass = $this->owner->ClassName;
 	  $holderClass = $holderClass.'Holder';
-	  $holder = DataObject::get_one($holderClass);
-	  if($holder){
+	  if(class_exists($holderClass)){
+	  	$holder = DataObject::get_one($holderClass);
+	  }
+	  if(isset($holder)){
 	  	return $holder;
 	  }else{
 		  return false;
@@ -33,7 +35,8 @@ class AfricaDataObjectExtension extends DataExtension {
     
   public function Link($use_id = false){
   
-	  $holder = $this->Holder();
+	  if($holder = $this->Holder()){
+	  //print_r($holder);
 	  if($use_id == false){
 		  $title = $this->owner->Title;
 		  $title = urlencode($title);
@@ -43,8 +46,10 @@ class AfricaDataObjectExtension extends DataExtension {
 		  $link = $holder->Link().'show/'.$id;
 		  
 	  }
+
 	  
 	  return $link;
+	}
   }  
   
   public function getCreditLine(){
