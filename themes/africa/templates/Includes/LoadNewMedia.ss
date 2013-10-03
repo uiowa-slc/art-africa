@@ -1,6 +1,5 @@
 
 <% loop imageList('Image') %>
  			<div class="item">
-<a href="{$PopupLink}" class="artPhoto mfp-iframe" title="$Title"><img src="{$SetWidth(200).URL}" /></a>
- 			</div>
+<img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click for more info." data-mfp-href="{$ShowLink}" /> 			</div>
 <% end_loop %>
