@@ -167,6 +167,21 @@
     
        
     <% if Image %>
+    
+    <li> Images </li>
+    	<div class="padded">
+    	<% loop Image %>
+    	
+    	<img src="{$SetSize(200,200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click for more info." data-mfp-href="{$ShowLink}" />
+    	
+    	
+    	
+    	
+    	<% end_loop %>
+       	</div>
+    
+    
+    <!--
 		<li>Images</li>
 			<div class="padded">
 			 <table class="table table-hover">
@@ -190,6 +205,8 @@
 				</tbody>
 			</table>
 		  </div>
+	-->	  
+		  
     <% end_if %>
 	         
 	    
