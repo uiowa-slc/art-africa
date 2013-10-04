@@ -32,6 +32,20 @@
 		  </div>
 	    <% end_if %> 
 		  
+		  
+		    
+    <% if Image %>
+    <li> Images </li>
+    	<div class="padded">
+    	<% loop Image.Limit(25) %>
+    	<img src="{$SetSize(200,200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click for more info." data-mfp-href="{$ShowLink}" />	
+    	<% end_loop %>
+       	</div>		  
+    <% end_if %>
+  
+		  
+	  
+		  
 		<% if People %>
 		<li>People</li>
 			<div class="padded">
@@ -39,19 +53,28 @@
 				<tbody>
 				<tr>
 					<th>People Name</th>
-		    		<th>Dummy name</th>
-		    		<th>Dummy name 2</th>
+		    		<th>Location</th>
+		    		<th>Types of Art</th>
 				</tr>
 					<% loop People %>
+						<a href="{$Link}">
 						<tr>
 							<% if Name %>
 								<td><a href="{$Link}">$Name</a></td>
 							<% else_if Title %>
 								<td><a href="{$Link}">$Title</a></td>
 							<% end_if %>
-								<td>Insert dummy field</td>
-								<td>Dummy field 2</td>
-						</tr>					
+							<% if Location %>
+								<td>$Location</td>
+								<% else %>
+								<td>n/a</td>
+							<% end_if %>
+							<% if TypesOfArt %>
+								<td>$TypesOfArt</td>
+							<% end_if %>
+						</tr>
+						</a>
+										
 					<% end_loop %>
 				</tbody>
 			</table>
@@ -67,8 +90,8 @@
 				<tbody>
 				<tr>
 					<th>Essay Name</th>
-		    		<th>Dummy name</th>
-		    		<th>Dummy name 2</th>
+		    		<th>Author</th>
+		    		<th>Institution</th>
 				</tr>
 					<% loop Essay %>
 						<tr>
@@ -77,8 +100,9 @@
 							<% else_if Title %>
 								<td><a href="{$Link}">$Title</a></td>
 							<% end_if %>
-								<td>Insert dummy field</td>
-								<td>Dummy field 2</td>
+						
+								<td>$Author</td>
+								<td>$University</td>
 						</tr>					
 					<% end_loop %>
 				</tbody>
@@ -165,50 +189,7 @@
 		  </div>
     <% end_if %>        
     
-       
-    <% if Image %>
-    
-    <li> Images </li>
-    	<div class="padded">
-    	<% loop Image %>
-    	
-    	<img src="{$SetSize(200,200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click for more info." data-mfp-href="{$ShowLink}" />
-    	
-    	
-    	
-    	
-    	<% end_loop %>
-       	</div>
-    
-    
-    <!--
-		<li>Images</li>
-			<div class="padded">
-			 <table class="table table-hover">
-				<tbody>
-				<tr>
-					<th>Image Name</th>
-		    		<th>Dummy name</th>
-		    		<th>Dummy name 2</th>
-				</tr>
-					<% loop Image %>
-						<tr>
-							<% if Title %>
-								<td><a href="{$BaseHref}media/photos/show/{$Title}">$Title</a></td>
-							<% else %>
-								<td><a href="{$BaseHref}media/photos/show/{$ID}">$Name</a></td>
-							<% end_if %>
-								<td>Insert dummy field</td>
-								<td>Dummy field 2</td>
-						</tr>					
-					<% end_loop %>
-				</tbody>
-			</table>
-		  </div>
-	-->	  
-		  
-    <% end_if %>
-	         
+   	         
 	    
 	 
 			

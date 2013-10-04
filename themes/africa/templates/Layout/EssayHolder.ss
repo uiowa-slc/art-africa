@@ -14,9 +14,9 @@
 					<% loop getObjects('Essay') %>
 						<tr>
 							<% if Name %>
-								<td><a href="{$Link(false)}">$Name </a></td>
+								<td><a href="{$Link}">$Name </a></td>
 							<% else_if Title %>
-								<td><a href="{$Link(false)}">$Title </a></td>
+								<td><a href="{$Link}">$Title </a></td>
 							<% else %>
 								<td>$ID</td>
 							<% end_if %>
