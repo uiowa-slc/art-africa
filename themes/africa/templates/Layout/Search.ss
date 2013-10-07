@@ -5,6 +5,11 @@
 	<ul id="searchResults">	
 		<!--$searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'-->
 
+
+
+		
+
+
 		<% if Subtopic %>
 		<li>Subtopics</li>
 			<div class="padded">
@@ -40,6 +45,7 @@
     	<% loop Image.Limit(25) %>
     	<img src="{$SetSize(200,200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click for more info." data-mfp-href="{$ShowLink}" />	
     	<% end_loop %>
+    	
        	</div>		  
     <% end_if %>
   
@@ -53,8 +59,8 @@
 				<tbody>
 				<tr>
 					<th>People Name</th>
-		    		<th>Location</th>
-		    		<th>Types of Art</th>
+		    		<th>Countries</th>
+		    		<th>Population</th>
 				</tr>
 					<% loop People %>
 						<a href="{$Link}">
@@ -70,7 +76,7 @@
 								<td>n/a</td>
 							<% end_if %>
 							<% if TypesOfArt %>
-								<td>$TypesOfArt</td>
+								<td>$Population</td>
 							<% end_if %>
 						</tr>
 						</a>
@@ -117,8 +123,8 @@
 				<tbody>
 				<tr>
 					<th>Country Name</th>
-		    		<th>Dummy name</th>
-		    		<th>Dummy name 2</th>
+		    		<th>Capital</th>
+		    		<th>Population</th>
 				</tr>
 					<% loop Country %>
 						<tr>
@@ -127,14 +133,21 @@
 							<% else_if Title %>
 								<td><a href="{$Link}">$Title</a></td>
 							<% end_if %>
-								<td>Insert dummy field</td>
-								<td>Dummy field 2</td>
+								<td>$CapitalCity</td>
+								<td>$Population</td>
 						</tr>					
 					<% end_loop %>
 				</tbody>
 			</table>
 		  </div>
     <% end_if %>
+    
+    
+    <% if not People && if not Country && if not Essay && if not Image %>
+		<h3> Sorry, no results matched </h3>
+		<% end_if %>
+    
+<!-- Commented out audio and video because there are currently no results for these searches, and if they are added later, they will need to be styled, which can't be done until there is more infomration available about them 
     
     <% if AudioPiece %>
 		<li>Audio Pieces</li>
@@ -190,7 +203,7 @@
     <% end_if %>        
     
    	         
-	    
+	-->    
 	 
 			
 	</ul>		

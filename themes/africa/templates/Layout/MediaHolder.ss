@@ -10,13 +10,21 @@
 
 <div class="content-container typography" style="/*min-height: 3000px*/" >
  	<div id="media-container">
-    <!--<div class="row-fluid media-row" data-columns> -->
+<!--<div class="row-fluid media-row" data-columns> -->
+
  		<% loop $getImages %>
  			<div class="item">
 <img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click for more info." data-mfp-href="{$ShowLink}" />
  			</div>
- 		<% end_loop %>
-   <!-- </div> -->
+ 		<% end_loop %>	
+
+
+ 	
+ 	
+ 		<% if not $getImages %>
+ 		<h3> Sorry, no results matched that filter! </h3>
+ 		<% end_if %>
+<!--	</div>	-->
  		</div>
  	<% include LargeImageGridPagination %>
 </div>
