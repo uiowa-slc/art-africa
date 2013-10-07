@@ -11,7 +11,7 @@
 
 
 		<% if Subtopic %>
-		<li>Subtopics</li>
+		<li><h3>Subtopics</h3></li>
 			<div class="padded">
 			 <table class="table table-hover">
 				<tbody>
@@ -40,7 +40,7 @@
 		  
 		    
     <% if Image %>
-    <li> Images </li>
+    <li><h3> Images </h3></li>
     	<div class="padded">
     	<% loop Image.Limit(25) %>
     	<img src="{$SetSize(200,200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click for more info." data-mfp-href="{$ShowLink}" />	
@@ -53,7 +53,7 @@
 	  
 		  
 		<% if People %>
-		<li>People</li>
+		<li><h3>People</h3></li>
 			<div class="padded">
 			 <table class="table table-hover">
 				<tbody>
@@ -90,7 +90,7 @@
 		
 		
 	<% if Essay %>
-		<li>Essays</li>
+		<li><h3>Essays</h3></li>
 			<div class="padded">
 			 <table class="table table-hover">
 				<tbody>
@@ -117,7 +117,7 @@
     <% end_if %>
 	    
 	<% if Country %>
-		<li>Countries</li>
+		<li><h3>Countries</h3></li>
 			<div class="padded">
 			 <table class="table table-hover">
 				<tbody>
