@@ -5,8 +5,9 @@
 		
 
 		<div class="content container-fluid">
-		
+
 			$Content
+			
 			<div class="row-fluid">
 				<div class="span12 art-photo-grid" id="media">
 				<% include SmallImageScroller %>
@@ -37,7 +38,7 @@
 					<% end_if %>		
 				</div>
 				
-				<div class="span4 sticky">
+				<div class="span4 sticky"> <!--this isn't sticky-->
 					<h2>Facts about $Title</h2>
 					<% if Location %>
 						<h3>Location</h3>

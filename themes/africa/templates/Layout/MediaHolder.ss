@@ -9,9 +9,12 @@
 
 
 <div class="content-container typography" style="/*min-height: 3000px*/" >
+ 	
+ 		<% if not $getResults %>
+ 		<h3> Sorry, no results matched that filter! </h3>
+ 		<% end_if %>
+
  	<div id="media-container">
-    <!--<div class="row-fluid media-row" data-columns> -->
-    	
  		<% loop $getResults %>
  			<div class="item">
  				<% if $ClassName == "Image" %>
@@ -23,8 +26,7 @@
 
  				<% end_if %>
  			</div>
- 		<% end_loop %>
-   <!-- </div> -->
+ 		<% end_loop %>	
  		</div>
  	<% include LargeImageGridPagination %>
 
