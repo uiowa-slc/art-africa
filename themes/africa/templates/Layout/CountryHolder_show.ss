@@ -111,52 +111,7 @@
 			
 
 			<% include VideoScroller %>
-			
 			<% include AudioScroller %>
-			<!--People
-			<% loop People %>
-				$Title<br>
-			<% end_loop %>
-			<br><br><br>
-
-			Essays
-			<% loop Essays %>
-				$Title<br>
-			<% end_loop %>
-			<br><br>
-
-			Subtopics
-			<% loop Subtopics %>
-				$Title<br>
-			<% end_loop %>
-			<br><br>
-
-			VideoPieces
-			<% loop VideoPieces %>
-				$Title<br>
-			<% end_loop %>
-			<br><br>
-
-			AudioPieces
-			<% loop AudioPieces %>
-				$Title<br>
-			<% end_loop %>
-			<br><br>
-
-			ArtPhotos
-			<% loop ArtPhotos %>
-				$Title<br>
-			<% end_loop %>
-			<br><br>
-
-			FieldPhotos
-			<% loop FieldPhotos %>
-				$Title<br>
-			<% end_loop %>
-			<br><br>
-
-			Image<br><br> 
-			-->
 		</div>
 	</article>
 </div>

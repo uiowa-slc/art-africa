@@ -54,17 +54,18 @@ class Page_Controller extends ContentController {
 			$themeFolder.'/javascript/jquery.magnific-popup.min.js',
 			$themeFolder.'/javascript/jquery.sticky.js',
 			$themeFolder. '/javascript/jquery.infinitescroll.js',
-			$themeFolder. '/javascript/easyzoom.js',
 			$themeFolder. '/javascript/script.js',
 			$themeFolder. '/javascript/jquery.isotope.min.js',
 			$themeFolder. '/javascript/isotope-init.js',
+
+
+			/* library graveyard here. might need to use one of these someday */
+			//$themeFolder. '/javascript/easyzoom.js',
 
 			/*$themeFolder. '/javascript/masonry.pkgd.min.js',*/
 			//$themeFolder. '/javascript/salvattore.js',
 			//$themeFolder. '/javascript/salvattore-init.js',
 			//themeFolder. '/javascript/imagesloaded.pkgd.min.js',
-			/*$themeFolder. '/javascript/jquery.infinitescroll.js',
-			$themeFolder. '/javascript/infinite-init.js'*/
 			/*$themeFolder. '/javascript/jquery.ias.min.js',
 			$themeFolder. '/javascript/ias-init.js',*/
 		);

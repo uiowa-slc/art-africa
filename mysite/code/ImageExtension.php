@@ -104,15 +104,12 @@ class ImageExtension extends DataExtension {
     $imageHolder = ImageHolder::get_one("ImageHolder");
     $sourcePage = Director::get_current_page();
     $controller = Controller::curr();
-    //print_r($controller->customisedObject->Object);
+    $params = $controller->request->allParams();
+    //print_r($params);
 
-
-    if(isset($controller->customisedobject)){
-    
-    	if($controller->customisedObject->Object){
-	    	//Debug::message("hello");
-	    	$sourceShowObject = $controller->customisedObject->Object;
-    	}
+    if(($params['Action'] == 'show')){
+	    	//$sourceShowObject = Object::get_by_id('DataObject', $params['ID']);
+    	
     }
 
     $link = $imageHolder->Link().'show/'.$this->owner->ID;
@@ -163,7 +160,9 @@ class ImageExtension extends DataExtension {
     }
 
     public function NeedsZoom(){
-    	$height = $this->owner->getHeight();
+
+      return false;
+    /*	$height = $this->owner->getHeight();
     	$width = $this->owner->getWidth();
 
       $displayHeight = $this->SingleDisplay()->getHeight();
@@ -171,7 +170,7 @@ class ImageExtension extends DataExtension {
 
       $displayHeightRatio = $height / $displayHeight;
 
-      $ratio = $width / $height;
+      $ratio = $width / $height;*/
 
       //Option 1:
     	/*if(($this->Portrait()) && ($height > 700) && ($width > 300)){

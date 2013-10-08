@@ -84,43 +84,65 @@ class MediaHolder_Controller extends Page_Controller {
 	
 	}*/
 
+	public function loadDefaultResults(){
+		$results = Image::get()->filter(array('HideFromMediaGrid' => 'false'));
+		return $results;
 
-	public function getImages(){
-		/*$images = new ArrayList();
+	}
+
+	public function getResults(){
+		/*$results = new ArrayList();
 		$artPhotoImages = Image::get()->filter(array('Type' => 'ArtPhoto'));
 		$fieldPhotoImages = Image::get()->filter(array('Type' => 'FieldPhoto'));
-		$images->merge($artPhotoImages);
-		$images->merge($fieldPhotoImages);*/
+		$results->merge($artPhotoImages);
+		$results->merge($fieldPhotoImages);*/
 
 		$filters = $this->getFilters();
 
-		$images = Image::get()->filter(array('HideFromMediaGrid' => 'false'));
+		/* Filter by Media Type first-- then everything else */
+
+		if($filters['MediaType'] != ''){
+
+			if($filters['MediaType'] == 'AudioPiece'){
+				$results = AudioPiece::get();
+			}elseif ($filters['MediaType'] == 'VideoPiece') {
+				$results = VideoPiece::get();
+			}else{
+
+				$results = $this->loadDefaultResults();
+				$results = $results->addFilter((array('Type' => $filters['MediaType'])));
+			}
+
+		}else {
+			$results = $this->loadDefaultResults();
+		}
+
+		//print_r($results);
+
+		/* Everything Else */
 
 		if($filters['Country'] != ''){
-			$images = $images->addFilter((array('Countries.ID' => $filters['Country'])));
+			$results = $results->addFilter((array('Countries.ID' => $filters['Country'])));
 		}
 
 		if($filters['People'] != ''){
-			$images = $images->addFilter((array('Peoples.ID' => $filters['People'])));
+			$results = $results->addFilter((array('Peoples.ID' => $filters['People'])));
 		}
 
 		if($filters['Chapter'] != ''){
-			$images = $images->addFilter((array('Chapters.ID' => $filters['Chapter'])));
+			$results = $results->addFilter((array('Chapters.ID' => $filters['Chapter'])));
 		}
 		if($filters['Subtopic'] != ''){
-			$images = $images->addFilter((array('Subtopics.ID' => $filters['Subtopic'])));
+			$results = $results->addFilter((array('Subtopics.ID' => $filters['Subtopic'])));
 		}
 
-		if($filters['MediaType'] != ''){
-			$images = $images->addFilter((array('Type' => $filters['MediaType'])));
-		}
 
-		$images = $images->sort('RAND()');
+		$results = $results->sort('RAND()');
 
-		$paginatedImageList = new PaginatedList($images, $this->request);
-		$paginatedImageList->setPageLength(20);
+		$paginatedMediaList = new PaginatedList($results, $this->request);
+		$paginatedMediaList->setPageLength(20);
 		
-		return $paginatedImageList;
+		return $paginatedMediaList;
 	}
 
 	public function getFilters(){
@@ -155,7 +177,7 @@ class MediaHolder_Controller extends Page_Controller {
 		}
 
 		if (isset($startParam)){
-			$returnList = $this->getImages()->limit(20, $startParam);
+			$returnList = $this->getResults()->limit(20, $startParam);
 			$returnList->sort('RAND()');
 			
 			$template = new SSViewer('LoadNewMedia');

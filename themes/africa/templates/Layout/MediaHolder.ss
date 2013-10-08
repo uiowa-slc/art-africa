@@ -11,14 +11,23 @@
 <div class="content-container typography" style="/*min-height: 3000px*/" >
  	<div id="media-container">
     <!--<div class="row-fluid media-row" data-columns> -->
- 		<% loop $getImages %>
+    	
+ 		<% loop $getResults %>
  			<div class="item">
-<img src="{$SetWidth(200).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click for more info." data-mfp-href="{$ShowLink}" />
+ 				<% if $ClassName == "Image" %>
+ 					<% include MediaGridImage %>
+ 				<% else_if $ClassName == "AudioPiece" %>
+ 					<% include AudioPiece %>
+ 				<% else_if $ClassName == "VideoPiece" %>
+ 					<% include VideoPiece %>
+
+ 				<% end_if %>
  			</div>
  		<% end_loop %>
    <!-- </div> -->
  		</div>
  	<% include LargeImageGridPagination %>
+
 </div>
 
 <script type="text/javascript">

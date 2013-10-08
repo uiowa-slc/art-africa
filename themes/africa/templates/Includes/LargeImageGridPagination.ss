@@ -1,13 +1,13 @@
-<% if getImages.MoreThanOnePage %>
+<% if $getResults.MoreThanOnePage %>
 	
 		<div class="item-list" id="pagination" style="display:none">
 		<ul class="pager">	
 		
-	    <% if getImages.PrevLink %>
-	        <li class="pager-item"><a class="prev" href="$getImages.PrevLink">Previous</a></li>
+	    <% if $getResults.PrevLink %>
+	        <li class="pager-item"><a class="prev" href="$getResults.PrevLink">Previous</a></li>
 	    <% end_if %>	
 	
-		<% loop getImages.PaginationSummary(7) %>
+		<% loop $getResults.PaginationSummary(7) %>
 			<% if CurrentBool %>
 		         <span><li class="pager-current">$PageNum</li></span>
 		    <% else %>
@@ -18,8 +18,8 @@
 		        <% end_if %>
 		    <% end_if %>
 		 <% end_loop %>  
-		 <% if getImages.NextLink %>
-		 	<li class="pager-item"><a class="next" href="$getImages.NextLink">Next</a></li>
+		 <% if $getResults.NextLink %>
+		 	<li class="pager-item"><a class="next" href="$getResults.NextLink">Next</a></li>
 		 <% end_if %>
 		 
 		 </ul> 

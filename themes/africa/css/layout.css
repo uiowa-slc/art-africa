@@ -399,6 +399,9 @@ button {
   /*background: #251f1f;*/
 }
 
+.MediaHolder #middle .nav2{
+  width: 13rem;
+}
 #middle .nav2 >ul,
 #middle .nav2 >ul>li {
   margin: 0;
@@ -607,6 +610,8 @@ button {
 .one-fourth {
   width: 25%;
 }
+
+#infscr-loading { display: none; }
 
 @media (min-width: 1024px) {
   .columns {
@@ -1157,13 +1162,8 @@ article.page {
 .country-info-container{
   padding: 1em 0;
 }
-  
-.artPic{
-  float: left;
-  width: 400px;
-}
-
-.artPic.noZoom {
+ 
+.artPic  {
   float: none;
   width: 100%;
 }
@@ -1173,7 +1173,7 @@ article.page {
   
 }
 
-.artPic.noZoom img {
+.artPic img {
   margin: auto;
   display: block;
   max-width: 100% !important;
@@ -1294,6 +1294,7 @@ article.page {
 
 #main_content.MediaHolder {
   padding: 10px;
+  left: 13rem;
 }
 /* image scroller Stuff */
 .image-scroller-container {
@@ -1338,6 +1339,10 @@ article.page {
     overflow-x: auto;
     overflow-y: hidden;
   }
+
+  .image-scroller-container#video-scroller ul{
+    height: 300px;
+  }
 @media (min-width: 480px) {
 	.image-scroller-container ul li{
 		/*display: inline-block;*/
@@ -1346,7 +1351,6 @@ article.page {
   .image-scroller-container ul.large-image-grid {
     height: 500px;
   }
-}
 
 @media (min-width: 768px) {
 	.image-scroller-container ul li{
@@ -1381,6 +1385,10 @@ article.page {
   border: none;
   width: 100%;
 
+}
+
+.media-filter-form select::-ms-expand {
+  display: none;
 }
 
 .media-filter-form fieldset {
@@ -1463,12 +1471,18 @@ li.audioObject {
     left:18px;
 }
 
-#video-scroller .play-icon {
-	width: 100px;
-	height: 100px;
-	position: relative;
-	top: -60px;
-	right: 220px;
+.video-piece {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.video-piece .play-icon {
+	position: absolute;
+	top: 20%;
+  width: 65%;
+  left: 20%;
 } 
 
 #audio-scroller ul {
@@ -1478,7 +1492,7 @@ li.audioObject {
 @media (max-width: 768px) {
   /*.toggle { display: none; }*/
   /*use &.toggle*/
-  #video-scroller .play-icon {
+  .video-piece .play-icon {
 	width: 100px;
 	height: 100px;
 	position: relative;
@@ -1525,44 +1539,4 @@ li.audioObject {
 #caption p {
 	line-height: 1.25rem;
   margin: 0;
-}
-body.popup {
-  background: white;
-}
-body.popup #top {
-  display: none;
-}
-
-body.popup #chapters_heading{
-  display: none;
-}
-
-body.popup #footer {
-  display: none;
-}
-
-body.popup .top-link{
-  display: none !important;
-}
-
-body.popup #main_content {
-  padding: 0;
-  top: 0;
-  box-shadow: none;
-}
-
-body.popup .content {
-  padding: 0px;
-}
-
-body.popup .content.description {
-  padding: 20px;
-}
-
-body.popup #caption {
-  padding: 20px;
-}
-
-body.popup .zoom-instructions {
-  margin: 20px;
 }
