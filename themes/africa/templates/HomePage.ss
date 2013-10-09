@@ -59,10 +59,10 @@
         <a href="http://www.youtube.com/user/CDROYburkina" target="_blank" class="img-link">
           <img width="42" src="{$ThemeDir}/images/home/youtube-icon-white.png" style="margin-right: 0.5rem">
         </a>
-        <a href="#" class="img-link">
+        <a href="https://www.facebook.com/UIMuseumofArt" target="_blank" class="img-link">
           <img width="42" src="{$ThemeDir}/images/home/facebook-icon-white.png" style="margin-right: 0.5rem">
         </a>
-        <a href="#" class="img-link">
+        <a href="https://twitter.com/UIMuseumofArt" target="_blank" class="img-link">
           <img width="42" src="{$ThemeDir}/images/home/twitter-icon-white.png">
         </a>
       </div>

@@ -303,7 +303,7 @@ function initialize() {
      coordinates.push([-14.1167, 27.6333]);
      
       //Entry for Zimbabwe
-     coordinates.push([19.0167,30.0167]);
+     coordinates.push([-17.8639, 31.0297]);
      
      //Entry for Botswana
      coordinates.push([-24.6667, 25.9167]);
