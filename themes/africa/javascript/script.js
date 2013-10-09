@@ -233,24 +233,29 @@ function initialize() {
     
     //If a country shows up incorrectly, the coordinates are probably flipped
     
+    
+   
+     
     //Entry for Cameroon
-    coordinates.push([5.1167, 11.9167]);
+     coordinates.push([5.1167, 11.9167]);
     
     //Entry for Angola
-    coordinates.push([-12.3500, 17.3500]);
+     coordinates.push([-12.3500, 17.3500]);
     
     //Entry for Benin
-    coordinates.push([8.8833, 2.1833]);
+     coordinates.push([8.8833, 2.1833]);
+    
+    //Entry for Brukina Faso
+     coordinates.push([12.3572, 1.5353])
     
     //Entry for Chad
-    coordinates.push([15.4667, 19.4000]);
-    
+     coordinates.push([15.4667, 19.4000]);
     
     //Entry for Democratic Republic Of Congo
-    coordinates.push([-2.8800, 23.6560]);
+     coordinates.push([-2.8800, 23.6560]);
     
      //Entry for Cote D'Ivoire
-     coordinates.push([8.0000, -6.0000]);
+	 coordinates.push([8.0000, -6.0000]);
     
      //Entry for Gabon
      coordinates.push([-0.6833, 11.5000]);
@@ -297,8 +302,8 @@ function initialize() {
      //Entry for Zambia
      coordinates.push([-14.1167, 27.6333]);
      
-     //Entry for Zimbabwe
-     coordinates.push([19.0167, 30.0167]);
+      //Entry for Zimbabwe
+     coordinates.push([19.0167,30.0167]);
      
      //Entry for Botswana
      coordinates.push([-24.6667, 25.9167]);
