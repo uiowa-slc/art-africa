@@ -15,9 +15,9 @@ class MediaFilterForm extends Form {
             DropdownField::create("People", "Peoples", People::get()->map('ID','Title'), $filters['People'])->setEmptyString('Any People'),
             DropdownField::create("Chapter", "Chapters", Chapter::get()->map('ID','Title'), $filters['Chapter'])->setEmptyString('Any Chapter'),
             DropdownField::create("Subtopic", "Subtopics", Subtopic::get()->map('ID','Title'), $filters['Subtopic'] )->setEmptyString('Any Subtopic'),
-            DropdownField::create("MediaType", "MediaType", array( "ArtPhoto" => "Art Photo", "FieldPhoto" => "Field Photo", "AudioPiece" => "Audio","VideoPiece" => "Video"),$filters['MediaType'] )
+            DropdownField::create("MediaType", "MediaType", array("Image" => "Image", "ArtPhoto" => "Art Photo", "FieldPhoto" => "Field Photo", "AudioPiece" => "Audio","VideoPiece" => "Video"),$filters['MediaType'] )
         );
-        $actions = new FieldList(FormAction::create("", "Filter"));
+        $actions = new FieldList(FormAction::create("", "Use Filter"));
         $this->setFormMethod("GET");
 
         parent::__construct($controller, $name, $fields, $actions);

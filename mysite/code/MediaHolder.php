@@ -91,11 +91,6 @@ class MediaHolder_Controller extends Page_Controller {
 	}
 
 	public function getResults(){
-		/*$results = new ArrayList();
-		$artPhotoImages = Image::get()->filter(array('Type' => 'ArtPhoto'));
-		$fieldPhotoImages = Image::get()->filter(array('Type' => 'FieldPhoto'));
-		$results->merge($artPhotoImages);
-		$results->merge($fieldPhotoImages);*/
 
 		$filters = $this->getFilters();
 
@@ -108,9 +103,13 @@ class MediaHolder_Controller extends Page_Controller {
 			}elseif ($filters['MediaType'] == 'VideoPiece') {
 				$results = VideoPiece::get();
 			}else{
+				/* If we're not looking at an Audio or Video Piece, we have to be looking at an Image */
 
 				$results = $this->loadDefaultResults();
-				$results = $results->addFilter((array('Type' => $filters['MediaType'])));
+				/* If we're looking for a particular type of image instead of just a generic "Image": */
+				if($filters['MediaType']!= 'Image'){
+					$results = $results->addFilter((array('Type' => $filters['MediaType'])));
+				}
 			}
 
 		}else {

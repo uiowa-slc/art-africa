@@ -117,9 +117,14 @@
 
             <!-- Media -->
             <% if $Level(1).Title == 'Media' %>
+
+            <li>
         				<nav class="media-filter-form">
                   $MediaFilterForm
+                  <% include MediaFilterQuickLinks %>
+
         				</nav>
+            </li>
             <% end_if %>
 
                 <!-- Video -->

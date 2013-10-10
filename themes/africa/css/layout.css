@@ -459,6 +459,8 @@ button {
 
 }
 
+
+
 /* Back to Top Link */
 
 .top-link {
@@ -590,7 +592,7 @@ button {
   }
 }*/
 .item {
-  width: 200px;
+  width:200px;
 }
 .item img {
   width: 100%;
@@ -1341,7 +1343,7 @@ article.page {
   }
 
   .image-scroller-container#video-scroller ul{
-    height: 300px;
+    height: 200px;
   }
 @media (min-width: 480px) {
 	.image-scroller-container ul li{
@@ -1403,6 +1405,25 @@ article.page {
 }
 .mediaItem {
   margin: auto; width: 640px; margin-bottom: 3%;
+}
+
+#quick-links-container{
+  margin: 1em;
+}
+#quick-links-container h3{
+  color: #ccc;
+}
+
+#quick-links-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#quick-links-container ul li {
+  margin: 5px 0;
+}
+#quick-links-container ul li a {
+  color: white;
 }
 
 #bibliography-results {
@@ -1472,8 +1493,8 @@ li.audioObject {
 }
 
 .video-piece {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;

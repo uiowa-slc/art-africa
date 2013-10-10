@@ -8,7 +8,7 @@ $(function(){
 
         masonry: {
         	columnWidth: 210,
-    		gutterWidth: 5
+    		gutterWidth: 0
   		}
       });
       
