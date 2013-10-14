@@ -2,8 +2,6 @@
 	<article>
 		<h1>$Title</h1>
 
-		<% if Author %><h3>by $Author</h3><% end_if %>
-		<% if University %><h3>$University</h3><% end_if %>
 		
 
 		<!--
@@ -13,9 +11,11 @@
 		<% if Images %> 
 		<% include LargeImageScroller %>
 		<% end_if %>
+		
 		<h2>Introduction</h2>
-		<h3>Written by: $Author</h3>
-		<h3>Institution:  $University</h3>
+
+		<% if Author %><h3>$Author</h3><% end_if %>
+		<% if University %><h3>$University</h3><% end_if %>
 		<% include EssayPages %>
 		<div>
 		<!--
