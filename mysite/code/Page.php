@@ -624,22 +624,22 @@ class Page_Controller extends ContentController {
 		if ($photoObject){
 			
 			//$photoObject = ArtPhoto::get()->filter(array()
-			$newObject = $photoObject->toMap();
-			$newObject = new ArrayData($newObject); //cast to array that can be displayed on template
+			/*$newObject = $photoObject->toMap();
+			$newObject = new ArrayData($newObject); //cast to array that can be displayed on template*/
 	
-			if (isset($arguments["size"])) {
+			/*if (isset($arguments["size"])) {
 				$newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
 			}
 			else {
 				$newObject->setField('size', 'fullWidthImage');
-			}
+			}*/
 	
 			$template = new SSViewer('Image');
 	
 			//$picture = $photoObject->Picture();
 			//$newObject->setField('filename', $picture->getFilename());
 	
-			return $template->process($newObject);
+			return $template->process($photoObject);
 		}
 		else {
 
