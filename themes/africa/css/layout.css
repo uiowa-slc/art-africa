@@ -64,7 +64,7 @@ a {
 button {
   outline: none;
 }
-
+hr { border: 0; height: 1px; background: #E9E9E9; }
 a:hover,
 a.hover {
   text-decoration: underline;

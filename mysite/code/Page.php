@@ -650,7 +650,28 @@ class Page_Controller extends ContentController {
 
 
 	}
+	public function audioHandler($arguments){
+		//ID actually points to title attribute
+		if (isset($arguments["ID"])) {
+			$audioID = $arguments["ID"];
+			$audioID = strtoupper($audioID);
+		}
+		else {
+			return;
+		}
+		$audioObject = AudioPiece::get()->filter(array('Title' => $audioID))->First();
+		
+		if ($audioObject){
+			$template = new SSViewer('AudioPiece');
+			return $template->process($audioObject);
+		}
+		else {
 
+			return;
+		}
+
+
+	}
 
 	public function shortCodeHandler($arguments, $class) {
 		if (isset($arguments["ID"])) {
