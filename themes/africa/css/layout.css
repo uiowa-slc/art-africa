@@ -174,11 +174,11 @@ button {
 }
 @media (min-width: 1024px) {
   #logo {
-    font-size: 3rem;
+    /*font-size: 3rem;
   
     background-size: 4.5rem 4.5rem;
     background-repeat: no-repeat;
-    background-position: 14.5rem 3.2rem;
+    background-position: 14.5rem 3.2rem;*/
 
   }
 }
@@ -613,7 +613,7 @@ button {
   width: 25%;
 }
 
-#infscr-loading { display: none; }
+#infscr-loading { display: none !important }
 
 @media (min-width: 1024px) {
   .columns {
