@@ -40,9 +40,22 @@
 				
 				<div class="span4 sticky"> <!--this isn't sticky-->
 					<h2>Facts about $Title</h2>
+					
+					
+					
+					
+					
+					
 					<% if Location %>
 						<h3>Location</h3>
 						<p>$Location</p>
+						
+					<% if $Picture %>
+					<div style="width: 100%; ">
+					<img style="width: 100%;" src="$Picture.URL"></src>
+					</div>
+					<% end_if %>
+						
 					<% end_if %>
 					<h3>Countries</h3>
 					<p>

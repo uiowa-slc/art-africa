@@ -1,8 +1,9 @@
 <div class="content-container typography">
 	<article>
 		<h1>$Title</h1>
-		<% if Author %><h3>by $Author</h3><% end_if %>
-		<% if University %><h3>$University</h3><% end_if %>
+
+		
+
 		<!--
 		<% if $CoverImage %>
 		<img src="$CoverImage.URL" class="full-width" alt="">
@@ -10,7 +11,11 @@
 		<% if Images %> 
 		<% include LargeImageScroller %>
 		<% end_if %>
+		
 		<h2>Introduction</h2>
+
+		<% if Author %><h3>$Author</h3><% end_if %>
+		<% if University %><h3>$University</h3><% end_if %>
 		<% include EssayPages %>
 		<div>
 		<!--
@@ -23,6 +28,7 @@
 	<% loop Children %>
 		<a href="{$Link}">$Title<br></a>
 	<% end_loop %>
+	
 	<br><br>
 	
 </div>
