@@ -617,6 +617,7 @@ button {
 
 @media (min-width: 1024px) {
   .columns {
+    min-height: 550px;
     column-count: 2;
     -moz-column-count: 2; /* Firefox */
     -webkit-column-count: 2; /* Safari and Chrome */
@@ -913,8 +914,13 @@ ul.columns li {
 .credit-line {
   color: #aaa;
   font-size: 0.75rem;
+  margin: 1rem 0;
 }
-
+.credit-line p{
+  margin: 0;
+  padding: 0;
+  line-height: 1rem;
+}
 .artPhoto {
 	position: static !important;
 	

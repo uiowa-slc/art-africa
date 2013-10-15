@@ -312,7 +312,8 @@ function initialize() {
      for (var i = 0; i < coordinates.length; i++){
 	     marker = new google.maps.Marker({
 		            position: new google.maps.LatLng(coordinates[i][0], coordinates[i][1]),
-		            map: map
+		            map: map,
+                animation: google.maps.Animation.DROP
 		}); 
      
      }

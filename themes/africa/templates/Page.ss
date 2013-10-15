@@ -71,7 +71,6 @@
                 <% if LinkOrSection = section %>
                   <a href="$Link" class="nav3">$MenuTitle</a>
                   <% if Children %>
-                  	
 	                  <nav class="nav3">
 	                    <ul>
 	                      <% loop Children %>
