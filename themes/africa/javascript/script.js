@@ -232,36 +232,31 @@ function initialize() {
     var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
 
     map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
- 
- 
- 
-
+    
+    
     
     var coordinates = new Array();
-    
+ 
     //If a country shows up incorrectly, the coordinates are probably flipped
     
-    
-   
-     
     //Entry for Cameroon
-<<<<<<< HEAD
+
      coordinates.push(['1', [5.1167, 11.9167]]);
     
     //Entry for Angola
      coordinates.push(['2', [-12.3500, 17.3500]]);
     
-    //Entry for Benin
+	 //Entry for Benin
      coordinates.push(['3', [8.8833, 2.1833]]);
     
-    //Entry for Brukina Faso
+	 //Entry for Brukina Faso
      coordinates.push(['4', [12.3572, 1.5353]])
     
-    //Entry for Chad
+	 //Entry for Chad
      coordinates.push(['5', [15.4667, 19.4000]]);
-    
-    //Entry for Democratic Republic Of Congo
-     coordinates.push(['6', [-2.8800, 23.6560]]);
+
+	 //Entry for Democratic Republic Of Congo
+     coordinates.push(['6', [-4.3250, 15.3222]]);
     
      //Entry for Cote D'Ivoire
 	 coordinates.push(['8',[8.0000, -6.0000]]);
@@ -316,91 +311,21 @@ function initialize() {
      
      //Entry for Botswana
      coordinates.push(['25', [-24.6667, 25.9167]]);
-=======
-     coordinates.push([5.1167, 11.9167]);
+     
+     //Entry for Congo
+     coordinates.push(['26', [-4.2678, 15.2919]]);
+     
+     
     
-    //Entry for Angola
-     coordinates.push([-12.3500, 17.3500]);
-    
-    //Entry for Benin
-     coordinates.push([8.8833, 2.1833]);
-    
-    //Entry for Brukina Faso
-     coordinates.push([12.3572, 1.5353])
-    
-    //Entry for Chad
-     coordinates.push([15.4667, 19.4000]);
-    
-    //Entry for Democratic Republic Of Congo
-     coordinates.push([-2.8800, 23.6560]);
-    
-     //Entry for Cote D'Ivoire
-	 coordinates.push([8.0000, -6.0000]);
-    
-     //Entry for Gabon
-     coordinates.push([-0.6833, 11.5000]);
-    
-     //Entry for Ghana
-     coordinates.push([7.6833, -0.9833]);
-        
-     //Entry for Guinea-Bissau
-     coordinates.push([12.0000, -15.0000]);
-     
-     //Entry for Guinea-Conakry
-     coordinates.push([9.5092, -13.7122]);
-      
-     //Entry for Kenya
-     coordinates.push([-1.2667, 36.8000]);
-     
-     //Entry for Liberia
-     coordinates.push([6.5333, -9.7500]);
-     
-     //Entry for Mali
-     coordinates.push([17.0000, -4.3667]);
-     
-     //Entry for Niger
-     coordinates.push([16.1833, 9.6167]);
-     
-     //Entry for Nigeria
-     coordinates.push([8.0000, 10.0000]);
-     
-     //Entry for Senegal
-     coordinates.push([14.6667, -17.4167]);
-     
-     //Entry for Sierra Leone
-     coordinates.push([8.4844, -13.2344]);
-     
-     //Entry for South Africa
-     coordinates.push([-30.0000, 25.0000]);
-     
-     //Entry for Tanzania
-     coordinates.push([-6.3070, 34.8540]);
-     
-     //Entry for Togo
-     coordinates.push([8.2500, 1.1833]);
-     
-     //Entry for Zambia
-     coordinates.push([-14.1167, 27.6333]);
-     
-      //Entry for Zimbabwe
-     coordinates.push([-17.8639, 31.0297]);
-     
-     //Entry for Botswana
-     coordinates.push([-24.6667, 25.9167]);
-     
->>>>>>> cd33a794c610c5f0ffb573bc4ad81f1b24e57060
      
 
      for (var i = 0; i < coordinates.length; i++){
 	     marker = new google.maps.Marker({
-<<<<<<< HEAD
 		 position: new google.maps.LatLng(coordinates[i][1][0], coordinates[i][1][1]),
 		 map: map,
 		 draggable: false,
 		 clickable: true,
-		 title: coordinates[i][0]
-	       
-	       	 
+
 		 }); 
 		 
     google.maps.event.addListener(marker, 'click', function (mouseEvent) {
@@ -410,7 +335,7 @@ function initialize() {
           // var headingP = document.getElementById('country');
           if (status == google.maps.GeocoderStatus.OK) {
             var country = getCountry(results);
-            var matchingCountryLink = $('.nav2 a').filter(function () {
+            var matchingCountryLink = $('.nav2 span ').filter(function () {
             var countryName = $(this).text();
             return countryName === country.long_name;
             });
@@ -425,41 +350,7 @@ function initialize() {
     });   
      
 }     
-   
-=======
-		            position: new google.maps.LatLng(coordinates[i][0], coordinates[i][1]),
-		            map: map,
-                animation: google.maps.Animation.DROP
-		}); 
-     
-     }
-       
-       
-    
-    /*
-    $('.nav2 a').each(function (i) {
-      var nav2a = $(this);
-      var countryName = nav2a.text();
-      var countryHref = nav2a.attr('href');
-      geocoder.geocode({ 'address': countryName }, function (results, status) {
-        setTimeout(function () {
-          var countryMarker = new google.maps.Marker({
-            position:  results[0].geometry.location,
-            map:       map,
-            // title:     'Example Country',
-            // url:       'https://www.google.com/',
-            animation: google.maps.Animation.DROP
-            // icon:      'http://cdn.iphoneincanada.ca/wp-content/uploads/2012/09/Google-Maps-icon.png'
-          });
-          google.maps.event.addListener(countryMarker, 'click', function (mouseEvent) {
-            // countryMarker.setAnimation(google.maps.Animation.DROP);
-            window.location.href = countryHref;
-          });
-        }, i * 100);
-      });
-    });*/
 
->>>>>>> cd33a794c610c5f0ffb573bc4ad81f1b24e57060
     //http://gmaps-samples-v3.googlecode.com/svn/trunk/country_explorer/country_explorer.html
     google.maps.event.addListener(map, 'click', function (mouseEvent) {
       geocoder.geocode(
@@ -468,7 +359,7 @@ function initialize() {
           // var headingP = document.getElementById('country');
           if (status == google.maps.GeocoderStatus.OK) {
             var country = getCountry(results);
-            var matchingCountryLink = $('.nav2 a').filter(function () {
+            var matchingCountryLink = $('.nav2 span ').filter(function () {
             var countryName = $(this).text();
             return countryName === country.long_name;
             });
