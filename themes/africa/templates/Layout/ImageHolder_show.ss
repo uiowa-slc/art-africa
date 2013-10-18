@@ -20,6 +20,7 @@
 			<div class="clearfix"></div>
 			
 		</div>
+		<hr />
 		<% if $Object.Description %>
 		<div class="content columns description">
 			<h2>Description</h2>

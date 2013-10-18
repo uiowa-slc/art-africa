@@ -1,8 +1,7 @@
- <li id="audioObject">
+ <div class="audio-piece">
 	     
 	     <video class="" id="videoPiece{$Pos}" src="{$AudioFile.URL}" width="320" height="240"></video>
-	
-	     <span class="audioTitle">$Title.LimitWordCountXML(8) <br> <a href="{$Link}">View Track Info</a></span>
+	     <a href="{$Link}">Info</a>
 	     
 	    <script>
 			
@@ -11,4 +10,4 @@
 		</script>
 	 
 	 
-	    </li>
+</div>

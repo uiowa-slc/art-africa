@@ -54,6 +54,14 @@ ShortcodeParser::get('default')->register(
     'Image', array('Page_Controller', 'imageHandler')
 );
 
+ShortcodeParser::get('default')->register(
+    'Video', array('Page_Controller', 'videoHandler')
+);
+
+ShortcodeParser::get('default')->register(
+    'Audio', array('Page_Controller', 'audioHandler')
+);
+
 Object::add_extension("DataObject","AfricaDataObjectExtension");
 Object::add_extension("Image","ImageExtension");
 Object::add_extension("AssetAdmin","AssetAdminExtension");
