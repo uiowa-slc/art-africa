@@ -56,7 +56,7 @@ class CountryHolder_Controller extends Page_Controller {
 	public static $childPage = 'Country';
 	
 	public function getCountries(){
-	$country = Country::get()->sort('Title');
+	$country = Country::get();
 	return $country;
 	}
 	

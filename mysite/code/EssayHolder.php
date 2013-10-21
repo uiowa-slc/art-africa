@@ -71,22 +71,15 @@ class EssayHolder_Controller extends Page_Controller {
 		 $ID = $this->request->param('ID');
 		 //$object = DataObject::get_by_id('Essay', $ID);
 		 $object = Essay::get()->byID($ID);
-
-		 if($object){
-			$relation = $object->EssayPages();
-			 $list = new PaginatedList($relation, $this->request);
-			 $list->setPageLength(1);
-			 return $list;
-			}else{
-				return false;
-			}
+		 $relation = $object->EssayPages();
+		 $list = new PaginatedList($relation, $this->request);
+		 $list->setPageLength(1);
+		 return $list;
 	}
 	
 	public function getEssayImages(){
 		 $ID = $this->request->param('ID');
 		 $object = Essay::get()->byID($ID);
-
-		 if($object){
 		 $relation = $object->EssayPages();
 		 
 		 $essayImages = new ArrayList();
@@ -107,9 +100,6 @@ class EssayHolder_Controller extends Page_Controller {
 		 
 		 //print_r($essayImages);
 		 return $essayImages;
-		}else{
-			return false;
-		}
 	}
 	
 

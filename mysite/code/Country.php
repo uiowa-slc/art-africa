@@ -27,8 +27,7 @@ class Country extends DataObject {
   'MajorExports' => 'Text',
   'PrecolonialHistory' => 'Text',
   'PostcolonialHistory' => 'Text',
-  'Tags' => 'Text',
-  'GoogleName' => 'Varchar(255)'
+  'Tags' => 'Text'
   
   
   );
@@ -90,7 +89,6 @@ class Country extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextAreaField('PostcolonialHistory', 'Postcolonial Language'));
  		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
  		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
- 		$fields->addFieldToTab('Root.Main', new TextField('GoogleName', 'GoogleName'));
 
 		return $fields;	
   }

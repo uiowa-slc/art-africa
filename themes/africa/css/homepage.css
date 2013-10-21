@@ -37,21 +37,13 @@
 @media (min-width: 769px) {
   #homepage-pic {
     position: fixed;
-    top: 5.3rem;
+    top: 7.8rem;
     left: 0;
     right: 0;
     bottom: 0;
     background-position: 50% 10%;
   }
 }
-
-@media (min-width: 1024px) {
-  /*#homepage-pic {
-    position: fixed;
-    top: 7.8rem;
-  }*/
-}
-
 @media (min-width: 2000px) {
   #homepage-pic {
     background-position: 0 5%;

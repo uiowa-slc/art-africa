@@ -71,6 +71,7 @@
                 <% if LinkOrSection = section %>
                   <a href="$Link" class="nav3">$MenuTitle</a>
                   <% if Children %>
+                  	
 	                  <nav class="nav3">
 	                    <ul>
 	                      <% loop Children %>
@@ -97,10 +98,8 @@
               <% loop getCountries %>
                 <% if Name %>
                   <li><a href="$Link" data-gmaps="{$CapitalCity}, {$Name}">$Name</a></li>
-                  <span href="$Link(false)" style="display: none;">$GoogleName</span>
                 <% else_if Title %>
                   <li><a href="$Link" data-gmaps="{$CapitalCity}, {$Title}">$Title</a></li>
-                  <span href="$Link(false)" style="display: none;">$GoogleName</span>
                 <% end_if %>
               <% end_loop %>
             <% end_if %>
