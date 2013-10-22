@@ -921,7 +921,8 @@ ul.columns li {
 .credit-line p{
   margin: 0;
   padding: 0;
-  line-height: 1rem;
+  line-height: 0.7rem;
+  font-size: 0.7rem;
 }
 .artPhoto {
 	position: static !important;
