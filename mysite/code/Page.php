@@ -615,31 +615,11 @@ class Page_Controller extends ContentController {
 		else {
 			return;
 		}
-		
-		//$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);		
 		$photoObject = Image::get()->filter(array('Title' => $photoID))->First();
 		
-	
-		
 		if ($photoObject){
-			
-			//$photoObject = ArtPhoto::get()->filter(array()
-			$newObject = $photoObject->toMap();
-			$newObject = new ArrayData($newObject); //cast to array that can be displayed on template
-	
-			if (isset($arguments["size"])) {
-				$newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
-			}
-			else {
-				$newObject->setField('size', 'fullWidthImage');
-			}
-	
 			$template = new SSViewer('Image');
-	
-			//$picture = $photoObject->Picture();
-			//$newObject->setField('filename', $picture->getFilename());
-	
-			return $template->process($newObject);
+			return $template->process($photoObject);
 		}
 		else {
 
@@ -648,6 +628,50 @@ class Page_Controller extends ContentController {
 		
 	}
 
+	public function videoHandler($arguments){
+		//ID actually points to title attribute
+		if (isset($arguments["ID"])) {
+			$videoID = $arguments["ID"];
+			$videoID = strtoupper($videoID);
+		}
+		else {
+			return;
+		}
+		$videoObject = VideoPiece::get()->filter(array('Title' => $videoID))->First();
+		
+		if ($videoObject){
+			$template = new SSViewer('VideoPiece');
+			return $template->process($videoObject);
+		}
+		else {
+
+			return;
+		}
+
+
+	}
+	public function audioHandler($arguments){
+		//ID actually points to title attribute
+		if (isset($arguments["ID"])) {
+			$audioID = $arguments["ID"];
+			$audioID = strtoupper($audioID);
+		}
+		else {
+			return;
+		}
+		$audioObject = AudioPiece::get()->filter(array('Title' => $audioID))->First();
+		
+		if ($audioObject){
+			$template = new SSViewer('AudioPiece');
+			return $template->process($audioObject);
+		}
+		else {
+
+			return;
+		}
+
+
+	}
 
 	public function shortCodeHandler($arguments, $class) {
 		if (isset($arguments["ID"])) {

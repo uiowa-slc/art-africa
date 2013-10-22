@@ -64,7 +64,7 @@ a {
 button {
   outline: none;
 }
-
+hr { border: 0; height: 1px; background: #E9E9E9; }
 a:hover,
 a.hover {
   text-decoration: underline;
@@ -174,11 +174,11 @@ button {
 }
 @media (min-width: 1024px) {
   #logo {
-    font-size: 3rem;
+    /*font-size: 3rem;
   
     background-size: 4.5rem 4.5rem;
     background-repeat: no-repeat;
-    background-position: 14.5rem 3.2rem;
+    background-position: 14.5rem 3.2rem;*/
 
   }
 }
@@ -613,10 +613,11 @@ button {
   width: 25%;
 }
 
-#infscr-loading { display: none; }
+#infscr-loading { display: none !important }
 
 @media (min-width: 1024px) {
   .columns {
+    /*min-height: 550px;*/
     column-count: 2;
     -moz-column-count: 2; /* Firefox */
     -webkit-column-count: 2; /* Safari and Chrome */
@@ -718,7 +719,8 @@ ul.columns li {
     box-shadow: -0.125rem 0.125rem 0.375rem rgba(24,20,21, 0.5);
   }
   .padded {
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+
   }
 }
 
@@ -920,13 +922,11 @@ ul.columns li {
 .credit-line p{
   margin: 0;
   padding: 0;
-  line-height: 0.7rem;
-  font-size: 0.7rem;
-
+  line-height: 1rem;
 }
-
 .artPhoto {
 	position: static !important;
+  width: 100%;
 	
 }
 
@@ -1503,17 +1503,18 @@ li.audioObject {
 }
 
 .video-piece {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #666;
 }
 .video-piece .play-icon {
 	position: absolute;
-	top: 20%;
+	top: 18%;
   width: 65%;
-  left: 20%;
+  left: 18%;
 } 
 
 #audio-scroller ul {
@@ -1573,28 +1574,9 @@ li.audioObject {
 }
 
 .search {
-	padding: 0;
+	padding-left: 0;
 }
 
 #searchResults {
 	padding-left: 0;
-}
-
-.social {
-	list-style: none;
-	float: right;
-	max-height: 28px;
-	overflow: hidden;
-	margin: 0;
-	padding-top: 5px;
-	padding-left: 0;
-}
-
-.socialss {
-	display: inline-block;
-	float: left;
-}
-
-#facebookss {
-	padding-right: 10px;
 }
