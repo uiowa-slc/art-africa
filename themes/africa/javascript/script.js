@@ -232,31 +232,35 @@ function initialize() {
     var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
 
     map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
-    
-    
+ 
+ 
+ 
+
     
     var coordinates = new Array();
- 
+    
     //If a country shows up incorrectly, the coordinates are probably flipped
     
+    
+   
+     
     //Entry for Cameroon
-
      coordinates.push(['1', [5.1167, 11.9167]]);
     
     //Entry for Angola
      coordinates.push(['2', [-12.3500, 17.3500]]);
     
-	 //Entry for Benin
+    //Entry for Benin
      coordinates.push(['3', [8.8833, 2.1833]]);
     
-	 //Entry for Brukina Faso
+    //Entry for Brukina Faso
      coordinates.push(['4', [12.3572, 1.5353]])
     
-	 //Entry for Chad
+    //Entry for Chad
      coordinates.push(['5', [15.4667, 19.4000]]);
-
-	 //Entry for Democratic Republic Of Congo
-     coordinates.push(['6', [-4.3250, 15.3222]]);
+    
+    //Entry for Democratic Republic Of Congo
+     coordinates.push(['6', [-2.8800, 23.6560]]);
     
      //Entry for Cote D'Ivoire
 	 coordinates.push(['8',[8.0000, -6.0000]]);
@@ -312,12 +316,6 @@ function initialize() {
      //Entry for Botswana
      coordinates.push(['25', [-24.6667, 25.9167]]);
      
-     //Entry for Congo
-     coordinates.push(['26', [-4.2678, 15.2919]]);
-     
-     
-    
-     
 
      for (var i = 0; i < coordinates.length; i++){
 	     marker = new google.maps.Marker({
@@ -325,7 +323,9 @@ function initialize() {
 		 map: map,
 		 draggable: false,
 		 clickable: true,
-
+		 title: coordinates[i][0]
+	       
+	       	 
 		 }); 
 		 
     google.maps.event.addListener(marker, 'click', function (mouseEvent) {
@@ -335,7 +335,7 @@ function initialize() {
           // var headingP = document.getElementById('country');
           if (status == google.maps.GeocoderStatus.OK) {
             var country = getCountry(results);
-            var matchingCountryLink = $('.nav2 span ').filter(function () {
+            var matchingCountryLink = $('.nav2 a').filter(function () {
             var countryName = $(this).text();
             return countryName === country.long_name;
             });
@@ -350,7 +350,7 @@ function initialize() {
     });   
      
 }     
-
+   
     //http://gmaps-samples-v3.googlecode.com/svn/trunk/country_explorer/country_explorer.html
     google.maps.event.addListener(map, 'click', function (mouseEvent) {
       geocoder.geocode(
@@ -359,7 +359,7 @@ function initialize() {
           // var headingP = document.getElementById('country');
           if (status == google.maps.GeocoderStatus.OK) {
             var country = getCountry(results);
-            var matchingCountryLink = $('.nav2 span ').filter(function () {
+            var matchingCountryLink = $('.nav2 a').filter(function () {
             var countryName = $(this).text();
             return countryName === country.long_name;
             });
