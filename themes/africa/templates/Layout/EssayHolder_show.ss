@@ -36,40 +36,6 @@
 				<% end_if %>
 				
 			<% include EssayImages %>
-			<br />	
-			<br />	
-			
-			<!--People
-			<% loop People %>
-				$Title<br>
-			<% end_loop %>
-			<br><br><br>
-			Audio Pieces
-			<% loop AudioPieces %>
-				$Title<br>
-			<% end_loop %>
-			<br><br><br>
-			Subtopics
-			<% loop Subtopics %>
-				$Title<br>
-			<% end_loop %>
-			<br><br><br>
-			Video Pieces
-			<% loop VideoPieces %>
-				$Title<br>
-			<% end_loop %>
-			<br><br><br>
-			Countries
-			<% loop Countries %>
-				$Title<br>
-			<% end_loop %>
-			<br><br><br>
-			Images
-			<% loop Images %>
-				$Title<br>
-			<% end_loop %>
-			
-			Essay Pages-->
 			
 	
 		</div>

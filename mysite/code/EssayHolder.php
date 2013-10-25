@@ -68,10 +68,12 @@ class EssayHolder_Controller extends Page_Controller {
 	
 	//Called by show template
 	public function getPaginatedPages(){
+
+
 		 $ID = $this->request->param('ID');
 		 //$object = DataObject::get_by_id('Essay', $ID);
 		 $object = Essay::get()->byID($ID);
-
+		 
 		 if($object){
 			$relation = $object->EssayPages();
 			 $list = new PaginatedList($relation, $this->request);
