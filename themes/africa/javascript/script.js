@@ -326,6 +326,7 @@ function initialize() {
     		 map: map,
     		 draggable: false,
     		 clickable: true,
+         animation: google.maps.Animation.DROP,
     		 title: coordinates[i][0] 
 	       	 
 		  }); 
