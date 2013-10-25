@@ -315,21 +315,27 @@ function initialize() {
      
      //Entry for Botswana
      coordinates.push(['25', [-24.6667, 25.9167]]);
+
+     var markers = new Array();
      
 
      for (var i = 0; i < coordinates.length; i++){
+
 	     marker = new google.maps.Marker({
-		 position: new google.maps.LatLng(coordinates[i][1][0], coordinates[i][1][1]),
-		 map: map,
-		 draggable: false,
-		 clickable: true,
-		 title: coordinates[i][0]
-	       
+    		 position: new google.maps.LatLng(coordinates[i][1][0], coordinates[i][1][1]),
+    		 map: map,
+    		 draggable: false,
+    		 clickable: true,
+    		 title: coordinates[i][0] 
 	       	 
-		 }); 
-		 
-    google.maps.event.addListener(marker, 'click', function (mouseEvent) {
-      geocoder.geocode(
+		  }); 
+
+        markers.push(marker);
+
+    google.maps.event.addListener(markers[i], 'click', function (mouseEvent) {
+      window.location.href = 'countries/show/'+this.title;
+
+      /*geocoder.geocode(
         {'latLng': mouseEvent.latLng},
         function (results, status) {
           // var headingP = document.getElementById('country');
@@ -346,7 +352,7 @@ function initialize() {
             }
           }
         }
-      );
+      );*/
     });   
      
 }     

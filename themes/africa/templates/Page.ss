@@ -109,9 +109,9 @@
             <% if $Level(1).Title == 'Countries' %>
               <% loop getCountries %>
                 <% if Name %>
-                  <li><a href="$Link" data-gmaps="{$CapitalCity}, {$Name}">$Name</a></li>
+                  <li><a href="$Link(false)" data-gmaps="{$CapitalCity}, {$Name}">$Name</a></li>
                 <% else_if Title %>
-                  <li><a href="$Link" data-gmaps="{$CapitalCity}, {$Title}">$Title</a></li>
+                  <li><a href="$Link(false)" data-gmaps="{$CapitalCity}, {$Title}">$Title</a></li>
                 <% end_if %>
               <% end_loop %>
             <% end_if %>
