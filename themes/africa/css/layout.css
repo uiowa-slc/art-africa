@@ -1503,8 +1503,8 @@ li.audioObject {
 }
 
 .video-piece {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1516,6 +1516,17 @@ li.audioObject {
   width: 65%;
   left: 18%;
 } 
+
+#main_content .video-piece a.info-link {
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.4);
+  padding: 0 5px;
+  color: white;
+
+}
 
 #audio-scroller ul {
 	height: 250px;
