@@ -962,9 +962,9 @@ ul.columns li {
 }
 
 .content.essayPage p {
-  column-width:300px;
-  -moz-column-width:300px; /* Firefox */
-  -webkit-column-width:300px; /* Safari and Chrome */
+ /* column-width:300px;
+  -moz-column-width:300px; 
+  -webkit-column-width:300px; */
 }
 
 
