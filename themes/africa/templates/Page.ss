@@ -206,6 +206,7 @@
             <div class="container-fluid">
               <div class="row-fluid">
               <div class="span4">
+                <div class="padded">
                 <p>
                   <img src="{$ThemeDir}/images/UIMA-newlogo-black.png" class="uima-logo">
                 </p>
@@ -218,9 +219,11 @@
                   Telephone (319) 335-1727<br>
                   Fax (319) 335-3677
                 </p>
+                </div>
               </div>
 
               <div class="span4 offset4 social-media">
+                <div class="padded">
                 <p style="margin-top: 2rem">
                   <a class="img-link" target="_blank" href="https://www.facebook.com/UIMuseumofArt">
                     <img width="42" src="{$ThemeDir}/images/facebook-icon.png" style="margin-right: 0.5rem">
@@ -240,19 +243,13 @@
                   <% end_loop %>
                 </ul>
               </div>
+              </div>
             </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <% if $Object.NeedsZoom %>
-      <script type="text/javascript">
-        $('#zoom-target').easyZoom({
-          parent: 'div.zoom-container',
-        });
-      </script>
-    <% end_if %>
 
   </body>
 </html>
