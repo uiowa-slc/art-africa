@@ -144,6 +144,27 @@ class ImageExtension extends DataExtension {
         return $this->owner->getWidth() < $this->owner->getHeight();
     }
 
+    public function SizeCategory(){
+
+      $size = 'full';
+
+      $height = $this->owner->getHeight();
+      $width = $this->owner->getWidth();
+
+      if($width < 1000) {
+        $size = 'medium';
+      }elseif($width < 600){
+        $size = 'small';
+      }elseif($width < 400){
+        $size = 'tiny';
+      }
+
+      return $size;
+
+
+
+    }
+
     public function SingleDisplay(GD $gd){
     	$height = $this->owner->getHeight();
     	$width = $this->owner->getWidth();
@@ -159,38 +180,7 @@ class ImageExtension extends DataExtension {
 
     }
 
-    public function NeedsZoom(){
 
-      return false;
-    /*	$height = $this->owner->getHeight();
-    	$width = $this->owner->getWidth();
-
-      $displayHeight = $this->SingleDisplay()->getHeight();
-      $displayWidth = $this->SingleDisplay()->getWidth();
-
-      $displayHeightRatio = $height / $displayHeight;
-
-      $ratio = $width / $height;*/
-
-      //Option 1:
-    	/*if(($this->Portrait()) && ($height > 700) && ($width > 300)){
-    		return true;
-    	} else {
-    		return false;
-    	}*/
-
-      //Option 2:
-
-     /* if(($width > 400) && ($height > 500)){
-
-        return ($ratio < 0.6);
-      }*/
-
-      //Option 3 (NEVER ZOOM):
-
-      //return false;
-    }
-  
   //returns returnedCaption
   public function parsedCaption(){
   

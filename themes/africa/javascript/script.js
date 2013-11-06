@@ -336,24 +336,6 @@ function initialize() {
     google.maps.event.addListener(markers[i], 'click', function (mouseEvent) {
       window.location.href = 'countries/show/'+this.title;
 
-      /*geocoder.geocode(
-        {'latLng': mouseEvent.latLng},
-        function (results, status) {
-          // var headingP = document.getElementById('country');
-          if (status == google.maps.GeocoderStatus.OK) {
-            var country = getCountry(results);
-            var matchingCountryLink = $('.nav2 a').filter(function () {
-            var countryName = $(this).text();
-            return countryName === country.long_name;
-            });
-            if (matchingCountryLink.length === 1) {
-              window.location.href = matchingCountryLink.attr('href');
-            } else {
-              console.log(country.long_name + ' not found in Countries list.');
-            }
-          }
-        }
-      );*/
     });   
      
 }     

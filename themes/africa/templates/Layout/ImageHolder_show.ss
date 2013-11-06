@@ -7,21 +7,15 @@
 			
 			 </p>
 			<% end_if %>
+
+			<% with $Object %>
+				<% include Image %>
+			<% end_with %>
 			
-		
-			
-			<div class="artPic no-zoom">
+
 				
+			<% include SocialShare %>
 
-					<img class="zoom-image" src="{$Object.SingleDisplay.URL}" height="$Object.SingleDisplay.Height" width="$Object.SingleDisplay.Width">
-
-			
-				<span id="caption">$Object.parsedCaption
-				</span>
-				
-				<% include SocialShare %>
-
-			</div>
 			<div class="clearfix"></div>
 			
 		</div>

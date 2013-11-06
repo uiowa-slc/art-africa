@@ -1,17 +1,14 @@
-<div class="content-container typography essay">	
+<div class="content-container typography essay padded">	
 	<article>
-		<h1>$Object.Title</h1>
-		<h3>by $Object.Author</h3>
-		<h3>$Object.University</h3>
-		<div class="content">$Object.Content
+			<h1>$Object.Title</h1>
+			<h3>by $Object.Author</h3>
+			<h3>$Object.University</h3>
+		<div class="content essayPage">$Object.Content
 
 			 
-			  <div class="content columns">
-			       <% loop $getPaginatedPages %>
-			        $Content
-
-			      <% end_loop %>
-			   </div>
+		       <% loop $getPaginatedPages %>
+		        $Content
+		      <% end_loop %>
 			   
 			  <% if $getPaginatedPages.MoreThanOnePage %>
 			    <div class="pagination">

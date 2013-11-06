@@ -1,9 +1,10 @@
 <div class="content-container typography">	
 	<article>
 	
-		<h1>$Title</h1>
+		
 	
 		<div class="padded">
+			<h1>$Title</h1>
 			 <table class="table table-hover">
 				<tbody>
 				<tr>

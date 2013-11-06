@@ -7,7 +7,7 @@ $(function(){
         itemSelector: '.item',
 
         masonry: {
-        	columnWidth: 210,
+        	columnWidth: 295,
     		gutterWidth: 0
   		}
       });

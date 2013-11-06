@@ -1,0 +1,12 @@
+.media-filter-form select {
+  background: #aaa;
+  padding: 0.2em;
+  color: black;
+  border: none;
+  width: 100%;
+
+}
+
+.media-filter-form select::-ms-expand {
+  display: block;
+}

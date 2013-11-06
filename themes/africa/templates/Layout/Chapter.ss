@@ -1,36 +1,26 @@
 <div class="content-container typography">
 	<article>
-		<h1>$Title</h1>
+		<h1 class="padded">$Title</h1>
 
-		
-
-		<!--
-		<% if $CoverImage %>
-		<img src="$CoverImage.URL" class="full-width" alt="">
-		<% end_if %>-->
 		<% if Images %> 
-		<% include LargeImageScroller %>
+			<% include LargeImageScroller %>
 		<% end_if %>
-		
+
+		<div class="padded">
 		<h2>Introduction</h2>
 
 		<% if Author %><h3>$Author</h3><% end_if %>
 		<% if University %><h3>$University</h3><% end_if %>
 		<% include EssayPages %>
-		<div>
-		<!--
-			Name: $Name<br><br>
-			Description: $Description<br><br>
-			Tags: $Tags<br><br>-->
 		</div>
+
 	</article>
-	Subtopics:<br><br>
-	<% loop Children %>
-		<a href="{$Link}">$Title<br></a>
-	<% end_loop %>
-	
-	<br><br>
-	
+	<div class="padded">
+		Subtopics:<br><br>
+		<% loop Children %>
+			<a href="{$Link}">$Title<br></a>
+		<% end_loop %>
+	</div>
 </div>
 
 <% include SideBar %>

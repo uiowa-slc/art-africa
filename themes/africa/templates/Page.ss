@@ -21,7 +21,7 @@
     <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script> -->
     
     <!-- Facebook intro -->
-<div id="fb-root"></div>
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -33,7 +33,10 @@
   </head>
   
   <body <% if isPopup %> class="popup" <% end_if %>>
-  
+
+<!--[if lte IE 9]>
+     <link rel="stylesheet" href="{$ThemeDir}/css/ie.css" /> 
+<![endif]-->
     <div id="view" class="$ClassName $Action">
       <div class="top-link"><a href="#">$Title &#8593;</a></div>
       <div id="top">
