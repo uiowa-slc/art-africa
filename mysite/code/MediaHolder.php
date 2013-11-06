@@ -51,38 +51,7 @@ class MediaHolder_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ("doFilter", "filters");
 	//This function apparently isn't being used.. yet.
-/*	public function show ($request){
-					
-		$otherClass = 'Media';
 
-		$sourceID = $request->source;
-
-		if($sourceID){
-			$source = SiteTree::get_by_id("Page", $sourceID);
-		}
-		$objectID = $this->request->param('ID');
-		if ($objectID){
-		
-		    $object = $otherClass::get_by_id($otherClass, $objectID);
-		    
-		    if(isset($object)){
-
-		    	$data = array (
-		    		"object" => $object,
-		    		"source" => $source
-		    		);
-		    	
-		       $showTemplate = $class . 'Holder_show';
-			   return $this->Customise($data)->renderWith(array($showTemplate, 'Page'));
-			   
-		    }else{
-		    }		   
-		}
-		else {
-			return $this->renderWith('Page');
-		}
-	
-	}*/
 
 	public function loadDefaultResults(){
 		$results = Image::get()->filter(array('HideFromMediaGrid' => 'false'));
@@ -115,8 +84,6 @@ class MediaHolder_Controller extends Page_Controller {
 		}else {
 			$results = $this->loadDefaultResults();
 		}
-
-		//print_r($results);
 
 		/* Everything Else */
 
