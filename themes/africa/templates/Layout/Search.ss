@@ -17,7 +17,30 @@
        	</div>		  
     <% end_if %>
   
-		  
+        <% if Subtopic %>
+                <li><h3>Subtopics</h3></li>
+                        <div class="search">
+                         <table class="table table-hover">
+                                <tbody>
+                                <tr>
+                                        <th>Subtopic Name</th>
+                                   
+                                </tr>
+                                        <% loop Subtopic %>
+                                                <tr>
+                                                        <% if Name %>
+                                                                <td><a href="{$Link}">$Name</a></td>
+                                                        <% else_if Title %>
+                                                                <td><a href="{$Link}">$Title</a></td>
+                                                        <% end_if %>
+                                          
+                                                </tr>                                        
+                                        <% end_loop %>
+                        
+                                </tbody>
+                        </table>
+                  </div>
+            <% end_if %> 		  
 	  
 		  
 		<% if People %>
