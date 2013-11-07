@@ -6,38 +6,6 @@
 		<!--$searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'-->
 
 
-
-		
-
-
-		<% if Subtopic %>
-		<li><h3>Subtopics</h3></li>
-			<div class="search">
-			 <table class="table table-hover">
-				<tbody>
-				<tr>
-					<th>Subtopic Name</th>
-		    		<th>Dummy field</th>
-		    		<th>Dummy field 2</th>
-				</tr>
-					<% loop Subtopic %>
-						<tr>
-							<% if Name %>
-								<td><a href="{$Link}">$Name</a></td>
-							<% else_if Title %>
-								<td><a href="{$Link}">$Title</a></td>
-							<% end_if %>
-								<td>Insert dummy field</td>
-								<td>Dummy field 2</td>
-						</tr>					
-					<% end_loop %>
-			
-				</tbody>
-			</table>
-		  </div>
-	    <% end_if %> 
-		  
-		  
 		    
     <% if Image %>
     <li><h3> Images </h3></li>
