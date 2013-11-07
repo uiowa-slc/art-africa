@@ -9,9 +9,8 @@
 
 
 <div class="content-container typography" style="/*min-height: 3000px*/" >
- 	
  		<% if not $getResults %>
- 		<h3> Sorry, no results matched that filter. Please modify or <a href="media/">clear all filters</a> and try again.</h3>
+ 			<p>Sorry, no results matched that filter. Please modify or <a href="media/">clear all filters</a> and try again.</p>
  		<% end_if %>
 
  	<div id="media-container">
