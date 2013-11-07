@@ -11,7 +11,7 @@
 <div class="content-container typography" style="/*min-height: 3000px*/" >
  	
  		<% if not $getResults %>
- 		<h3> Sorry, no results matched that filter! </h3>
+ 		<h3> Sorry, no results matched that filter. Please modify or <a href="media/">clear all filters</a> and try again.</h3>
  		<% end_if %>
 
  	<div id="media-container">

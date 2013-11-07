@@ -18,7 +18,7 @@ $container.infinitescroll({
       navSelector  : '#pagination',    // selector for the paged navigation
       nextSelector : '.next',  // selector for the NEXT link (to page 2)
       itemSelector : '.item',     // selector for all items you'll retrieve
-      bufferPx: 100,
+      bufferPx: 300,
 	 debug        : true,
       loading: {
           finishedMsg: 'No more pages to load.',
