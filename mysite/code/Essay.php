@@ -4,7 +4,8 @@ class Essay extends DataObject {
  
   
   private static $db = array(
-  'Author' => 'Text',	
+  'AuthorFirstName' => 'Text',	
+  'AuthorLastName' => 'Text',
   'Content' => 'Text',	
   'DateWritten' => 'Text',	
   'University' => 'Text',	
@@ -55,7 +56,8 @@ class Essay extends DataObject {
 		$fields->addFieldToTab('Root.Main', $gridfield);
  		
  		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Title'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Author', 'Author'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('AuthorFirstName', 'Author First Name'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('AuthorLastName', 'Author Last Name'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Content', 'Content'));
  		$fields->addFieldToTab('Root.Main', new TextField('DateWritten', 'Date Written'));
  		$fields->addFieldToTab('Root.Main', new TextField('University', 'University'));

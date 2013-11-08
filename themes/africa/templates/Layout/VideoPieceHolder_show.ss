@@ -1,7 +1,6 @@
 <div class="content-container typography">	
 	<article>
 		<div class="content container-fluid">
-			<h1 class="title">$Title</h1>
 			<div class="mediaItem">
 				<iframe id="ytplayer" type="text/html" width="640" height="390"
   src="http://www.youtube.com/embed/{$formattedIFrameURL}"

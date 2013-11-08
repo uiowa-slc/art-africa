@@ -56,7 +56,7 @@
       <div id="homepage-fixed-footer">
         <a href="http://www.uiowa.edu/" target="_blank"><img src="{$ThemeDir}/images/home/uiowa-logo.png" width="200" style="margin-right: 2rem;position:relative;top:-1rem;"></a>
        <a href="http://uima.uiowa.edu/" target="_blank"> <img src="{$ThemeDir}/images/home/UIMA-newlogo-white.png" width="160" style="margin-right: 1.125rem;"></a>
-        <a href="http://www.youtube.com/user/CDROYburkina" target="_blank" class="img-link">
+        <a href="http://www.youtube.com/user/UIMAartmatters" target="_blank" class="img-link">
           <img width="42" src="{$ThemeDir}/images/home/youtube-icon-white.png" style="margin-right: 0.5rem">
         </a>
         <a href="https://www.facebook.com/UIMuseumofArt" target="_blank" class="img-link">
@@ -98,7 +98,7 @@
               <a href="#" class="img-link">
                 <img width="42" src="{$ThemeDir}/images/twitter-icon.png">
               </a>
-              <a href="http://www.youtube.com/user/CDROYburkina" target="_blank" class="img-link">
+              <a href="http://www.youtube.com/user/UIMAartmatters" target="_blank" class="img-link">
                 <img width="42" src="{$ThemeDir}/images/youtube-icon.png" style="margin-right: 0.5rem">
               </a>
             </p>

@@ -21,7 +21,7 @@
 							<% else %>
 								<td>$ID</td>
 							<% end_if %>
-								<td>$Author</td>
+								<td>$AuthorFirstName $AuthorLastName</td>
 								<td>$University</td>
 						</tr>					
 					<% end_loop %>

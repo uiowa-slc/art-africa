@@ -231,7 +231,7 @@
                   <a class="img-link" target="_blank" href="https://twitter.com/UIMuseumofArt">
                     <img width="42" src="{$ThemeDir}/images/twitter-icon.png" style="margin-right: 0.5rem">
                   </a>
-                  <a class="img-link" target="_blank" href="http://www.youtube.com/user/CDROYburkina">
+                  <a class="img-link" target="_blank" href="http://www.youtube.com/user/UIMAartmatters">
                     <img width="42" src="{$ThemeDir}/images/youtube-icon.png">
                   </a>
                 </p>
