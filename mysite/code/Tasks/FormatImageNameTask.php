@@ -27,7 +27,7 @@ class FormatImageNameTask extends BuildTask {
 		foreach ($imageListIterator as $image){
 			
 			
-			$imageTitle = $image->Name;
+			$imageTitle = $image->Filename;
 			print_r($imageTitle);
 			
 			//Match IDs like CMS380, AFR101, whatever
@@ -42,6 +42,7 @@ class FormatImageNameTask extends BuildTask {
 				print_r('<br><br>');
 				print_r($match . ' MATCH');
 				$image->setName($match . '.jpeg');
+				$image->setFilename($match.'.jpeg');
 				$image->write();
 				
 			}
