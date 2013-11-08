@@ -140,14 +140,14 @@ button {
 
 #logo {
   color: #fff;
-  padding: 0.3rem;
+  padding: 0.33rem;
   font-size: 3rem;
   font-weight: 100;
   text-transform: uppercase;
   background: url('/art-africa/themes/africa/images/logo.png');
     background-size: 4.5rem 4.5rem;
     background-repeat: no-repeat;
-    background-position: 14.5rem 3.175rem;
+    background-position: 14.5rem 2.75rem;
 }
 
 #logo a {
@@ -163,10 +163,10 @@ button {
 @media (min-width: 480px) {
   #logo {
    font-size: 2rem;
-
+   margin-bottom: .5rem;
   background-size: 3.5rem 3.5rem;
   background-repeat: no-repeat;
-  background-position: 10rem 1.8rem;
+  background-position: 10rem 1.33rem;
 
 
   }
@@ -926,7 +926,7 @@ ul.columns li {
 }
 
 .credit-line {
-  color: #aaa;
+  color: #6A6A6A;
   font-size: 0.75rem;
   margin: 1rem 0;
 }
@@ -1086,7 +1086,7 @@ article.page {
   padding: 0.75rem 1rem;
   margin-top: 2%;
   line-height: 1.8rem;
-  font-family: Palatino, Raleway;
+  font-family: Raleway;
 }
 
 .pagination > *:not(:last-child) {
