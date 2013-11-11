@@ -1017,6 +1017,13 @@ article.page {
 	border-radius: 3px;
 }
 
+@-moz-document url-prefix(){
+	#submitSearch {
+		position: relative;
+		top: 0px;
+	}
+}
+
 @media (min-width: 480px) {
   #submitSearch {
     display: none;
@@ -1051,6 +1058,7 @@ article.page {
 @media (min-width: 1100px) {
   .fieldHolder {
     width: auto;
+    
 
   }
 
