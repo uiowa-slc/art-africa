@@ -36,13 +36,19 @@ class FormatImageNameTask extends BuildTask {
 			//print_r('<br><br>');
 			//print_r($matches);
 			//print_r('<br><br>');
+			
+			
 
 			if (isset($matches[0][0])){
 				$match = $matches[0][0];
 				print_r('<br><br>');
 				print_r($match . ' MATCH');
-				$image->setName($match . '.jpeg');
-				$image->setFilename($match.'.jpeg');
+				//print_r($image->ParentID);
+				$folder = Folder::get_by_id('Folder', $image->ParentID);
+				$path = $folder->getRelativePath();
+				
+				$image->setName($match . '.jpg');
+				$image->setFilename($path.$match.'.jpg');
 				$image->write();
 				
 			}

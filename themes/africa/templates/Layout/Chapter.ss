@@ -2,9 +2,6 @@
 	<article>
 		<h1 class="padded">$Title</h1>
 
-		<% if Images %> 
-			<% include LargeImageScroller %>
-		<% end_if %>
 
 		<div class="padded">
 		<h2>Introduction</h2>
@@ -15,6 +12,11 @@
 		</div>
 
 	</article>
+
+
+	<% if Images %> 
+		<% include SmallImageScroller %>
+	<% end_if %>
 	<div class="padded">
 		Subtopics:<br><br>
 		<% loop Children %>
