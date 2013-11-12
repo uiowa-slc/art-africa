@@ -144,7 +144,7 @@ button {
   font-size: 3rem;
   font-weight: 100;
   text-transform: uppercase;
-  background: url('/art-africa/themes/africa/images/logo.png');
+  background: url('../images/logo.png');
     background-size: 4.5rem 4.5rem;
     background-repeat: no-repeat;
     background-position: 14.5rem 2.75rem;
