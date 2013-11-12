@@ -92,7 +92,7 @@ class MediaHolder_Controller extends Page_Controller {
 		}
 
 		if($filters['People'] != ''){
-			$results = $results->addFilter((array('Peoples.ID' => $filters['People'])));
+			$results = $results->addFilter((array('People.ID' => $filters['People'])));
 		}
 
 		if($filters['Chapter'] != ''){
