@@ -140,7 +140,7 @@ button {
 
 #logo {
   color: #fff;
-  padding: 0.33rem;
+  padding: 0 0.33rem;
   font-size: 3rem;
   font-weight: 100;
   text-transform: uppercase;
@@ -267,7 +267,7 @@ button {
   .nav1 >ul>li {
     
     margin-right: 1.25rem;
-    margin-top: 1.0625rem;
+    margin-top: 1.25rem;
   }
 
 }
@@ -320,7 +320,7 @@ button {
   .nav1 {
     position: absolute;
     right: 0;
-    bottom: 0.3125rem;
+    bottom: 0;
   }
 
 
