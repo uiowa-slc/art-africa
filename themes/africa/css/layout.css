@@ -1393,14 +1393,21 @@ article.page {
 }
 .media-filter-form select {
   background: #444;
+  background: url("../images/media-filter-bg.png") no-repeat scroll right center rgb(68, 68, 68);
   padding: 0.4em 1em 0.5em 0.75em;
   -webkit-appearance: none;
-  background: #444 url("../images/media-filter-bg.png") no-repeat right center;
  -webkit-background-size: 1600px 32px;
   color: white;
   border: none;
   width: 100%;
 
+}
+
+.dropdown select {
+       border: 0 !important;            
+      -moz-appearance: none;        
+      text-indent: 0.01px;     
+      text-overflow: "";           
 }
 
 .media-filter-form select::-ms-expand {
@@ -1490,6 +1497,7 @@ article.page {
 }
 .media-filter-form select {
   margin: 0.2em 0;
+  
 }
 
 .media-filter-form fieldset {
@@ -1642,3 +1650,4 @@ li.audioObject {
 #facebookss {
 	padding-right: 10px;
 }
+
