@@ -9,7 +9,7 @@
 					<button>Begin</button>
 				</div>
 			</div>
-			<div class="padded">
+			<div>
  <table class="table table-hover">
 			    <tbody>
 			    	<tr>

@@ -1,10 +1,6 @@
 <div class="content-container typography">
   <h1>$Title</h1>
-
-    
-    <!-- Layout/Page.ss in the building -->
     <div class="content">$Content</div>
-
   $Form
   $PageComments
 </div>
@@ -30,4 +26,4 @@
   </div>
 <% end_if %>
 
-<%# include SideBar %>
+<%-- include SideBar --%>

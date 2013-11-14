@@ -408,9 +408,6 @@ button {
   padding: 0;
 }
 
-#middle .nav2 >ul>li:first-child {
-  margin-top: 5px;
-}
 #middle .nav2 >ul {
   margin: 0rem 0 1.5rem 0;
   list-style-type: none;
@@ -425,9 +422,18 @@ button {
 
 /* Countries Page Subnav Padding */
 
+#middle .nav2>ul.countries,
+#middle .nav2 >ul.peoples,
+#middle .nav2 >ul.topic-essays {
+  padding-top: 0.75rem
+}
+
+
+
 #middle .nav2 >ul.countries >li>a {
   font-size: 0.9rem;
   padding: 0.2rem 1.25rem;
+
 }
 #middle .nav2 >ul.peoples >li>a {
   font-size: 0.9rem;
@@ -486,11 +492,14 @@ button {
 }
 
 #main_content.Chapter, #main_content.Subtopic, #main_content.EssayHolder {
+ /* padding: 0;*/
+}
+
+#main_content.CountryHolder {
   padding: 0;
 }
 
 #main_content.Subtopic p{
-  padding-left: 1.25rem;
 }
 .description {
   display: block;
@@ -715,7 +724,7 @@ ul.columns li {
 }
 
 .content.padded.essayPage  {
-  padding: 0 1.25rem;
+  /*padding: 0 1.25rem;*/
 }
 
 
@@ -729,7 +738,7 @@ ul.columns li {
     box-shadow: -0.125rem 0.125rem 0.375rem rgba(24,20,21, 0.5);
   }
   .padded {
-    padding: 1.5rem 1.5rem;
+    /*padding: 1.5rem 1.5rem;*/
 
   }
 }
@@ -746,14 +755,14 @@ ul.columns li {
   list-style-type: none;
   border-left: 2px solid #444;
   padding-left: 24px;
-  padding-top: 12px;
+  padding-top: 0;
   padding-bottom: 12px;
   margin: 0 0 1rem 1.25rem;
 }
 
 .nav3 > ul > li {
   font-size: 0.875rem;
-  margin: 3px 0;
+  margin: 0;
 }
 
 .nav3 > ul > li > a {
@@ -785,7 +794,8 @@ ul.columns li {
   font-size: 3rem;
   font-weight: 600;
   color: #000;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 #main_content h2 {
@@ -948,17 +958,17 @@ ul.columns li {
 
 .embedded-image.medium {
   width: 50%;
-  margin: auto;
+  /*margin: auto;*/
 }
 
 .embedded-image.small{
   width: 30%;
-  margin: auto; 
+  /*margin: auto; */
 }
 
 .embedded-image.tiny {
   width: 15%;
-  margin: auto
+  /*margin: auto*/
 }
 
 .content.essayPage p {
@@ -973,7 +983,7 @@ ul.columns li {
 #main_content .embedded-image.tiny .credit-line p
 
   {
-    padding: 0;
+    /*padding: 0;*/
   }
 
 

@@ -9,16 +9,8 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry"></script>
-    <script src="{$BaseHref}mediaelement/build/mediaelement-and-player.min.js"></script>
-    
-    <link rel="stylesheet" href="{$BaseHref}mediaelement/build/mediaelementplayer.css" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="icon" type="image/png" href="{$BaseHref}themes/africa/images/logo.png">
-    <!-- Add mousewheel plugin (this is optional)
-    <script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-    Add fancyBox
-    <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-    <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script> -->
     
     <!-- Facebook intro -->
 
@@ -32,8 +24,7 @@
      
   </head>
   
-  <body <% if isPopup %> class="popup" <% end_if %>>
-
+  <body>
 <!--[if lte IE 9]>
      <link rel="stylesheet" href="{$ThemeDir}/css/ie.css" /> 
 <![endif]-->
@@ -191,22 +182,11 @@
         </div>
         <div id="main_content" class="$ClassName">
           $Layout
-          <!-- <div class="gal">
-            <a class="gal-link" href="/art-africa/themes/africa/images/logo.png">adsfasd</a>
-            <a class="gal-link" href="/art-africa/themes/africa/images/UIMA-newlogo-black.png">adsfasd</a>
-            <a class="gal-link" href="/art-africa/themes/africa/images/facebook-icon.png">adsfasd</a>
-          </div> -->
-          <!-- <img src="{$ThemeDir}/images/homepage-pic.jpg" alt="">
-          <div class="content-container typography">
-            <article>
-              <div class="content"><p>Welcome to SilverStripe! This is the default homepage. You can edit this page by opening <a href="admin/">the CMS</a>. You can now access the <a href="http://doc.silverstripe.org">developer documentation</a>, or begin <a href="http://doc.silverstripe.org/doku.php?id=tutorials">the tutorials.</a></p></div>
-            </article>
-          </div> -->
           <div id="footer">
             <div class="container-fluid">
               <div class="row-fluid">
               <div class="span4">
-                <div class="padded">
+                <div>
                 <p>
                   <img src="{$ThemeDir}/images/UIMA-newlogo-black.png" class="uima-logo">
                 </p>

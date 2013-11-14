@@ -3,7 +3,7 @@
 	
 		
 	
-		<div class="padded">
+		<div>
 			<h1>$Title</h1>
 			 <table class="table table-hover">
 				<tbody>

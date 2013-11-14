@@ -430,7 +430,6 @@ $(document).on('mouseout', '.grid-item', function () {
 
 $(document).ready(function () {
   if ((/\/countries(\/)?/).test( window.location.pathname )) {
-    $('#main_content').css('padding', 0);
     $('#footer').css('margin-left', 0)
                 .css('margin-right', 0)
                 .addClass('padded');

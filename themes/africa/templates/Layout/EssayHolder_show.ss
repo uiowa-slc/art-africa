@@ -1,7 +1,7 @@
 <div class="content-container typography essay padded">	
 	<article>
 			<h1>$Object.Title</h1>
-			<h3>by $Object.Author</h3>
+			<h3>by $Object.AuthorFirstName $Object.AuthorLastName</h3>
 			<h3>$Object.University</h3>
 		<div class="content essayPage">$Object.Content
 

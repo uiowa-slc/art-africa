@@ -57,24 +57,16 @@ class Page_Controller extends ContentController {
 			$themeFolder. '/javascript/script.js',
 			$themeFolder. '/javascript/jquery.isotope.min.js',
 			$themeFolder. '/javascript/isotope-init.js',
+			$themeFolder. '/javascript/mediaelement/build/mediaelement-and-player.min.js'
 
-
-			/* library graveyard here. might need to use one of these someday */
-			//$themeFolder. '/javascript/easyzoom.js',
-
-			/*$themeFolder. '/javascript/masonry.pkgd.min.js',*/
-			//$themeFolder. '/javascript/salvattore.js',
-			//$themeFolder. '/javascript/salvattore-init.js',
-			//themeFolder. '/javascript/imagesloaded.pkgd.min.js',
-			/*$themeFolder. '/javascript/jquery.ias.min.js',
-			$themeFolder. '/javascript/ias-init.js',*/
 		);
 		
 		$cssFiles = array(
 			$themeFolder. '/css/bootstrap.min.css',
 			$themeFolder. '/css/bootstrap-tables.css',
 			$themeFolder. '/css/layout.css',
-			$themeFolder. '/css/magnific-popup.css'
+			$themeFolder. '/css/magnific-popup.css',
+			$themeFolder. '/javascript/mediaelement/build/mediaelementplayer.css'
 		);
 		
 		Requirements::combine_files('allcombined.js',$jsFiles);
@@ -202,15 +194,8 @@ class Page_Controller extends ContentController {
 			
 			$dataObjectsItemMatch = $this->getItemMatch($c, $request, $keywordArray, $keywordHTML, '', $bibliographyFlag); //This function is in Page.php
 			
-			//print_r("class = " . $c. " dataObjectsItemMatch = " . $dataObjectsItemMatch . "<br><br>");
-
 			$query = DataList::create($c)->where($dataObjectsItemMatch);
-			
-
-
 			$query = $query->dataQuery()->query();
-
-
 			$query->addSelect(array('Relevance' => $dataObjectsItemMatch));
 
 			$records = DB::query($query->sql());
@@ -235,10 +220,6 @@ class Page_Controller extends ContentController {
 			}
 		}
 
-		//print_r($data['Subtopic']);
-		//print_r($data['People']);
-
-
 		$pages->sort(array(
 				'Relevance' => 'DESC',
 				'Title' => 'ASC'
@@ -251,27 +232,13 @@ class Page_Controller extends ContentController {
 		
 		
 
-		/*
-	    $data = array(
-	      'Pages' => $pages,
-	       'Files' => $files,
-	     'DataObjects' => $dataObjects,
-				'Query' => $keyword
-			);
-		*/
 
 		if ( $pages->count() == 0
 			&& $dataObjects->count() == 0
-			/* && $files->count() == 0 */) {
+			) {
 			$data['NoResults'] = 1;
 		}
-		/*
-	    foreach($data as $dataKey => $dataValue){
-		      print_r($data[$dataKey]);
-		      print_r("<br><br><br>");
-	    }
-	      return;
-	     */
+
 
 		 
 		return $this->customise($data)->renderWith(array('Search', 'Page'));
@@ -345,9 +312,6 @@ class Page_Controller extends ContentController {
 
 		$mode = ' IN BOOLEAN MODE';
 
-		/*$returnedString = "MATCH(" . $resultString . " ) AGAINST ('$keyword'$mode)
-                    + MATCH(" . $resultString . " ) AGAINST ('$keywordHTML'$mode)";*/
-		//$returnedString = 'CONCAT(' . $resultString . ") LIKE ('$keyword')";
 
 
 		return $resultString;
@@ -430,13 +394,10 @@ class Page_Controller extends ContentController {
 			$showID = $this->request->getVar('show');
 
 			if((isset($sourceID))&&(isset($showID))){
-				//echo "shouldnt see this";
 				$sourcePage = SiteTree::get_by_id("Page", $sourceID);
 
-				//print_r($sourcePage->holds);
 				$sourceHolds = $sourcePage->holds;
 				$source = $sourceHolds::get_by_id($sourceHolds, $showID);
-				//$source = $sourcePage;
 
 			} elseif(isset($sourceID)){
 				$source = SiteTree::get_by_id("Page", $sourceID);
@@ -458,10 +419,6 @@ class Page_Controller extends ContentController {
 			if ($object) {
 			    
 				$showTemplate = $otherClass . 'Holder_show';
-				// print_r("THIS SHOW IS CALLED");
-				// print_r($object);
-
-
 
 				if (!isset($source)){
 					$data = array (
@@ -526,92 +483,11 @@ class Page_Controller extends ContentController {
 		$query = new SearchQuery();
 
 		$query->search('Cone', 'SiteTree_Title');
-		//print_r($query);
 		$results = singleton('MyIndex')->search($query);
-		//print_r($results);
-		//sleep(5);
-		//print_r("HI");
 		return;
 	}
 
-	/*
-	public function fieldPhotoHandler($arguments) {
 
-		if (isset($arguments["ID"])) {
-			$photoID = $arguments["ID"];
-		}
-		else {
-			return;
-		}
-		
-		$photoObject = DataObject::get("Image")->filter(array('PhotoID' => $photoID))->First();
-
-		if ($photoObject){
-		
-			//$photoObject = ArtPhoto::get()->filter(array()
-			$newObject = $photoObject->toMap();
-			$newObject = new ArrayData($newObject); //cast to array that can be displayed on template
-	
-			if (isset($arguments["size"])) {
-				$newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
-			}
-			else {
-				$newObject->setField('size', 'mediumImage');
-			}
-	
-			$template = new SSViewer('FieldPhoto');
-	
-			$picture = $photoObject->Picture();
-			$newObject->setField('filename', $picture->getFilename());
-	
-			return $template->process($newObject);
-		}
-		else {
-
-			return;
-		}
-	}
-	*/
-
-	/*
-	public function artPhotoHandler($arguments) {
-		if (isset($arguments["ID"])) {
-			$photoID = $arguments["ID"];
-		}
-		else {
-			return;
-		}
-
-		//$photoObject = DataObject::get_by_id("ArtPhoto", $photoID);		
-		$photoObject = DataObject::get("Image")->filter(array('PhotoID' => $photoID))->First();
-		
-		if ($photoObject){
-		
-			//$photoObject = ArtPhoto::get()->filter(array()
-			$newObject = $photoObject->toMap();
-			$newObject = new ArrayData($newObject); //cast to array that can be displayed on template
-	
-			if (isset($arguments["size"])) {
-				$newObject->setField('size', $arguments["size"] . 'Image'); //size is (for instance) medium, CSS class for sizing the image in the template is mediumImage
-			}
-			else {
-				$newObject->setField('size', 'mediumImage');
-			}
-	
-			$template = new SSViewer('ArtPhoto');
-	
-			$picture = $photoObject->Picture();
-			$newObject->setField('filename', $picture->getFilename());
-	
-			return $template->process($newObject);
-		}
-		else {
-
-			return;
-		}
-
-	}
-	*/
 	
 	public function imageHandler($arguments){		
 		
