@@ -1,5 +1,5 @@
 <div class="content-container typography">	
-	<h2> Search Query: $Query</h2>
+	<h1> Search Results for '$Query'</h1>
 <% if $Subtopic || $People || $Essay || $Country %><p>Jump to: <% if Subtopic %><a href="#subtopics">Subtopics</a> <% end_if %><% if People %><a href="#people">People</a> <% end_if %><% if Essay %><a href="#essays">Essays</a> <% end_if %><% if Country %><a href="#countries">Countries</a> <% end_if %> </p><% end_if %>
 	<!--<div id="bibliography-results"><label>Search bibliographic references only </label><input type="checkbox" id="bibliography-checkbox" name="Search Bibliography" /></div>-->
 	<section class="search-results">
