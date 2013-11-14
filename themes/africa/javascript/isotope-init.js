@@ -1,6 +1,6 @@
 $(function(){
 
-   var $container = $('#media-container');
+   var $container = $('.media-container');
 
     $container.imagesLoaded(function(){
       $container.isotope({

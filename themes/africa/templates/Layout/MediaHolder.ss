@@ -13,7 +13,7 @@
  			<p>Sorry, no results matched that filter. Please modify or <a href="media/">clear all filters</a> and try again.</p>
  		<% end_if %>
 
- 	<div id="media-container">
+ 	<div class="media-container">
  		<% loop $getResults %>
  			<div class="item">
  				<% if $ClassName == "Image" %>

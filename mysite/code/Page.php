@@ -137,7 +137,7 @@ class Page_Controller extends ContentController {
 
 		/*ADD IN CLASSES TO BE SEARCHED HERE */
 		$siteTreeClasses = array('Chapter', 'Subtopic'); //add in an classes that extend Page or SiteTree
-		$dataObjectClasses = array('Country', 'Essay', 'People', 'Image'); //add in your DataObjects,
+		$dataObjectClasses = array('Country', 'Essay', 'People', 'Image','MediaPiece'); //add in your DataObjects,
 	
 
 		/*

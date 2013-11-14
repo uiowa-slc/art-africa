@@ -182,7 +182,7 @@
         </div>
         <div id="main_content" class="$ClassName">
           $Layout
-          <div id="footer">
+          <div id="footer" class="padded">
             <div class="container-fluid">
               <div class="row-fluid">
               <div class="span4">
@@ -203,7 +203,7 @@
               </div>
 
               <div class="span4 offset4 social-media">
-                <div class="padded">
+        
                 <p style="margin-top: 2rem">
                   <a class="img-link" target="_blank" href="https://www.facebook.com/UIMuseumofArt">
                     <img width="42" src="{$ThemeDir}/images/facebook-icon.png" style="margin-right: 0.5rem">
@@ -222,7 +222,6 @@
                   </li>
                   <% end_loop %>
                 </ul>
-              </div>
               </div>
             </div>
             </div>
