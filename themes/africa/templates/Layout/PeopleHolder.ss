@@ -17,7 +17,7 @@
 					<tr>
 			    		<td><a href="$Link(false)">$Title</a></td>
 			    		<td><% loop Countries %>
-						<a href="$Link">$Title</a><% if not $Last %>, <% end_if %>
+						<a href="$Link(false)">$Title</a><% if not $Last %>, <% end_if %>
 					<% end_loop %></td>
 						<td>$Population</td>
 			    	</tr>
