@@ -29,7 +29,7 @@
      <link rel="stylesheet" href="{$ThemeDir}/css/ie.css" /> 
 <![endif]-->
     <div id="view" class="$ClassName $Action">
-      <div class="top-link"><a href="#">$Title &#8593;</a></div>
+      <div class="top-link"><a href="#"><% if $Action == "SearchForm" %>Search Results<% else %>$Title<% end_if %> &#8593;</a></div>
       <div id="top">
         <div class="hamburger m" data-toggle=".nav1" onclick="void(0)">
           <div></div>
@@ -66,9 +66,29 @@
       <div id="middle" class="">
         <!-- for chapter pages -->
         <div id="subnav-container">
-        <div id="chapters_heading"><a href="$Level(1).Link">$Level(1).Title</a></div>
+        <div id="chapters_heading"><% if $Action == "SearchForm" %>Search Results<% else %><a href="$Level(1).Link">$Level(1).Title</a><% end_if %></div>
         <nav class="nav2 interior-page">
+
+
+              <% if $Action =="SearchForm" %>
+              <div id="quick-links-container">
+                <h3><% if $ResultsFound %>Jump To<% end_if %></h3>
+                <ul class="quick-links">
+
+                  <% if Image %><li><a href="#images">Images</a></li><% end_if %>
+                  <% if VideoPiece %><li><a href="#videos">Videos</a></li><% end_if %>
+                  <% if AudioPiece %><li><a href="#audio">Audio</a></li><% end_if %>
+                  <% if Subtopic %><li><a href="#subtopics">Subtopics</a></li><% end_if %>
+                  <% if People %><li><a href="#people">People</a></li><% end_if %>
+                  <% if Essay %><li><a href="#essays">Essays</a></li><% end_if %>
+                  <% if Country %><li><a href="#countries">Countries</a></li><% end_if %>
+                </ul>
+              <% end_if %>
+
+
           <ul class="$URLSegment">
+            <!-- Search Results -->
+
             <!-- Chapters -->
             <% if $Level(1).Title == 'Chapters' %>
               <% loop ChildrenOf('chapters') %>

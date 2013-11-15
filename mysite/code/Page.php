@@ -236,7 +236,9 @@ class Page_Controller extends ContentController {
 		if ( $pages->count() == 0
 			&& $dataObjects->count() == 0
 			) {
-			$data['NoResults'] = 1;
+			$data['ResultsFound'] = 0;
+		}else {
+			$data['ResultsFound'] = 1;
 		}
 
 

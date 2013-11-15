@@ -1,15 +1,14 @@
 <div class="content-container typography">	
 	<h1> Search Results for '$Query'</h1>
-<% if $Subtopic || $People || $Essay || $Country %><p>Jump to: <% if Subtopic %><a href="#subtopics">Subtopics</a> <% end_if %><% if People %><a href="#people">People</a> <% end_if %><% if Essay %><a href="#essays">Essays</a> <% end_if %><% if Country %><a href="#countries">Countries</a> <% end_if %> </p><% end_if %>
+	<div class="visible-phone">
+<% if $ResultsFound %><p>Jump to: <% if Subtopic %><a href="#subtopics">Subtopics</a> <% end_if %><% if People %><a href="#people">People</a> <% end_if %><% if Essay %><a href="#essays">Essays</a> <% end_if %><% if Country %><a href="#countries">Countries</a> <% end_if %> </p><% end_if %>
+	</div>
 	<!--<div id="bibliography-results"><label>Search bibliographic references only </label><input type="checkbox" id="bibliography-checkbox" name="Search Bibliography" /></div>-->
 	<section class="search-results">
 	<ul id="searchResults">	
 		<%-- $searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'--%>
-
-
-		    
     <% if Image %>
-    	<h2>Images</h2>
+    	<h2 id="images">Images</h2>
     	<div class="media-container">
     	<% loop Image.Limit(25) %>
 	    	<div class="item">
@@ -19,19 +18,8 @@
    	
        	</div>		  
     <% end_if %>
-
-    <% if AudioPiece %>
-    	<h2>Audio</h2>
-    	<div class="media-container">
-	    	<% loop AudioPiece %>
-				<div class="item">
-					<% include AudioPiece %>
-				</div>			
-			<% end_loop %>
-    	</div>
-    <% end_if %>
       <% if VideoPiece %>
-    	<h2>Video</h2>
+    	<h2 id="videos">Video</h2>
     	<div class="media-container">
 	    	<% loop VideoPiece %>
 				<div class="item">
@@ -40,6 +28,17 @@
 			<% end_loop %>
     	</div>
     <% end_if %>
+    <% if AudioPiece %>
+    	<h2 id="audio">Audio</h2>
+    	<div class="media-container">
+	    	<% loop AudioPiece %>
+				<div class="item">
+					<% include AudioPiece %>
+				</div>			
+			<% end_loop %>
+    	</div>
+    <% end_if %>
+
         <% if Subtopic %>
                 <li><h2 id="subtopics">Subtopics</h2></li>
                         <div class="search">
@@ -157,7 +156,7 @@
     <% end_if %>
     
     
-    <% if not People && if not Country && if not Essay && if not Image && if not VideoPiece && if not AudioPiece %>
+    <% if $ResultsFound == false %>
 		<p> Sorry, no results were found.</p>
 		<% end_if %>
 
