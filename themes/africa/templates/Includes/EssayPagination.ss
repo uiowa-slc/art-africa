@@ -24,7 +24,7 @@
        	    getNextSubtopic is in Subtopic.php  --%>      
        	     	<% with $getNextSubtopic($Title) %>
 	       		  <!--<a href="{$getNextSubtopic($Title, 'Link')}">Next Subtopic: {$getNextSubtopic($Title, 'Title')}</a>-->
-	       		  <a href="{$Link}" class="mobile-section-nav visible-phone hidden-desktop">Next $ClassName: $Title</a>
+	       		  <a href="{$Link}">Next $ClassName: $Title</a>
        		  <% end_with %>
    
         <% else_if $ClassName='Chapter' %>
@@ -33,7 +33,7 @@
         	
         	<% with $getNextChapter %>
 	       		  <!--<a href="{$getNextSubtopic($Title, 'Link')}">Next Subtopic: {$getNextSubtopic($Title, 'Title')}</a>-->
-	       		  <a href="{$Link}" class="mobile-section-nav hidden-tablet hidden-desktop">Next $ClassName: $Title</a>
+	       		  <a href="{$Link}">Next $ClassName: $Title</a>
        		<% end_with %>
 	   	<% end_if %>
 	   	
