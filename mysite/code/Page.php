@@ -504,7 +504,7 @@ class Page_Controller extends ContentController {
 		$photoObject = Image::get()->filter(array('Title' => $photoID))->First();
 		
 		if ($photoObject){
-			$template = new SSViewer('Image');
+			$template = new SSViewer('EmbeddedImage');
 			return $template->process($photoObject);
 		}
 		else {
@@ -526,7 +526,7 @@ class Page_Controller extends ContentController {
 		$videoObject = VideoPiece::get()->filter(array('Title' => $videoID))->First();
 		
 		if ($videoObject){
-			$template = new SSViewer('VideoPiece');
+			$template = new SSViewer('EmbeddedVideoPiece');
 			return $template->process($videoObject);
 		}
 		else {
@@ -548,7 +548,7 @@ class Page_Controller extends ContentController {
 		$audioObject = AudioPiece::get()->filter(array('Title' => $audioID))->First();
 		
 		if ($audioObject){
-			$template = new SSViewer('AudioPiece');
+			$template = new SSViewer('EmbeddedAudioPiece');
 			return $template->process($audioObject);
 		}
 		else {
