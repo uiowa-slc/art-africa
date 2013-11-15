@@ -9,7 +9,7 @@
 			<% end_if %>
 
 			<% with $Object %>
-				<% include Image %>
+				<% include EmbeddedImage %>
 			<% end_with %>
 			
 
