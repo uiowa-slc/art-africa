@@ -67,8 +67,9 @@
 					<p>$filteredField("Languages", $ID, "People")</p>
 					<h3>Population</h3>
 					<p>$Population</p>
-					<h3>Tags</h3>
-					<p>$Tags</p>		
+					<% if $Tags %><h3>Tags</h3>
+					<p>$Tags</p>
+					<% end_if %>		
 				</div>
 			</div>
 
