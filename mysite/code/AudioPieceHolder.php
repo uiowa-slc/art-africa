@@ -1,35 +1,35 @@
 <?php
- 
+
 class AudioPieceHolder extends MediaHolder {
- 
-  
-  private static $db = array(	
 
-  );
- 
-  // One-to-one relationship with gallery page
-  private static $has_one = array(
 
-  );
-  
-  private static $allowed_children = array("AudioPiece", "VideoPiece");
-  
-  private static $belongs_many_many = array();
-  
+	private static $db = array(
 
- // tidy up the CMS by not showing these fields
-  public function getCMSFields() {
- 		$fields = parent::getCMSFields();
+	);
 
-		$gridFieldConfigAudio = GridFieldConfig_RecordEditor::create(); 
-		$gridfield = new GridField("AudioPieces", "Audio Pieces", AudioPiece::get(), $gridFieldConfigAudio);		
-		$fields->addFieldToTab('Root.Main', $gridfield, 'Content');
-		$fields->renameField("Content", "Introduction Text");
-		
-		
-		return $fields;		
-  }
-  
+	// One-to-one relationship with gallery page
+	private static $has_one = array(
+
+	);
+
+	private static $allowed_children = array( "AudioPiece", "VideoPiece" );
+
+	private static $belongs_many_many = array();
+
+
+	// tidy up the CMS by not showing these fields
+	public function getCMSFields() {
+		$fields = parent::getCMSFields();
+
+		$gridFieldConfigAudio = GridFieldConfig_RecordEditor::create();
+		$gridfield = new GridField( "AudioPieces", "Audio Pieces", AudioPiece::get(), $gridFieldConfigAudio );
+		$fields->addFieldToTab( 'Root.Main', $gridfield, 'Content' );
+		$fields->renameField( "Content", "Introduction Text" );
+
+
+		return $fields;
+	}
+
 
 }
 
@@ -51,41 +51,41 @@ class AudioPieceHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ('show', 'getAudio');
-	
+	private static $allowed_actions = array ( 'show', 'getAudio' );
+
 	public static $childPage = 'AudioPiece';
-	
+
 	/*
 	public function show (){
 	//Displays a data object
-	
-						
+
+
 		$otherClass = 'AudioPiece';
-		
+
 		$objectID = $this->request->param('ID');
 		if ($objectID){
-		
+
 		    $object = $otherClass::get_by_id($otherClass, $objectID);
-		    
+
 		    if(isset($object)){
 		       $showTemplate = $otherClass . 'Holder_show';
 			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
-			   
+
 		    }else{
-		    }		   
+		    }
 		}
 		else {
 			return $this->renderWith('Page');
 		}
-	
+
 	}*/
-	
-	public function getAudio(){
-	$audio = AudioPiece::get();
-	return $audio;
+
+	public function getAudio() {
+		$audio = AudioPiece::get();
+		return $audio;
 	}
-	
-	
-	
-	
+
+
+
+
 }

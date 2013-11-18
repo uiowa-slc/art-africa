@@ -278,76 +278,80 @@ function initialize() {
    
      
     //Entry for Cameroon
-     coordinates.push(['1', [5.1167, 11.9167]]);
+     coordinates.push(['1', [3.866667, 11.516667]]);
     
     //Entry for Angola
-     coordinates.push(['2', [-12.3500, 17.3500]]);
+     coordinates.push(['2', [-8.838333, 13.234444]]);
     
     //Entry for Benin
-     coordinates.push(['3', [8.8833, 2.1833]]);
+     coordinates.push(['3', [6.497222, 2.605]]);
     
-    //Entry for Brukina Faso
-     coordinates.push(['4', [12.3572, 1.5353]])
+    //Entry for Burkina Faso
+     coordinates.push(['4', [12.357222, -1.535278]])
     
     //Entry for Chad
-     coordinates.push(['5', [15.4667, 19.4000]]);
+     coordinates.push(['5', [12.113056, 15.049167]]);
     
+    // Entry for Congo
+     coordinates.push(['6', [-4.267778, 15.291944]]);
+
+     
     //Entry for Democratic Republic Of Congo
-     coordinates.push(['6', [-2.8800, 23.6560]]);
+    coordinates.push(['7', [-4.325, 15.322222]]);
     
      //Entry for Cote D'Ivoire
-	 coordinates.push(['8',[8.0000, -6.0000]]);
+	   coordinates.push(['8',[6.816667, -5.283333]]);
     
      //Entry for Gabon
-     coordinates.push(['9', [-0.6833, 11.5000]]);
+     coordinates.push(['9', [0.39, 9.45]]);
     
      //Entry for Ghana
-     coordinates.push(['10', [7.6833, -0.9833]]);
+     coordinates.push(['10', [5.55, -0.2]]);
         
      //Entry for Guinea-Bissau
-     coordinates.push(['11', [12.0000, -15.0000]]);
+     coordinates.push(['11', [11.85, -15.566667]]);
      
      //Entry for Guinea-Conakry
-     coordinates.push(['12', [9.5092, -13.7122]]);
+     coordinates.push(['12', [9.516667, -13.7]]);
       
      //Entry for Kenya
-     coordinates.push(['13', [-1.2667, 36.8000]]);
+     coordinates.push(['13', [-1.283333, 36.816667]]);
      
      //Entry for Liberia
-     coordinates.push(['14', [6.5333, -9.7500]]);
+     coordinates.push(['14', [6.313333, -10.801389]]);
      
      //Entry for Mali
-     coordinates.push(['15', [17.0000, -4.3667]]);
+     coordinates.push(['15', [12.65, -8]]);
      
      //Entry for Niger
-     coordinates.push(['16', [16.1833, 9.6167]]);
+     coordinates.push(['16', [13.521389, 2.105278]]);
      
      //Entry for Nigeria
-     coordinates.push(['17', [8.0000, 10.0000]]);
+     coordinates.push(['17', [9.066667, 7.483333]]);
      
      //Entry for Senegal
      coordinates.push(['18', [14.6667, -17.4167]]);
      
      //Entry for Sierra Leone
-     coordinates.push(['19', [8.4844, -13.2344]]);
+     coordinates.push(['19', [14.692778, -17.446667]]);
      
      //Entry for South Africa
-     coordinates.push(['20', [-30.0000, 25.0000]]);
+     coordinates.push(['20', [-6.8, 39.283333]]);
      
      //Entry for Tanzania
-     coordinates.push(['21', [-6.3070, 34.8540]]);
+     coordinates.push(['21', [-6.8, 39.283333]]);
      
      //Entry for Togo
-     coordinates.push(['22', [8.2500, 1.1833]]);
+     coordinates.push(['22', [-15.416667, 28.283333]]);
      
      //Entry for Zambia
      coordinates.push(['23', [-14.1167, 27.6333]]);
      
       //Entry for Zimbabwe
-     coordinates.push(['24', [-17.8639, 31.0297]]);
+     coordinates.push(['24', [-17.863889, 31.029722]]);
      
      //Entry for Botswana
-     coordinates.push(['25', [-24.6667, 25.9167]]);
+     coordinates.push(['25', [-24.658056, 25.912222]]);
 
      var markers = new Array();
      
