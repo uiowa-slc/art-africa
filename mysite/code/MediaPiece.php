@@ -5,7 +5,7 @@ class MediaPiece extends DataObject {
   
   private static $db = array(	
   'Title' => 'Text',
-  'CreditLine' => 'Varchar(255)',
+  //'CreditLine' => 'Varchar(255)',
   'Caption' => 'Text',
   /*'Bibliography' => 'Text',*/
   'Tags' => 'Varchar(255)',
@@ -18,7 +18,7 @@ class MediaPiece extends DataObject {
   // One-to-one relationship with gallery page
   private static $has_one = array(
 
-  'Thumbnail' => 'Image'
+  //'Thumbnail' => 'Image'
   
   
   
@@ -39,11 +39,7 @@ class MediaPiece extends DataObject {
  		
  		//$fields->addFieldToTab('Root.Main', new TextAreaField('Bibliography', 'Bibliography'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
- 		$fields->addFieldToTab('Root.Main', new TextField('CreditLine', 'Credit Line'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('Caption', 'Caption'));
- 		
- 		$fields->addFieldToTab('Root.Main', new UploadField('Thumbnail'));
- 		
  		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Description', 'Description'));
  		
 
