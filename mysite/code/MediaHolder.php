@@ -54,7 +54,61 @@ class MediaHolder_Controller extends Page_Controller {
 
 
 	public function loadDefaultResults(){
-		$results = Image::get()->filter(array('HideFromMediaGrid' => 'false'));
+		/* --------------------- */
+		/* --- DOESNT WORK 1 --- */
+		/* --------------------- */
+		/*$media = DataList::create('DataObject');
+
+		$media->filter(
+    		'ClassName', array('MediaPiece', 'Image'))->sort('RAND()');
+
+		return $media;
+		*/
+
+		/* --------------------- */
+		/* --- DOESNT WORK 2 --- */
+		/* --------------------- */
+		/*$media = DataObject::get()->filter(
+    		'ClassName', array('MediaPiece', 'Image'))->sort('RAND()');
+
+    	return $media;*/
+
+    	/* --------------------- */
+    	/* --- DOESNT WORK 3 --- */
+    	/* --------------------- */
+
+		/*$results = new ArrayList();
+
+		$media = MediaPiece::get();
+		$images = $this->loadDefaultImageResults();
+
+
+		foreach($media as $mediaPiece) $results->push($mediaPiece);
+		foreach($images as $image) $results->push($image); 
+
+		$resultsArray = $results->toArray();
+
+		shuffle($resultsArray);
+
+
+		$resultsShuffled = new ArrayList($resultsArray);
+
+		return $resultsShuffled;*/
+
+
+    	/* -------------------------- */
+    	/* --- Temporary Solution --- */
+    	/* -------------------------- */
+
+    	$results = $this->loadDefaultImageResults();
+    	return $results;
+
+
+	}
+
+	public function loadDefaultImageResults(){
+		$results = Image::get()->filter(array('HideFromMediaGrid' => 'false'))->sort('RAND()');
+
 		return $results;
 
 	}
@@ -71,39 +125,39 @@ class MediaHolder_Controller extends Page_Controller {
 				$results = AudioPiece::get();
 			}elseif ($filters['MediaType'] == 'VideoPiece') {
 				$results = VideoPiece::get();
-			}else{
-				/* If we're not looking at an Audio or Video Piece, we have to be looking at an Image */
-
+			}elseif(($filters['MediaType'] == 'ArtPhoto')||($filters['MediaType']=='FieldPhoto')) {
+				$results = $this->loadDefaultImageResults();
+				$results = $results->addFilter((array('Type' => $filters['MediaType'])));
+			}elseif($filters['MediaType'] == 'Image') {
+				$results = $this->loadDefaultImageResults();
+			}elseif($filters['MediaType'] == 'AllMedia'){
 				$results = $this->loadDefaultResults();
-				/* If we're looking for a particular type of image instead of just a generic "Image": */
-				if($filters['MediaType']!= 'Image'){
-					$results = $results->addFilter((array('Type' => $filters['MediaType'])));
-				}
+
 			}
 
-		}else {
-			$results = $this->loadDefaultResults();
-		}
+			}else {
+				$results = $this->loadDefaultResults();
+			}
 
 		/* Everything Else */
 
 		if($filters['Country'] != ''){
-			$results = $results->addFilter((array('Countries.ID' => $filters['Country'])));
+			$results = $results->filter((array('Countries.ID' => $filters['Country'])));
 		}
 
 		if($filters['People'] != ''){
-			$results = $results->addFilter((array('People.ID' => $filters['People'])));
+			$results = $results->filter((array('People.ID' => $filters['People'])));
 		}
 
 		if($filters['Chapter'] != ''){
-			$results = $results->addFilter((array('Chapters.ID' => $filters['Chapter'])));
+			$results = $results->filter((array('Chapters.ID' => $filters['Chapter'])));
 		}
 		if($filters['Subtopic'] != ''){
-			$results = $results->addFilter((array('Subtopics.ID' => $filters['Subtopic'])));
+			$results = $results->filter((array('Subtopics.ID' => $filters['Subtopic'])));
 		}
 
 
-		$results = $results->sort('RAND()');
+		//$results = $results->sort('RAND()');
 
 		$paginatedMediaList = new PaginatedList($results, $this->request);
 		$paginatedMediaList->setPageLength(20);

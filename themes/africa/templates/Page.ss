@@ -197,6 +197,18 @@
                 <% end_if %>
               <% end_loop %>
             <% end_if %>
+
+              <% if $Level(1).Title == 'About' %>
+                <% if Children %>
+                    <% loop Children %>
+                      <li>
+                        <a href="$Link"<% if LinkOrCurrent = current %> class="selected"<% end_if %>>
+                          $MenuTitle
+                        </a>
+                      </li>
+                    <% end_loop %>                     
+                  <% end_if %>
+            <% end_if %>
           </ul>
 
         </nav>

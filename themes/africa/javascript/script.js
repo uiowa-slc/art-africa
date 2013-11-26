@@ -440,6 +440,8 @@ $(document).ready(function () {
   }
 });
 
+
+
 function setDraggable (map) {
   var draggable = window.outerWidth > 768;
 

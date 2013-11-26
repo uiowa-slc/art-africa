@@ -1586,11 +1586,11 @@ li.audioObject {
   /*.toggle { display: none; }*/
   /*use &.toggle*/
   .video-piece .play-icon {
-	width: 100px;
+	/*width: 100px;
 	height: 100px;
 	position: relative;
 	top: -170px;
-	left: 100px;
+	left: 100px;*/
   }
   
   #audio-scroller ul {

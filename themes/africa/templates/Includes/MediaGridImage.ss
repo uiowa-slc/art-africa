@@ -1,1 +1,5 @@
-<img src="{$SetWidth(282).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click for more info." data-mfp-href="{$ShowLink}" />
+<% if $AltImage %>
+	<img src="{$AltImage.SetWidth(282).URL}" data-mfp-src="{$AltImage.URL}" class="artPhoto {$size}" title="Tap or click for more info." data-mfp-href="{$ShowLink}" />
+<% else %>
+	<img src="{$SetWidth(282).URL}" data-mfp-src="{$URL}" class="artPhoto {$size}" title="Tap or click for more info." data-mfp-href="{$ShowLink}" />	
+<% end_if %>
