@@ -114,7 +114,7 @@ class Page_Controller extends ContentController {
 		$images = new ArrayList();
 
 		$photos = new ArrayList();
-		$photos = new ArrayList();
+		$biblographyPages = new ArrayList();
 
 
 
@@ -127,14 +127,15 @@ class Page_Controller extends ContentController {
 			'AudioPiece' => $audioPieces,
 			'VideoPiece' => $videoPieces,
 			'Image' => $images,
-			'Query' => $keyword
+			'Query' => $keyword,
+			'BibliographyPage' =>$biblographyPages 
 		);
 
 
 
 
 		/*ADD IN CLASSES TO BE SEARCHED HERE */
-		$siteTreeClasses = array( 'Chapter', 'Subtopic' ); //add in an classes that extend Page or SiteTree
+		$siteTreeClasses = array( 'Chapter', 'Subtopic', 'BibliographyPage' ); //add in an classes that extend Page or SiteTree
 		$dataObjectClasses = array( 'Country', 'Essay', 'People', 'Image', 'MediaPiece' ); //add in your DataObjects,
 
 
@@ -158,14 +159,16 @@ class Page_Controller extends ContentController {
 
 		foreach ( $siteTreeClasses as $c ) {
 			$siteTreeMatch = $this->getItemMatch( $c, $request, $keywordArray, $keywordHTML, 'Title, MenuTitle, ', $bibliographyFlag ); //This function is in Page.php
-			$query = DataList::create( $c )
-			// ->filter(array('RootLanguageParentID' => $this->RootLanguageParentID))
-			->where( $siteTreeMatch );
+			$query = DataList::create( $c )->where( $siteTreeMatch );
+
+	
 
 			$query = $query->dataQuery()->query();
 
 			$query->addSelect( array( 'Relevance' => $siteTreeMatch ) );
 
+		//print_r($query);
+		//	print_r("<br />");
 
 			$records = DB::query( $query->sql() );
 
@@ -273,12 +276,20 @@ class Page_Controller extends ContentController {
 	public function getItemMatch( $class, $request, $keywordArray, $keywordHTML, $resultString = '', $bibSearch = false ) {
 
 
-		$fields = DataObject::custom_database_fields( $class );
+		$fields = DataObject::database_fields( $class );
+
+		// hack for enabling BibliographyPage since database_fields doesn't work correctly on SiteTree things... I think.
+		if($class == "BibliographyPage") {
+			$fields['Content'] = "HTMLText";
+		}
+
+		//print_r($class." fields: <br />");
+		//print_r($fields);
 
 		//Both Art Photo and Field Photo extend from Photo, so if that class is getting searched, get those fields
 
-		if ( ( $class == 'ArtPhoto' ) || ( $class == 'FieldPhoto' ) ) {
-			$photoFields = DataObject::custom_database_fields( 'Photo' );
+		if ( ( $class == "Image") ) {
+			$photoFields = DataObject::custom_database_fields( 'Image' );
 			$fields = array_merge( $fields, $photoFields );
 		}
 

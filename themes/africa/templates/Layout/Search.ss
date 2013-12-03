@@ -154,6 +154,24 @@
 			</table>
 		  </div>
     <% end_if %>
+
+    <% if BibliographyPage %>
+    	<li><h2 id="bibliography">Bibliographic Entries</h2></li>
+
+			<div class="search">
+			 <table class="table table-hover">
+				<tbody>
+					<% loop BibliographyPage %>
+						<tr>
+								<td><a href="{$Link}">$Title</a></td>
+							
+						</tr>					
+					<% end_loop %>
+				</tbody>
+			</table>
+		  </div>
+
+    <% end_if %>
     
     
     <% if $ResultsFound == false %>

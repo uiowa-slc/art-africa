@@ -65,7 +65,7 @@ class ImageHolder_Controller extends Page_Controller {
 		//temporary image getter to get only chris roy images for testing purposes
 		$images = Image::get();
 		$paginatedImageList = new PaginatedList($images, $this->request);
-		$paginatedImageList->setPageLength(25);
+		$paginatedImageList->setPageLength(50);
 		$paginatedImageList->sort('RAND()');
 		return $paginatedImageList;
 	}	
