@@ -199,8 +199,8 @@
             <% end_if %>
 
               <% if $Level(1).Title == 'About' %>
-                <% if Children %>
-                    <% loop Children %>
+                <% if $Level(1).Children %>
+                    <% loop $Level(1).Children %>
                       <li>
                         <a href="$Link"<% if LinkOrCurrent = current %> class="selected"<% end_if %>>
                           $MenuTitle
@@ -208,6 +208,9 @@
                       </li>
                     <% end_loop %>                     
                   <% end_if %>
+     
+              
+              
             <% end_if %>
           </ul>
 
