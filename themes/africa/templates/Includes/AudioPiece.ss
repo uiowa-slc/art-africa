@@ -5,7 +5,9 @@
 	     
 	    <script>
 			
-			  $('video').mediaelementplayer(); //Replaces video tags with media element player
+			$('video').mediaelementplayer({
+			  pluginPath: '{$BaseHref}themes/africa/javascript/mediaelement/build/'
+			}); //Replaces video tags with media element player
 	
 		</script>
 	 
