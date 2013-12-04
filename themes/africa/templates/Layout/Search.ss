@@ -1,7 +1,7 @@
 <div class="content-container typography">	
 	<h1> Search Results for '$Query'</h1>
 	<div class="visible-phone">
-<% if $ResultsFound %><p>Jump to: <% if Subtopic %><a href="#subtopics">Subtopics</a> <% end_if %><% if People %><a href="#people">People</a> <% end_if %><% if Essay %><a href="#essays">Essays</a> <% end_if %><% if Country %><a href="#countries">Countries</a> <% end_if %> </p><% end_if %>
+<% if $ResultsFound %><p>Jump to: <% if Subtopic %><a href="#subtopics">Subtopics</a> <% end_if %><% if People %><a href="#people">People</a> <% end_if %><% if Essay %><a href="#essays">Essays</a> <% end_if %><% if Country %><a href="#countries">Countries</a> <% end_if %> </p><% end_if %><% if BibliographyPage %><a href="#bibliographic">Bibliographic Entries</a> <% end_if %>
 	</div>
 	<!--<div id="bibliography-results"><label>Search bibliographic references only </label><input type="checkbox" id="bibliography-checkbox" name="Search Bibliography" /></div>-->
 	<section class="search-results">
@@ -156,7 +156,9 @@
     <% end_if %>
 
     <% if BibliographyPage %>
-    	<li><h2 id="bibliography">Bibliographic Entries</h2></li>
+    	<li><h2 id="bibliographic">Bibliographic Entries</h2>
+    		<p>Entries for '$Query' can be found in the page(s) below:</p>
+    	</li>
 
 			<div class="search">
 			 <table class="table table-hover">

@@ -82,6 +82,7 @@
                   <% if People %><li><a href="#people">People</a></li><% end_if %>
                   <% if Essay %><li><a href="#essays">Essays</a></li><% end_if %>
                   <% if Country %><li><a href="#countries">Countries</a></li><% end_if %>
+                  <% if BibliographyPage %><li><a href="#bibliographic">Bibliographic Entries</a></li><% end_if %>
                   <li><a href="#">Top of the page</a></li>
                 </ul>
               <% end_if %>
