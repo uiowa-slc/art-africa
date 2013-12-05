@@ -28,7 +28,7 @@ if (class_exists('SiteTree')) SiteTree::enable_nested_urls();
 error_reporting(E_ALL);
 
 
-Director::set_environment_type("dev");
+Director::set_environment_type("live");
 //Object::add_extension('Country', "FulltextSearchable('Name,Location')");
 
 

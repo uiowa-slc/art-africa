@@ -48,7 +48,7 @@ class Page_Controller extends ContentController {
 		parent::init();
 
 		$themeFolder = $this->ThemeDir();
-		Requirements::set_combined_files_folder( $themeFolder . '/combinedfiles' );
+		Requirements::set_combined_files_folder( $themeFolder . '/_combinedfiles' );
 
 		$jsFiles = array(
 			$themeFolder.'/javascript/jquery.magnific-popup.min.js',
@@ -324,7 +324,7 @@ class Page_Controller extends ContentController {
 		$mode = ' IN BOOLEAN MODE';
 
 
-
+		print_r($resultString)
 		return $resultString;
 	}
 
