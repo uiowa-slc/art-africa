@@ -10,7 +10,7 @@
     <% if Image %>
     	<h2 id="images">Images</h2>
     	<div class="media-container">
-    	<% loop Image.Limit(25) %>
+    	<% loop Image.Limit(100) %>
 	    	<div class="item">
 	    	 <% include MediaGridImage %>
 	    	</div>
@@ -19,7 +19,7 @@
        	</div>		  
     <% end_if %>
       <% if VideoPiece %>
-    	<h2 id="videos">Video</h2>
+    	<h2 id="videos">Videos</h2>
     	<div class="media-container">
 	    	<% loop VideoPiece %>
 				<div class="item">
@@ -66,7 +66,7 @@
 	  
 		  
 		<% if People %>
-		<li><h2 id="people">People</h2></li>
+		<li><h2 id="people">Peoples</h2></li>
 			<div class="search">
 			 <table class="table table-hover">
 				<tbody>

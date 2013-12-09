@@ -324,7 +324,7 @@ class Page_Controller extends ContentController {
 		$mode = ' IN BOOLEAN MODE';
 
 
-		print_r($resultString)
+		//print_r($resultString);
 		return $resultString;
 	}
 

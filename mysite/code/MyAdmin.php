@@ -9,7 +9,7 @@ class CountriesAdmin extends ModelAdmin {
 class PeopleAdmin extends ModelAdmin {
   private static $managed_models = array('People'); // Can manage multiple models
   private static $url_segment = 'people'; // Linked as /admin/products/
-  private static $menu_title = 'People';
+  private static $menu_title = 'Peoples';
 }
 
 class AudioAdmin extends ModelAdmin {
