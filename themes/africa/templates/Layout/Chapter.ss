@@ -12,7 +12,6 @@
 	<% if Images %> 
 		<% include SmallImageScroller %>
 	<% end_if %>
-	<% with Children.First %><p><a href="$Link">Start with $Title</a></p><% end_with %>
 	<div class="visible-phone">
 		Subtopics:<br><br>
 		<% loop Children %>
