@@ -108,6 +108,26 @@ class Subtopic_Controller extends Page_Controller {
 		}
 	
 	}
+
+	public function nextPageInTree() {
+
+		$page = Page::get()->filter(array (
+			'ParentID' => $this->ParentID,
+			'Sort:GreaterThan' => $this->Sort
+			))->First();
+
+		if(!$page){
+
+			$parentPage = $this->getParent();
+
+			$page = Page::get()->filter(array (
+			'ParentID' => $parentPage->ParentID,
+			'Sort:GreaterThan' => $parentPage->Sort
+			))->First(); 
+		}
+
+		return $page;
+	}
 	
 	public function getNextSubtopic($title, $type='Subtopic'){
 	//Title is used to get the next subtopic, returnType returns either a Link or the Title 

@@ -74,9 +74,6 @@ class Page_Controller extends ContentController {
 
 	}
 
-	public function isPopup() {
-		return $this->getRequest()->getVar( 'popup' );
-	}
 
 	/**
 	 * IMPORTANT!!!

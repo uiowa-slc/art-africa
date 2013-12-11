@@ -139,4 +139,10 @@ class Chapter_Controller extends Page_Controller {
 			return false;
 		}
 	}
+
+	public function nextPageInTree() {
+
+		$page = $this->Children()->First();
+		return $page;
+	}
 }

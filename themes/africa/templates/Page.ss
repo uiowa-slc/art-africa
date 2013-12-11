@@ -79,7 +79,7 @@
                   <% if VideoPiece %><li><a href="#videos">Videos</a></li><% end_if %>
                   <% if AudioPiece %><li><a href="#audio">Audio</a></li><% end_if %>
                   <% if Subtopic %><li><a href="#subtopics">Subtopics</a></li><% end_if %>
-                  <% if People %><li><a href="#people">People</a></li><% end_if %>
+                  <% if People %><li><a href="#people">Peoples</a></li><% end_if %>
                   <% if Essay %><li><a href="#essays">Essays</a></li><% end_if %>
                   <% if Country %><li><a href="#countries">Countries</a></li><% end_if %>
                   <% if BibliographyPage %><li><a href="#bibliographic">Bibliographic Entries</a></li><% end_if %>
