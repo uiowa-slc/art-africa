@@ -17,4 +17,4 @@
   <p class="padded"><a href="$ShowMoreLink" target="_blank">See all images listed under $Title</a></p>
   <% end_if %>
 
-<% end_if %>
+<% end_if %> 
