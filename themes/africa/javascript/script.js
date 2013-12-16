@@ -295,11 +295,11 @@ function initialize() {
      coordinates.push(['6', [-4.267778, 15.291944]]);
 
      
-    //Entry for Democratic Republic Of Congo
-    coordinates.push(['7', [-4.325, 15.322222]]);
+     //Entry for Democratic Republic Of Congo
+     coordinates.push(['7', [-4.325, 15.322222]]);
     
      //Entry for Cote D'Ivoire
-	   coordinates.push(['8',[6.816667, -5.283333]]);
+	 coordinates.push(['8', [6.816667, -5.283333]]);
     
      //Entry for Gabon
      coordinates.push(['9', [0.39, 9.45]]);
@@ -332,20 +332,20 @@ function initialize() {
      coordinates.push(['18', [14.6667, -17.4167]]);
      
      //Entry for Sierra Leone
-     coordinates.push(['19', [14.692778, -17.446667]]);
+     coordinates.push(['19', [8.483069, -13.228598]]); 
      
      //Entry for South Africa
-     coordinates.push(['20', [-6.8, 39.283333]]);
+     coordinates.push(['20', [-25.736818, 28.220386]]);
      
      //Entry for Tanzania
      coordinates.push(['21', [-6.8, 39.283333]]);
      
      //Entry for Togo
-     coordinates.push(['22', [-15.416667, 28.283333]]);
+     coordinates.push(['22', [6.135589, 1.238257]]); 
      
      //Entry for Zambia
-     coordinates.push(['23', [-14.1167, 27.6333]]);
-     
+     coordinates.push(['23', [-15.408837, 28.280153]]);
+          
       //Entry for Zimbabwe
      coordinates.push(['24', [-17.863889, 31.029722]]);
      
@@ -362,7 +362,7 @@ function initialize() {
     		 map: map,
     		 draggable: false,
     		 clickable: true,
-         animation: google.maps.Animation.DROP,
+			 animation: google.maps.Animation.DROP,
     		 title: coordinates[i][0] 
 	       	 
 		  }); 
