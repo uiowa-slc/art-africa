@@ -5,16 +5,16 @@ class People extends DataObject {
   
   private static $db = array(	
   'Title' => 'Text',
-  'AlternateNames' => 'Text',
-  'Location' => 'Text',
-  'Languages' => 'Text',
-  'Population' => 'Text',
-  'Neighbors' => 'Text',
-  'TypesOfArt' => 'Text',
-  'History' => 'Text',
-  'Economy' => 'Text',
-  'PoliticalSystems' => 'Text',
-  'Religion' => 'Text',
+  'AlternateNames' => 'HTMLText',
+  'Location' => 'HTMLText',
+  'Languages' => 'HTMLText',
+  'Population' => 'HTMLText',
+  'Neighbors' => 'HTMLText',
+  'TypesOfArt' => 'HTMLText',
+  'History' => 'HTMLText',
+  'Economy' => 'HTMLText',
+  'PoliticalSystems' => 'HTMLText',
+  'Religion' => 'HTMLText',
   'Tags' => 'Text'
 
   );
@@ -48,16 +48,16 @@ class People extends DataObject {
  		$fields = $this->addCommonFields($fields);
  		$fields->addFieldToTab('Root.Main', new ReadonlyField('ID', 'Temporary ID Field'));		
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
-		$fields->addFieldToTab('Root.Main', new TextField('AlternateNames', 'Alternate Name(s)'));
-		$fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
-		$fields->addFieldToTab('Root.Main', new TextField('Languages', 'Languages'));
-		$fields->addFieldToTab('Root.Main', new TextField('Population', 'Population'));
-		$fields->addFieldToTab('Root.Main', new TextField('Neighbors', 'Neighbors'));
-		$fields->addFieldToTab('Root.Main', new TextAreaField('TypesOfArt', 'Types Of Art'));
-		$fields->addFieldToTab('Root.Main', new TextAreaField('History', 'History'));
-		$fields->addFieldToTab('Root.Main', new TextAreaField('Economy', 'Economy'));
-		$fields->addFieldToTab('Root.Main', new TextAreaField('PoliticalSystems', 'Political Systems'));
-		$fields->addFieldToTab('Root.Main', new TextAreaField('Religion', 'Religion'));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('AlternateNames', 'Alternate Name(s)'));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Location', 'Location'));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Languages', 'Languages'));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Population', 'Population'));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Neighbors', 'Neighbors'));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('TypesOfArt', 'Types Of Art'));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('History', 'History'));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Economy', 'Economy'));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('PoliticalSystems', 'Political Systems'));
+		$fields->addFieldToTab('Root.Main', new HTMLEditorField('Religion', 'Religion'));
 		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
 		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
 

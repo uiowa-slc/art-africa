@@ -1,7 +1,7 @@
 <% if Images %>
 <div class="image-scroller-container">
   <ul class="large-image-grid">
-    <% loop Images %>
+    <% loop Images.Limit(30) %>
     <li>
      <% if $AltImage %>
       		<img src="{$AltImage.CroppedFocusedImage(650,650).URL}" data-mfp-src="{$AltImage.URL}" class="artPhoto" title="Tap or click for more info." data-mfp-href="{$ShowLink}">

@@ -52,6 +52,24 @@ class AfricaDataObjectExtension extends DataExtension {
 	}
   }  
   
+
+	public function ShowMoreLink(){
+
+		$searchBaseURL =  'media/index?';
+		$searchMiddle = '';
+		$searchAfter = '&MediaType=Image&action_=Use+Filter';
+
+		$ownerClass = $this->owner->ClassName;
+		$ownerID = $this->owner->ID;
+
+
+		$searchMiddle = $ownerClass.'='.$ownerID;
+
+		return $searchBaseURL.$searchMiddle.$searchAfter;
+
+	}
+
+
   public function getCreditLine(){
 	    
 	  $newCreditLineArray = explode('</p>', $this->owner->Caption);

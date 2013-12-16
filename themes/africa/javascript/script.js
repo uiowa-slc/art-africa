@@ -236,7 +236,9 @@ function initialize() {
     zoomLevel = 3;
   } else {
     // countryNameToStartMapOn = [$('.capital_city').text(), $('#main_content h1:first').text()].join(', ');
-    countryNameToStartMapOn = $('#main_content h1:first').text();
+
+
+    countryNameToStartMapOn = $('#main_content h1:first').data("googlename");
     zoomLevel = 5;
   }
 
@@ -274,9 +276,6 @@ function initialize() {
     
     //If a country shows up incorrectly, the coordinates are probably flipped
     
-    
-   
-     
     //Entry for Cameroon
      coordinates.push(['1', [3.866667, 11.516667]]);
     
