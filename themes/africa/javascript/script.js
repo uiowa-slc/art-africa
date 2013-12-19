@@ -385,7 +385,7 @@ function initialize() {
           if (status == google.maps.GeocoderStatus.OK) {
             var country = getCountry(results);
             var matchingCountryLink = $('.nav2 a').filter(function () {
-            var countryName = $(this).text();
+            var countryName = $(this).data('googlename');
             return countryName === country.long_name;
             });
             if (matchingCountryLink.length === 1) {
