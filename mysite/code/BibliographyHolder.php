@@ -47,6 +47,17 @@ class BibliographyHolder_Controller extends Page_Controller {
 	 */
 	
 	public static $childPage = 'BibliographyPage';
+
+	//Jump to first Bibliography Page upon index.
+	public function index(){
+		$firstChild = $this->Children()->First();
+
+		if($firstChild){
+			$this->redirect($firstChild->Link());
+		} else{
+			parent::index();
+		}
+	}
 	
 
 	
