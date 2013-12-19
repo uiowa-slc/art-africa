@@ -1668,8 +1668,11 @@ li.audioObject {
 	
 }
 
-#see-more>p {
+#see-more>span {
+	display: block;
 	padding: 20px;
+	padding-top: 10px;
+	margin-top: 25px;
 	line-height: 50px;
 	font-size: 50px;
 	font-weight: 200;
