@@ -10,6 +10,9 @@
   		<% end_if %>
       </li>
       <% end_loop %>
+      <li>
+      	<a href="$ShowMoreLink" target="_blank"><div id="see-more" class="" title="Tap or Click to See All Images"><p>See More Images</div></p></a>
+      </li>
     </ul>
   </div>
 
