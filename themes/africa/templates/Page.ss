@@ -198,18 +198,6 @@
                 <% end_if %>
               <% end_loop %>
             <% end_if %>
-
-		 <!-- supports bib...crashes without it-->
-              <% if $Level(1).Title == 'About' %>
-                <% if $Level(1).Children %>
-                    <% loop $Level(1).Children %>
-                      <li>
-                        <a href="$Link"<% if LinkOrCurrent = current %> class="selected"<% end_if %>>
-                
-                        </a>
-                      </li>
-                    <% end_loop %>                     
-                  <% end_if %>
      
               
             <!-- Bibliogrpahy -->
@@ -241,9 +229,7 @@
               </li>
               <% end_loop %>
             <% end_if %>
-
-              
-            <% end_if %>
+    
           </ul>
 
         </nav>
