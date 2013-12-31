@@ -4,7 +4,16 @@
 			<img src="{$Filename}" data-mfp-src="{$Filename}" class="artPhoto" title="Tap or click the image for more info." data-mfp-href="{$ShowLink}" />
 		<% end_with %>
 	<% else %>
-			<img src="{$Filename}" data-mfp-src="{$Filename}" class="artPhoto" title="Tap or click the image for more info." data-mfp-href="{$ShowLink}" />	
+			<img src="{$Filename}" data-mfp-src="{$Filename}" class="artPhoto" title="Tap or click the image for more info." data-mfp-href="{$ShowLink}" />
+
 	<% end_if %>
-	<div class="credit-line">$Caption</div>
+	
+	<% if $AltImage.Caption %>
+
+		<div class="credit-line">$AltImage.Caption</div>
+
+	<% else %>
+		<div class="credit-line">$Caption</div>
+	<% end_if %>
+
 </div>

@@ -59,7 +59,9 @@ class ImageExtension extends DataExtension {
 	public function updateCMSFields(FieldList $fields) {
 	
 		$fields = $this->owner->addCommonFields($fields);
-	     $fields->addFieldToTab('Root.Main', new UploadField('AltImage', 'Alternate / Better Quality Image (takes precedence over the image above)'), 'Name'); 
+
+    
+	  $fields->addFieldToTab('Root.Main', new UploadField('AltImage', 'Alternate / Better Quality Image (takes precedence over the image above)'), 'Name'); 
 
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
 		$fields->addFieldToTab('Root.Main', new CheckboxField('HideFromMediaGrid', 'Hide this image from the media grid.'));
