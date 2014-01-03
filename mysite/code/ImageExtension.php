@@ -158,15 +158,15 @@ class ImageExtension extends DataExtension {
       $height = $this->owner->getHeight();
       $width = $this->owner->getWidth();
 
-      if(($width < 1000) && ($height < 1000)) {
+      if(($width < 1000) || ($height < 1000)) {
         $size = 'medium';
       }
 
-      if(($width < 600) && ($height < 600)){
+      if(($width < 600) || ($height < 600)){
         $size = 'small';
       }
 
-      if(($width < 300) && ($height < 300)){
+      if(($width < 300) || ($height < 300)){
         $size = 'tiny';
       }
       return $size;
