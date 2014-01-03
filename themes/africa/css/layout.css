@@ -962,12 +962,12 @@ ul.columns li {
 }
 
 .embedded-image.small img{
-  width: 30%;
+  width: auto;
   /*margin: auto; */
 }
 
 .embedded-image.tiny img {
-  width: 15%;
+  width: auto;
   /*margin: auto*/
 }
 
