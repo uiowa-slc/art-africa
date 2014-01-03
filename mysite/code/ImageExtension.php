@@ -166,7 +166,9 @@ class ImageExtension extends DataExtension {
         $size = 'small';
       }
 
-
+      if(($width < 300) && ($height < 300)){
+        $size = 'tiny';
+      }
       return $size;
 
 

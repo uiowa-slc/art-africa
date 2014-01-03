@@ -952,21 +952,21 @@ ul.columns li {
 }
 
 
-.embedded-image.full {
+.embedded-image.full img {
   width: 100%;
 }
 
-.embedded-image.medium {
+.embedded-image.medium img {
   width: 50%;
   /*margin: auto;*/
 }
 
-.embedded-image.small{
+.embedded-image.small img{
   width: 30%;
   /*margin: auto; */
 }
 
-.embedded-image.tiny {
+.embedded-image.tiny img {
   width: 15%;
   /*margin: auto*/
 }
