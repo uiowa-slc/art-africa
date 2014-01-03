@@ -60,7 +60,7 @@ class ImageExtension extends DataExtension {
 	
 		$fields = $this->owner->addCommonFields($fields);
 
-    
+
 	  $fields->addFieldToTab('Root.Main', new UploadField('AltImage', 'Alternate / Better Quality Image (takes precedence over the image above)'), 'Name'); 
 
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
@@ -184,6 +184,26 @@ class ImageExtension extends DataExtension {
     	} else {
     		return $this->owner;
     	}
+
+    }
+
+    public function ScaledImage(){
+
+      $image = $this->owner;
+
+      $height = $image->getHeight();
+      $width = $image->getWidth();
+
+      //Debug::message("Wow, that's great");
+
+      if(($width < 1000) && ($height < 1000)){
+        return $image;
+
+      }else{
+
+        $scaledImage = $image->SetRatioSize(1000,1000);
+        return $scaledImage;
+      }
 
     }
 

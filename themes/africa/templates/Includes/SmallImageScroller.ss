@@ -6,7 +6,7 @@
       	<% if $AltImage %>
   				<img src="{$AltImage.CroppedFocusedImage(225,225).URL}" data-mfp-src="{$AltImage.SetRatioSize(1000,1000).URL}" class="artPhoto" title="Tap or Click for more info" data-mfp-href="$ShowLink">
   		<% else %>
-  				<img src="{$CroppedFocusedImage(225,225).URL}" data-mfp-src="{$SetRatioSize(1000,1000).URL}" class="artPhoto" title="Tap or Click for more info" data-mfp-href="$ShowLink">		
+  				<img src="{$CroppedFocusedImage(225,225).URL}" data-mfp-src="{$ScaledImage.URL}" class="artPhoto" title="Tap or Click for more info" data-mfp-href="$ShowLink">		
   		<% end_if %>
       </li>
       <% end_loop %>
