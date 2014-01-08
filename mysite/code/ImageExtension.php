@@ -59,8 +59,7 @@ class ImageExtension extends DataExtension {
 	public function updateCMSFields(FieldList $fields) {
 	
 		$fields = $this->owner->addCommonFields($fields);
-
-
+    //$parentImage = $this->ParentImage();
 	  $fields->addFieldToTab('Root.Main', new UploadField('AltImage', 'Alternate / Better Quality Image (takes precedence over the image above)'), 'Name'); 
 
 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
@@ -209,6 +208,18 @@ class ImageExtension extends DataExtension {
       }
 
     }
+
+
+  public function ParentImage(){
+
+    $parent = Image::get()->filter(array("AltImageID"=>$this->owner->ID));
+
+    if(isset($parent)){
+      return $parent;
+    }else{
+      return false;
+    }
+  }
 
 
   //returns returnedCaption

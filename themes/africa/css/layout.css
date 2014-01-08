@@ -946,29 +946,26 @@ ul.columns li {
   padding: 0;
   line-height: 1rem;
 }
+
 .artPhoto {
 	position: static !important;
   width: 100%;
 }
 
+@media (min-width: 1024px) {
+  .embedded-image.full img {
+    width: 100%;
+  }
 
-.embedded-image.full img {
-  width: 100%;
-}
+  .embedded-image.small img{
+    width: 30%;
+    /*margin: auto; */
+  }
 
-.embedded-image.medium img {
-  width: 50%;
-  /*margin: auto;*/
-}
-
-.embedded-image.small img{
-  width: 30%;
-  /*margin: auto; */
-}
-
-.embedded-image.tiny img {
-  width: 20%;
-  /*margin: auto*/
+  .embedded-image.tiny img {
+    width: 20%;
+    /*margin: auto*/
+  }
 }
 
 .content.essayPage p {
