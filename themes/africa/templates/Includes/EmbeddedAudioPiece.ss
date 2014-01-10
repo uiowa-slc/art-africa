@@ -1,2 +1,2 @@
 <% include AudioPiece %>
-<p>TEST Caption</p>
+<p>$Caption</p>
