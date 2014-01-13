@@ -19,11 +19,14 @@
 			<div class="clearfix"></div>
 			
 		</div>
-		<% if $Object.Description %>
-		<div class="content columns description">
-			$Object.Description	
-		</div>
-		<% end_if %>
+	<% if $AltImage.Caption %>
+
+		<div class="credit-line">$AltImage.Caption</div>
+
+	<% else %>
+		<div class="credit-line">$Caption</div>
+	<% end_if %>
+	</article>
 	</article>
 		
 </div>
