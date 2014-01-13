@@ -439,10 +439,10 @@ class Page_Controller extends ContentController {
 					);
 				}
 
-				if($object->ParentImage()){
+				if(($object->ClassName == "Image") &&  ($object->ParentImage())){
 
 					$parent = $object->ParentImage();
-					
+
 					$this->redirect($parent->ShowLink());
 
 				}
