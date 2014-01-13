@@ -17,12 +17,6 @@
 			<div class="clearfix"></div>
 			
 		</div>
-	<% if $AltImage.Caption %>
-		<div class="credit-line alt-credits">$AltImage.Caption</div>
-
-	<% else %>
-		<div class="credit-line orig-credits">$Object.Caption</div>
-	<% end_if %>
 	</article>
 		
 </div>
