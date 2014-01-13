@@ -439,6 +439,14 @@ class Page_Controller extends ContentController {
 					);
 				}
 
+				if($object->ParentImage()){
+
+					$parent = $object->ParentImage();
+					
+					$this->redirect($parent->ShowLink());
+
+				}
+
 				return $this->Customise( $data )->renderWith( array( $showTemplate, 'Page' ) );
 
 			}else {

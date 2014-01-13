@@ -11,19 +11,17 @@
 			<% with $Object %>
 				<% include EmbeddedImage %>
 			<% end_with %>
-			
-
-				
+		
 			<% include SocialShare %>
 
 			<div class="clearfix"></div>
 			
 		</div>
 	<% if $AltImage.Caption %>
-		<div class="credit-line">$AltImage.Caption</div>
+		<div class="credit-line alt-credits">$AltImage.Caption</div>
 
 	<% else %>
-		<div class="credit-line">$Caption</div>
+		<div class="credit-line orig-credits">$Object.Caption</div>
 	<% end_if %>
 	</article>
 		

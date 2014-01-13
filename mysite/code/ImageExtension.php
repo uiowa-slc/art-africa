@@ -59,48 +59,56 @@ class ImageExtension extends DataExtension {
 	public function updateCMSFields(FieldList $fields) {
 	
 		$fields = $this->owner->addCommonFields($fields);
-    //$parentImage = $this->ParentImage();
+    $parentImage = $this->ParentImage();
+
+    if(!$parentImage){
 	  $fields->addFieldToTab('Root.Main', new UploadField('AltImage', 'Alternate / Better Quality Image (takes precedence over the image above)'), 'Name'); 
 
-		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
-		$fields->addFieldToTab('Root.Main', new CheckboxField('HideFromMediaGrid', 'Hide this image from the media grid.'));
-		   $captionField = new HTMLEditorField('Caption', 'Caption');
+
+    $fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
+    $fields->addFieldToTab('Root.Main', new CheckboxField('HideFromMediaGrid', 'Hide this image from the media grid.'));
+       $captionField = new HTMLEditorField('Caption', 'Caption');
     //å$captionField->setRows(1);
- 		$fields->addFieldToTab('Root.Main', $captionField);
- 		
- 		$descriptionField = new HTMLEditorField('Description', 'Description');
-	    //$descriptionField->setRows(2);
-	    $fields->addFieldToTab('Root.Main', $descriptionField);
- 		
-		$fields->addFieldToTab('Root.Main', new DropdownField('Type','Type of Image', $this->owner->dbObject('Type')->enumValues()));
- 		//$fields->addFieldToTab('Root.Main', new TextField('PhotoID', 'Photo ID'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Photographer', 'Photographer'));
+    $fields->addFieldToTab('Root.Main', $captionField);
+    
+    $descriptionField = new HTMLEditorField('Description', 'Description');
+      //$descriptionField->setRows(2);
+      $fields->addFieldToTab('Root.Main', $descriptionField);
+    
+    $fields->addFieldToTab('Root.Main', new DropdownField('Type','Type of Image', $this->owner->dbObject('Type')->enumValues()));
+    //$fields->addFieldToTab('Root.Main', new TextField('PhotoID', 'Photo ID'));
+    $fields->addFieldToTab('Root.Main', new TextField('Photographer', 'Photographer'));
 
- 		
+    
 
- 		$fields->addFieldToTab('Root.Main', new TextField('Date', 'Date')); 
- 		$fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
- 		 		
- 		$creditField = new HTMLEditorField('CreditLine', 'Credit Line');
- 		$creditField->setRows(1);
- 		$fields->addFieldToTab('Root.Main', $creditField);
+    $fields->addFieldToTab('Root.Main', new TextField('Date', 'Date')); 
+    $fields->addFieldToTab('Root.Main', new TextField('Location', 'Location'));
+        
+    $creditField = new HTMLEditorField('CreditLine', 'Credit Line');
+    $creditField->setRows(1);
+    $fields->addFieldToTab('Root.Main', $creditField);
 
  
- 		
- 		$fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
- 		$fields->addFieldToTab('Root.Main', new TextField('AccessionNumber', 'Accession Number'));
+    
+    $fields->addFieldToTab('Root.Main', new TextAreaField('Tags', 'Tags'));
+    $fields->addFieldToTab('Root.Main', new TextField('AccessionNumber', 'Accession Number'));
 
- 		
+    
 
     $traditionalNameField = new HTMLEditorField('TraditionalName', 'Traditional Name');
     $traditionalNameField->setRows(1);
     $fields->addFieldToTab('Root.Main', $traditionalNameField);
 
- 		$fields->addFieldToTab('Root.Main', new TextField('Material', 'Material'));
- 		$fields->addFieldToTab('Root.Main', new TextField('ArtDimensions', 'Dimensions'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Function', 'Function'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Style', 'Style'));
- 		$fields->addFieldToTab('Root.Main', new TextField('Substyle', 'Substyle'));
+    $fields->addFieldToTab('Root.Main', new TextField('Material', 'Material'));
+    $fields->addFieldToTab('Root.Main', new TextField('ArtDimensions', 'Dimensions'));
+    $fields->addFieldToTab('Root.Main', new TextField('Function', 'Function'));
+    $fields->addFieldToTab('Root.Main', new TextField('Style', 'Style'));
+    $fields->addFieldToTab('Root.Main', new TextField('Substyle', 'Substyle'));
+
+    }else{
+      $fields->addFieldToTab('Root.Main', new LabelField('ParentImage','This image is an alternate/better quality version of'.$parentImage->Title));
+    }
+
  		//$fields->addFieldToTab('Root.Main', new TextField('Collection', 'Collection'));
  		//$fields->addFieldToTab('Root.Main', new TextField('Source', 'Source'));
 
@@ -212,7 +220,9 @@ class ImageExtension extends DataExtension {
 
   public function ParentImage(){
 
-    $parent = Image::get()->filter(array("AltImageID"=>$this->owner->ID));
+    $parent = Image::get()->filter(array("AltImageID"=>$this->owner->ID))->first();
+
+    //print_r($parent);
 
     if(isset($parent)){
       return $parent;
