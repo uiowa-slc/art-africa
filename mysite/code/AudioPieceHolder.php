@@ -54,7 +54,9 @@ class AudioPieceHolder_Controller extends Page_Controller {
 	private static $allowed_actions = array ( 'show', 'getAudio' );
 
 	public static $childPage = 'AudioPiece';
-
+	public function index(){
+		return $this->redirect('media/');
+	}
 	/*
 	public function show (){
 	//Displays a data object
