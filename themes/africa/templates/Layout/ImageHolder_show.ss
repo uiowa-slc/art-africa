@@ -20,13 +20,11 @@
 			
 		</div>
 	<% if $AltImage.Caption %>
-
 		<div class="credit-line">$AltImage.Caption</div>
 
 	<% else %>
 		<div class="credit-line">$Caption</div>
 	<% end_if %>
-	</article>
 	</article>
 		
 </div>
