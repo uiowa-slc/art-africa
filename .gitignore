@@ -13,5 +13,5 @@ sortablegridfield/
 vendor/
 cms/
 SortableGridField/
-composer.lock
 assets/_combinedfiles/
+_ss_environment.php
