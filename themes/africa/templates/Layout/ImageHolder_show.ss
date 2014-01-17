@@ -8,9 +8,9 @@
 			 </p>
 			<% end_if %>
 
-			<% with $Object %>
+			<% loop $Object %>
 				<% include EmbeddedImage %>
-			<% end_with %>
+			<% end_loop %>
 		
 			<% include SocialShare %>
 
