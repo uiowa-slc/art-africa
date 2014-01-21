@@ -9,6 +9,9 @@
 	<% end_if %>
 
 		<% if $ParentImage %>
+			<div class="credit-line">$ParentImage.Caption</div>
+
+		<% else %>
 			<div class="credit-line">$Caption</div>
 		<% end_if %>
 	
