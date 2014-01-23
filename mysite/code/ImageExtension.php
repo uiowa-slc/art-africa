@@ -151,7 +151,9 @@ class ImageExtension extends DataExtension {
 
       $size = 'full';
 
-      if($image = $this->owner->AltImageID){
+      if($altImageID = $this->owner->AltImageID){
+
+        $image = Image::get()->filter(array('ID' => $altImageID ))->first();
         
         print_r('theres an alt image');
       }else{
