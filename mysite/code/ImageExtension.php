@@ -154,8 +154,6 @@ class ImageExtension extends DataExtension {
       if($altImageID = $this->owner->AltImageID){
 
         $image = Image::get()->filter(array('ID' => $altImageID ))->first();
-        
-        print_r('theres an alt image');
       }else{
         $image = $this->owner;
       }
@@ -175,7 +173,7 @@ class ImageExtension extends DataExtension {
         $size = 'tiny';
       }
 
-      print_r('w='.$width.', h='.$height);
+      //print_r('w='.$width.', h='.$height);
 
       return $size;
 
