@@ -157,6 +157,8 @@ class ImageExtension extends DataExtension {
         $image = $this->owner;
       }
 
+      print_r($image);
+
       $height = $image->getHeight();
       $width = $image->getWidth();
 
