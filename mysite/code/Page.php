@@ -396,7 +396,7 @@ class Page_Controller extends ContentController {
 		$otherClass = $this::$childPage;
 		$objectID = Convert::raw2xml( $this->request->param( 'ID' ) );
 
-		if ( $this->request->getVar( 'source' ) ) {
+		/*if ( $this->request->getVar( 'source' ) ) {
 
 			$sourceID = $this->request->getVar( 'source' );
 			$showID = $this->request->getVar( 'show' );
@@ -412,7 +412,12 @@ class Page_Controller extends ContentController {
 			}else {
 				$source = null;
 			}
-		}
+		}*/
+
+
+
+		$source = $this->request->getVar( 'back' );
+
 
 
 

@@ -2,15 +2,28 @@
 <div class="content-container typography">	
 	<article>
 		<div class="content container-fluid">
+			<p>
 			<% if $Source %>
-			<p><a href="$Source.Link">Return to $Source.Title</a> <% if $CurrentMember %> | <a href="admin/assets/EditForm/field/File/item/{$Object.ID}/edit" target="_blank">Edit this Image</a><% end_if %> 
-			
-			 </p>
+			<a href="$Source">Return to the previous page</a>
 			<% end_if %>
 
-			<% loop $Object %>
+			<% if $CurrentMember %> 
+				| <a href="admin/assets/EditForm/field/File/item/{$Object.ID}/edit" target="_blank">Edit this Image</a>
+			<% end_if %> 
+			
+			 </p>
+
+			<% with $Object %>
+
 				<% include EmbeddedImage %>
-			<% end_loop %>
+
+				<% if $ParentImage.Description %>
+					$ParentImage.Description</div>
+				<% else %>
+					<div class="content columns description">$Description</div>
+				<% end_if %>
+
+			<% end_with %>
 		
 			<% include SocialShare %>
 

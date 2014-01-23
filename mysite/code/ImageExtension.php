@@ -118,23 +118,12 @@ class ImageExtension extends DataExtension {
     $imageHolder = ImageHolder::get_one("ImageHolder");
     $sourcePage = Director::get_current_page();
     $controller = Controller::curr();
-    $params = $controller->request->allParams();
-    //print_r($params);
 
-    if(($params['Action'] == 'show')){
-	    	//$sourceShowObject = Object::get_by_id('DataObject', $params['ID']);
-    	
-    }
-
+    $backURL = urlencode($controller->request->getURL(true));
+    
     $link = $imageHolder->Link().'show/'.$this->owner->ID;
+    $link .='?back='.$backURL;
 
-    if (isset($sourcePage)){
-    	$link .= '&source='.$sourcePage->ID;
-    }
-
-    if(isset($sourceShowObject)){
-    	$link .= '&show='.$sourceShowObject->ID;
-    }
     return $link;
     
   }
