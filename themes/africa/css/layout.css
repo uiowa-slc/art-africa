@@ -507,6 +507,14 @@ button {
   line-height: 2rem;
   margin: 2rem 0;
 }
+
+@media screen and (min-width: 1024px){
+
+.description {
+  width: 50%;
+}
+
+}
 /* media grid columns */
 [data-columns]::before { display: none; } /* Don't forget this. */
 
