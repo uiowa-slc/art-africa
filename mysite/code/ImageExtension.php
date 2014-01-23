@@ -151,8 +151,14 @@ class ImageExtension extends DataExtension {
 
       $size = 'full';
 
-      $height = $this->owner->getHeight();
-      $width = $this->owner->getWidth();
+      if($this->owner->AltImage()){
+        $image = $this->owner->AltImage();
+      }else{
+        $image = $this->owner;
+      }
+
+      $height = $image->getHeight();
+      $width = $image->getWidth();
 
       if(($width < 1000) || ($height < 1000)) {
         $size = 'medium';
@@ -165,6 +171,9 @@ class ImageExtension extends DataExtension {
       if(($width < 300) || ($height < 300)){
         $size = 'tiny';
       }
+
+      print_r('w='.$width.', h='.$height);
+
       return $size;
 
 
