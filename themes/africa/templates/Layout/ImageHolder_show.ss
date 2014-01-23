@@ -20,7 +20,7 @@
 				<% if $ParentImage.Description %>
 					$ParentImage.Description</div>
 				<% else %>
-					<div class="content columns description">$Description</div>
+					<div class="content description">$Description</div>
 				<% end_if %>
 
 			<% end_with %>
