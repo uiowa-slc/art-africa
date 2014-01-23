@@ -172,6 +172,8 @@ class ImageExtension extends DataExtension {
         $size = 'tiny';
       }
 
+      print_r('w='.$width.', h='.$height);
+
       return $size;
 
 
