@@ -172,8 +172,6 @@ class ImageExtension extends DataExtension {
         $size = 'tiny';
       }
 
-      print_r('w='.$width.', h='.$height);
-
       return $size;
 
 
@@ -197,7 +195,11 @@ class ImageExtension extends DataExtension {
 
     public function ScaledImage(){
 
-      $image = $this->owner;
+      if($this->owner->AltImage()){
+        $image = $this->owner->AltImage();
+      }else{
+        $image = $this->owner;
+      }
 
       $height = $image->getHeight();
       $width = $image->getWidth();
@@ -219,8 +221,6 @@ class ImageExtension extends DataExtension {
   public function ParentImage(){
 
     $parent = Image::get()->filter(array("AltImageID"=>$this->owner->ID))->first();
-
-    //print_r($parent);
 
     if(isset($parent)){
       return $parent;
