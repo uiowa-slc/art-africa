@@ -153,11 +153,10 @@ class ImageExtension extends DataExtension {
 
       if($this->owner->AltImage()){
         $image = $this->owner->AltImage();
+        print_r('theres an alt image');
       }else{
         $image = $this->owner;
       }
-
-      print_r($image);
 
       $height = $image->getHeight();
       $width = $image->getWidth();
