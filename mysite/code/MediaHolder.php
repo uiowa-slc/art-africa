@@ -199,14 +199,19 @@ class MediaHolder_Controller extends Page_Controller {
 			$startParam = $getVars['start'];
 		}
 
-		if (isset($startParam)){
+		if (isset($startParam) && Director::is_ajax()){
 			$returnList = $this->getResults()->limit(20, $startParam);
 			$returnList->sort('RAND()');
 			
 			$template = new SSViewer('LoadNewMedia');
 			return $this->customise(array("imageList"=>$returnList))->renderwith('LoadNewMedia');
 		}
-		else {
+		//if ?start is set, but we aren't in an ajax request send the user to the media homepage.
+		elseif(isset($startParam)) {
+			$this->redirect('media/');
+		}
+
+		else{
 			
 			return $this->renderWith(array('MediaHolder', 'Page'));
 			
