@@ -1438,9 +1438,6 @@ article.page {
   width: 100%;
   text-align: center;
 }
-.mediaItem {
-  margin: auto; width: 640px; margin-bottom: 3%;
-}
 
 @media (min-width: 480px) {
 	.image-scroller-container ul li{
@@ -1521,7 +1518,7 @@ article.page {
 }
 
 .mediaItem {
-	margin: auto; width: 640px; margin-bottom: 3%;
+	 width: 640px;
 }
 
 #video-scroller .play {
