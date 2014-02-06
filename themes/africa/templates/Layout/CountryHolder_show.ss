@@ -88,11 +88,13 @@
 						<h3>Major Exports</h3>
 						<p>$MajorExports</p>
 					<% end_if %>
+
 					<% if PrecolonialHistory %>
 						<h3>Precolonial History</h3>
 						<p>$PrecolonialHistory</p>
 					<% end_if %>
-					<% if PostcolonialHisory %>
+
+					<% if $PostcolonialHistory %>
 						<h3>Postcolonial History</h3>
 						<p>$PostcolonialHistory</p>
 					<% end_if %>		

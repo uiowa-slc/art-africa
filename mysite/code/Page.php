@@ -510,7 +510,7 @@ class Page_Controller extends ContentController {
 
 
 
-	public function imageHandler( $arguments ) {
+	static public function imageHandler( $arguments ) {
 
 		//ID actually points to title attribute
 		if ( isset( $arguments["ID"] ) ) {
@@ -533,7 +533,7 @@ class Page_Controller extends ContentController {
 
 	}
 
-	public function videoHandler( $arguments ) {
+	static public function videoHandler( $arguments ) {
 		//ID actually points to title attribute
 		if ( isset( $arguments["ID"] ) ) {
 			$videoID = $arguments["ID"];
@@ -555,7 +555,7 @@ class Page_Controller extends ContentController {
 
 
 	}
-	public function audioHandler( $arguments ) {
+	static public function audioHandler( $arguments ) {
 		//ID actually points to title attribute
 		if ( isset( $arguments["ID"] ) ) {
 			$audioID = $arguments["ID"];
@@ -578,7 +578,7 @@ class Page_Controller extends ContentController {
 
 	}
 
-	public function shortCodeHandler( $arguments, $class ) {
+	static public function shortCodeHandler( $arguments, $class ) {
 		if ( isset( $arguments["ID"] ) ) {
 			$photoID = $arguments["ID"];
 		}

@@ -53,7 +53,7 @@ class Glossary_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ();
 	
-	public function show (){
+	/*public function show (){
 	//Displays a data object
 	
 						
@@ -79,7 +79,7 @@ class Glossary_Controller extends Page_Controller {
 			return $this->renderWith('Page');
 		}
 	
-	}
+	}*/
 
 	
 	

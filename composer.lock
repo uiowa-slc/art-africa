@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/colymba/GridFieldBulkEditingTools.git",
-                "reference": "0e307890402a1a6a87729d56005d9a1fa5bb5c9e"
+                "reference": "41fe01c2a5d04a4b65604c708a6ca2fe17367fca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/colymba/GridFieldBulkEditingTools/zipball/0e307890402a1a6a87729d56005d9a1fa5bb5c9e",
-                "reference": "0e307890402a1a6a87729d56005d9a1fa5bb5c9e",
+                "url": "https://api.github.com/repos/colymba/GridFieldBulkEditingTools/zipball/41fe01c2a5d04a4b65604c708a6ca2fe17367fca",
+                "reference": "41fe01c2a5d04a4b65604c708a6ca2fe17367fca",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "gridfield bulk upload",
                 "silverstripe"
             ],
-            "time": "2014-01-17 10:56:46"
+            "time": "2014-01-31 15:31:52"
         },
         {
             "name": "composer/installers",
@@ -53,12 +53,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "53c31d1c216b64c1da999d5d25a97fcbf6810515"
+                "reference": "35a07647186a910b725fca9290b13ca2e265491a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/53c31d1c216b64c1da999d5d25a97fcbf6810515",
-                "reference": "53c31d1c216b64c1da999d5d25a97fcbf6810515",
+                "url": "https://api.github.com/repos/composer/installers/zipball/35a07647186a910b725fca9290b13ca2e265491a",
+                "reference": "35a07647186a910b725fca9290b13ca2e265491a",
                 "shasum": ""
             },
             "replace": {
@@ -88,20 +88,23 @@
                 {
                     "name": "Kyle Robinson Young",
                     "email": "kyle@dontkry.com",
-                    "homepage": "http://dontkry.com",
+                    "homepage": "https://github.com/shama",
                     "role": "Developer"
                 }
             ],
             "description": "A multi-framework Composer library installer",
             "homepage": "http://composer.github.com/installers/",
             "keywords": [
-                "TYPO3 CMS",
-                "TYPO3 Flow",
-                "TYPO3 Neos",
+                "Craft",
+                "Hurad",
+                "MODX Evo",
+                "OXID",
                 "agl",
+                "annotatecms",
                 "cakephp",
                 "codeigniter",
                 "concrete5",
+                "croogo",
                 "drupal",
                 "elgg",
                 "fuelphp",
@@ -109,19 +112,23 @@
                 "joomla",
                 "kohana",
                 "laravel",
-                "li3",
                 "lithium",
+                "magento",
                 "mako",
+                "mediawiki",
                 "modulework",
                 "phpbb",
                 "piwik",
                 "ppi",
+                "shopware",
                 "silverstripe",
                 "symfony",
+                "typo3",
                 "wordpress",
-                "zend"
+                "zend",
+                "zikula"
             ],
-            "time": "2014-01-14 16:42:06"
+            "time": "2014-01-31 16:53:31"
         },
         {
             "name": "jonom/focuspoint",
@@ -129,12 +136,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonom/silverstripe-focuspoint.git",
-                "reference": "643edb22a9a7566679c2c857addb20d1ad6c31f5"
+                "reference": "90c67efd993585057dc248d407dffcced0ca3a28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonom/silverstripe-focuspoint/zipball/643edb22a9a7566679c2c857addb20d1ad6c31f5",
-                "reference": "643edb22a9a7566679c2c857addb20d1ad6c31f5",
+                "url": "https://api.github.com/repos/jonom/silverstripe-focuspoint/zipball/90c67efd993585057dc248d407dffcced0ca3a28",
+                "reference": "90c67efd993585057dc248d407dffcced0ca3a28",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +167,7 @@
                 "image",
                 "silverstripe"
             ],
-            "time": "2013-12-26 21:46:17"
+            "time": "2014-01-30 21:30:29"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -413,12 +420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UndefinedOffset/SortableGridField.git",
-                "reference": "c59ec68690dcd6eeb03704aae96d4f17c9e5a293"
+                "reference": "1e24d1e888890e70ac006059838ec828b5cfd5c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UndefinedOffset/SortableGridField/zipball/c59ec68690dcd6eeb03704aae96d4f17c9e5a293",
-                "reference": "c59ec68690dcd6eeb03704aae96d4f17c9e5a293",
+                "url": "https://api.github.com/repos/UndefinedOffset/SortableGridField/zipball/1e24d1e888890e70ac006059838ec828b5cfd5c6",
+                "reference": "1e24d1e888890e70ac006059838ec828b5cfd5c6",
                 "shasum": ""
             },
             "require": {
@@ -445,7 +452,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2014-01-22 19:40:36"
+            "time": "2014-01-27 21:04:32"
         }
     ],
     "packages-dev": [

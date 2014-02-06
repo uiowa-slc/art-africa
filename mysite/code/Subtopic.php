@@ -85,7 +85,7 @@ class Subtopic_Controller extends Page_Controller {
 	 * @var array
 	 */
 	
-	public function show (){
+	public function show ($request){
 	//Displays a data object
 	
 						

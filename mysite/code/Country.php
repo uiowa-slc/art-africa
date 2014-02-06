@@ -87,7 +87,7 @@ class Country extends DataObject {
  		$fields->addFieldToTab('Root.Main', new TextField('PrincipalLanguage', 'Principal Language'));
  		$fields->addFieldToTab('Root.Main', new TextField('MajorExports', 'Major Exports'));
  		$fields->addFieldToTab('Root.Main', new TextAreaField('PrecolonialHistory', 'Precolonial History'));
- 		$fields->addFieldToTab('Root.Main', new TextAreaField('PostcolonialHistory', 'Postcolonial Language'));
+ 		$fields->addFieldToTab('Root.Main', new TextAreaField('PostcolonialHistory', 'Postcolonial History'));
  		$fields->addFieldToTab('Root.Main', new TextField('Tags', 'Tags'));
  		$fields->addFieldToTab('Root.Main', new UploadField('Picture', 'Picture'));
  		$fields->addFieldToTab('Root.Main', new TextField('GoogleName', 'Google Name'));

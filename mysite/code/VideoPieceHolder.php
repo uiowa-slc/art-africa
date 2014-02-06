@@ -56,7 +56,7 @@ class VideoPieceHolder_Controller extends Page_Controller {
 		return $this->redirect('media/');
 	}
 	
-	public function show (){
+	public function show ($request){
 	//Displays a data object
 	
 					

@@ -67,7 +67,7 @@ class EssayHolder_Controller extends Page_Controller {
 	}
 	
 	//Called by show template
-	public function getPaginatedPages(){
+	public function getPaginatedPages($relation = 'EssayPages'){
 
 
 		 $ID = $this->request->param('ID');
