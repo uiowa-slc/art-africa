@@ -70,7 +70,7 @@
 				</section>
 			</div>
 			<div class="row-fluid">
-				<section class="country-info-container span6">
+				<section class="country-info-container span8">
 					<h2>Politics</h2>
 					<% if HeadOfState %>
 						<h3>Head Of State</h3>
@@ -98,11 +98,6 @@
 						<h3>Postcolonial History</h3>
 						<p>$PostcolonialHistory</p>
 					<% end_if %>		
-				</section>
-				<section class="country-info-container span6">
-					
-					
-					
 				</section>
 			</div>
 		</div>
