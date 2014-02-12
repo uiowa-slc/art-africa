@@ -93,7 +93,10 @@
 						<h3>Major Exports</h3>
 						<p>$MajorExports</p>
 					<% end_if %>
-
+				</section>
+			</div>
+			<div class="row-fluid">
+				<section class="country-info-container span6">
 					<% if PrecolonialHistory %>
 						<h3>Precolonial History</h3>
 						<p>$PrecolonialHistory</p>
