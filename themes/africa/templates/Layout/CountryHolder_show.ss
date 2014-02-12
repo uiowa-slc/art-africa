@@ -70,8 +70,11 @@
 				</section>
 			</div>
 			<div class="row-fluid">
+				<div class="span12"><h2>Politics</h2></div>
+			</div>
+			<div class="row-fluid">
 				<section class="country-info-container span8">
-					<h2>Politics</h2>
+					
 					<% if HeadOfState %>
 						<h3>Head Of State</h3>
 						<p>$HeadOfState</p>
