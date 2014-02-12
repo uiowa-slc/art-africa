@@ -73,7 +73,7 @@
 				<div class="span12"><h2>Politics</h2></div>
 			</div>
 			<div class="row-fluid">
-				<section class="country-info-container span8">
+				<section class="country-info-container span6">
 					
 					<% if HeadOfState %>
 						<h3>Head Of State</h3>
@@ -83,6 +83,8 @@
 						<h3>Type of Government</h3>
 						<p>$TypeOfGovernment</p>
 					<% end_if %>
+				</section>
+				<section class="country-info-container span6">
 					<% if DateOfIndependence %>
 						<h3>Date of Independence</h3>
 						<p>$DateOfIndependence</p>
