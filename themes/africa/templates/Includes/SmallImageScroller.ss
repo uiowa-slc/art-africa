@@ -14,10 +14,12 @@
       	<a href="$ShowMoreLink" target="_blank"><div id="see-more" class="" title="Tap or Click to See All Images"><span>See All</span></div></a>
       </li>
     </ul>
+
+    <% if $Images.Count > "30" %>
+    <p><a href="$ShowMoreLink" target="_blank">See all images listed under $Title</a></p>
+    <% end_if %>
   </div>
 
-  <% if $Images.Count > "30" %>
-  <p class="padded"><a href="$ShowMoreLink" target="_blank">See all images listed under $Title</a></p>
-  <% end_if %>
+
 
 <% end_if %> 

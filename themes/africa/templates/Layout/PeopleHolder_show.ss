@@ -40,11 +40,7 @@
 				
 				<div class="span4 sticky"> <!--this isn't sticky-->
 					<h2>Facts about $Title</h2>
-					
-					
-					
-					
-					
+		
 					
 					<% if Location %>
 						<h3>Location</h3>
@@ -67,6 +63,8 @@
 					<p>$Languages</p>
 					<h3>Population</h3>
 					<p>$Population</p>
+					<h3>Neighboring Peoples</h3>
+						<p>$Neighbors</p>
 					<% if $Tags %><h3>Tags</h3>
 					<p>$Tags</p>
 					<% end_if %>		
