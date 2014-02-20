@@ -53,12 +53,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "35a07647186a910b725fca9290b13ca2e265491a"
+                "reference": "9a1fd4e191beaa5cab79c05f923d8bcdd01b4e94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/35a07647186a910b725fca9290b13ca2e265491a",
-                "reference": "35a07647186a910b725fca9290b13ca2e265491a",
+                "url": "https://api.github.com/repos/composer/installers/zipball/9a1fd4e191beaa5cab79c05f923d8bcdd01b4e94",
+                "reference": "9a1fd4e191beaa5cab79c05f923d8bcdd01b4e94",
                 "shasum": ""
             },
             "replace": {
@@ -128,7 +128,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-01-31 16:53:31"
+            "time": "2014-02-12 21:21:55"
         },
         {
             "name": "jonom/focuspoint",
@@ -304,12 +304,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-labs/silverstripe-fulltextsearch.git",
-                "reference": "995a8a1d01844bdd4ddd8139a1e46d82c4f53a6f"
+                "reference": "4b51393e014fc4c0cc8e192c74eb4594acaca605"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-fulltextsearch/zipball/995a8a1d01844bdd4ddd8139a1e46d82c4f53a6f",
-                "reference": "995a8a1d01844bdd4ddd8139a1e46d82c4f53a6f",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-fulltextsearch/zipball/4b51393e014fc4c0cc8e192c74eb4594acaca605",
+                "reference": "4b51393e014fc4c0cc8e192c74eb4594acaca605",
                 "shasum": ""
             },
             "require": {
@@ -338,7 +338,7 @@
                 "solr",
                 "sphinx"
             ],
-            "time": "2014-01-16 20:28:50"
+            "time": "2014-02-13 22:32:24"
         },
         {
             "name": "simonwelsh/gridfieldrelationhandler",

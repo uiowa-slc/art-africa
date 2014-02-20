@@ -218,6 +218,11 @@ class MediaHolder_Controller extends Page_Controller {
 		}
 
 	}
+	
+	public function hasAudio() {
+		  $audioPieces = AudioPiece::get()->First();
+		  return $audioPieces;
+	}
 
 
     /*public function filter() {

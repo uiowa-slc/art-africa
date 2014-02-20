@@ -150,7 +150,6 @@
         				<nav class="media-filter-form">
                   $MediaFilterForm
                   <% include MediaFilterQuickLinks %>
-
         				</nav>
             </li>
             <% end_if %>
