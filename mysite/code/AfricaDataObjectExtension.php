@@ -1,6 +1,15 @@
 <?php
  
 class AfricaDataObjectExtension extends DataExtension {
+
+public function RandomImages(){
+	if($this->owner->Images()){
+		$images = $this->owner->Images()->sort("RAND()");
+		return $images;
+	}else{
+		return false;
+	}
+}
  
   public function SplitKeywords(){
 	    $keywords = $this->owner->Tags;
