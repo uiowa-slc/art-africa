@@ -14,10 +14,8 @@ class MediaFilterForm extends Form {
    
 		if ($audioPieces) {
 			  $mediaFormTypes = array("Image" => "Image", "ArtPhoto" => "Art Photo", "FieldPhoto" => "Field Photo", "AudioPiece" => "Audio","VideoPiece" => "Video");
-			  echo('hello');
 		} else {
-			  $mediaFormTypes = array("Image" => "Image", "ArtPhoto" => "Art Photo", "FieldPhoto" => "Field Photo", "VideoPiece" => "Video");
-			  echo('goodbye');
+			$mediaFormTypes = array("Image" => "Image", "ArtPhoto" => "Art Photo", "FieldPhoto" => "Field Photo", "VideoPiece" => "Video");
 		}
         $fields = new FieldList(
             DropdownField::create("Country", "Countries", Country::get()->map('ID','Title'), $filters['Country'])->setEmptyString('Any Country'),
