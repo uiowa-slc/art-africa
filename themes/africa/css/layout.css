@@ -435,7 +435,7 @@ button {
   padding: 0.2rem 1.25rem;
 
 }
-#middle .nav2 >ul.peoples >li>a {
+#middle .nav2 >ul. >li>a {
   font-size: 0.9rem;
   padding: 0.2rem 1.25rem;
 }
@@ -452,6 +452,9 @@ button {
 
 /* Peoples Page Subnav Padding */
 
+.peoples-table td p {
+	margin: 0;
+}
 
 
 /* Media View Special Styles */
