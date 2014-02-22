@@ -4,7 +4,7 @@
 		<div class="content">
 			$Content
 			<div class="table-responsive ">
-			  <table class="table table-hover table-condensed">
+			  <table class="table table-hover table-condensed peoples-table">
 			    <tbody>
 			    	<tr>
 			    		<th>Name</th>
