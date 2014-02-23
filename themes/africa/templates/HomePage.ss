@@ -10,6 +10,7 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="google-site-verification" content="EOeMxKdPKJbyFVnHKzi6c7yBXm64S-Kun7cOOgK6oOw" />
   </head>
   <body>
     <div id="view" class="homepage">
