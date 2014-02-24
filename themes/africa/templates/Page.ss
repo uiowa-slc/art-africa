@@ -3,6 +3,7 @@
   <head>
     <% base_tag %>
     <title><% if not $Object %>$Title<% else %>$Object.Title<% end_if %> - Art &amp; Life in Africa - The University of Iowa Museum of Art</title>
+    <% include OpenGraphTags %>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     $MetaTags(false)
