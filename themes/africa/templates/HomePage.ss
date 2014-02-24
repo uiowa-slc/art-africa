@@ -2,7 +2,7 @@
 <html lang="$ContentLocale">
   <head>
     <% base_tag %>
-    <title>Art &amp; Life in Africa</title>
+    <title>Art &amp; Life in Africa - The University of Iowa Museum of Art</title>
     <% include OpenGraphTags %>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
     <link rel="icon" type="image/png" href="{$BaseHref}{$ThemeDir}/images/logo.png">

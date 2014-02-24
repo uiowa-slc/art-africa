@@ -59,7 +59,7 @@ public function RandomImages(){
 	  
 	  return $link;
 	}
-  }  
+  }
   
 
 	public function ShowMoreLink(){
