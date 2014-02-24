@@ -11,7 +11,8 @@
 		"colymba/gridfield-bulk-editing-tools": "*",
 		"simonwelsh/gridfieldrelationhandler": "*",
 		"jonom/focuspoint" : "*",
-		"silverstripe/fulltextsearch" : "*"
+		"silverstripe/fulltextsearch" : "*",
+		"silverstripe/googlesitemaps": "dev-master"
 
 	},
 
