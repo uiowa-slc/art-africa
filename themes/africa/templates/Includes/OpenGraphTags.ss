@@ -1,0 +1,7 @@
+<meta property="og:title" content="<% if $Object %>$Object.Title<% else %>$Title<% end_if %> - Art &amp; Life in Africa - The University of Iowa Museum of Art">
+<meta property="og:description" content="<% if $Object %>$Object.Description.Summary(50)<% else_if $Content %>$Content.Summary(50)<% else %>The Art & Life in Africa website, hosted by the University of Iowa Museum of Art (UIMA), is a freely accessible educational resource that is the product of the collaborative efforts of more than fifty scholars, technicians, collectors and institutions around the world.<% end_if %>">
+<meta property="og:url" content="http://africa.uima.uiowa.edu/">
+<meta property="og:image" content="<% if $Object %><% if $Object.AltImage %>$Object.AltImage.ScaledImage.URL <% else %>$Object.Image.ScaledImage.URL<% end_if %><% else %>http://africa.uima.uiowa.edu/themes/africa/images/opengraph.jpg<% end_if %>">
+<meta property="og:image:type" content="image/jpg">
+<meta property="og:image:width" content="<% if $Object %><% if $Object.AltImage %>$Object.AltImage.ScaledImage.Width<% else %>$Object.Image.ScaledImage.Width<% end_if %><% else %>900<% end_if %>">
+<meta property="og:image:height" content="<% if $Object %><% if $Object.AltImage %>$Object.AltImage.ScaledImage.Height<% else %>$Object.Image.ScaledImage.Height<% end_if %><% else %>900<% end_if %>">

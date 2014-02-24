@@ -51,6 +51,7 @@ class Page_Controller extends ContentController {
 		Requirements::set_combined_files_folder( $themeFolder . '/_combinedfiles' );
 
 		$jsFiles = array(
+			$themeFolder.'/javascript/jquery-1.9.1.min.js',
 			$themeFolder.'/javascript/jquery.magnific-popup.min.js',
 			$themeFolder.'/javascript/jquery.sticky.js',
 			$themeFolder. '/javascript/jquery.infinitescroll.js',
@@ -62,6 +63,7 @@ class Page_Controller extends ContentController {
 		);
 
 		$cssFiles = array(
+			$themeFolder. '/css/normalize.min.css',
 			$themeFolder. '/css/bootstrap.min.css',
 			$themeFolder. '/css/bootstrap-tables.css',
 			$themeFolder. '/css/layout.css',
@@ -426,7 +428,7 @@ class Page_Controller extends ContentController {
 			if ( is_numeric( $objectID ) ) {
 				$object = $otherClass::get_by_id( $otherClass, $objectID );
 			}else {
-				$object = $otherClass::get( $otherClass )->filter( 'Title', $objectID )->first();
+				$object = $otherClass::get( $otherClass )->filter( 'Title', urldecode($objectID))->first();
 			}
 
 			if ( $object ) {

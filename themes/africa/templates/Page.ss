@@ -2,26 +2,22 @@
 <html lang="$ContentLocale">
   <head>
     <% base_tag %>
-    <title>$Title - Art &amp; Life in Africa - The University of Iowa Museum of Art</title>
+    <title><% if not $Object %>$Title<% else %>$Object.Title<% end_if %> - Art &amp; Life in Africa - The University of Iowa Museum of Art</title>
+    <% include OpenGraphTags %>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     $MetaTags(false)
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry"></script>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="icon" type="image/png" href="{$BaseHref}themes/africa/images/logo.png">
-    
     <!-- Facebook intro -->
-
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=470713492967451";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-     
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=470713492967451";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   </head>
   
   <body>
@@ -42,7 +38,7 @@
         <nav class="nav1 toggle">
           <ul>
             <li class="mobile-filter-container visible-phone">
-                         <!-- Media -->
+            <%-- Media --%>
             <% if Title == 'Media' %>
                 <nav class="media-filter-form">
                   $MediaFilterForm
@@ -56,25 +52,19 @@
             <% end_loop %>
             <li class="search-li">
               $SearchForm
-
-
             </li>
-
           </ul>
         </nav>
       </div>
       <div id="middle" class="">
-        <!-- for chapter pages -->
+        <%-- for chapter pages --%>
         <div id="subnav-container">
         <div id="chapters_heading"><% if $Action == "SearchForm" %>Search Results<% else %><a href="$Level(1).Link">$Level(1).Title</a><% end_if %></div>
         <nav class="nav2 interior-page">
-
-
               <% if $Action =="SearchForm" %>
               <div id="quick-links-container">
                 <h3><% if $ResultsFound %>Jump To<% end_if %></h3>
                 <ul class="quick-links">
-
                   <% if Image %><li><a href="#images">Images</a></li><% end_if %>
                   <% if VideoPiece %><li><a href="#videos">Videos</a></li><% end_if %>
                   <% if AudioPiece %><li><a href="#audio">Audio</a></li><% end_if %>
@@ -86,12 +76,10 @@
                   <li><a href="#">Top of the page</a></li>
                 </ul>
               <% end_if %>
-
-
           <ul class="$URLSegment">
-            <!-- Search Results -->
+            <%-- Search Results --%>
 
-            <!-- Chapters -->
+            <%-- Chapters --%>
             <% if $Level(1).Title == 'Chapters' %>
               <% loop ChildrenOf('chapters') %>
               <li>
@@ -121,7 +109,7 @@
               <% end_loop %>
             <% end_if %>
 
-            <!-- Countries -->
+            <%-- Countries --%>
             <% if $Level(1).Title == 'Countries' %>
               <% loop getCountries %>
                 <% if Name %>
@@ -132,7 +120,7 @@
               <% end_loop %>
             <% end_if %>
 
-            <!-- Peoples -->
+            <%-- Peoples --%>
             <% if $Level(1).Title == 'Peoples' %>
               <% loop getPeople %>
                 <% if Name %>
@@ -143,7 +131,7 @@
               <% end_loop %>
             <% end_if %>
 
-            <!-- Media -->
+            <%-- Media --%>
             <% if $Level(1).Title == 'Media' %>
 
             <li>
@@ -154,7 +142,7 @@
             </li>
             <% end_if %>
 
-                <!-- Video -->
+                <%-- Video --%>
                 <% if $Level(1).Title == 'Video' %>
                   <% loop getVideoPieces %>
                     <% if Name %>
@@ -165,7 +153,7 @@
                   <% end_loop %>
                 <% end_if %>
 
-                <!-- Audio -->
+                <%-- Audio --%>
                 <% if $Level(1).Title == 'Audio' %>
                   <% loop getAudio %>
                     <% if Name %>
@@ -176,7 +164,7 @@
                   <% end_loop %>
                 <% end_if %>
 
-                <!-- ArtPhotos -->
+                <%-- ArtPhotos --%>
                 <% if $Level(1).Title == 'Art Photos' %>
                   <% loop getArtPhotos %>
                     <% if Name %>
@@ -187,7 +175,7 @@
                   <% end_loop %>
                 <% end_if %>
 
-            <!-- Field Essays (refered to on front end as topic essays)-->
+            <%-- Field Essays (refered to on front end as topic essays)--%>
             <% if $Level(1).Title == 'Topic Essays' %>
               <% loop getEssays %>
                 <% if Name %>
@@ -199,15 +187,14 @@
             <% end_if %>
      
               
-            <!-- Bibliogrpahy -->
+            <%-- Bibliogrpahy --%>
             <% if $Level(1).Title == 'About' %>
               <% loop ChildrenOf('about') %>
               <li>
                 <!--<a href="$Link">$MenuTitle</a>-->
-                <% if LinkOrSection = section %>
+                
                   <a href="$Link" class="nav3">$MenuTitle</a>
-                  <% if Children %>
-                  	
+                  <% if $Children %>
 	                  <nav class="nav3">
 	                    <ul>
 	                      <% loop Children %>
@@ -219,7 +206,6 @@
 	                      <% end_loop %>	                   
 	                    </ul>
 	                  </nav>
-                  <% end_if %>
                 <% else %>
                 	 
                  <a href="$Link">$MenuTitle</a>
@@ -282,6 +268,16 @@
         </div>
       </div>
     </div>
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-426753-56', 'uiowa.edu');
+  ga('send', 'pageview');
+
+</script>
   </body>
 </html>

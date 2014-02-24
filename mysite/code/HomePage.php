@@ -19,30 +19,18 @@ class HomePage extends Page {
   private static $belongs_many_many = array();
   
 
- // tidy up the CMS by not showing these fields
   public function getCMSFields() {
  		$fields = parent::getCMSFields();
-		/*$fields->removeFieldFromTab("Root.Main","CollectionHolderPageID");
-		$fields->removeFieldFromTab("Root.Main","SortOrder");*/	
-		//$fields->addFieldToTab('Root.Main', new UploadField('HomepagePics', 'Homepage Pictures', $this->HomepagePics()));
-		
-			
+
 		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigFieldPhotos->addComponent(new GridFieldManyRelationHandler());
 		$gridFieldConfigFieldPhotos->addComponent(new GridFieldSortableRows('PicNo'));
 		$gridFieldConfigFieldPhotos->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('CreditLine', 'PageLink'));
-	
-			/*$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
-		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));*/
 		
 		$gridfield = new GridField("HomepagePics", "Homepage Pictures", $this->HomepagePics(), $gridFieldConfigFieldPhotos);
 		$fields->addFieldToTab('Root.Main', $gridfield);
 		
-		/*$gridFieldConfigFieldPhotosViewer = GridFieldConfig_RecordViewer ::create(); 
-		$gridfield = new GridField("Picture Possibilities", null, Image::get(), $gridFieldConfigFieldPhotosViewer);
-		$fields->addFieldToTab('Root.Main', $gridfield);*/
-		
-		$fields->removeFieldFromTab("Root.Main","Content");
+		//$fields->removeFieldFromTab("Root.Main","Content");
         
 		return $fields;		
   }
@@ -74,12 +62,6 @@ class HomePage_Controller extends Page_Controller {
 		parent::init();
 		Requirements::css("themes/africa/css/homepage.css");
 	}
-	/*
-	public function getHomepagePics(){
-		$homepagePics = homepagePics::get()->
-	}
-	*/
-	
 	public function getCountryHolder(){
 		$holder = CountryHolder::get()->First();
 		if (isset($holder)){

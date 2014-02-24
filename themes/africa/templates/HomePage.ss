@@ -3,13 +3,13 @@
   <head>
     <% base_tag %>
     <title>Art &amp; Life in Africa</title>
+    <% include OpenGraphTags %>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
     <link rel="icon" type="image/png" href="{$BaseHref}{$ThemeDir}/images/logo.png">
     $MetaTags(false)
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" media="all" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="google-site-verification" content="EOeMxKdPKJbyFVnHKzi6c7yBXm64S-Kun7cOOgK6oOw" />
   </head>
   <body>
     <div id="view" class="homepage">
@@ -81,15 +81,6 @@
             </p>
           </div>
           <div class="col">
-           <!-- <h3>See the African Art collection in person</h3>
-            <p>
-              1375 Highway One West<br>
-              1840 Studio Arts Building<br>
-              Iowa City, IA 52242<br>
-              Telephone (319) 335-1727
-            </p>-->
-          </div>
-          <div class="col">
             <p style="margin-top: 2rem">
 
               <a href="#" class="img-link">
@@ -113,78 +104,16 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-      // set the homepage background to the selected switcher on page load
-      $(document).ready(function () {
-        var selectedSwitcher = $('.switcher.selected:first');
-        $('#homepage-pic').css('background-image', 'url(' + selectedSwitcher.data('img-url') + ')');
-        $('#homepage-pic-desc').text( selectedSwitcher.data('desc') );
-      });
+<script src="{$ThemeDir}/javascript/homepage-slider.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      // when a switcher that is not selected is clicked, switch to its background
-      $(document).on('click', '.switcher:not(.selected)', function () {
-        // `this` is the .switcher:not(.selected) element that was clicked
-        switchTo(this);
-      });
+  ga('create', 'UA-426753-56', 'uiowa.edu');
+  ga('send', 'pageview');
 
-      // when the homepage pic is clicked visit its link
-      $(document).on('click', '#homepage-pic', function (event) {
-        // if the target of the event is a switcher within the
-        // #homepage-pic element just ignore the click
-        if (! event.target.classList.contains('switcher')) {
-          window.location.href = $('.switcher.selected').data('link');
-        }
-      });
-
-      function switchTo (switcherElement) {
-        var hp = $('#homepage-pic'),
-            switcher = $(switcherElement);
-
-        // mark the switcher as selected and deselect its selected siblings
-        switcher.addClass('selected')
-                .siblings('.selected')
-                .removeClass('selected');
-
-        // animate the background image
-        // step 1: fade opacity to 0
-        hp.animate(
-          { opacity: 0 },
-          { duration: 400,
-            // step 2: change description and background-image, then fade opacity back to 1
-            complete: function () {
-              $('#homepage-pic-desc').text( switcher.data('desc') );
-              hp.css('background-image', 'url(' + switcher.data('img-url') + ')');
-              hp.animate({ opacity: 1 },
-                         { duration: 600 });
-            }
-          }
-        );
-
-        // clear the existing auto-switch timeout
-        clearTimeout(slideshowTimeout);
-        // start the auto-switch timeout again
-        slideshowTimeout = setTimeout(switchToNext, slideshowInterval);
-      }
-
-      function switchToNext () {
-        // if there are not multiple homepage pics, do nothing
-        if (document.querySelectorAll('.switcher').length < 2) { return; }
-
-        // try to get the next switcher
-        var nextEl = document.querySelector('.switcher.selected').nextElementSibling;
-
-        // if there is a nextEl and it is a switcher...
-        if (nextEl && nextEl.classList.contains('switcher')) {
-          switchTo(nextEl);
-        } else {
-        // if there is not a nextEl, switch to the first switcher
-          switchTo(document.querySelector('.switcher'));
-        }
-      }
-
-      // start the slideshow timeout
-      var slideshowInterval = 10000,
-          slideshowTimeout  = setTimeout(switchToNext, slideshowInterval);
-    </script>
+</script>
   </body>
 </html>

@@ -3,7 +3,6 @@
 	<div class="visible-phone">
 <% if $ResultsFound %><p>Jump to: <% if Subtopic %><a href="#subtopics">Subtopics</a> <% end_if %><% if People %><a href="#people">People</a> <% end_if %><% if Essay %><a href="#essays">Essays</a> <% end_if %><% if Country %><a href="#countries">Countries</a> <% end_if %> </p><% end_if %><% if BibliographyPage %><a href="#bibliographic">Bibliographic Entries</a> <% end_if %>
 	</div>
-	<!--<div id="bibliography-results"><label>Search bibliographic references only </label><input type="checkbox" id="bibliography-checkbox" name="Search Bibliography" /></div>-->
 	<section class="search-results">
 	<ul id="searchResults">	
 		<%-- $searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'--%>
@@ -15,7 +14,6 @@
 	    	 <% include MediaGridImage %>
 	    	</div>
     	<% end_loop %>
-   	
        	</div>		  
     <% end_if %>
       <% if VideoPiece %>
@@ -38,15 +36,13 @@
 			<% end_loop %>
     	</div>
     <% end_if %>
-
         <% if Subtopic %>
                 <li><h2 id="subtopics">Subtopics</h2></li>
                         <div class="search">
                          <table class="table table-hover">
                                 <tbody>
                                 <tr>
-                                        <th>Subtopic Name</th>
-                                   
+                                 <th>Subtopic Name</th>
                                 </tr>
                                         <% loop Subtopic %>
                                                 <tr>
@@ -88,9 +84,7 @@
 								<% else %>
 								<td>n/a</td>
 							<% end_if %>
-							<% if TypesOfArt %>
-								<td>$Population</td>
-							<% end_if %>
+								<td><% if $Population %>$Population<% end_if %></td>
 						</tr>
 						</a>
 										
@@ -165,8 +159,8 @@
 				<tbody>
 					<% loop BibliographyPage %>
 						<tr>
-								<td><a href="{$Link}">$Title</a></td>
-							
+							<td><a href="{$Link}">$Title</a></td>
+			
 						</tr>					
 					<% end_loop %>
 				</tbody>
@@ -179,8 +173,6 @@
     <% if $ResultsFound == false %>
 		<p> Sorry, no results were found.</p>
 		<% end_if %>
-
-			
 	</ul>		
 	</section>
 </div>

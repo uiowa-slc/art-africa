@@ -56,7 +56,7 @@
 					<h3>Countries</h3>
 					<p>
 					<% loop Countries %>
-						<a href="$Link">$Title</a><% if not $Last %>, <% end_if %>
+						<a href="$Link(false)">$Title</a><% if not $Last %>, <% end_if %>
 					<% end_loop %>
 				</p>
 					<h3>Languages</h3>
