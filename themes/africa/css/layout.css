@@ -452,7 +452,7 @@ button {
 
 /* Peoples Page Subnav Padding */
 
-.peoples-table td p {
+table td p, .table td p, .peoples-table td p {
 	margin: 0;
 }
 

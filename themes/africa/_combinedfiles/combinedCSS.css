@@ -1,3 +1,6 @@
+/****** FILE: themes/africa/css/normalize.min.css *****/
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre-wrap}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+
 /****** FILE: themes/africa/css/bootstrap.min.css *****/
 /*!
  * Bootstrap v2.3.2
@@ -750,7 +753,7 @@ button {
   padding: 0.2rem 1.25rem;
 
 }
-#middle .nav2 >ul.peoples >li>a {
+#middle .nav2 >ul. >li>a {
   font-size: 0.9rem;
   padding: 0.2rem 1.25rem;
 }
@@ -767,6 +770,9 @@ button {
 
 /* Peoples Page Subnav Padding */
 
+table td p, .table td p, .peoples-table td p {
+	margin: 0;
+}
 
 
 /* Media View Special Styles */
@@ -821,6 +827,14 @@ button {
   font-size: 1.25rem;
   line-height: 2rem;
   margin: 2rem 0;
+}
+
+@media screen and (min-width: 1024px){
+
+.description {
+  width: 50%;
+}
+
 }
 /* media grid columns */
 [data-columns]::before { display: none; } /* Don't forget this. */
@@ -1261,29 +1275,26 @@ ul.columns li {
   padding: 0;
   line-height: 1rem;
 }
+
 .artPhoto {
 	position: static !important;
   width: 100%;
 }
 
+@media (min-width: 1024px) {
+  .embedded-image.full img {
+    width: 100%;
+  }
 
-.embedded-image.full {
-  width: 100%;
-}
+  .embedded-image.small img{
+    width: 30%;
+    /*margin: auto; */
+  }
 
-.embedded-image.medium {
-  width: 50%;
-  /*margin: auto;*/
-}
-
-.embedded-image.small{
-  width: 30%;
-  /*margin: auto; */
-}
-
-.embedded-image.tiny {
-  width: 15%;
-  /*margin: auto*/
+  .embedded-image.tiny img {
+    width: 20%;
+    /*margin: auto*/
+  }
 }
 
 .content.essayPage p {
@@ -1706,7 +1717,6 @@ article.page {
   }
 
   .image-scroller-container#video-scroller ul{
-    height: 200px;
   }
 
 .mobile-filter-container .media-filter-form #MediaFilterForm_index{
@@ -1748,9 +1758,6 @@ article.page {
 #MediaFilterForm_index_action_ {
   width: 100%;
   text-align: center;
-}
-.mediaItem {
-  margin: auto; width: 640px; margin-bottom: 3%;
 }
 
 @media (min-width: 480px) {
@@ -1832,7 +1839,7 @@ article.page {
 }
 
 .mediaItem {
-	margin: auto; width: 640px; margin-bottom: 3%;
+	 width: 640px;
 }
 
 #video-scroller .play {
@@ -1976,6 +1983,30 @@ li.audioObject {
 	padding-right: 10px;
 }
 
+#see-more {
+	background-image: url('../images/ALA_seemore.png');
+	height: 225px;
+	width: 225px;
+	overflow: hidden;
+	
+}
+
+#see-more>span {
+	display: block;
+	padding: 20px;
+	padding-top: 10px;
+	margin-top: 25px;
+	line-height: 50px;
+	font-size: 50px;
+	font-weight: 200;
+	text-align: center;
+	word-wrap: break-word;
+	color: #ffffff;
+	white-space: normal;
+	
+	
+	
+}
 
 
 /****** FILE: themes/africa/css/magnific-popup.css *****/
