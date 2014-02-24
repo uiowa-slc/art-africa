@@ -30,7 +30,7 @@ class HomePage extends Page {
 		$gridfield = new GridField("HomepagePics", "Homepage Pictures", $this->HomepagePics(), $gridFieldConfigFieldPhotos);
 		$fields->addFieldToTab('Root.Main', $gridfield);
 		
-		$fields->removeFieldFromTab("Root.Main","Content");
+		//$fields->removeFieldFromTab("Root.Main","Content");
         
 		return $fields;		
   }
