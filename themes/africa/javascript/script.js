@@ -370,7 +370,8 @@ function initialize() {
         markers.push(marker);
 
     google.maps.event.addListener(markers[i], 'click', function (mouseEvent) {
-      window.location.href = 'countries/show/'+this.title;
+    	var full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+      window.location.href = full.'countries/show/'+this.title;
 
     });   
      
