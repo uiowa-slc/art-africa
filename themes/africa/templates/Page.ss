@@ -227,7 +227,7 @@
               <div class="span4">
                 <div>
                 <p>
-                  <img src="{$ThemeDir}/images/UIMA-newlogo-black.png" class="uima-logo">
+                <a href="http://uima.uiowa.edu" target="_blank"><img src="{$ThemeDir}/images/UIMA-newlogo-black.png" class="uima-logo"></a>
                 </p>
                 <p>
                   Administrative Offices: <br />
