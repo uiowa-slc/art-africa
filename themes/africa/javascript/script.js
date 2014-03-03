@@ -338,8 +338,9 @@ function initialize() {
      coordinates.push(['20', [-25.736818, 28.220386]]);
      
      //Entry for Tanzania
-     coordinates.push(['21', [-6.8, 39.283333]]);
-     
+    
+      coordinates.push(['21', [-6.1731, 35.7419]]);
+
      //Entry for Togo
      coordinates.push(['22', [6.135589, 1.238257]]); 
      
