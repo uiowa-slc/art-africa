@@ -70,7 +70,7 @@
         <div class="c">
           <div class="col">
             <p>
-              <img src="{$ThemeDir}/images/UIMA-newlogo-black.png">
+              <a href="http://uima.uiowa.edu" target="_blank"><img src="{$ThemeDir}/images/UIMA-newlogo-black.png"></a>
             </p>
             <p>
               1375 Highway One West<br>
