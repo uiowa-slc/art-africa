@@ -53,35 +53,5 @@ class Glossary_Controller extends Page_Controller {
 	 */
 	private static $allowed_actions = array ();
 	
-	/*public function show (){
-	//Displays a data object
-	
-						
-		$class = 'Word';
-		
-		$objectID = $this->request->param('ID');
-		
-	
-		
-		if ($objectID){
-		
-		    $object = $class::get_by_id($class, $objectID);
-		    
-		    		    
-		    if(isset($object)){
-		       $showTemplate = 'Glossary_show';
-			   return $this->Customise($object)->renderWith(array($showTemplate, 'Page'));
-			   
-		    }else{
-		    }		   
-		}
-		else {
-			return $this->renderWith('Page');
-		}
-	
-	}*/
-
-	
-	
 	
 }

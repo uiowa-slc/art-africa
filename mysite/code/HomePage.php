@@ -1,40 +1,37 @@
 <?php
- 
+
 class HomePage extends Page {
- 
-  
-  private static $db = array(	
 
-  );
- 
+	private static $db = array(	
+
+	);
+
   // One-to-one relationship with gallery page
-  private static $has_one = array(
-  'TestPic' => 'Image'
-  );
-  
-  private static $has_many = array(
-  'HomepagePics' => 'HomepagePic'
-  );
-  
-  private static $belongs_many_many = array();
-  
+	private static $has_one = array(
+		'TestPic' => 'Image'
+		);
 
-  public function getCMSFields() {
- 		$fields = parent::getCMSFields();
+	private static $has_many = array(
+		'HomepagePics' => 'HomepagePic'
+	);
+
+	private static $belongs_many_many = array();
+
+
+	public function getCMSFields() {
+		$fields = parent::getCMSFields();
 
 		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigFieldPhotos->addComponent(new GridFieldManyRelationHandler());
 		$gridFieldConfigFieldPhotos->addComponent(new GridFieldSortableRows('PicNo'));
 		$gridFieldConfigFieldPhotos->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('CreditLine', 'PageLink'));
-		
+
 		$gridfield = new GridField("HomepagePics", "Homepage Pictures", $this->HomepagePics(), $gridFieldConfigFieldPhotos);
 		$fields->addFieldToTab('Root.Main', $gridfield);
-		
-		//$fields->removeFieldFromTab("Root.Main","Content");
-        
+
 		return $fields;		
-  }
-  
+	}
+
 
 }
 
@@ -72,7 +69,7 @@ class HomePage_Controller extends Page_Controller {
 	public function getPeopleHolder(){
 		$holder = PeopleHolder::get()->First();
 		//if (isset($holder)){
-			return $holder->Link();
+		return $holder->Link();
 		//}
 	}
 	

@@ -38,7 +38,6 @@ class HomepagePic extends DataObject {
  		
  		$fields->addFieldToTab('Root.Main', new UploadField('HomepagePic', 'Homepage Pic'));
  		$fields->addFieldToTab('Root.Main', new TextField('PageLink', 'Link (include http:// at beginning)'));
- 		/*$fields->addFieldToTab('Root.Main', new TextField('CreditLine', 'Credit Line'));*/
  		$fields->removeByName('HomePageID');
  		$fields->removeByName('PicNo');
 
