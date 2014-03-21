@@ -1,6 +1,6 @@
  <div class="audio-piece">
 	     
-	     <video class="" id="videoPiece{$Pos}" src="{$AudioFile.URL}" width="282" height="240"></video>
+	     <video class="" id="videoPiece{$Pos}" src="{$AudioFile.URL}" width="282" height="282"></video>
 	     <a href="{$Link}" target="_blank">$Title</a>
 	    <script>
 			
