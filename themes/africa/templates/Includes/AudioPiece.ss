@@ -1,7 +1,7 @@
  <div class="audio-piece">
 	     
-	     <video class="" id="videoPiece{$Pos}" src="{$AudioFile.URL}" width="320" height="240"></video>
-	     <h3><a href="{$Link}">$Title</a></h3>
+	     <video class="" id="videoPiece{$Pos}" src="{$AudioFile.URL}" width="282" height="240"></video>
+	     <p><a href="{$Link}">$Title</a></p>
 	    <script>
 			
 			$('video').mediaelementplayer({
