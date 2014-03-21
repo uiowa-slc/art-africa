@@ -94,11 +94,11 @@
 	width: 100px;
 	height: 100px;
 	margin: -50px 0 0 -50px;
-	background: url(bigplay.svg) no-repeat;
+	background: url(../javascript/mediaelement/build/bigplay.svg) no-repeat;
 }
 
 .no-svg .mejs-overlay-button { 
-	background-image: url(bigplay.png);
+	background-image: url(./javascript/mediaelement/build/bigplay.png);
 }
 
 .mejs-overlay:hover .mejs-overlay-button {
