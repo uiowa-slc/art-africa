@@ -1,4 +1,4 @@
 <% include AudioPiece %>
-<% if $Object.Caption %>
-  <div class="credit-line">$Object.Caption</div>
+<% if $Caption %>
+  <div class="credit-line">$Caption</div>
 <% end_if %>
