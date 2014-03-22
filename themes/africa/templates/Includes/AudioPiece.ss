@@ -9,8 +9,9 @@
 			}); //Replaces video tags with media element player
 	
 		</script>
-	 	<% if $Caption %>
-			<div class="credit-line">$Caption</div>
-		<% end_if %>
-	 
+</div>
+<div class="credit-line">
+ <% if $Caption %>
+	$Caption
+<% end_if %>
 </div>
