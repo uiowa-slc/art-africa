@@ -1586,6 +1586,16 @@ li.audioObject {
 	height: 250px;
 }
 
+#audio-scroller .audio-piece{
+	width: 33.3%;
+	float: left;
+}
+
+#audio-scroller .audio-piece:after{
+	content:"";
+	clear: both;
+}
+
 @media (max-width: 768px) {
   /*.toggle { display: none; }*/
   /*use &.toggle*/
