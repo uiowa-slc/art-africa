@@ -1,12 +1,11 @@
-<% if VideoPieces %> 
-<div class="image-scroller-container" id="video-scroller">
-<h3>Video</h3>
-  <ul>
-	    <% loop $VideoPieces %> 
-	    <li>
-	    	<% include VideoPiece %>
-	    </li>
-	    <% end_loop %>
-  </ul>
+<% if $VideoPieces %> 
+ 	<div class="media-container">
+ 		<h3>Video</h3>
+ 		<% loop $VideoPieces %>
+ 			<div class="item $ID">
+ 				<% include VideoPiece %>
+ 			</div>
+ 		<% end_loop %>	
+ 	</div>
 </div>
 <% end_if %>

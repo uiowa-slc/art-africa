@@ -17,10 +17,6 @@
 			<div class="clearfix"></div>
 			
 		</div>
-
-		<% if $Object.Caption %>
-			<div class="credit-line">$Object.Caption</div>
-		<% end_if %>
 		<% if $Object.Description %>
 		<div class="content columns description">
 			$Object.Description	

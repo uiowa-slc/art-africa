@@ -15,7 +15,7 @@
 
  	<div class="media-container">
  		<% loop $getResults %>
- 			<div class="item $ID yo">
+ 			<div class="item $ID">
  				<% if $ClassName == "Image" %>
  					<% include MediaGridImage %>
  				<% else_if $ClassName == "AudioPiece" %>
@@ -27,7 +27,6 @@
  		<% end_loop %>	
  		</div>
  	<% include LargeImageGridPagination %>
-
 </div>
 
 <script type="text/javascript">
