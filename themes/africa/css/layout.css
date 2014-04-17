@@ -833,6 +833,10 @@ ul.columns li {
   text-transform: none;
 }
 
+.content-container p.top-breadcrumbs{
+  margin-top: 0;
+}
+
 #main_content::selection,
 #main_content ::selection {
   background: rgba(170,47,19, 0.15);

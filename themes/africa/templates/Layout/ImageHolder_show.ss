@@ -2,7 +2,7 @@
 <div class="content-container typography">	
 	<article>
 		<div class="content container-fluid">
-			<p>
+			<p class="top-breadcrumbs">
 			<% if $Source %>
 			<a href="$Source">Return to the previous page</a>
 			<% end_if %>
