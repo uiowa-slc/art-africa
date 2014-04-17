@@ -132,7 +132,8 @@ $(document).on('click', '.mfp-img', function (event) {
 
   console.log( ap.attr('data-mfp-href'));
   window.event.returnValue = false;
-  window.location.href = ap.attr('data-mfp-href');
+  window.location.assign(ap.attr('data-mfp-href'));
+  //window.location.href = ap.attr('data-mfp-href');
 });
 
 
