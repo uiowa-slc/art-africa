@@ -55,10 +55,10 @@ class Page_Controller extends ContentController {
 			$themeFolder.'/javascript/jquery.magnific-popup.min.js',
 			$themeFolder.'/javascript/jquery.sticky.js',
 			$themeFolder. '/javascript/jquery.infinitescroll.js',
-			$themeFolder. '/javascript/script.js',
 			$themeFolder. '/javascript/jquery.isotope.min.js',
 			$themeFolder. '/javascript/isotope-init.js',
-			$themeFolder. '/javascript/mediaelement/build/mediaelement-and-player.min.js'
+			$themeFolder. '/javascript/mediaelement/build/mediaelement-and-player.min.js',
+					$themeFolder. '/javascript/script.js'
 
 		);
 
@@ -159,26 +159,15 @@ class Page_Controller extends ContentController {
 		foreach ( $siteTreeClasses as $c ) {
 			$siteTreeMatch = $this->getItemMatch( $c, $request, $keywordArray, $keywordHTML, 'Title, MenuTitle, ', $bibliographyFlag ); //This function is in Page.php
 			$query = DataList::create( $c )->where( $siteTreeMatch );
-
-	
-
 			$query = $query->dataQuery()->query();
-
 			$query->addSelect( array( 'Relevance' => $siteTreeMatch ) );
-
-		//print_r($query);
-		//	print_r("<br />");
-
 			$records = DB::query( $query->sql() );
 
-
-			//$objects = array();
 			foreach ( $records as $record ) {
 
 				if ( in_array( $record['ClassName'], $siteTreeClasses ) )
 					$objects[] = new $record['ClassName']( $record );
 			}
-
 
 			$pages->merge( $objects );
 		}
@@ -189,19 +178,12 @@ class Page_Controller extends ContentController {
 	     */
 
 		foreach ( $dataObjectClasses as $c ) {
-
-
-
 			$dataObjectsItemMatch = $this->getItemMatch( $c, $request, $keywordArray, $keywordHTML, '', $bibliographyFlag ); //This function is in Page.php
-
 			$query = DataList::create( $c )->where( $dataObjectsItemMatch );
 			$query = $query->dataQuery()->query();
 			$query->addSelect( array( 'Relevance' => $dataObjectsItemMatch ) );
-
 			$records = DB::query( $query->sql() );
-
 			foreach ( $records as $record ) $objects[] = new $record['ClassName']( $record );
-
 			$dataObjects->merge( $objects );
 		}
 
@@ -282,9 +264,6 @@ class Page_Controller extends ContentController {
 			$fields['Content'] = "HTMLText";
 		}
 
-		//print_r($class." fields: <br />");
-		//print_r($fields);
-
 		//Both Art Photo and Field Photo extend from Photo, so if that class is getting searched, get those fields
 
 		if ( ( $class == "Image") ) {
@@ -296,7 +275,6 @@ class Page_Controller extends ContentController {
 		$iter = 0;
 
 		$resultString = '';
-		//return $resultString;
 
 		if ( $fields ) {
 			foreach ( $fields as $fieldValue => $fieldType ) {
@@ -321,9 +299,6 @@ class Page_Controller extends ContentController {
 
 
 		$mode = ' IN BOOLEAN MODE';
-
-
-		//print_r($resultString);
 		return $resultString;
 	}
 
@@ -397,31 +372,7 @@ class Page_Controller extends ContentController {
 
 		$otherClass = $this::$childPage;
 		$objectID = Convert::raw2xml( $this->request->param( 'ID' ) );
-
-		/*if ( $this->request->getVar( 'source' ) ) {
-
-			$sourceID = $this->request->getVar( 'source' );
-			$showID = $this->request->getVar( 'show' );
-
-			if ( ( isset( $sourceID ) )&&( isset( $showID ) ) ) {
-				$sourcePage = SiteTree::get_by_id( "Page", $sourceID );
-
-				$sourceHolds = $sourcePage->holds;
-				$source = $sourceHolds::get_by_id( $sourceHolds, $showID );
-
-			} elseif ( isset( $sourceID ) ) {
-				$source = SiteTree::get_by_id( "Page", $sourceID );
-			}else {
-				$source = null;
-			}
-		}*/
-
-
-
 		$source = $this->request->getVar( 'back' );
-
-
-
 
 		//We can '/show/ID' or '/show/object+name'
 		if ( $objectID ) {
@@ -434,7 +385,6 @@ class Page_Controller extends ContentController {
 			if ( $object ) {
 
 				$showTemplate = $otherClass . 'Holder_show';
-
 				if ( !isset( $source ) ) {
 					$data = array (
 						"Object" => $object,
@@ -447,15 +397,11 @@ class Page_Controller extends ContentController {
 				}
 
 				if(($object->ClassName == "Image") &&  ($object->ParentImage())){
-
 					$parent = $object->ParentImage();
-
 					$this->redirect($parent->ShowLink());
-
 				}
 
 				return $this->Customise( $data )->renderWith( array( $showTemplate, 'Page' ) );
-
 			}else {
 				// If Object isn't set/found, return a 404 error.
 				$this->httpError( 404 );
@@ -467,9 +413,6 @@ class Page_Controller extends ContentController {
 
 
 	}
-
-
-
 
 	public function search() {
 		if ( $this->request && $this->request->requestVar( 'Search' ) ) {
