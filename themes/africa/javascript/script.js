@@ -46,13 +46,6 @@ $(document).ready(setFullWidthImagesMaxWidth);
 
 
 $(document).ready(function () {
-  // $('.gal').magnificPopup({
-  //   delegate: '.gal-link',
-  //   type: 'image',
-  //   gallery: {
-  //     enabled: true
-  //   }
-  // });
     var poppingUp = false;
 
    $('.artPhoto').magnificPopup({
@@ -74,12 +67,6 @@ $(document).ready(function () {
     }
 
   }); 
-  
- /*  $('#main_content').magnificPopup({
-    delegate: '.open-glossary-link',
-    type: 'inline'
-    
-  });*/
   
   $('#main_content').magnificPopup({
     delegate: '.avContent',
@@ -122,13 +109,6 @@ $(document).ready(function () {
       srcAction: 'iframe_src', // Templating object key. First part defines CSS selector, second attribute. "iframe_src" means: find "iframe" and set attribute "src".
     }
   }); 
-  
-  
-    
- // $('video').mediaelementplayer(); //Replaces video tags with media element player
-  
-  
-
 
   $(".nav2.interior-page").sticky({topSpacing:0});
 
@@ -150,8 +130,8 @@ $(document).on('click', '.mfp-img', function (event) {
   var src = $(this).attr('src'),
       ap  = $('.artPhoto[data-mfp-src="' + src + '"]:first');
 
-  console.log(ap.length);
-  window.location.href = ap.attr('data-mfp-href');
+  console.log( ap.attr('data-mfp-href'));
+  //window.location.href = ap.attr('data-mfp-href');
 });
 
 
