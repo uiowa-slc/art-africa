@@ -130,7 +130,7 @@ $(document).on('click', '.mfp-img', function (event) {
   var src = $(this).attr('src'),
       ap  = $('.artPhoto[data-mfp-src="' + src + '"]:first');
 
-  console.log( ap.attr('data-mfp-href'));
+ // console.log( ap.attr('data-mfp-href'));
   window.event.returnValue = false;
   window.location.assign(ap.attr('data-mfp-href'));
   //window.location.href = ap.attr('data-mfp-href');
@@ -373,7 +373,7 @@ function initialize() {
             if (matchingCountryLink.length === 1) {
               window.location.href = matchingCountryLink.attr('href');
             } else {
-              console.log(country.long_name + ' not found in Countries list.');
+              //console.log(country.long_name + ' not found in Countries list.');
             }
           }
         }
