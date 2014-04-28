@@ -327,10 +327,14 @@ class Page_Controller extends ContentController {
 	}
 
 
-	public function getPaginatedPages( $relation ) {
-		$list = new PaginatedList( $this->$relation(), $this->request );
-		$list->setPageLength( 1 );
-		return $list;
+	public function getPaginatedPages( $relation ='EssayPages' ) {
+		if(method_exists($this, $relation)){
+			$list = new PaginatedList( $this->$relation(), $this->request );
+			$list->setPageLength( 1 );
+			return $list;
+		} else{
+			return false;
+		}
 	}
 
 
@@ -338,7 +342,6 @@ class Page_Controller extends ContentController {
 	public function filteredField( $field, $ID, $class ) {
 
 		$object = DataObject::get_by_id( $class, $ID );
-		//print_r($object);
 		$pageContent = $object->$field;
 		$wordArray = Word::get();
 		$iter = 0;
