@@ -1,14 +1,19 @@
 <?php
  
 class EssayHolder extends Page {
+ 
   
   private static $db = array(	
 
   );
+ 
+  // One-to-one relationship with gallery page
   private static $has_one = array(
 
   );
+  
   private static $belongs_many_many = array();
+  
   private static $allowed_children = array("Essay");
   
 
@@ -22,9 +27,14 @@ class EssayHolder extends Page {
 		$fields->addFieldToTab('Root.Main', $gridfield);
 		$fields->addFieldToTab('Root.Main', new HTMLEditorField("Content","Introduction Text"));
 
+		
+		
 		return $fields;		
   }
+  
+
 }
+
 
 class EssayHolder_Controller extends Page_Controller {
 
@@ -46,7 +56,10 @@ class EssayHolder_Controller extends Page_Controller {
 	private static $allowed_actions = array ('show', 'getPaginatedPages');
 	
 	public static $childPage = 'Essay';
-
+	
+	
+	
+	
 	public function essaysByAuthor(){
 		$essays = Essay::get();
 		$essays->sort('Author', 'DESC');
@@ -55,17 +68,20 @@ class EssayHolder_Controller extends Page_Controller {
 	
 	//Called by show template
 	public function getPaginatedPages($relation = 'EssayPages'){
-		$ID = $this->request->param('ID');
-		$object = Essay::get()->byID($ID);
 
-		if($object){
+
+		 $ID = $this->request->param('ID');
+		 //$object = DataObject::get_by_id('Essay', $ID);
+		 $object = Essay::get()->byID($ID);
+		 
+		 if($object){
 			$relation = $object->EssayPages();
-			$list = new PaginatedList($relation, $this->request);
-			$list->setPageLength(1);
-			return $list;
-		}else{
-			return false;
-		}
+			 $list = new PaginatedList($relation, $this->request);
+			 $list->setPageLength(1);
+			 return $list;
+			}else{
+				return false;
+			}
 	}
 	
 	public function getEssayImages(){
@@ -83,18 +99,25 @@ class EssayHolder_Controller extends Page_Controller {
 			 preg_match($pattern, $content, $matches, PREG_OFFSET_CAPTURE);
 			 foreach ($matches as $match){	 
 			 	$newImage = Image::get()->filter(array('Title' => $match))->first();
+			 	
 			 	if ($newImage){
 				 	$essayImages->add($newImage);
+				 	
 			 	}
 			 }
 		 }
+		 
+		 //print_r($essayImages);
 		 return $essayImages;
 		}else{
 			return false;
 		}
 	}
 	
+
+	
 	public function getEssays () {
+	
 		$essays = Essay::get()->sort('Title');
 		return $essays;
 	}

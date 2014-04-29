@@ -111,11 +111,12 @@
 		</div>
 		<div class="padded" style="padding-top:0">
 			<% if $AudioPieces || $VideoPieces %>
-				<h2>More...</h2>
+			<h2>More...</h2>
 			<% end_if %> 
+			
+
 			<% include VideoScroller %>
 			<% include AudioScroller %>
-			<div class="clearfix"></div>
 		</div>
 	</article>
 </div>

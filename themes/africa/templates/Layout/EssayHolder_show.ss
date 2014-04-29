@@ -8,7 +8,7 @@
 		<div class="content essayPage">$Object.Content
 
 			 
-		      <% loop $getPaginatedPages %>
+		       <% loop $getPaginatedPages %>
 		        $Content
 		      <% end_loop %>
 			   
