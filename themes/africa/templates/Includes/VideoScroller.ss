@@ -7,5 +7,4 @@
  			</div>
  		<% end_loop %>	
  	</div>
-</div>
 <% end_if %>
