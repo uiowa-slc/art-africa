@@ -1,5 +1,5 @@
     <div class="content" id="essay">
-       <% loop $getPaginatedPages('EssayPages') %>
+       <% loop $getPaginatedPages %>
         $Content
       <% end_loop %>
       <% include EssayPagination %>

@@ -328,11 +328,12 @@ class Page_Controller extends ContentController {
 
 
 	public function getPaginatedPages( $relation ='EssayPages' ) {
-		if(method_exists($this, $relation)){
+		if($this->getComponents($relation)->exists()){
 			$list = new PaginatedList( $this->$relation(), $this->request );
 			$list->setPageLength( 1 );
 			return $list;
 		} else{
+			echo "false";
 			return false;
 		}
 	}
