@@ -433,7 +433,7 @@ button {
 
 
 
-#middle .nav2 >ul.countries >li>a {
+#middle .nav2 >ul.countries >li>a, #middle .nav2 >ul.peoples >li>a {
   font-size: 0.9rem;
   padding: 0.2rem 1.25rem;
 

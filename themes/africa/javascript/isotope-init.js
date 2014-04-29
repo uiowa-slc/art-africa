@@ -1,4 +1,4 @@
-$(function(){
+$( document ).ready(function() {
 
    var $container = $('.media-container');
 
