@@ -2,7 +2,7 @@
 <html lang="$ContentLocale">
   <head>
     <% base_tag %>
-    <title><% if not $Object %>$Title<% else %>$Object.Title<% end_if %> - Art &amp; Life in Africa - The University of Iowa Museum of Art</title>
+    <title><% if not $Object %>$Title<% else %>$Object.Title<% end_if %><% if $getPaginatedPages %>, Page <% loop $getPaginatedPages %>$PageNo<% end_loop %><% end_if %> -  Art &amp; Life in Africa - The University of Iowa Museum of Art</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <% include OpenGraphTags %>
 
