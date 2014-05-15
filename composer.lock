@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cc2fe6d48cafd213254df553a1b1a459",
+    "hash": "73d8a2dedc1b62c8aa2daf0f1cadb6c8",
     "packages": [
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/colymba/GridFieldBulkEditingTools.git",
-                "reference": "43c8b0ee730525ab6e2f23def9333cccac9d0571"
+                "reference": "1fefcad1e37ac4d2d7f3f3c3d4d9210dc402d260"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/colymba/GridFieldBulkEditingTools/zipball/43c8b0ee730525ab6e2f23def9333cccac9d0571",
-                "reference": "43c8b0ee730525ab6e2f23def9333cccac9d0571",
+                "url": "https://api.github.com/repos/colymba/GridFieldBulkEditingTools/zipball/1fefcad1e37ac4d2d7f3f3c3d4d9210dc402d260",
+                "reference": "1fefcad1e37ac4d2d7f3f3c3d4d9210dc402d260",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "gridfield bulk upload",
                 "silverstripe"
             ],
-            "time": "2014-03-15 13:53:20"
+            "time": "2014-05-14 12:46:45"
         },
         {
             "name": "composer/installers",
@@ -53,15 +53,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "cb0cf453ed771b5626c09be0430cf388d84d0970"
+                "reference": "eb9b5b6f59fbaaa6aa7c8fabd2d66e60f376eaa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/cb0cf453ed771b5626c09be0430cf388d84d0970",
-                "reference": "cb0cf453ed771b5626c09be0430cf388d84d0970",
+                "url": "https://api.github.com/repos/composer/installers/zipball/eb9b5b6f59fbaaa6aa7c8fabd2d66e60f376eaa2",
+                "reference": "eb9b5b6f59fbaaa6aa7c8fabd2d66e60f376eaa2",
                 "shasum": ""
             },
             "replace": {
+                "roundcube/plugin-installer": "*",
                 "shama/baton": "*"
             },
             "require-dev": {
@@ -121,6 +122,7 @@
                 "phpbb",
                 "piwik",
                 "ppi",
+                "roundcube",
                 "shopware",
                 "silverstripe",
                 "symfony",
@@ -129,7 +131,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-04-04 18:47:10"
+            "time": "2014-05-07 15:43:15"
         },
         {
             "name": "jonom/focuspoint",
@@ -208,16 +210,16 @@
         },
         {
             "name": "silverstripe/cms",
-            "version": "3.1.4",
+            "version": "3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-cms.git",
-                "reference": "7adbf81c74c6483d071d72c4359ac4903ee65db3"
+                "reference": "3033d454982c5fac5a2089842e767e8866f05737"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/7adbf81c74c6483d071d72c4359ac4903ee65db3",
-                "reference": "7adbf81c74c6483d071d72c4359ac4903ee65db3",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/3033d454982c5fac5a2089842e767e8866f05737",
+                "reference": "3033d454982c5fac5a2089842e767e8866f05737",
                 "shasum": ""
             },
             "require": {
@@ -251,25 +253,28 @@
                 "cms",
                 "silverstripe"
             ],
-            "time": "2014-03-31 19:36:16"
+            "time": "2014-05-12 23:13:44"
         },
         {
             "name": "silverstripe/framework",
-            "version": "3.1.4",
+            "version": "3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "81b14b43528d52a8219856f64454f7942ea60254"
+                "reference": "830c10704c98862609dea94400ff48524dffa676"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/81b14b43528d52a8219856f64454f7942ea60254",
-                "reference": "81b14b43528d52a8219856f64454f7942ea60254",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/830c10704c98862609dea94400ff48524dffa676",
+                "reference": "830c10704c98862609dea94400ff48524dffa676",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
                 "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7@stable"
             },
             "type": "silverstripe-module",
             "autoload": {
@@ -297,7 +302,7 @@
                 "framework",
                 "silverstripe"
             ],
-            "time": "2014-04-08 04:19:19"
+            "time": "2014-05-13 03:06:43"
         },
         {
             "name": "silverstripe/fulltextsearch",
@@ -305,12 +310,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-labs/silverstripe-fulltextsearch.git",
-                "reference": "aac63d40670923c992d5015608890629a0b4532a"
+                "reference": "1785268744f8032cfd54505a3be963d07cb4a414"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-fulltextsearch/zipball/aac63d40670923c992d5015608890629a0b4532a",
-                "reference": "aac63d40670923c992d5015608890629a0b4532a",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-fulltextsearch/zipball/1785268744f8032cfd54505a3be963d07cb4a414",
+                "reference": "1785268744f8032cfd54505a3be963d07cb4a414",
                 "shasum": ""
             },
             "require": {
@@ -339,7 +344,7 @@
                 "solr",
                 "sphinx"
             ],
-            "time": "2014-03-18 23:14:56"
+            "time": "2014-05-12 23:11:07"
         },
         {
             "name": "silverstripe/googlesitemaps",
@@ -384,14 +389,8 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/simonwelsh/silverstripe-GridFieldRelationHandler.git",
-                "reference": "4a7e864286a8809e9173012ec0f0367ee8d2613e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/simonwelsh/silverstripe-GridFieldRelationHandler/zipball/4a7e864286a8809e9173012ec0f0367ee8d2613e",
-                "reference": "4a7e864286a8809e9173012ec0f0367ee8d2613e",
-                "shasum": ""
+                "url": "https://git.simon.geek.nz/simon_w/gridfieldrelationhandler.git",
+                "reference": "2ddb5dc06e44517f56b407a3ca5a93306b91e7d6"
             },
             "require": {
                 "silverstripe/framework": "~3.0"
@@ -414,7 +413,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2013-10-21 21:39:49"
+            "time": "2014-05-04 04:00:26"
         },
         {
             "name": "unclecheese/betterbuttons",
@@ -422,12 +421,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-gridfield-betterbuttons.git",
-                "reference": "da68c6d38d04b85bbd2e8673a65fc6285d4b9c1f"
+                "reference": "ecd189fd2b60e1e815d8efa6bd0187586c9c5a15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/da68c6d38d04b85bbd2e8673a65fc6285d4b9c1f",
-                "reference": "da68c6d38d04b85bbd2e8673a65fc6285d4b9c1f",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/ecd189fd2b60e1e815d8efa6bd0187586c9c5a15",
+                "reference": "ecd189fd2b60e1e815d8efa6bd0187586c9c5a15",
                 "shasum": ""
             },
             "require": {
@@ -451,7 +450,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2014-03-06 22:11:09"
+            "time": "2014-05-08 08:38:37"
         },
         {
             "name": "undefinedoffset/sortablegridfield",
@@ -459,12 +458,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UndefinedOffset/SortableGridField.git",
-                "reference": "32a92e62f1ab0b7db2ea954a0dd9181da7e6aaea"
+                "reference": "3f1f5dbdb4cce4b7fb9056819caf895ee45f390d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UndefinedOffset/SortableGridField/zipball/32a92e62f1ab0b7db2ea954a0dd9181da7e6aaea",
-                "reference": "32a92e62f1ab0b7db2ea954a0dd9181da7e6aaea",
+                "url": "https://api.github.com/repos/UndefinedOffset/SortableGridField/zipball/3f1f5dbdb4cce4b7fb9056819caf895ee45f390d",
+                "reference": "3f1f5dbdb4cce4b7fb9056819caf895ee45f390d",
                 "shasum": ""
             },
             "require": {
@@ -491,7 +490,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2014-03-02 19:11:12"
+            "time": "2014-05-03 20:07:22"
         }
     ],
     "packages-dev": [
