@@ -18,10 +18,7 @@ _ss_environment.php
 googlesitemaps/
 themes/simple
 robots.txt
-
-
 themes/africa/_combinedfiles/allcombined.js
-
 themes/africa/_combinedfiles/combinedCSS.css
-
 themes/africa/_combinedfiles/combinedCSS.css
+deploy.php
