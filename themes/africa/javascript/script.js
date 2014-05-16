@@ -131,9 +131,9 @@ $(document).on('click', '.mfp-img', function (event) {
       ap  = $('.artPhoto[data-mfp-src="' + src + '"]:first');
 
  // console.log( ap.attr('data-mfp-href'));
-  window.event.returnValue = false;
-  window.location.assign(ap.attr('data-mfp-href'));
-  //window.location.href = ap.attr('data-mfp-href');
+  //window.event.returnValue = false;
+  //window.location.assign(ap.attr('data-mfp-href'));
+  window.location.href = ap.attr('data-mfp-href');
 });
 
 
