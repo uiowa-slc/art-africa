@@ -1363,11 +1363,7 @@ article.page {
 }
 /* image scroller Stuff */
 .image-scroller-container {
-	/*background: #ddd;
-	border-radius: 5px;*/
 	padding: 0.2em;
-	margin-top: 1em;
-	margin-bottom: 1em;
 }
 
 .image-scroller-container ul {
@@ -1401,13 +1397,18 @@ article.page {
   .image-scroller-container ul{
     height: 230px;
     white-space: nowrap;
-    overflow-x: auto;
+    overflow-x: scroll;
     overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   .image-scroller-container#video-scroller ul{
   }
 
+.image-scroller-container p{
+  font-size: 0.9em;
+  margin: 0;
+}
 .mobile-filter-container .media-filter-form #MediaFilterForm_index{
   width: 100%;
 }

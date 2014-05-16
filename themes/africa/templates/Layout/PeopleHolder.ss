@@ -1,6 +1,6 @@
 <div class="content-container typography">	
 	<article>
-		<h1>$Title</h1>
+		<h1 class="hidden-phone">$Title</h1>
 		<div class="content">
 			$Content
 			<div class="table-responsive ">
@@ -10,7 +10,6 @@
 			    		<th>Name</th>
 			    		<th>Countries</th>
 			    		<th>Population</th>
-
 			    	</tr>
 			    <% loop getPeople %>
 					<% if Title %>

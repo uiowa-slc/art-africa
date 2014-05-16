@@ -1,10 +1,7 @@
 <div class="content-container typography">	
 	<article>
-	
-		
-	
 		<div>
-			<h1>$Title</h1>
+			<h1 class="hidden-phone">$Title</h1>
 			 <table class="table table-hover">
 				<tbody>
 				<tr>

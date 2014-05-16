@@ -1,5 +1,5 @@
 <div class="content-container typography">
-  <h1>$Title</h1>
+  <h1 class="hidden-phone">$Title</h1>
     <div class="content">$Content</div>
   $Form
   $PageComments
