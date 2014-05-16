@@ -1070,7 +1070,7 @@ article.page {
 
 @media (min-width: 480px) {
   .fieldHolder {
-    width: 150px;
+    width: 100%;
 
   }
 

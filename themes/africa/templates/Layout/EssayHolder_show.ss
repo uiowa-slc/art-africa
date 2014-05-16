@@ -1,4 +1,4 @@
-<div class="content-container typography essay padded">	
+<div class="content-container typography essay">	
 	<article>
 			<h1>$Object.Title</h1>
 			<h2>by $Object.AuthorFirstName $Object.AuthorLastName <br />
