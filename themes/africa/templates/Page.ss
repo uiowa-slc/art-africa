@@ -31,7 +31,7 @@
         </div>
         <nav class="nav1 toggle">
           <ul>
-            <li class="mobile-filter-container visible-phone">
+            <li class="mobile-filter-container visible-phone visible-tablet">
             <%-- Media --%>
             <% if Title == 'Media' %>
                 <nav class="media-filter-form">
