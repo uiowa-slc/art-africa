@@ -14,6 +14,6 @@
       	<a href="$ShowMoreLink" target="_blank"><div id="see-more" class="" title="Tap or Click to See All Images"><span>See All</span></div></a>
       </li>
     </ul>
-    <p><a href="$ShowMoreLink" target="_blank">View these images in the media gallery &rarr;</a></p>
+    <p><a href="$ShowMoreLink" target="_blank">View all images in the media gallery &rarr;</a></p>
   </div>
 <% end_if %> 

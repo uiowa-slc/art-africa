@@ -1,6 +1,6 @@
 <div class="content-container typography">	
 	<article>
-		<h1 class="hidden-phone">$Title</h1>
+		<h1 class="hidden-tablet hidden-phone">$Title</h1>
 		<div class="content">
 			$Content
 			<div class="table-responsive ">
