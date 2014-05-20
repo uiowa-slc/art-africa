@@ -263,7 +263,7 @@ button {
   #searchInput {
     font-size: 1rem; 
   }
-  .nav1 a, #searchInput {
+  .nav1 a {
     font-size: 0.9rem;
   }
 
