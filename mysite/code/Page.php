@@ -333,7 +333,7 @@ class Page_Controller extends ContentController {
 			$list->setPageLength( 1 );
 			return $list;
 		} else{
-			echo "false";
+		//	echo "false";
 			return false;
 		}
 	}
