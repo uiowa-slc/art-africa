@@ -228,7 +228,7 @@ button {
 
 #searchInput {
  width: 80%;
- padding-left: 10px;
+ padding: 5px;
 }
 
 #submitSearch {
@@ -1028,18 +1028,6 @@ article.page {
   color: #ccc;
 }
 
-#searchInput::-webkit-input-placeholder { /* WebKit browsers */
-    padding-left: 3px;
-}
-#searchInput::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  padding-left: 3px;
-}
-#searchInput::-moz-placeholder { /* Mozilla Firefox 19+ */
-   padding-left: 3px;
-}
-#searchInput::-ms-input-placeholder { /* Internet Explorer 10+ */
-   padding-left: 3px;
-}
 
 #searchInput:hover {
   cursor: pointer;
