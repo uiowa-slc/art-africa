@@ -58,7 +58,9 @@ class Page_Controller extends ContentController {
 			$themeFolder. '/javascript/jquery.isotope.min.js',
 			$themeFolder. '/javascript/isotope-init.js',
 			$themeFolder. '/javascript/mediaelement/build/mediaelement-and-player.min.js',
-					$themeFolder. '/javascript/script.js'
+			$themeFolder. '/javascript/jquery.placeholder.js',
+			$themeFolder. '/javascript/jquery.placeholder-init.js',
+			$themeFolder. '/javascript/script.js'
 
 		);
 
@@ -210,10 +212,6 @@ class Page_Controller extends ContentController {
 				'Relevance' => 'DESC',
 				'Date' => 'DESC'
 			) );
-
-
-
-
 
 		if ( $pages->count() == 0
 			&& $dataObjects->count() == 0
@@ -554,9 +552,6 @@ class Page_Controller extends ContentController {
 		return $template->process( $newObject );
 	}
 
-
-
-
 	public function loadTest() {
 		for ( $iter = 0; $iter <= 100; $iter++ ) {
 			$artPhoto = ArtPhoto::get()->byID( 7 );
@@ -567,25 +562,4 @@ class Page_Controller extends ContentController {
 
 
 	}
-
-
-
-	/**
-	 * Process and render search results.
-	 *
-	 * !! NOTE
-	 * _config.php includes:
-	 *
-	 * FulltextSearchable::enable();
-	 * Object::add_extension('ExtendedPage', "FulltextSearchable('HeadlineText')");
-	 * Object::add_extension('NewsStory', "FulltextSearchable('Name,Content')");
-	 * !!
-	 *
-	 * @param array   $data    The raw request data submitted by user
-	 * @param Form    $form    The form instance that was submitted
-	 * @param SS_HTTPRequest $request Request generated for this action
-	 */
-
-
-
 }

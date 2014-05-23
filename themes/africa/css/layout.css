@@ -228,6 +228,11 @@ button {
 
 #searchInput {
  width: 80%;
+ padding-left: 10px;
+}
+
+#submitSearch {
+  display: none;
 }
 .nav1 a:hover{
   color: #aaa;
@@ -268,7 +273,6 @@ button {
   }
 
   .nav1 >ul>li {
-    
     margin-right: 1.25rem;
     margin-top: 1.25rem;
   }
@@ -1019,9 +1023,22 @@ article.page {
 
 #searchInput {
 	border-radius: 3px;
-  background: none;
+  background: #333;
   border: 1px solid #202020;
   color: #ccc;
+}
+
+#searchInput::-webkit-input-placeholder { /* WebKit browsers */
+    padding-left: 3px;
+}
+#searchInput::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  padding-left: 3px;
+}
+#searchInput::-moz-placeholder { /* Mozilla Firefox 19+ */
+   padding-left: 3px;
+}
+#searchInput::-ms-input-placeholder { /* Internet Explorer 10+ */
+   padding-left: 3px;
 }
 
 #searchInput:hover {
@@ -1032,16 +1049,6 @@ article.page {
   cursor: text;
 }
 
-#submitSearch {
-	background-image: url('../images/magnifier-icon.svg');
-	background-size: 100%;
-	background-color: white;
-	position: relative;	
-	top: 4px;
-	background-color: #591202;
-	border-radius: 3px;
-}
-
 @-moz-document url-prefix(){
 	#submitSearch {
 		position: relative;
@@ -1049,18 +1056,7 @@ article.page {
 	}
 }
 
-@media (min-width: 480px) {
-  #submitSearch {
-    display: none;
-  }
 
-}
-@media (min-width: 1100px) {
-  #submitSearch {
-    display: inline;
-  }
-
-}
 
 
 #middle .fieldHolder {
@@ -1547,7 +1543,6 @@ article.page {
 #video-scroller .videoThumbnail {
 
 }
-
 
 li.audioObject {
 	display: inline-block;
