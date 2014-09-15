@@ -9,7 +9,7 @@
     <% if Image %>
     	<h2 id="images">Images</h2>
     	<div class="media-container">
-    	<% loop Image.Limit(100) %>
+    	<% loop Image.Limit(150) %>
 	    	<div class="item">
 	    	 <% include MediaGridImage %>
 	    	</div>
