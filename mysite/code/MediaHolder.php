@@ -54,56 +54,8 @@ class MediaHolder_Controller extends Page_Controller {
 
 
 	public function loadDefaultResults(){
-		/* --------------------- */
-		/* --- DOESNT WORK 1 --- */
-		/* --------------------- */
-		/*$media = DataList::create('DataObject');
-
-		$media->filter(
-    		'ClassName', array('MediaPiece', 'Image'))->sort('RAND()');
-
-		return $media;
-		*/
-
-		/* --------------------- */
-		/* --- DOESNT WORK 2 --- */
-		/* --------------------- */
-		/*$media = DataObject::get()->filter(
-    		'ClassName', array('MediaPiece', 'Image'))->sort('RAND()');
-
-    	return $media;*/
-
-    	/* --------------------- */
-    	/* --- DOESNT WORK 3 --- */
-    	/* --------------------- */
-
-		/*$results = new ArrayList();
-
-		$media = MediaPiece::get();
-		$images = $this->loadDefaultImageResults();
-
-
-		foreach($media as $mediaPiece) $results->push($mediaPiece);
-		foreach($images as $image) $results->push($image); 
-
-		$resultsArray = $results->toArray();
-
-		shuffle($resultsArray);
-
-
-		$resultsShuffled = new ArrayList($resultsArray);
-
-		return $resultsShuffled;*/
-
-
-    	/* -------------------------- */
-    	/* --- Temporary Solution --- */
-    	/* -------------------------- */
-
     	$results = $this->loadDefaultImageResults();
     	return $results;
-
-
 	}
 
 	public function loadDefaultImageResults(){
