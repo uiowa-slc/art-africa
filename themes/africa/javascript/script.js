@@ -335,6 +335,10 @@ function initialize() {
      //Entry for Botswana
      coordinates.push(['25', [-24.658056, 25.912222]]);
 
+    //Entry for Lesotho
+     coordinates.push(['26', [-29.31, 27.48]]);
+
+
      var markers = new Array();
      
 
