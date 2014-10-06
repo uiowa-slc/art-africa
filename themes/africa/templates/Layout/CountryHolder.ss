@@ -11,7 +11,7 @@
 			</div>
 			<div>
  <table class="table table-hover">
-			    <tbody>
+			    <tbody id="country-list">
 			    	<tr>
 			    		<th>Country Name</th>
 			    		<th>Capital</th>
@@ -19,18 +19,17 @@
 
 			    	</tr>
 			    <% loop getObjects("Country") %>
+
 					<% if Title %>
-					<tr>
+					<tr id="$ID" data-link="$Link" data-title="$Title.LimitCharacters(40)" >
 			    		<td><a href="$Link(false)">$Title</a></td>
 			    		<td>$CapitalCity</td>
 						<td>$Population</td>
 			    	</tr>
-					
 					<% end_if %>
+
 				<% end_loop %>
-
 			    </tbody>
-
 			  </table>
 			</div>
 		</div>

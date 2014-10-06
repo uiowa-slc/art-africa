@@ -155,7 +155,15 @@ $(document).on('click', '.mfp-img', function (event) {
 });
 
 
-
+/*  
+*	
+*
+*
+*	COUTNRY MAP JS 
+*
+*
+*
+*/
 
 
 var map;
@@ -273,85 +281,23 @@ function initialize() {
 
     
     var coordinates = new Array();
-    
-    //If a country shows up incorrectly, the coordinates are probably flipped
-    
-    //Entry for Cameroon
-     coordinates.push(['1', [3.866667, 11.516667]]);
-    
-    //Entry for Angola
-     coordinates.push(['2', [-8.838333, 13.234444]]);
-    
-    //Entry for Benin
-     coordinates.push(['3', [6.497222, 2.605]]);
-    
-    //Entry for Burkina Faso
-     coordinates.push(['4', [12.357222, -1.535278]])
-    
-    //Entry for Chad
-     coordinates.push(['5', [12.113056, 15.049167]]);
-    
-    // Entry for Congo
-     coordinates.push(['6', [-4.267778, 15.291944]]);
-
-     
-     //Entry for Democratic Republic Of Congo
-     coordinates.push(['7', [-4.325, 15.322222]]);
-    
-     //Entry for Cote D'Ivoire
-	 coordinates.push(['8', [6.816667, -5.283333]]);
-    
-     //Entry for Gabon
-     coordinates.push(['9', [0.39, 9.45]]);
-    
-     //Entry for Ghana
-     coordinates.push(['10', [5.55, -0.2]]);
-        
-     //Entry for Guinea-Bissau
-     coordinates.push(['11', [11.85, -15.566667]]);
-     
-     //Entry for Guinea-Conakry
-     coordinates.push(['12', [9.516667, -13.7]]);
-      
-     //Entry for Kenya
-     coordinates.push(['13', [-1.283333, 36.816667]]);
-     
-     //Entry for Liberia
-     coordinates.push(['14', [6.313333, -10.801389]]);
-     
-     //Entry for Mali
-     coordinates.push(['15', [12.65, -8]]);
-     
-     //Entry for Niger
-     coordinates.push(['16', [13.521389, 2.105278]]);
-     
-     //Entry for Nigeria
-     coordinates.push(['17', [9.066667, 7.483333]]);
-     
-     //Entry for Senegal
-     coordinates.push(['18', [14.6667, -17.4167]]);
-     
-     //Entry for Sierra Leone
-     coordinates.push(['19', [8.483069, -13.228598]]); 
-     
-     //Entry for South Africa
-     coordinates.push(['20', [-25.736818, 28.220386]]);
-     
-     //Entry for Tanzania
-     coordinates.push(['21', [-6.8, 39.283333]]);
-     
-     //Entry for Togo
-     coordinates.push(['22', [6.135589, 1.238257]]); 
-     
-     //Entry for Zambia
-     coordinates.push(['23', [-15.408837, 28.280153]]);
-          
-      //Entry for Zimbabwe
-     coordinates.push(['24', [-17.863889, 31.029722]]);
-     
-     //Entry for Botswana
-     coordinates.push(['25', [-24.658056, 25.912222]]);
-
+  	$('.countries').children("li").each(function(index, element) {
+  		if (index == 0) {
+	  		//skip
+  		} else {
+			var venue = this;
+			//console.log(this);
+			var venueID = venue.id;
+			//var title = $(this).data("title");
+			var lat = $(this).data("lat");
+			var lng = $(this).data("lng");
+			//var address = $(this).data("address");
+			//var venueLatLng;
+			
+			coordinates.push([venueID, [lat, lng]]);
+		}
+	});	
+   
      var markers = new Array();
      
 
