@@ -5,7 +5,7 @@
 			<div id="map-canvas"></div>
 			<div id="map-canvas-notice">
 				<div>
-					<p>Tap a country's marker or choose one below.</p>
+					<p>Tap a country or choose one below.</p>
 					<button>Begin</button>
 				</div>
 			</div>
