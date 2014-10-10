@@ -261,45 +261,38 @@ function initialize() {
     var coordinates = new Array();
 
   	$('.countries').children("li").each(function(index, element) {
-  		if (index == 0) {
-	  		//skip
-  		} else {
-			var venue = this;
-			//console.log(this);
-			var venueID = venue.id;
-			//var title = $(this).data("title");
-			var lat = $(this).data("lat");
-			var lng = $(this).data("lng");
-			//var address = $(this).data("address");
-			//var venueLatLng;
-			
-			coordinates.push([venueID, [lat, lng]]);
-		}
+		var venue = this;
+		//console.log(this);
+		var venueID = venue.id;
+		//var title = $(this).data("title");
+		var lat = $(this).data("lat");
+		var lng = $(this).data("lng");
+		//var address = $(this).data("address");
+		//var venueLatLng;
+		
+		coordinates.push([venueID, [lat, lng]]);
 	});	
 
-     var markers = new Array();
+    var markers = new Array();
      
 
-     for (var i = 0; i < coordinates.length; i++){
+	 for (var i = 0; i < coordinates.length; i++){
+     	marker = new google.maps.Marker({
+			position: new google.maps.LatLng(coordinates[i][1][0], coordinates[i][1][1]),
+	    	map: map,
+	    	draggable: false,
+	    	clickable: true,
+			animation: google.maps.Animation.DROP,
+	    	title: coordinates[i][0] 	 
+		}); 
 
-	     marker = new google.maps.Marker({
-    		 position: new google.maps.LatLng(coordinates[i][1][0], coordinates[i][1][1]),
-    		 map: map,
-    		 draggable: false,
-    		 clickable: true,
-			 animation: google.maps.Animation.DROP,
-    		 title: coordinates[i][0] 
-	       	 
-		  }); 
+        markers.push(marker); 
 
-        markers.push(marker);
-
-    google.maps.event.addListener(markers[i], 'click', function (mouseEvent) {
-      window.location.href = '/countries/show/'+this.title;
-    });   
-     
-}     
-   
+		google.maps.event.addListener(markers[i], 'click', function (mouseEvent) {
+			window.location.href = 'countries/show/'+this.title;
+		});          
+	}     
+		
     //http://gmaps-samples-v3.googlecode.com/svn/trunk/country_explorer/country_explorer.html
     google.maps.event.addListener(map, 'click', function (mouseEvent) {
       geocoder.geocode(
