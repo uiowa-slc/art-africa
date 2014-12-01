@@ -65,6 +65,6 @@ HtmlEditorConfig::get('cms')->setOption('paste_remove_styles_if_webkit','true');
 HtmlEditorConfig::get('cms')->setOption('paste_strip_class_attributes','true');
 
 // log errors and warnings
-//SS_Log::add_writer(new SS_LogEmailWriter('dustin-quam@uiowa.edu'), SS_Log::WARN, '<=');
+SS_Log::add_writer(new SS_LogEmailWriter('dustin-quam@uiowa.edu'), SS_Log::WARN, '<=');
 // or just errors
-//SS_Log::add_writer(new SS_LogEmailWriter('dustin-quam@uiowa.edu'), SS_Log::ERR);
+SS_Log::add_writer(new SS_LogEmailWriter('dustin-quam@uiowa.edu'), SS_Log::ERR);
