@@ -221,7 +221,7 @@
               <div class="span4">
                 <div>
                 <p>
-                <a href="http://uima.uiowa.edu" target="_blank"><img src="{$ThemeDir}/images/UIMA-newlogo-black.png" class="uima-logo"></a>
+                <a href="http://uima.uiowa.edu" target="_blank"><img src="{$ThemeDir}/images/UIMA-newlogo-black.png" alt="University of Iowa Museum of Art" class="uima-logo"></a>
                 </p>
                 <p>
                   Administrative Offices: <br />
@@ -239,13 +239,13 @@
         
                 <p style="margin-top: 2rem">
                   <a class="img-link" target="_blank" href="https://www.facebook.com/UIMuseumofArt">
-                    <img width="42" src="{$ThemeDir}/images/facebook-icon.png" style="margin-right: 0.5rem">
+                    <img width="42" src="{$ThemeDir}/images/facebook-icon.png" alt="Facebook" style="margin-right: 0.5rem">
                   </a>
                   <a class="img-link" target="_blank" href="https://twitter.com/UIMuseumofArt">
-                    <img width="42" src="{$ThemeDir}/images/twitter-icon.png" style="margin-right: 0.5rem">
+                    <img width="42" src="{$ThemeDir}/images/twitter-icon.png" alt="Twitter" style="margin-right: 0.5rem">
                   </a>
                   <a class="img-link" target="_blank" href="http://www.youtube.com/user/UIMAartmatters">
-                    <img width="42" src="{$ThemeDir}/images/youtube-icon.png">
+                    <img width="42" src="{$ThemeDir}/images/youtube-icon.png" alt="Youtube">
                   </a>
                 </p>
                 <ul>

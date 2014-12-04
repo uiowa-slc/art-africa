@@ -55,23 +55,23 @@
         </div>
       </div>
       <div id="homepage-fixed-footer">
-        <a href="http://www.uiowa.edu/" target="_blank"><img src="{$ThemeDir}/images/home/uiowa-logo.png" width="200" style="margin-right: 2rem;position:relative;top:-1rem;"></a>
-       <a href="http://uima.uiowa.edu/" target="_blank"> <img src="{$ThemeDir}/images/home/UIMA-newlogo-white.png" width="160" style="margin-right: 1.125rem;"></a>
+        <a href="http://www.uiowa.edu/" target="_blank"><img src="{$ThemeDir}/images/home/uiowa-logo.png" alt="University of Iowa" width="200" style="margin-right: 2rem;position:relative;top:-1rem;"></a>
+       <a href="http://uima.uiowa.edu/" target="_blank"> <img src="{$ThemeDir}/images/home/UIMA-newlogo-white.png" alt="University of Iowa Museum of Art" width="160" style="margin-right: 1.125rem;"></a>
         <a href="http://www.youtube.com/user/UIMAartmatters" target="_blank" class="img-link">
-          <img width="42" src="{$ThemeDir}/images/home/youtube-icon-white.png" style="margin-right: 0.5rem">
+          <img width="42" src="{$ThemeDir}/images/home/youtube-icon-white.png" alt="Youtube" style="margin-right: 0.5rem">
         </a>
         <a href="https://www.facebook.com/UIMuseumofArt" target="_blank" class="img-link">
-          <img width="42" src="{$ThemeDir}/images/home/facebook-icon-white.png" style="margin-right: 0.5rem">
+          <img width="42" src="{$ThemeDir}/images/home/facebook-icon-white.png" alt="Facebook" style="margin-right: 0.5rem">
         </a>
         <a href="https://twitter.com/UIMuseumofArt" target="_blank" class="img-link">
-          <img width="42" src="{$ThemeDir}/images/home/twitter-icon-white.png">
+          <img width="42" src="{$ThemeDir}/images/home/twitter-icon-white.png" alt="Twitter">
         </a>
       </div>
       <div id="footer">
         <div class="c">
           <div class="col">
             <p>
-              <a href="http://uima.uiowa.edu" target="_blank"><img src="{$ThemeDir}/images/UIMA-newlogo-black.png"></a>
+              <a href="http://uima.uiowa.edu" target="_blank"><img src="{$ThemeDir}/images/UIMA-newlogo-black.png" alt="University of Iowa Museum of Art"></a>
             </p>
             <p>
               1375 Highway One West<br>
@@ -85,13 +85,13 @@
             <p style="margin-top: 2rem">
 
               <a href="#" class="img-link">
-                <img width="42" src="{$ThemeDir}/images/facebook-icon.png" style="margin-right: 0.5rem">
+                <img width="42" src="{$ThemeDir}/images/facebook-icon.png" alt="facebook" style="margin-right: 0.5rem">
               </a>
               <a href="#" class="img-link">
-                <img width="42" src="{$ThemeDir}/images/twitter-icon.png">
+                <img width="42" src="{$ThemeDir}/images/twitter-icon.png" alt="twitter">
               </a>
               <a href="http://www.youtube.com/user/UIMAartmatters" target="_blank" class="img-link">
-                <img width="42" src="{$ThemeDir}/images/youtube-icon.png" style="margin-right: 0.5rem">
+                <img width="42" src="{$ThemeDir}/images/youtube-icon.png" alt="Youtube" style="margin-right: 0.5rem">
               </a>
             </p>
             <ul>
