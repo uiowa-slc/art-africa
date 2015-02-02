@@ -62,6 +62,7 @@ HtmlEditorConfig::get('cms')->setOption('paste_remove_styles', 'true');
 HtmlEditorConfig::get('cms')->setOption('paste_remove_styles_if_webkit', 'true');
 HtmlEditorConfig::get('cms')->setOption('paste_strip_class_attributes', 'true');
 Email::setAdminEmail("dustin-quam@uiowa.edu");
+
 // log errors and warnings
 SS_Log::add_writer(new SS_LogEmailWriter('dustin-quam@uiowa.edu'), SS_Log::WARN, '<=');
 // or just errors
