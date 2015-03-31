@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/colymba/GridFieldBulkEditingTools.git",
-                "reference": "9592fa05615b0f3de8e093573690674469a67a86"
+                "reference": "f1035f06a3703ad3ad6c2f978e157d9e13755500"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/colymba/GridFieldBulkEditingTools/zipball/9592fa05615b0f3de8e093573690674469a67a86",
-                "reference": "9592fa05615b0f3de8e093573690674469a67a86",
+                "url": "https://api.github.com/repos/colymba/GridFieldBulkEditingTools/zipball/f1035f06a3703ad3ad6c2f978e157d9e13755500",
+                "reference": "f1035f06a3703ad3ad6c2f978e157d9e13755500",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 "gridfield bulk upload",
                 "silverstripe"
             ],
-            "time": "2014-11-21 09:01:02"
+            "time": "2015-03-15 17:13:57"
         },
         {
             "name": "composer/installers",
@@ -54,12 +54,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db"
+                "reference": "f8c20b427de1cfe7a28a015c1640ce4e4eef1e33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/89d77bfbee79e16653f7162c86e602cc188471db",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db",
+                "url": "https://api.github.com/repos/composer/installers/zipball/f8c20b427de1cfe7a28a015c1640ce4e4eef1e33",
+                "reference": "f8c20b427de1cfe7a28a015c1640ce4e4eef1e33",
                 "shasum": ""
             },
             "replace": {
@@ -101,9 +101,11 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
+                "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
+                "aimeos",
                 "annotatecms",
                 "bitrix",
                 "cakephp",
@@ -139,7 +141,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-11-29 01:29:17"
+            "time": "2015-03-26 16:11:30"
         },
         {
             "name": "jonom/focuspoint",
@@ -147,12 +149,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonom/silverstripe-focuspoint.git",
-                "reference": "6769333e8789c6ab87a28e0a5d4c738bbb40cc90"
+                "reference": "cc6bfdac821f79280046814fb033a4c9766a0da8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonom/silverstripe-focuspoint/zipball/6769333e8789c6ab87a28e0a5d4c738bbb40cc90",
-                "reference": "6769333e8789c6ab87a28e0a5d4c738bbb40cc90",
+                "url": "https://api.github.com/repos/jonom/silverstripe-focuspoint/zipball/cc6bfdac821f79280046814fb033a4c9766a0da8",
+                "reference": "cc6bfdac821f79280046814fb033a4c9766a0da8",
                 "shasum": ""
             },
             "require": {
@@ -178,7 +180,7 @@
                 "image",
                 "silverstripe"
             ],
-            "time": "2014-12-18 04:05:56"
+            "time": "2015-03-23 19:08:48"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -318,12 +320,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-labs/silverstripe-fulltextsearch.git",
-                "reference": "79eb6636381b80b834abd074996cc7e67affa6a6"
+                "reference": "ff62c2b9302d5fb94790969e5b2fd9a81b343b93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-fulltextsearch/zipball/79eb6636381b80b834abd074996cc7e67affa6a6",
-                "reference": "79eb6636381b80b834abd074996cc7e67affa6a6",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-fulltextsearch/zipball/ff62c2b9302d5fb94790969e5b2fd9a81b343b93",
+                "reference": "ff62c2b9302d5fb94790969e5b2fd9a81b343b93",
                 "shasum": ""
             },
             "require": {
@@ -351,7 +353,7 @@
                 "solr",
                 "sphinx"
             ],
-            "time": "2015-01-06 03:47:14"
+            "time": "2015-02-20 20:40:56"
         },
         {
             "name": "silverstripe/googlesitemaps",
@@ -359,12 +361,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-labs/silverstripe-googlesitemaps.git",
-                "reference": "d3a12fe225b6ca58423618bb6553474e4cf9b88d"
+                "reference": "092b2e10ae2e1e5c9df7e0d83ee9600c53091848"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-googlesitemaps/zipball/d3a12fe225b6ca58423618bb6553474e4cf9b88d",
-                "reference": "d3a12fe225b6ca58423618bb6553474e4cf9b88d",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-googlesitemaps/zipball/092b2e10ae2e1e5c9df7e0d83ee9600c53091848",
+                "reference": "092b2e10ae2e1e5c9df7e0d83ee9600c53091848",
                 "shasum": ""
             },
             "require": {
@@ -388,7 +390,7 @@
                 "seo",
                 "silverstripe"
             ],
-            "time": "2014-11-11 03:46:45"
+            "time": "2015-03-13 23:26:00"
         },
         {
             "name": "simonwelsh/gridfieldrelationhandler",
@@ -427,12 +429,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/unclecheese/silverstripe-gridfield-betterbuttons.git",
-                "reference": "595dffde1ba402e802cd7786512f788d1c661627"
+                "reference": "ba7e5d19ddf774de05da6c33af76fdb76b49cc00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/595dffde1ba402e802cd7786512f788d1c661627",
-                "reference": "595dffde1ba402e802cd7786512f788d1c661627",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-gridfield-betterbuttons/zipball/ba7e5d19ddf774de05da6c33af76fdb76b49cc00",
+                "reference": "ba7e5d19ddf774de05da6c33af76fdb76b49cc00",
                 "shasum": ""
             },
             "require": {
@@ -455,7 +457,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2014-11-22 10:29:29"
+            "time": "2015-02-24 21:00:10"
         },
         {
             "name": "undefinedoffset/sortablegridfield",
@@ -463,12 +465,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UndefinedOffset/SortableGridField.git",
-                "reference": "946ca8dc9b32a039f9bcedc774af96dd3871c758"
+                "reference": "3e9b1b6e2e1111f636ca5b641135394538d75e57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UndefinedOffset/SortableGridField/zipball/946ca8dc9b32a039f9bcedc774af96dd3871c758",
-                "reference": "946ca8dc9b32a039f9bcedc774af96dd3871c758",
+                "url": "https://api.github.com/repos/UndefinedOffset/SortableGridField/zipball/3e9b1b6e2e1111f636ca5b641135394538d75e57",
+                "reference": "3e9b1b6e2e1111f636ca5b641135394538d75e57",
                 "shasum": ""
             },
             "require": {
@@ -495,7 +497,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2014-10-27 13:14:05"
+            "time": "2015-02-11 13:29:12"
         }
     ],
     "packages-dev": [],
