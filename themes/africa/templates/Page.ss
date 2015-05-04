@@ -19,7 +19,7 @@
      <link rel="stylesheet" href="{$ThemeDir}/css/ie.css" /> 
 <![endif]-->
     <div id="view" class="$ClassName $Action">
-      <div class="top-link"><a href="#"><% if $Action == "SearchForm" %>Search Results<% else %>$Title<% end_if %> &#8593;</a></div>
+      <div class="top-link"><a href="#">Top &#8593;</a></div>
       <div id="top">
         <div class="hamburger m" data-toggle=".nav1" onclick="void(0)">
           <div></div>
@@ -225,12 +225,13 @@
                 </p>
                 <p>
                   Administrative Offices: <br />
-                  1375 Highway One West<br>
-                  1840 Studio Arts Building<br>
-                  Iowa City, IA 52242<br>
+                  1375 Highway One West<br />
+                  1840 Studio Arts Building<br />
+                  Iowa City, IA 52242<br />
                   <a href="http://uima.uiowa.edu/visit-us/" target="_blank">View Museum Locations</a><br />
-                  Telephone (319) 335-1727<br>
-                  Fax (319) 335-3677
+                  Telephone (319) 335-1727<br />
+                  Fax (319) 335-3677<br />
+                  <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a>
                 </p>
                 </div>
               </div>
