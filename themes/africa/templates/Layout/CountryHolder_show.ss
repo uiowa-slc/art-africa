@@ -9,7 +9,7 @@
 			<!--$Picture -->
 			<div class="row-fluid">
 				<section class="country-info-container span6">
-					<h2>Basic Info</h2>
+					<h2>Info</h2>
 					<% if CapitalCity %>
 						<h3>Capital</h3>
 						<p>$CapitalCity</p>
