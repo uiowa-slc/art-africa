@@ -583,6 +583,11 @@ table td p, .table td p, .peoples-table td p {
   z-index: 2;
 }
 
+.isotope-item p{
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
 .isotope-hidden.isotope-item {
   pointer-events: none;
   z-index: 1;
