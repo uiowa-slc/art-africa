@@ -64,5 +64,5 @@ HtmlEditorConfig::get('cms')->setOption('paste_strip_class_attributes', 'true');
 Email::setAdminEmail("dustin-quam@uiowa.edu");
 
 if(Director::isLive()) {
-	Director::forceSSL(array('/^Security/','/^admin/'));
+	Director::forceSSL();
 }
