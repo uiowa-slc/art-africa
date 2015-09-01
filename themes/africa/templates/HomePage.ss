@@ -8,7 +8,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
     <link rel="icon" type="image/png" href="{$BaseHref}{$ThemeDir}/images/logo.png">
     $MetaTags(false)
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="google-site-verification" content="EOeMxKdPKJbyFVnHKzi6c7yBXm64S-Kun7cOOgK6oOw" />
   </head>
