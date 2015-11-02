@@ -22,7 +22,6 @@ class HomePage extends Page {
 		$fields = parent::getCMSFields();
 
 		$gridFieldConfigFieldPhotos= GridFieldConfig_RelationEditor::create(); 
-		$gridFieldConfigFieldPhotos->addComponent(new GridFieldManyRelationHandler());
 		$gridFieldConfigFieldPhotos->addComponent(new GridFieldSortableRows('PicNo'));
 		$gridFieldConfigFieldPhotos->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('CreditLine', 'PageLink'));
 

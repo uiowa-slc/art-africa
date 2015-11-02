@@ -162,9 +162,9 @@ class ImageExtension extends DataExtension {
     $width = $this->owner->getWidth();
 
     if ( $this->Landscape() ) {
-      return $this->owner->SetWidth( 1000 );
+      return $this->owner->ScaleWidth( 1000 );
     } elseif ( $this->Portrait() && $width >= 300 ) {
-      return $this->owner->SetWidth( 300 );
+      return $this->owner->ScaleWidth( 300 );
     } else {
       return $this->owner;
     }
@@ -183,7 +183,7 @@ class ImageExtension extends DataExtension {
 
     }else {
 
-      $scaledImage = $image->SetRatioSize( 1000, 1000 );
+      $scaledImage = $image->Fit( 1000, 1000 );
       return $scaledImage;
     }
 
