@@ -109,9 +109,9 @@
 					<% loop Essay %>
 						<tr>
 							<% if Name %>
-								<td><a href="{$Link}">$Name</a></td>
+								<td><a href="{$Link(false)}">$Name</a></td>
 							<% else_if Title %>
-								<td><a href="{$Link}">$Title</a></td>
+								<td><a href="{$Link(false)}">$Title</a></td>
 							<% end_if %>
 						
 								<td>$AuthorFirstName $AuthorLastName</td>
@@ -136,9 +136,9 @@
 					<% loop Country %>
 						<tr>
 							<% if Name %>
-								<td><a href="{$Link}">$Name</a></td>
+								<td><a href="{$Link(false)}">$Name</a></td>
 							<% else_if Title %>
-								<td><a href="{$Link}">$Title</a></td>
+								<td><a href="{$Link(false)}">$Title</a></td>
 							<% end_if %>
 								<td>$CapitalCity</td>
 								<td>$Population</td>
