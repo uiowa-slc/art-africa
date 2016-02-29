@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c0c5e7fc2451d476c367e10eb8122c7b",
-    "content-hash": "e1b988e138b6d3f1c05a14557a9ab61c",
+    "hash": "2c21271771d4bd64904c51d07df0cbaf",
+    "content-hash": "69177863d12fc36e8466a45276b14b26",
     "packages": [
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -55,12 +55,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e"
+                "reference": "b3d1f3125a77af66d2bfd934c775150e4c9aecc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/6213d900e92647831f7a406d5c530ea1f3d4360e",
-                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e",
+                "url": "https://api.github.com/repos/composer/installers/zipball/b3d1f3125a77af66d2bfd934c775150e4c9aecc3",
+                "reference": "b3d1f3125a77af66d2bfd934c775150e4c9aecc3",
                 "shasum": ""
             },
             "require": {
@@ -145,7 +145,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-01-27 12:54:22"
+            "time": "2016-02-27 14:38:36"
         },
         {
             "name": "jonom/focuspoint",
@@ -349,16 +349,16 @@
         },
         {
             "name": "silverstripe/cms",
-            "version": "3.1.17",
+            "version": "3.1.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-cms.git",
-                "reference": "4c3761f42c526b3105dea61bccd33b8166326a27"
+                "reference": "e6f9e71a0fc6620d765689da24202b0d2269a895"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/4c3761f42c526b3105dea61bccd33b8166326a27",
-                "reference": "4c3761f42c526b3105dea61bccd33b8166326a27",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-cms/zipball/e6f9e71a0fc6620d765689da24202b0d2269a895",
+                "reference": "e6f9e71a0fc6620d765689da24202b0d2269a895",
                 "shasum": ""
             },
             "require": {
@@ -392,20 +392,20 @@
                 "cms",
                 "silverstripe"
             ],
-            "time": "2016-02-24 02:20:40"
+            "time": "2016-02-29 01:57:30"
         },
         {
             "name": "silverstripe/framework",
-            "version": "3.1.17",
+            "version": "3.1.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "1fe7d029db06723a86e400cfd035cecf21c9ed59"
+                "reference": "2147205dc155e87c336c7f66063d2b089cff7816"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/1fe7d029db06723a86e400cfd035cecf21c9ed59",
-                "reference": "1fe7d029db06723a86e400cfd035cecf21c9ed59",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/2147205dc155e87c336c7f66063d2b089cff7816",
+                "reference": "2147205dc155e87c336c7f66063d2b089cff7816",
                 "shasum": ""
             },
             "require": {
@@ -441,7 +441,7 @@
                 "framework",
                 "silverstripe"
             ],
-            "time": "2016-02-24 02:31:12"
+            "time": "2016-02-29 02:10:05"
         },
         {
             "name": "silverstripe/fulltextsearch",
@@ -499,12 +499,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-labs/silverstripe-googlesitemaps.git",
-                "reference": "99282db32a206aff41ed6b4985f77705655a71f9"
+                "reference": "b7da114f9943747138af3cbe97f6ba5abb902dc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-googlesitemaps/zipball/99282db32a206aff41ed6b4985f77705655a71f9",
-                "reference": "99282db32a206aff41ed6b4985f77705655a71f9",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-googlesitemaps/zipball/b7da114f9943747138af3cbe97f6ba5abb902dc1",
+                "reference": "b7da114f9943747138af3cbe97f6ba5abb902dc1",
                 "shasum": ""
             },
             "require": {
@@ -528,7 +528,7 @@
                 "seo",
                 "silverstripe"
             ],
-            "time": "2016-02-15 23:14:32"
+            "time": "2016-02-26 10:41:03"
         },
         {
             "name": "simonwelsh/gridfieldrelationhandler",
@@ -642,6 +642,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "silverstripe/cms": 0,
+        "silverstripe/framework": 0,
         "silverstripe/googlesitemaps": 20
     },
     "prefer-stable": false,
