@@ -55,12 +55,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e"
+                "reference": "b3d1f3125a77af66d2bfd934c775150e4c9aecc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/6213d900e92647831f7a406d5c530ea1f3d4360e",
-                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e",
+                "url": "https://api.github.com/repos/composer/installers/zipball/b3d1f3125a77af66d2bfd934c775150e4c9aecc3",
+                "reference": "b3d1f3125a77af66d2bfd934c775150e4c9aecc3",
                 "shasum": ""
             },
             "require": {
@@ -145,7 +145,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-01-27 12:54:22"
+            "time": "2016-02-27 14:38:36"
         },
         {
             "name": "jonom/focuspoint",
@@ -499,12 +499,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe-labs/silverstripe-googlesitemaps.git",
-                "reference": "99282db32a206aff41ed6b4985f77705655a71f9"
+                "reference": "b7da114f9943747138af3cbe97f6ba5abb902dc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-googlesitemaps/zipball/99282db32a206aff41ed6b4985f77705655a71f9",
-                "reference": "99282db32a206aff41ed6b4985f77705655a71f9",
+                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-googlesitemaps/zipball/b7da114f9943747138af3cbe97f6ba5abb902dc1",
+                "reference": "b7da114f9943747138af3cbe97f6ba5abb902dc1",
                 "shasum": ""
             },
             "require": {
@@ -528,7 +528,7 @@
                 "seo",
                 "silverstripe"
             ],
-            "time": "2016-02-15 23:14:32"
+            "time": "2016-02-26 10:41:03"
         },
         {
             "name": "simonwelsh/gridfieldrelationhandler",
