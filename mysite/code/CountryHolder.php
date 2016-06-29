@@ -11,11 +11,11 @@ class CountryHolder extends Page {
 
   );
   
-  private static $allowed_children = array("Country");
+  //private static $allowed_children = array("Country");
 
   private static $belongs_many_many = array();
   
-  public $holds = "Country";
+  //public $holds = "Country";
 
   public function getCMSFields() {
  		$fields = parent::getCMSFields();

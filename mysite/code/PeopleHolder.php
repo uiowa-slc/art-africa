@@ -12,7 +12,7 @@ class PeopleHolder extends Page {
 
   );
   
-  private static $allowed_children = array("People");
+  //private static $allowed_children = array("People");
   
   private static $belongs_many_many = array();
   

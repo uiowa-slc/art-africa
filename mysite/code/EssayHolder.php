@@ -9,7 +9,7 @@ class EssayHolder extends Page {
 
   );
   private static $belongs_many_many = array();
-  private static $allowed_children = array("Essay");
+  //private static $allowed_children = array("Essay");
   
 
  // tidy up the CMS by not showing these fields

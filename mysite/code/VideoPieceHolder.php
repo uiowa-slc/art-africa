@@ -11,7 +11,7 @@ class VideoPieceHolder extends MediaHolder {
 
   );
   
-  private static $allowed_children = array("AudioPiece", "VideoPiece");
+  // private static $allowed_children = array("AudioPiece", "VideoPiece");
   
   private static $belongs_many_many = array();
   
