@@ -22,3 +22,6 @@ themes/africa/_combinedfiles/allcombined.js
 themes/africa/_combinedfiles/combinedCSS.css
 themes/africa/_combinedfiles/combinedCSS.css
 deploy.php
+siteconfig/
+
+reports/
