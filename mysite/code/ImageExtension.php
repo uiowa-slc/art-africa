@@ -12,7 +12,6 @@ class ImageExtension extends DataExtension {
     'CreditLine' => 'HTMLText',
     'Caption' => 'HTMLText',
     'Tags' => 'Text',
-
     'Type' => "Enum('Image, ArtPhoto, FieldPhoto', 'Image')",
 
     'AccessionNumber' => 'Text',
@@ -37,6 +36,8 @@ class ImageExtension extends DataExtension {
     'Essays' => 'Essay',
     'AudioPieces' => 'AudioPiece',
     'VideoPieces' => 'VideoPiece',
+    'Museums' => 'Museum',
+
   );
 
   private static $belongs_many_many = array(
@@ -44,7 +45,7 @@ class ImageExtension extends DataExtension {
     'Essays' => 'Essay',
     'Countries' => 'Country',
     'Subtopics' => 'Subtopic',
-    'Chapters' => 'Chapter'
+    'Chapters' => 'Chapter',
 
   );
 
@@ -95,6 +96,10 @@ class ImageExtension extends DataExtension {
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Function', 'Function' ) );
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Style', 'Style' ) );
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Substyle', 'Substyle' ) );
+
+      $tagField = TagField::create('Museums', 'Museums', Museum::get(), $this->owner->Tags)->setShouldLazyLoad(true);
+      $fields->addFieldToTab('Root.Main', $tagField);
+
 
     }else {
       $fields->addFieldToTab( 'Root.Main', new LabelField( 'ParentImage', 'This image is an alternate/better quality version of'.$parentImage->Title ) );
