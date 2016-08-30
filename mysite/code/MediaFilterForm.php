@@ -7,7 +7,8 @@ class MediaFilterForm extends Form {
               "People" => "",
               "Chapter" => "",
               "Subtopic" => "",
-              "Type" => ""
+              "Type" => "",
+              "Museum" => ""
             )) {
             
         $audioPieces = AudioPiece::get()->First();
@@ -20,7 +21,8 @@ class MediaFilterForm extends Form {
         $fields = new FieldList(
             DropdownField::create("Country", "Countries", Country::get()->map('ID','Title'), $filters['Country'])->setEmptyString('Any Country'),
             DropdownField::create("People", "Peoples", People::get()->map('ID','Title'), $filters['People'])->setEmptyString('Any People'),
-            DropdownField::create("Chapter", "Chapters", Chapter::get()->map('ID','Title'), $filters['Chapter'])->setEmptyString('Any Chapter'),                
+            DropdownField::create("Chapter", "Chapters", Chapter::get()->map('ID','Title'), $filters['Chapter'])->setEmptyString('Any Chapter'),
+            DropdownField::create("Museum", "Museums", Museum::get()->map('ID','Title'), $filters['Museum'])->setEmptyString('Any Museum'),                                
             DropdownField::create("MediaType", "MediaType", $mediaFormTypes, $filters['MediaType'])
         );
         $actions = new FieldList(FormAction::create("", "Use Filter"));

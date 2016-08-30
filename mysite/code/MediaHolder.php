@@ -109,7 +109,9 @@ class MediaHolder_Controller extends Page_Controller {
 		if($filters['Subtopic'] != ''){
 			$results = $results->filter((array('Subtopics.ID' => $filters['Subtopic'])));
 		}
-
+		if($filters['Museum'] != ''){
+			$results = $results->filter((array('Museums.ID' => $filters['Museum'])));
+		}
 
 		//$results = $results->sort('RAND()');
 
@@ -129,7 +131,8 @@ class MediaHolder_Controller extends Page_Controller {
 			"People" => "",
 			"Subtopic" => "",
 			"Chapter" => "",
-			'MediaType' => ""
+			'MediaType' => "",
+			"Museum" => ""
 			);
 
 		foreach($getVars as $key=>$value){

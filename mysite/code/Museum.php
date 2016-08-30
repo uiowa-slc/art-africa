@@ -11,7 +11,10 @@ class Museum extends DataObject {
   
   
   private static $belongs_many_many = array(
-  'Images' => 'Image'
+    'Subtopics' => 'Subtopic',
+    'Images' => 'Image'
+
+
   );
   
   private static $plural_name = "Museums";
