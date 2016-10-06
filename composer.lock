@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7118305632f4c42102720e63c95bacf1",
-    "content-hash": "dc6aaa86114aa1428bf4844371b919fb",
+    "hash": "31e763b804ff08d2639f835714c66cfd",
+    "content-hash": "e5653db3cb70e76252fb8b4601b372a7",
     "packages": [
         {
             "name": "colymba/gridfield-bulk-editing-tools",
@@ -51,7 +51,7 @@
         },
         {
             "name": "composer/installers",
-            "version": "dev-master",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
@@ -201,12 +201,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "7f135e9ed0d5c3b6102f3df5d5fd258c6b746afc"
+                "reference": "214b8ef34b17ed0fcd3a5e027ef5a9ae9ebeb193"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/7f135e9ed0d5c3b6102f3df5d5fd258c6b746afc",
-                "reference": "7f135e9ed0d5c3b6102f3df5d5fd258c6b746afc",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/214b8ef34b17ed0fcd3a5e027ef5a9ae9ebeb193",
+                "reference": "214b8ef34b17ed0fcd3a5e027ef5a9ae9ebeb193",
                 "shasum": ""
             },
             "require": {
@@ -271,7 +271,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-09-29 07:29:30"
+            "time": "2016-10-03 18:31:30"
         },
         {
             "name": "psr/log",
@@ -465,12 +465,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-fulltextsearch.git",
-                "reference": "695280e91e266977306980112759382a0e81943c"
+                "reference": "c5c98cb4424751f6ef011314957338b5d8b7ed98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-fulltextsearch/zipball/695280e91e266977306980112759382a0e81943c",
-                "reference": "695280e91e266977306980112759382a0e81943c",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-fulltextsearch/zipball/c5c98cb4424751f6ef011314957338b5d8b7ed98",
+                "reference": "c5c98cb4424751f6ef011314957338b5d8b7ed98",
                 "shasum": ""
             },
             "require": {
@@ -512,29 +512,32 @@
                 "solr",
                 "sphinx"
             ],
-            "time": "2016-09-11 23:38:52"
+            "time": "2016-10-04 11:03:46"
         },
         {
             "name": "silverstripe/googlesitemaps",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silverstripe-labs/silverstripe-googlesitemaps.git",
-                "reference": "bb7fbb8308e5d0c5bd39d557e1d1df7397044df3"
+                "url": "https://github.com/wilr/silverstripe-googlesitemaps.git",
+                "reference": "930fd7f9ac96450d9758d32c87d4d21e5dca73a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe-labs/silverstripe-googlesitemaps/zipball/bb7fbb8308e5d0c5bd39d557e1d1df7397044df3",
-                "reference": "bb7fbb8308e5d0c5bd39d557e1d1df7397044df3",
+                "url": "https://api.github.com/repos/wilr/silverstripe-googlesitemaps/zipball/930fd7f9ac96450d9758d32c87d4d21e5dca73a7",
+                "reference": "930fd7f9ac96450d9758d32c87d4d21e5dca73a7",
                 "shasum": ""
             },
             "require": {
                 "silverstripe/framework": "~3.1"
             },
             "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "googlesitemaps"
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
@@ -542,14 +545,14 @@
                     "email": "will@fullscreen.io"
                 }
             ],
-            "description": "SilverStripe support for the Google Sitemaps XML system, enabling Google and other search engines to see all urls on your site. This helps your SilverStripe website rank well in search engines, and to encourage the information on your site to be discovered by Google quickly.",
-            "homepage": "https://github.com/silverstripe-labs/silverstripe-googlesitemaps",
+            "description": "SilverStripe support for the Google Sitemaps XML, enabling Google and other search engines to see all urls on your site. This helps your SilverStripe website rank well in search engines, and to encourage the information on your site to be discovered quickly.",
+            "homepage": "https://github.com/wilr/silverstripe-googlesitemaps",
             "keywords": [
                 "googlesitemaps",
                 "seo",
                 "silverstripe"
             ],
-            "time": "2016-06-29 20:46:15"
+            "time": "2016-09-26 17:43:00"
         },
         {
             "name": "silverstripe/reports",
@@ -645,6 +648,48 @@
             "time": "2016-08-15 07:05:29"
         },
         {
+            "name": "silverstripe/tagfield",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-tagfield.git",
+                "reference": "00c950eecf07ec279240445a450fd10caa52a31f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-tagfield/zipball/00c950eecf07ec279240445a450fd10caa52a31f",
+                "reference": "00c950eecf07ec279240445a450fd10caa52a31f",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher Pitt",
+                    "email": "chris@silverstripe.com",
+                    "homepage": "http://github.com/assertchris"
+                }
+            ],
+            "description": "Tag field for Silverstripe",
+            "keywords": [
+                "field",
+                "silverstripe",
+                "tag"
+            ],
+            "time": "2016-08-22 09:56:00"
+        },
+        {
             "name": "unclecheese/betterbuttons",
             "version": "dev-master",
             "source": {
@@ -679,6 +724,47 @@
                 "silverstripe"
             ],
             "time": "2016-09-16 00:03:03"
+        },
+        {
+            "name": "unclecheese/bootstrap-forms",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unclecheese/silverstripe-bootstrap-forms.git",
+                "reference": "05e7829c895deed54e8281d4129f71985ae73fd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-bootstrap-forms/zipball/05e7829c895deed54e8281d4129f71985ae73fd1",
+                "reference": "05e7829c895deed54e8281d4129f71985ae73fd1",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "3.*",
+                "silverstripe/framework": "3.*"
+            },
+            "replace": {
+                "silverstripe/bootstrap-forms": "*"
+            },
+            "type": "silverstripe-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Uncle Cheese",
+                    "email": "unclecheese@leftandmain.com"
+                }
+            ],
+            "description": "Allows you to create forms in SilverStripe that are compatible with Twitter Bootstrap.",
+            "keywords": [
+                "Forms",
+                "bootstrap",
+                "silverstripe",
+                "twitter"
+            ],
+            "time": "2016-08-24 23:35:33"
         },
         {
             "name": "undefinedoffset/sortablegridfield",
@@ -727,7 +813,8 @@
     "stability-flags": {
         "silverstripe/cms": 0,
         "silverstripe/framework": 0,
-        "silverstripe/googlesitemaps": 20
+        "silverstripe/googlesitemaps": 20,
+        "unclecheese/bootstrap-forms": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
