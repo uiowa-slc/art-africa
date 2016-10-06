@@ -20,7 +20,8 @@ class Subtopic extends Page {
 		'VideoPieces' => 'VideoPiece',
 		'ArtPhotos' => 'ArtPhoto',
 		'FieldPhotos' => 'FieldPhoto',
-		'Images' => 'Image'
+		'Images' => 'Image',
+		'Museums' => 'Museum'
 	);
 
 	private static $has_many = array( 'EssayPages' => 'EssayPage' );
