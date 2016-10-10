@@ -6,6 +6,12 @@ $project = 'mysite';
 global $database;
 $database = 'africa';
 
+// global $databaseConfig;
+// $databaseConfig = array(
+//     "type" => "MySQLPDODatabase"
+//     // other config settings
+// );
+
 // Use _ss_environment.php file for configuration
 require_once "conf/ConfigureFromEnv.php";
 
