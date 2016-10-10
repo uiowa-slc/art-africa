@@ -1,5 +1,5 @@
 <div class="content-container typography">
-  <article>
+  <article role="main">
     <h1>$Title</h1>
     <% with Parent %>
 		<% if Author %>

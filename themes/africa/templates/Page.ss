@@ -67,8 +67,10 @@
                   <% if Essay %><li><a href="#essays">Essays</a></li><% end_if %>
                   <% if Country %><li><a href="#countries">Countries</a></li><% end_if %>
                   <% if BibliographyPage %><li><a href="#bibliographic">Bibliographic Entries</a></li><% end_if %>
-                  <li><a href="#">Top of the page</a></li>
+                  <li><hr /><a href="#">Top of the page</a></li>
+                  <li><button><a href="media/" class="button">Browse and filter media</a></button></li>
                 </ul>
+
               <% end_if %>
           <ul class="$URLSegment">
             <%-- Search Results --%>

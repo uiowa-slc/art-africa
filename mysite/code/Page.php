@@ -119,6 +119,84 @@ class Page_Controller extends ContentController {
 
 
 
+
+
+
+		/*ADD IN CLASSES TO BE SEARCHED HERE */
+		$siteTreeClasses = array( 'Chapter', 'Subtopic', 'BibliographyPage' ); //add in an classes that extend Page or SiteTree
+		$dataObjectClasses = array( 'Country', 'Essay', 'People', 'Image', 'MediaPiece' ); //add in your DataObjects,
+
+
+		
+
+
+		//Search happens here:
+
+
+
+		$images = Image::get()->filterAny(array(
+		    'Title:PartialMatch' =>  $keyword,
+		    'Caption:PartialMatch' => $keyword,
+		    'Photographer:PartialMatch' => $keyword,
+		    'Description:PartialMatch' => $keyword
+		));
+
+
+		$videoPieces = VideoPiece::get()->filterAny(array(
+		    'Title:PartialMatch' =>  $keyword,
+		    'Caption:PartialMatch' => $keyword,
+		    'Tags:PartialMatch' => $keyword,
+		    'Description:PartialMatch' => $keyword
+		));
+
+		$audioPieces = AudioPiece::get()->filterAny(array(
+		    'Title:PartialMatch' =>  $keyword,
+		    'Caption:PartialMatch' => $keyword,
+		    'Tags:PartialMatch' => $keyword,
+		    'Description:PartialMatch' => $keyword
+		));
+
+		$countries = Country::get()->filterAny(array(
+		    'Title:PartialMatch' =>  $keyword
+		));
+
+		$essays = Essay::get()->filterAny(array(
+		  'AuthorFirstName:PartialMatch' => $keyword,	
+		  'AuthorLastName:PartialMatch' => $keyword,
+		  'Content:PartialMatch' => $keyword,	
+		  'University:PartialMatch' => $keyword,	
+		  'Consultant:PartialMatch' => $keyword,	
+		  'Title:PartialMatch' => $keyword,	
+		  'Tags:PartialMatch' => $keyword
+		));
+
+		$subtopics = Subtopic::get()->filterAny(array(
+			'Title:PartialMatch' => $keyword,
+			'Content:PartialMatch' => $keyword,
+			'Description:PartialMatch' => $keyword,
+			'Tags:PartialMatch' => $keyword,
+		));
+
+		$people = People::get()->filterAny(array(
+		  'Title:PartialMatch' => 'Text',
+		  'AlternateNames:PartialMatch' => 'HTMLText',
+		  'Location:PartialMatch' => 'HTMLText',
+		  'Languages:PartialMatch' => 'HTMLText',
+		  'Population:PartialMatch' => 'HTMLText',
+		  'Neighbors:PartialMatch' => 'HTMLText',
+		  'TypesOfArt:PartialMatch' => 'HTMLText',
+		  'History:PartialMatch' => 'HTMLText',
+		  'Economy:PartialMatch' => 'HTMLText',
+		  'PoliticalSystems:PartialMatch' => 'HTMLText',
+		  'Religion:PartialMatch' => 'HTMLText',
+		  'Tags:PartialMatch' => 'Text'
+		));
+
+		$biblographyPages = BibliographyPage::get()->filterAny(array(
+	  	  'Content:PartialMatch' => 'Text',
+		  'Description' => 'HTMLText',
+
+		));
 		/*THIS ARRAY IS WHAT THE SEARCH TEMPLATE IS CUSTOMISED WITH*/
 		$data = array(
 			'Subtopic' => $subtopics,
@@ -132,172 +210,9 @@ class Page_Controller extends ContentController {
 			'BibliographyPage' =>$biblographyPages 
 		);
 
-
-
-
-		/*ADD IN CLASSES TO BE SEARCHED HERE */
-		$siteTreeClasses = array( 'Chapter', 'Subtopic', 'BibliographyPage' ); //add in an classes that extend Page or SiteTree
-		$dataObjectClasses = array( 'Country', 'Essay', 'People', 'Image', 'MediaPiece' ); //add in your DataObjects,
-
-
-		/*
-
-		NOT IN USE CURRENTLY
-
-		$bibliographyClasses = array('Essay', 'MediaPiece'); //add classes with the Bibliography field
-
-		//When the bibliography check box is checked, only search classes that have the Bibliography field + Essays
-		if ($request->requestVar('Search_Bibliography')) {
-			$siteTreeClasses = array_intersect($bibliographyClasses, $siteTreeClasses);
-			$dataObjectClasses = array_intersect($bibliographyClasses, $dataObjectClasses);
-
-			$bibliographyFlag = true; //bibliography search
-		}
-		*/
-
-
-		$objects = array();
-
-		foreach ( $siteTreeClasses as $c ) {
-			$siteTreeMatch = $this->getItemMatch( $c, $request, $keywordArray, $keywordHTML, 'Title, MenuTitle, ', $bibliographyFlag ); //This function is in Page.php
-			$query = DataList::create( $c )->where( $siteTreeMatch );
-			$query = $query->dataQuery()->query();
-			$query->addSelect( array( 'Relevance' => $siteTreeMatch ) );
-			$records = DB::query( $query->sql() );
-
-			foreach ( $records as $record ) {
-
-				if ( in_array( $record['ClassName'], $siteTreeClasses ) )
-					$objects[] = new $record['ClassName']( $record );
-			}
-
-			$pages->merge( $objects );
-		}
-
-
-		/*
-	     *  DataObjects
-	     */
-
-		foreach ( $dataObjectClasses as $c ) {
-			$dataObjectsItemMatch = $this->getItemMatch( $c, $request, $keywordArray, $keywordHTML, '', $bibliographyFlag ); //This function is in Page.php
-			$query = DataList::create( $c )->where( $dataObjectsItemMatch );
-			$query = $query->dataQuery()->query();
-			$query->addSelect( array( 'Relevance' => $dataObjectsItemMatch ) );
-			$records = DB::query( $query->sql() );
-			foreach ( $records as $record ) $objects[] = new $record['ClassName']( $record );
-			$dataObjects->merge( $objects );
-		}
-
-		/*
-		Objects include results from both pages and data objects
-		Populates data array with results from objects array */
-
-
-
-		//Populates each array (People, Countries and so forth) with the appropriate data
-		foreach ( $objects as $object ) {
-			foreach ( $data as $key=>$value ) {
-				if ( $object->ClassName == $key ) {
-					$value->push( $object );
-				}
-			}
-		}
-
-		$pages->sort( array(
-				'Relevance' => 'DESC',
-				'Title' => 'ASC'
-			) );
-		$dataObjects->sort( array(
-				'Relevance' => 'DESC',
-				'Date' => 'DESC'
-			) );
-
-		if ( $pages->count() == 0
-			&& $dataObjects->count() == 0
-		) {
-			$data['ResultsFound'] = 0;
-		}else {
-			$data['ResultsFound'] = 1;
-		}
-
-
-
 		return $this->customise( $data )->renderWith( array( 'Search', 'Page' ) );
-	}
+		
 
-
-	public function performQuery( $classes, $objects, $request, $keywordArray, $extraFields, $bibliographyFlag = false ) {
-		foreach ( $classes as $c ) {
-			$ItemMatch = $this->getItemMatch( $c, $request, $keywordArray, $keywordHTML, '' ); //This function is in Page.php
-
-			$query = DataList::create( $c )->where( $ItemMatch );
-
-			$query = $query->dataQuery()->query();
-
-
-			$query->addSelect( array( 'Relevance' => $ItemMatch ) );
-
-			$records = DB::query( $query->sql() );
-
-
-			$objects = array();
-			foreach ( $records as $record ) $objects[] = new $record['ClassName']( $record );
-
-			$dataObjects->merge( $objects );
-		}
-
-	}
-
-
-	/*Returns SQL for searching through DataObjects and Pages in the results function*/
-
-	public function getItemMatch( $class, $request, $keywordArray, $keywordHTML, $resultString = '', $bibSearch = false ) {
-
-
-		$fields = DataObject::database_fields( $class );
-
-		// hack for enabling BibliographyPage since database_fields doesn't work correctly on SiteTree things... I think.
-		if($class == "BibliographyPage") {
-			$fields['Content'] = "HTMLText";
-		}
-
-		//Both Art Photo and Field Photo extend from Photo, so if that class is getting searched, get those fields
-
-		if ( ( $class == "Image") ) {
-			$photoFields = DataObject::custom_database_fields( 'Image' );
-			$fields = array_merge( $fields, $photoFields );
-		}
-
-		$count = count( $fields );
-		$iter = 0;
-
-		$resultString = '';
-
-		if ( $fields ) {
-			foreach ( $fields as $fieldValue => $fieldType ) {
-				foreach ( $keywordArray as $keyword ) {
-					$keyword = trim( $keyword );
-					if ( $iter == 0 ) {
-						$resultString = $fieldValue . ' LIKE ' . "'%" . $keyword. "%'";
-						$iter++;
-						continue;
-					}
-
-					if ( $iter != $count ) {
-						$resultString .= ' OR ' . $fieldValue . ' LIKE ' . "'%" . $keyword. "%'";
-
-					}
-					$iter++;
-				}
-			}
-			$resultString .= ' ';
-		}
-
-
-
-		$mode = ' IN BOOLEAN MODE';
-		return $resultString;
 	}
 
 
