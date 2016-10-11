@@ -70,7 +70,8 @@ class Page_Controller extends ContentController {
 			$themeFolder. '/css/bootstrap-tables.css',
 			$themeFolder. '/css/layout.css',
 			$themeFolder. '/css/magnific-popup.css',
-			$themeFolder. '/javascript/mediaelement/build/mediaelementplayer.css'
+			$themeFolder. '/javascript/mediaelement/build/mediaelementplayer.css',
+			$themeFolder. '/font-awesome-4.6.3/css/font-awesome.min.css'
 		);
 
 		Requirements::combine_files( 'allcombined.js', $jsFiles );

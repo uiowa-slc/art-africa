@@ -6,6 +6,14 @@ body {
   background: #181415;
 }
 
+.search-button {
+  background: none;
+  color: #ccc;
+  position: absolute;
+  float: right;
+  right: 15px;
+}
+
 .clearfix {
   clear: both;
 }
