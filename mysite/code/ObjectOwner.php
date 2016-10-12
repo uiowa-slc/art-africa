@@ -1,6 +1,6 @@
 <?php
  
-class Museum extends DataObject {
+class ObjectOwner extends DataObject {
  
   
   private static $db = array(	
@@ -17,7 +17,7 @@ class Museum extends DataObject {
 
   );
   
-  private static $plural_name = "Museums";
+  private static $plural_name = "Object owners";
   
   
  // tidy up the CMS by not showing these fields
