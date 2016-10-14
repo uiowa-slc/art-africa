@@ -17,7 +17,7 @@ class ObjectOwner extends DataObject {
 
   );
   
-  private static $plural_name = "Object owners";
+  private static $plural_name = "Object Owners";
   
   
  // tidy up the CMS by not showing these fields

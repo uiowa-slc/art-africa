@@ -1,6 +1,6 @@
 <div id="quick-links-container">
 	<ul class="quick-links">
-	<li><a href="media/">Clear all filters</a></li>
+	<li><a href="media/"><button class="fa fa-times search-form" type="submit" aria-hidden="true"></button>Clear all filters</a></li>
 </ul>
 <h3>Quick Filters</h3>
 <ul class="quick-links">

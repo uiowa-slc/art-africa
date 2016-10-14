@@ -10,7 +10,7 @@ class MediaFilterForm extends Form
             'Subtopic' => '',
             'MediaType' => '',
             'ObjectType' => '',
-            'Museum' => '',
+            'ObjectOwner' => '',
         )) {
 
         $audioPieces = AudioPiece::get()->First();
@@ -26,7 +26,7 @@ class MediaFilterForm extends Form
             TextField::create('ObjectTitle', 'Object Title')->setAttribute('placeholder', 'Object Title Contains'),
             TextField::create('Photographer', 'Photographer')->setAttribute('placeholder', 'Photographer Contains'),
             DropdownField::create('ObjectType', 'Object Type', ObjectType::get()->map('ID', 'Title'), $filters['ObjectType'])->setEmptyString('Any Object Type'),
-            DropdownField::create('Museum', 'Museums', Museum::get()->map('ID', 'Title'), $filters['Museum'])->setEmptyString('Any Museum'),
+            DropdownField::create('ObjectOwner', 'Object Owner', ObjectOwner::get()->map('ID', 'Title'), $filters['ObjectOwner'])->setEmptyString('Any Object Owner'),
 
             DropdownField::create('MediaType', 'MediaType', $mediaFormTypes, $filters['MediaType']),
             LiteralField::create('MediaFilterSep1', '<hr>'),

@@ -1542,7 +1542,10 @@ li:first-child .zoom-thumbnail {
 .media-filter-form fieldset {
   border: none;
   padding: 0;
+  width: 100%;
   margin: 0;
+  color: white;
+  background-color: #444;
 }
 
 .media-filter-form input.action {
@@ -1603,7 +1606,7 @@ li:first-child .zoom-thumbnail {
   padding: 0;
   margin: 10px 0;
   border-color: #222;
-  background-color: #333;
+  background-color: #444;
 }
 
 #bibliography-results {
