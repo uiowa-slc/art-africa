@@ -36,7 +36,7 @@ class ImageExtension extends DataExtension {
     'Essays' => 'Essay',
     'AudioPieces' => 'AudioPiece',
     'VideoPieces' => 'VideoPiece',
-    'Museums' => 'Museum',
+    'ObjectOwner' => 'ObjectOwner',
 
   );
 
@@ -97,7 +97,7 @@ class ImageExtension extends DataExtension {
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Style', 'Style' ) );
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Substyle', 'Substyle' ) );
 
-      $tagField = TagField::create('Museums', 'Museums', Museum::get(), $this->owner->Tags)->setShouldLazyLoad(true);
+      $tagField = TagField::create('ObjectOwner', 'ObjectOwner', ObjectOwner::get(), $this->owner->Tags)->setShouldLazyLoad(true);
       $fields->addFieldToTab('Root.Main', $tagField);
 
 

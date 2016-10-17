@@ -21,7 +21,7 @@ class Subtopic extends Page {
 		'ArtPhotos' => 'ArtPhoto',
 		'FieldPhotos' => 'FieldPhoto',
 		'Images' => 'Image',
-		'Museums' => 'Museum'
+		'ObjectOwner' => 'ObjectOwner'
 	);
 
 	private static $has_many = array( 'EssayPages' => 'EssayPage' );

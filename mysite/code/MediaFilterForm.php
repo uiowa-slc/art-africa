@@ -23,8 +23,8 @@ class MediaFilterForm extends Form
         
         $fields = new FieldList(
 
-            TextField::create('ObjectTitle', 'Object Title')->setAttribute('placeholder', 'Object Title Contains'),
-            TextField::create('Photographer', 'Photographer')->setAttribute('placeholder', 'Photographer Contains'),
+            TextField::create('ObjectTitle', 'Object Title')->setAttribute('placeholder', 'Object Title Contains')->addExtraClass('contains'),
+            TextField::create('Photographer', 'Photographer')->setAttribute('placeholder', 'Photographer Contains')->addExtraClass('contains'),
             DropdownField::create('ObjectType', 'Object Type', ObjectType::get()->map('ID', 'Title'), $filters['ObjectType'])->setEmptyString('Any Object Type'),
             DropdownField::create('ObjectOwner', 'Object Owner', ObjectOwner::get()->map('ID', 'Title'), $filters['ObjectOwner'])->setEmptyString('Any Object Owner'),
 

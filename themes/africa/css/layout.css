@@ -10,6 +10,10 @@ body {
   width: 100%;
 }
 
+.clear_filters {
+  background-color: #591202;
+}
+
 .search-button {
   background: none;
   color: #ccc;
@@ -156,6 +160,13 @@ img.full-width {
 
 ul {
   list-style-type: square;
+}
+
+.contains {
+  width: 100%;
+  border: none !important;
+  background-color: #222;
+  color: white;
 }
 
 input[type="text"],
