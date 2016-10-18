@@ -11,7 +11,7 @@ body {
 }
 
 .clear_filters {
-  background-color: #591202;
+  background-color: rgb(58, 1, 1);
 }
 
 .search-button {
@@ -134,7 +134,8 @@ button {
 hr {
   border: 0;
   height: 1px;
-  background: #E9E9E9;
+  background: #222;
+  margin: 0;
 }
 
 a:hover,
@@ -180,7 +181,7 @@ input[type="password"] {
 
 input[type="submit"],
 button {
-  background: #591202;
+  background: rgb(58, 1, 1);
   padding: 0.4375rem 1rem;
   color: white;
   border: 0;
@@ -1560,8 +1561,11 @@ li:first-child .zoom-thumbnail {
 }
 
 .media-filter-form input.action {
-  width: 100%;
-  text-align: center;
+  width: 174px;
+  text-align: left;
+  background-color: #591202;
+  margin-top: 15px;
+  margin-left: 18px;
 }
 
 @media (min-width: 480px) {
