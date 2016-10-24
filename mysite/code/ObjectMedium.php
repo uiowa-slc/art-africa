@@ -22,7 +22,7 @@ class ObjectMedium extends DataObject {
   
  		$fields = parent::getCMSFields();
  		
- 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name'));
+ 		$fields->addFieldToTab('Root.Main', new TextField('Title', 'Name (singular noun preferred)'));
  		
 
 		return $fields;	

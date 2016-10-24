@@ -88,8 +88,8 @@ class ImageExtension extends DataExtension {
       $objectMediumField = TagField::create('ObjectMediums', 'Object Medium(s)', ObjectMedium::get(), $this->owner->getManyManyComponents('ObjectMediums'))->setShouldLazyLoad(false);
       $fields->addFieldToTab('Root.Main', $objectMediumField);
 
-      $dateRangeField = DateField::create('StartDate')->setConfig('showcalendar', true);
-      $fields->addFieldToTab('Root.Main', $dateRangeField);
+      // $dateRangeField = DateField::create('StartDate')->setConfig('showcalendar', true);
+      // $fields->addFieldToTab('Root.Main', $dateRangeField);
 
       $descriptionField = HTMLEditorField::create( 'Description', 'Description' )->setRows(3);
       $fields->addFieldToTab( 'Root.Main', $descriptionField );
