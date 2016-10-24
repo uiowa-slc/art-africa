@@ -12,7 +12,6 @@ class ImageExtension extends DataExtension {
     'CreditLine' => 'HTMLText',
     'Caption' => 'HTMLText',
     'Tags' => 'Text',
-
     'Type' => "Enum('Image, ArtPhoto, FieldPhoto', 'Image')",
 
     'AccessionNumber' => 'Text',
@@ -37,6 +36,10 @@ class ImageExtension extends DataExtension {
     'Essays' => 'Essay',
     'AudioPieces' => 'AudioPiece',
     'VideoPieces' => 'VideoPiece',
+    'ObjectOwners' => 'ObjectOwner',
+    'ObjectTypes' => 'ObjectType',
+    'ObjectMediums' => 'ObjectMedium',
+
   );
 
   private static $belongs_many_many = array(
@@ -44,7 +47,7 @@ class ImageExtension extends DataExtension {
     'Essays' => 'Essay',
     'Countries' => 'Country',
     'Subtopics' => 'Subtopic',
-    'Chapters' => 'Chapter'
+    'Chapters' => 'Chapter',
 
   );
 
@@ -61,16 +64,34 @@ class ImageExtension extends DataExtension {
     $fields = $this->owner->addCommonFields( $fields );
     $parentImage = $this->ParentImage();
 
+    $fields->removeByName('OwnerID');
+    $fields->removeByName('OwnerID');
+
+
     if ( !$parentImage ) {
       $fields->addFieldToTab( 'Root.Main', new UploadField( 'AltImage', 'Alternate / Better Quality Image (takes precedence over the image above)' ), 'Name' );
 
 
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Title', 'Name' ) );
       $fields->addFieldToTab( 'Root.Main', new CheckboxField( 'HideFromMediaGrid', 'Hide this image from the media grid.' ) );
-      $captionField = new HTMLEditorField( 'Caption', 'Caption' );
+
+
+      $captionField = HTMLEditorField::create( 'Caption', 'Caption' )->setRows(3);
       $fields->addFieldToTab( 'Root.Main', $captionField );
 
-      $descriptionField = new HTMLEditorField( 'Description', 'Description' );
+      $ownerField = TagField::create('ObjectOwners', 'Object Owner(s)', ObjectOwner::get(), $this->owner->getManyManyComponents('ObjectOwners'))->setShouldLazyLoad(false);
+      $fields->addFieldToTab('Root.Main', $ownerField);
+
+      $objectTypeField = TagField::create('ObjectTypes', 'Object Type(s)', ObjectType::get(), $this->owner->getManyManyComponents('ObjectTypes'))->setShouldLazyLoad(false);
+      $fields->addFieldToTab('Root.Main', $objectTypeField);
+
+      $objectMediumField = TagField::create('ObjectMediums', 'Object Medium(s)', ObjectMedium::get(), $this->owner->getManyManyComponents('ObjectMediums'))->setShouldLazyLoad(false);
+      $fields->addFieldToTab('Root.Main', $objectMediumField);
+
+      $dateRangeField = DateField::create('StartDate')->setConfig('showcalendar', true);
+      $fields->addFieldToTab('Root.Main', $dateRangeField);
+
+      $descriptionField = HTMLEditorField::create( 'Description', 'Description' )->setRows(3);
       $fields->addFieldToTab( 'Root.Main', $descriptionField );
 
       $fields->addFieldToTab( 'Root.Main', new DropdownField( 'Type', 'Type of Image', $this->owner->dbObject( 'Type' )->enumValues() ) );
@@ -79,7 +100,7 @@ class ImageExtension extends DataExtension {
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Date', 'Date' ) );
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Location', 'Location' ) );
 
-      $creditField = new HTMLEditorField( 'CreditLine', 'Credit Line' );
+      $creditField = HTMLEditorField::create( 'CreditLine', 'Credit Line' )->setRows(3);
       $creditField->setRows( 1 );
       $fields->addFieldToTab( 'Root.Main', $creditField );
 
@@ -92,9 +113,15 @@ class ImageExtension extends DataExtension {
 
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Material', 'Material' ) );
       $fields->addFieldToTab( 'Root.Main', new TextField( 'ArtDimensions', 'Dimensions' ) );
-      $fields->addFieldToTab( 'Root.Main', new TextField( 'Function', 'Function' ) );
-      $fields->addFieldToTab( 'Root.Main', new TextField( 'Style', 'Style' ) );
-      $fields->addFieldToTab( 'Root.Main', new TextField( 'Substyle', 'Substyle' ) );
+
+      // Commenting these out to reduce clutter, but may re-add at some point if Cory needs them.
+
+      // $fields->addFieldToTab( 'Root.Main', new TextField( 'Function', 'Function' ) );
+      // $fields->addFieldToTab( 'Root.Main', new TextField( 'Style', 'Style' ) );
+      // $fields->addFieldToTab( 'Root.Main', new TextField( 'Substyle', 'Substyle' ) );
+
+
+
 
     }else {
       $fields->addFieldToTab( 'Root.Main', new LabelField( 'ParentImage', 'This image is an alternate/better quality version of'.$parentImage->Title ) );
@@ -190,12 +217,43 @@ class ImageExtension extends DataExtension {
   }
 
   public function ParentImage() {
+
     $parent = Image::get()->filter( array( "AltImageID"=>$this->owner->ID ) )->first();
+    // Debug::show($parent);
     if ( isset( $parent ) ) {
       return $parent;
     }else {
       return false;
     }
+  }
+
+  public function TitleAttribute(){
+
+    if($this->ParentImage()){
+
+      if($this->ParentImage()->Caption){
+        return $this->ParentImage()->Caption;
+      }elseif($this->ParentImage()->Description){
+        return $this->ParentImage()->Description;
+      }elseif($this->ParentImage()->CreditLine){
+        return $this->ParentImage()->CreditLine;
+      }
+
+    }else{
+
+      if($this->owner->Caption){
+        return $this->owner->Caption ;
+      }elseif($this->owner->Description){
+        return $this->owner->Description;
+      }elseif($this->owner->CreditLine){
+        return $this->owner->CreditLine;
+      }
+
+
+    }
+
+    return "Tap or click the image for more information";
+
   }
 
 

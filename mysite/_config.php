@@ -6,6 +6,12 @@ $project = 'mysite';
 global $database;
 $database = 'africa';
 
+// global $databaseConfig;
+// $databaseConfig = array(
+//     "type" => "MySQLPDODatabase"
+//     // other config settings
+// );
+
 // Use _ss_environment.php file for configuration
 require_once "conf/ConfigureFromEnv.php";
 
@@ -35,12 +41,6 @@ ShortcodeParser::get('default')->register(
 ShortcodeParser::get('default')->register(
 	'Audio', array('Page_Controller', 'audioHandler')
 );
-
-//Extensions
-
-Object::add_extension("DataObject", "AfricaDataObjectExtension");
-Object::add_extension("Image", "ImageExtension");
-Object::add_extension("AssetAdmin", "AssetAdminExtension");
 
 //Enable Search
 

@@ -1,5 +1,5 @@
 
-<div class="content-container typography">	
+<div class="content-container content-container--constrained content-container--centered typography">	
 	<article>
 		<div class="content container-fluid">
 			<p class="top-breadcrumbs">
@@ -22,7 +22,7 @@
 				<% else %>
 					<div class="content description">$Description</div>
 				<% end_if %>
-
+	
 			<% end_with %>
 		
 			<% include SocialShare %>

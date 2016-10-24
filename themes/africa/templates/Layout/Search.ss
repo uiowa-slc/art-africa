@@ -1,20 +1,32 @@
-<div class="content-container typography">	
+<div class="content-container typography">
+	$SearchForm
+	<% if $Query %>
 	<h1> Search Results for '$Query'</h1>
 	<div class="visible-phone">
-<% if $ResultsFound %><p>Jump to: <% if Subtopic %><a href="#subtopics">Subtopics</a> <% end_if %><% if People %><a href="#people">People</a> <% end_if %><% if Essay %><a href="#essays">Essays</a> <% end_if %><% if Country %><a href="#countries">Countries</a> <% end_if %> </p><% end_if %><% if BibliographyPage %><a href="#bibliographic">Bibliographic Entries</a> <% end_if %>
+<% if $ResultsFound %><p>Jump to: <% if Subtopic %><a href="#subtopics">Subtopics ({$Subtopic.Count})</a> <% end_if %><% if People %><a href="#people">People ({$People.Count})</a> <% end_if %><% if Essay %><a href="#essays">Essays ({$Essay.Count})</a> <% end_if %><% if Country %><a href="#countries">Countries ({$Country.Count})</a> <% end_if %> </p><% end_if %><% if BibliographyPage %><a href="#bibliographic">Bibiographic Entries ({$BibliographyPage.Count})</a> <% end_if %>
 	</div>
 	<section class="search-results">
+	
 	<ul id="searchResults">	
 		<%-- $searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'--%>
     <% if Image %>
     	<h2 id="images">Images</h2>
-    	<div class="media-container">
-    	<% loop Image.Limit(150) %>
-	    	<div class="item">
-	    	 <% include MediaGridImage %>
-	    	</div>
-    	<% end_loop %>
-       	</div>		  
+
+		<div class="image-scroller-container">
+		  <ul class="large-image-grid">
+		    <% loop Image.Limit(150) %>
+		    <li>
+		     <% if $AltImage %>
+		      		<img src="{$AltImage.CroppedFocusedImage(650,650).URL}" data-mfp-src="{$AltImage.URL}" class="artPhoto" title="Tap or click for more info." data-mfp-href="{$ShowLink}">
+		     <% else %>
+			  		<img src="{$CroppedFocusedImage(650,650).URL}" data-mfp-src="{$URL}" class="artPhoto" title="Tap or click for more info." data-mfp-href="{$ShowLink}">  
+		     <% end_if %>
+		      <!-- <% if $CurrentMember %><span><a href="#">Edit this image</a></span><% end_if %> -->
+		    </li>
+		    <% end_loop %>
+		  </ul>
+		</div>
+
     <% end_if %>
       <% if VideoPiece %>
     	<h2 id="videos">Videos</h2>
@@ -175,5 +187,8 @@
 		<% end_if %>
 	</ul>		
 	</section>
+	<% else %>
+		<p>Please enter a search term above.</p>
+	<% end_if %>
 </div>
 <% include SideBar %>

@@ -15,7 +15,7 @@
 			  <% if $getPaginatedPages.MoreThanOnePage %>
 			    <div class="pagination">
 			    <% if $getPaginatedPages.NotFirstPage %>
-			        <a class="prev" href="$getPaginatedPages.PrevLink">Prev</a>
+			        <a class="prev" href="$getPaginatedPages.PrevLink"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
 			    <% end_if %>
 			    <% loop $getPaginatedPages.PaginationSummary(7) %>
 			        <% if $CurrentBool %>
@@ -29,7 +29,7 @@
 			        <% end_if %>
 			        <% end_loop %>
 			    <% if $getPaginatedPages.NotLastPage %>
-			        <a class="next" href="$getPaginatedPages.NextLink">Next</a>
+			        <a class="next" href="$getPaginatedPages.NextLink">Next <i class="fa fa-caret-right" aria-hidden="true"></i></a>
 			    <% end_if %>
 					</div>
 				<% end_if %>

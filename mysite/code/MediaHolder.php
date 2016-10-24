@@ -12,7 +12,7 @@ class MediaHolder extends Page {
 
   );
   
-  //private static $allowed_children = array("AudioPiece", "VideoPiece");
+  //private static $allowed_children = array('AudioPiece', 'VideoPiece');
   
   private static $belongs_many_many = array();
   
@@ -21,10 +21,10 @@ class MediaHolder extends Page {
   public function getCMSFields() {
   		
  		$fields = parent::getCMSFields();
-		$fields->removeFieldFromTab("Root.Main","Content");
-		//$fields->addFieldToTab("Root.Main")
-		$content = new HTMLEditorField("Content", "Content -- Use this field to edit the introduction to the audio and video that shows up on the front-end of the site.  Use the Audio and Video pages to edit the photos themselves.");
-		$fields->addFieldToTab("Root.Main", $content);
+		$fields->removeFieldFromTab('Root.Main','Content');
+		//$fields->addFieldToTab('Root.Main')
+		$content = new HTMLEditorField('Content', 'Content -- Use this field to edit the introduction to the audio and video that shows up on the front-end of the site.  Use the Audio and Video pages to edit the photos themselves.');
+		$fields->addFieldToTab('Root.Main', $content);
 		return $fields;	
   }
   
@@ -49,7 +49,7 @@ class MediaHolder_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array ("doFilter", "filters");
+	private static $allowed_actions = array ('doFilter', 'filters');
 	//This function apparently isn't being used.. yet.
 
 
@@ -60,7 +60,7 @@ class MediaHolder_Controller extends Page_Controller {
 
 	public function loadDefaultImageResults(){
 		$results = Image::get()->filter(array('HideFromMediaGrid' => 'false'))->sort('RAND()');
-		$paginatedMediaList = new PaginatedList($results, $this->request);
+		$paginatedMediaList = new PaginatedList($results, $this->getRequest());
 		$paginatedMediaList->setPageLength(20);
 		return $paginatedMediaList;
 
@@ -110,7 +110,23 @@ class MediaHolder_Controller extends Page_Controller {
 			$results = $results->filter((array('Subtopics.ID' => $filters['Subtopic'])));
 		}
 
+		if($filters['ObjectType'] != ''){
+			$results = $results->filter((array('ObjectTypes.ID' => $filters['ObjectType'])));
+		}
+		if($filters['ObjectMedium'] != ''){
+			$results = $results->filter((array('ObjectMediums.ID' => $filters['ObjectMedium'])));
+		}
 
+		if($filters['ObjectOwner'] != ''){
+			$results = $results->filter((array('ObjectOwners.ID' => $filters['ObjectOwner'])));
+		}
+		if($filters['CreditLine'] != ''){
+			$results = $results->filter((array('CreditLine:PartialMatch' => $filters['CreditLine'])));
+		}
+
+		if($filters['Photographer'] != ''){
+			$results = $results->filter((array('Photographer:PartialMatch' => $filters['Photographer'])));
+		}
 		//$results = $results->sort('RAND()');
 
 		//Only paginate images, not other media. 
@@ -125,15 +141,22 @@ class MediaHolder_Controller extends Page_Controller {
 		$getVars = $this->request->getVars();
 
 		$filters = array(
-			"Country" => "",
-			"People" => "",
-			"Subtopic" => "",
-			"Chapter" => "",
-			'MediaType' => ""
+			'Country' => '',
+			'People' => '',
+			'Subtopic' => '',
+			'Chapter' => '',
+			'MediaType' => '',
+			'ObjectType' => '',
+			'Photographer' => '',
+			'ObjectOwner' => '',
+			'CreditLine' => '',
+			'ObjectTitle' => '',
+			'ObjectMedium' => ''
+			
 			);
 
 		foreach($getVars as $key=>$value){
-			$filters[$key] = "".$value;
+			$filters[$key] = ''.$value;
 		}
 
 		return $filters;
@@ -156,7 +179,7 @@ class MediaHolder_Controller extends Page_Controller {
 			$returnList->sort('RAND()');
 			
 			$template = new SSViewer('LoadNewMedia');
-			return $this->customise(array("imageList"=>$returnList))->renderwith('LoadNewMedia');
+			return $this->customise(array('imageList'=>$returnList))->renderwith('LoadNewMedia');
 		}
 		//if ?start is set, but we aren't in an ajax request send the user to the media homepage.
 		elseif(isset($startParam)) {

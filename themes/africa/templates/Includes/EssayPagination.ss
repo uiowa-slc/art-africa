@@ -1,7 +1,7 @@
 <div class="pagination">
 <% if $getPaginatedPages('EssayPages').MoreThanOnePage %>
     <% if $getPaginatedPages('EssayPages').NotFirstPage %>
-      <a class="prev" href="{$getPaginatedPages('EssayPages').PrevLink}">Prev</a>
+      <a class="prev" href="{$getPaginatedPages('EssayPages').PrevLink}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
      <% end_if %>
     <% loop $getPaginatedPages('EssayPages').Pages %>
       <% if $CurrentBool %>
@@ -15,11 +15,11 @@
       <% end_if %>
     <% end_loop %>
     <% if $getPaginatedPages('EssayPages').NotLastPage %>
-      <a class="next" href="{$getPaginatedPages('EssayPages').NextLink}">Next Page</a>
+      <a class="next" href="{$getPaginatedPages('EssayPages').NextLink}">Next Page <i class="fa fa-caret-right" aria-hidden="true"></i></a>
     <% else %>
       <% if $nextPageInTree %>
         <% with $nextPageInTree %>
-          <a href="{$Link}">Next $ClassName: $Title</a>
+          <a href="{$Link}">Next $ClassName: $Title <i class="fa fa-caret-right" aria-hidden="true"></i></a>
         <% end_with %>
       <% end_if %>
   	<% end_if %> 
@@ -29,7 +29,7 @@
   <% else %>
     <% if $nextPageInTree %>
       <% with $nextPageInTree %>
-        <a href="{$Link}">Next $ClassName: $Title</a>
+        <a href="{$Link}">Next $ClassName: $Title <i class="fa fa-caret-right" aria-hidden="true"></i></a>
       <% end_with %>
     <% end_if %>
  <% end_if %>

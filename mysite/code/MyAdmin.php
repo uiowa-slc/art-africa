@@ -30,4 +30,21 @@ class EssayAdmin extends ModelAdmin {
   private static $menu_title = 'Essays';
 }
 
+class ObjectTypeAdmin extends ModelAdmin {
+  private static $managed_models = array('ObjectType'); // Can manage multiple models
+  private static $url_segment = 'object-types'; // Linked as /admin/products/
+  private static $menu_title = 'Object Types';
+}
+class ObjectOwnerAdmin extends ModelAdmin {
+  private static $managed_models = array('ObjectOwner'); // Can manage multiple models
+  private static $url_segment = 'object-owners'; // Linked as /admin/products/
+  private static $menu_title = 'Object Owners';
+}
+
+class ObjectMediumAdmin extends ModelAdmin {
+  private static $managed_models = array('ObjectMedium'); // Can manage multiple models
+  private static $url_segment = 'object-mediums'; // Linked as /admin/products/
+  private static $menu_title = 'Object Mediums';
+}
+
 ?>

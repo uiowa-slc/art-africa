@@ -1,0 +1,25 @@
+Image:
+  extensions:
+    - ImageExtension
+    - AfricaDataObjectExtension
+AssetAdmin:
+  extensions:
+    - AssetAdminExtension
+AudioPiece:
+  extensions:
+    - AfricaDataObjectExtension
+VideoPiece:
+  extensions:
+    - AfricaDataObjectExtension
+Chapter:
+  extensions:
+    - AfricaDataObjectExtension
+Country:
+  extensions:
+    - AfricaDataObjectExtension
+Essay:
+  extensions:
+    - AfricaDataObjectExtension
+People:
+  extensions:
+    - AfricaDataObjectExtension

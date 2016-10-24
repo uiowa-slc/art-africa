@@ -1,4 +1,4 @@
-<div class="content-container typography">
+<div class="content-container content-container--constrained typography">
   <h1 class="hidden-tablet hidden-phone">$Title</h1>
     <div class="content">$Content</div>
   $Form

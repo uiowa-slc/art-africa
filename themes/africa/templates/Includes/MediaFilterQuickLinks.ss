@@ -1,7 +1,4 @@
 <div id="quick-links-container">
-	<ul class="quick-links">
-	<li><a href="media/">Clear all filters</a></li>
-</ul>
 <h3>Quick Filters</h3>
 <ul class="quick-links">
 	<li><a href="media/index?MediaType=Image&action_=Use+Filter">All Images (default)</a></li>
@@ -12,4 +9,5 @@
 	<li><a href="media/index?MediaType=AudioPiece&action_=Use+Filter">All Audio</a></li>
 	<% end_if %>
 </ul>
+
 </div>

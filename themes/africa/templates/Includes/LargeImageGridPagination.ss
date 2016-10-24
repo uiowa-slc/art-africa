@@ -1,5 +1,5 @@
 <% if $getResults.MoreThanOnePage %>
-	
+		<% if $getResults.NextLink %><img src="{$ThemeDir}/images/loader.gif" class="loader" /><% end_if %>
 		<div class="item-list" id="pagination" style="display:none">
 		<ul class="pager">	
 		

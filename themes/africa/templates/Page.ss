@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     $MetaTags(false)
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOH9KFNRO7khI_4vmU7In5JAmeSay11Mw&v=3.expe&libraries=geometry"></script>
     <link rel="icon" type="image/png" href="{$BaseHref}themes/africa/images/logo.png">
   </head>
   
@@ -31,7 +31,7 @@
         </div>
         <nav class="nav1 toggle">
           <ul>
-            <li class="mobile-filter-container visible-phone visible-tablet">
+            <li class="mobile-filter-container visible-phone">
             <%-- Media --%>
             <% if Title == 'Media' %>
                 <nav class="media-filter-form">
@@ -44,9 +44,11 @@
               <a href="$Link" class="$LinkOrSection $URLSegment">$MenuTitle</a>
             </li>
             <% end_loop %>
+            <% if $Action != "SearchForm" %>
             <li class="search-li">
               $SearchForm
             </li>
+            <% end_if %>
           </ul>
         </nav>
       </div>
@@ -59,16 +61,18 @@
               <div id="quick-links-container">
                 <h3><% if $ResultsFound %>Jump To<% end_if %></h3>
                 <ul class="quick-links">
-                  <% if Image %><li><a href="#images">Images</a></li><% end_if %>
-                  <% if VideoPiece %><li><a href="#videos">Videos</a></li><% end_if %>
-                  <% if AudioPiece %><li><a href="#audio">Audio</a></li><% end_if %>
-                  <% if Subtopic %><li><a href="#subtopics">Subtopics</a></li><% end_if %>
-                  <% if People %><li><a href="#people">People</a></li><% end_if %>
-                  <% if Essay %><li><a href="#essays">Essays</a></li><% end_if %>
-                  <% if Country %><li><a href="#countries">Countries</a></li><% end_if %>
-                  <% if BibliographyPage %><li><a href="#bibliographic">Bibliographic Entries</a></li><% end_if %>
-                  <li><a href="#">Top of the page</a></li>
+                  <% if Image %><li><a href="#images">Images ({$Image.Count})</a></li><% end_if %>
+                  <% if VideoPiece %><li><a href="#videos">Videos ({$VideoPiece.Count})</a></li><% end_if %>
+                  <% if AudioPiece %><li><a href="#audio">Audio ({$AudioPiece.Count})</a></li><% end_if %>
+                  <% if Subtopic %><li><a href="#subtopics">Subtopics ({$Subtopic.Count})</a></li><% end_if %>
+                  <% if People %><li><a href="#people">People ({$People.Count})</a></li><% end_if %>
+                  <% if Essay %><li><a href="#essays">Essays ({$Essay.Count})</a></li><% end_if %>
+                  <% if Country %><li><a href="#countries">Countries ({$Country.Count})</a></li><% end_if %>
+                  <% if BibliographyPage %><li><a href="#bibliographic">Bibliographic Entries ({$BibliographyPage.Count})</a></li><% end_if %>
+                  <li><hr /><a href="#">Top of the page</a></li>
+                  <li><button><a href="media/" class="button"><i class="fa fa-search" aria-hidden="true"></i> Advanced search</a></button></li>
                 </ul>
+
               <% end_if %>
           <ul class="$URLSegment">
             <%-- Search Results --%>
@@ -210,8 +214,11 @@
             <% end_if %>
     
           </ul>
-
+        <% if $Level(1).Title == "Media" %>
+          <a href="media/" class="button button--full button--dark">Clear all filters <i class="fa fa-times search-form" aria-hidden="true"></i></a>
+        <% end_if %>
         </nav>
+
         </div>
         <div id="main_content" class="$ClassName">
           $Layout

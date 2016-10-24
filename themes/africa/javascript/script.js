@@ -223,7 +223,7 @@ function initialize() {
   // if the url ends in /countries/ (trailing slash optional)
   if (/countries(\/)?$/.test(window.location.pathname)) {
     countryNameToStartMapOn = 'Central African Republic';
-    zoomLevel = 3;
+    zoomLevel = 4;
   } else {
     // countryNameToStartMapOn = [$('.capital_city').text(), $('#main_content h1:first').text()].join(', ');
 
@@ -364,7 +364,7 @@ function setDraggable (map) {
   var options = {
     draggable: draggable,
     panControl: draggable,
-    scrollwheel: draggable
+    scrollwheel: false
   };
 
   map.setOptions(options);
