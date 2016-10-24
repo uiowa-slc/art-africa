@@ -105,16 +105,19 @@ class ImageExtension extends DataExtension {
       $fields->addFieldToTab( 'Root.Main', $creditField );
 
       $fields->addFieldToTab( 'Root.Main', new TextAreaField( 'Tags', 'Tags' ) );
-      $fields->addFieldToTab( 'Root.Main', new TextField( 'AccessionNumber', 'Accession Number' ) );
+      // $fields->addFieldToTab( 'Root.Main', new TextField( 'AccessionNumber', 'Accession Number' ) );
 
       $traditionalNameField = new HTMLEditorField( 'TraditionalName', 'Traditional Name' );
       $traditionalNameField->setRows( 1 );
       $fields->addFieldToTab( 'Root.Main', $traditionalNameField );
 
-      $fields->addFieldToTab( 'Root.Main', new TextField( 'Material', 'Material' ) );
-      $fields->addFieldToTab( 'Root.Main', new TextField( 'ArtDimensions', 'Dimensions' ) );
+
 
       // Commenting these out to reduce clutter, but may re-add at some point if Cory needs them.
+
+      // $fields->addFieldToTab( 'Root.Main', new TextField( 'Material', 'Material' ) );
+      // $fields->addFieldToTab( 'Root.Main', new TextField( 'ArtDimensions', 'Dimensions' ) );
+
 
       // $fields->addFieldToTab( 'Root.Main', new TextField( 'Function', 'Function' ) );
       // $fields->addFieldToTab( 'Root.Main', new TextField( 'Style', 'Style' ) );
