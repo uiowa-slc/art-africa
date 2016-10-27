@@ -11,7 +11,7 @@
 			
 							<div class="mediaItem">
 								<iframe id="ytplayer" type="text/html" width="640" height="390"
-				  src="http://www.youtube.com/embed/{$formattedIFrameURL}"
+				  src="https://www.youtube.com/embed/{$formattedIFrameURL}"
 				  frameborder="0"></iframe>
 								<span class="credit-line">$CreditLine</span>
 							</div>
