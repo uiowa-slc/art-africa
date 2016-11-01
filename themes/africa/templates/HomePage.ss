@@ -11,6 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="google-site-verification" content="EOeMxKdPKJbyFVnHKzi6c7yBXm64S-Kun7cOOgK6oOw" />
+<link rel="stylesheet" type="text/css" href="{$ThemeDir}/css/main.css" />
   </head>
   <body>
     <div id="view" class="homepage">

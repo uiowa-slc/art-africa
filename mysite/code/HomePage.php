@@ -56,7 +56,7 @@ class HomePage_Controller extends Page_Controller {
 	
 	public function init() {
 		parent::init();
-		Requirements::css("themes/africa/css/homepage.css");
+		// Requirements::css("themes/africa/css/homepage.css");
 	}
 	public function getCountryHolder(){
 		$holder = CountryHolder::get()->First();

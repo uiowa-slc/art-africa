@@ -75,7 +75,7 @@ class Page_Controller extends ContentController {
 		);
 
 		Requirements::combine_files( 'allcombined.js', $jsFiles );
-		Requirements::combine_files( "combinedCSS.css", $cssFiles );
+		// Requirements::combine_files( "combinedCSS.css", $cssFiles );
 
 	}
 
