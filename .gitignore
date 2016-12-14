@@ -23,8 +23,7 @@ themes/africa/_combinedfiles/combinedCSS.css
 themes/africa/_combinedfiles/combinedCSS.css
 deploy.php
 reports/
-
 siteconfig/
 tagfield
-
 bootstrap-forms/
+node_modules
