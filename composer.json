@@ -11,7 +11,7 @@
 		"colymba/gridfield-bulk-editing-tools": "*",
 		"jonom/focuspoint" : "*",
 		"silverstripe/fulltextsearch" : "*",
-		"silverstripe/googlesitemaps": "dev-master",
+		"silverstripe/googlesitemaps": "*",
 		"unclecheese/bootstrap-forms" : "dev-master",
 		"silverstripe/tagfield": "^1.3"
 
