@@ -39,7 +39,7 @@ const reload = browserSync.reload;
 
 // Lint JavaScript
 gulp.task('lint', () =>
-  gulp.src('themes/africa/scripts/**/*.js')
+  gulp.src('./themes/africa/scripts/**/*.js')
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failOnError()))
@@ -47,24 +47,26 @@ gulp.task('lint', () =>
 
 // Optimize images
 gulp.task('images', () =>
-  gulp.src('themes/africa/images/**/*')
-    .pipe($.cache($.imagemin({
+  gulp.src('./themes/africa/src/images/**/*')
+    .pipe($.imagemin({
       progressive: true,
       interlaced: true
-    })))
-    .pipe(gulp.dest('dist/images'))
-    .pipe($.size({title: 'images'}))
+    }))
+    .pipe(gulp.dest('./themes/africa/dist/images'))
+    .pipe($.size({title: './themes/africa/dist/images'}))
 );
 
 // Copy all files at the root level (app)
 gulp.task('copy', () =>
   gulp.src([
-    'themes/africa/*',
+    './themes/africa/src/*',
+    './themes/africa/src/**/*',
+    '!./themes/africa/src/templates',
+    '!./themes/africa/src/templates/**/*',
     //'!themes/africa/*.html',
-    'node_modules/apache-server-configs/dist/.htaccess'
   ], {
     dot: true
-  }).pipe(gulp.dest('dist'))
+  }).pipe(gulp.dest('./themes/africa/dist/'))
     .pipe($.size({title: 'copy'}))
 );
 
@@ -84,8 +86,7 @@ gulp.task('styles', () => {
 
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
-    'themes/africa/scss/main.scss',
-    //'themes/africa/styles/**/*.css'
+    './themes/africa/src/styles/main.scss',
   ])
     .pipe($.newer('.tmp/styles'))
     .pipe($.sourcemaps.init())
@@ -98,7 +99,7 @@ gulp.task('styles', () => {
     .pipe($.if('*.css', $.cssnano()))
     .pipe($.size({title: 'styles'}))
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('themes/africa/css'));
+    .pipe(gulp.dest('./themes/africa/dist/css'));
 });
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
@@ -109,18 +110,18 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      './themes/africa/scripts/main.js',
+      './themes/africa/src/scripts/main.js',
       // Other scripts
-      './themes/africa/scripts/jquery-1.9.1.min.js',
-      './themes/africa/scripts/jquery.magnific-popup.min.js',
-      './themes/africa/scripts/jquery.sticky.js',
-      './themes/africa/scripts/jquery.infinitescroll.js',
-      './themes/africa/scripts/jquery.isotope.min.js',
-      './themes/africa/scripts/isotope-init.js',
-      './themes/africa/scripts/mediaelement/build/mediaelement-and-player.min.js',
-      './themes/africa/scripts/jquery.placeholder.js',
-      './themes/africa/scripts/jquery.placeholder-init.js',
-      './themes/africa/scripts/script.js'
+      './themes/africa/src/scripts/jquery-1.9.1.min.js',
+      './themes/africa/src/scripts/jquery.magnific-popup.min.js',
+      './themes/africa/src/scripts/jquery.sticky.js',
+      './themes/africa/src/scripts/jquery.infinitescroll.js',
+      './themes/africa/src/scripts/jquery.isotope.min.js',
+      './themes/africa/src/scripts/isotope-init.js',
+      './themes/africa/src/scripts/mediaelement/build/mediaelement-and-player.min.js',
+      './themes/africa/src/scripts/jquery.placeholder.js',
+      './themes/africa/src/scripts/jquery.placeholder-init.js',
+      './themes/africa/src/scripts/script.js'
 
 
     ])
@@ -134,133 +135,53 @@ gulp.task('scripts', () =>
       // Output files
       .pipe($.size({title: 'scripts'}))
       .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest('dist/scripts'))
+      .pipe(gulp.dest('./themes/africa/dist/scripts'))
 );
 
-// Scan your HTML for assets & optimize them
-// gulp.task('html', () => {
-//   return gulp.src('themes/africa/**/*.html')
-//     .pipe($.useref({
-//       searchPath: '{.tmp,app}',
-//       noAssets: true
-//     }))
+//Scan your HTML for assets & optimize them
+gulp.task('html', () => {
+  return gulp.src('./themes/africa/src/templates/**/*.ss')
+    .pipe($.useref({
+      searchPath: '{.tmp,app}',
+      noAssets: true
+    }))
 
-//     // Minify any HTML
-//     .pipe($.if('*.html', $.htmlmin({
-//       removeComments: true,
-//       collapseWhitespace: true,
-//       collapseBooleanAttributes: true,
-//       removeAttributeQuotes: true,
-//       removeRedundantAttributes: true,
-//       removeEmptyAttributes: true,
-//       removeScriptTypeAttributes: true,
-//       removeStyleLinkTypeAttributes: true,
-//       removeOptionalTags: true
-//     })))
-//     // Output files
-//     .pipe($.if('*.html', $.size({title: 'html', showFiles: true})))
-//     .pipe(gulp.dest('dist'));
-// });
-
-// Clean output directory
-gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
-
-// Watch files for changes & reload
-gulp.task('serve', ['scripts', 'styles'], () => {
-  browserSync({
-    notify: false,
-    // Customize the Browsersync console logging prefix
-    logPrefix: 'WSK',
-    // Allow scroll syncing across breakpoints
-    scrollElementMapping: ['main', '.mdl-layout'],
-    // Run as an https by uncommenting 'https: true'
-    // Note: this uses an unsigned certificate which on first access
-    //       will present a certificate warning in the browser.
-    // https: true,
-    server: ['.tmp', 'app'],
-    port: 3000
-  });
-
-  // gulp.watch(['themes/africa/**/*.html'], reload);
-  gulp.watch(['themes/africa/styles/**/*.{scss,css}'], ['styles', reload]);
-  gulp.watch(['themes/africa/scripts/**/*.js'], ['lint', 'scripts', reload]);
-  gulp.watch(['themes/africa/images/**/*'], reload);
+    // Minify any HTML
+    .pipe($.if('*.ss', $.htmlmin({
+      removeComments: true,
+      collapseWhitespace: true,
+      collapseBooleanAttributes: false,
+      removeAttributeQuotes: false,
+      removeRedundantAttributes: true,
+      removeEmptyAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      removeOptionalTags: false
+    })))
+    // Output files
+    .pipe($.if('*.ss', $.size({title: 'ss', showFiles: true})))
+    .pipe(gulp.dest('./themes/africa/templates/'));
 });
 
-// Build and serve the output from the dist build
-gulp.task('serve:dist', ['default'], () =>
-  browserSync({
-    notify: false,
-    logPrefix: 'WSK',
-    // Allow scroll syncing across breakpoints
-    scrollElementMapping: ['main', '.mdl-layout'],
-    // Run as an https by uncommenting 'https: true'
-    // Note: this uses an unsigned certificate which on first access
-    //       will present a certificate warning in the browser.
-    // https: true,
-    server: 'dist',
-    port: 3001
-  })
-);
+// Clean output directory
+gulp.task('clean', () => del(['.tmp', './themes/africa/dist/*', '!dist/.git'], {dot: true}));
+
+// Watch files for changes & reload
+gulp.task('watch', ['styles', 'html'], () => {
+  // gulp.watch(['./themes/africa/**/*.html'], reload);
+  gulp.watch(['./themes/africa/src/templates/**/*.ss'], ['html']);
+  gulp.watch(['./themes/africa/src/styles/**/*.{scss,css}'], ['styles']);
+  gulp.watch(['./themes/africa/src/javascript/**/*.js'], ['lint', 'scripts']);
+  gulp.watch(['./themes/africa/src/images/**/*']);
+});
+
 
 // Build production files, the default task
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
     ['lint', 'scripts', 'images', 'copy'],
-    'generate-service-worker',
+    'watch',
     cb
   )
 );
-
-// Run PageSpeed Insights
-gulp.task('pagespeed', cb =>
-  // Update the below URL to the public URL of your site
-  pagespeed('example.com', {
-    strategy: 'mobile'
-    // By default we use the PageSpeed Insights free (no API key) tier.
-    // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
-    // key: 'YOUR_API_KEY'
-  }, cb)
-);
-
-// Copy over the scripts that are used in importScripts as part of the generate-service-worker task.
-gulp.task('copy-sw-scripts', () => {
-  return gulp.src(['node_modules/sw-toolbox/sw-toolbox.js', 'themes/africa/scripts/sw/runtime-caching.js'])
-    .pipe(gulp.dest('dist/scripts/sw'));
-});
-
-// See http://www.html5rocks.com/en/tutorials/service-worker/introduction/ for
-// an in-depth explanation of what service workers are and why you should care.
-// Generate a service worker file that will provide offline functionality for
-// local resources. This should only be done for the 'dist' directory, to allow
-// live reload to work as expected when serving from the 'app' directory.
-gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
-  const rootDir = 'dist';
-  const filepath = path.join(rootDir, 'service-worker.js');
-
-  return swPrecache.write(filepath, {
-    // Used to avoid cache conflicts when serving on localhost.
-    cacheId: pkg.name || 'web-starter-kit',
-    // sw-toolbox.js needs to be listed first. It sets up methods used in runtime-caching.js.
-    importScripts: [
-      'scripts/sw/sw-toolbox.js',
-      'scripts/sw/runtime-caching.js'
-    ],
-    staticFileGlobs: [
-      // Add/remove glob patterns to match your directory setup.
-      `${rootDir}/images/**/*`,
-      `${rootDir}/scripts/**/*.js`,
-      `${rootDir}/styles/**/*.css`
-      //`${rootDir}/*.{html,json}`
-    ],
-    // Translates a static file path to the relative URL that it's served from.
-    // This is '/' rather than path.sep because the paths returned from
-    // glob always use '/'.
-    stripPrefix: rootDir + '/'
-  });
-});
-
-// Load custom tasks from the `tasks` directory
-// Run: `npm install --save-dev require-dir` from the command-line
-// try { require('require-dir')('tasks'); } catch (err) { console.error(err); }

@@ -48,7 +48,7 @@ class Page_Controller extends ContentController {
 		parent::init();
 
 		$themeFolder = $this->ThemeDir();
-		Requirements::set_combined_files_folder( $themeFolder . '/_combinedfiles' );
+		// Requirements::set_combined_files_folder( $themeFolder . '/_combinedfiles' );
 
 		$jsFiles = array(
 			$themeFolder.'/javascript/jquery-1.9.1.min.js',
@@ -74,7 +74,7 @@ class Page_Controller extends ContentController {
 			$themeFolder. '/font-awesome-4.6.3/css/font-awesome.min.css'
 		);
 
-		Requirements::combine_files( 'allcombined.js', $jsFiles );
+		// Requirements::combine_files( 'allcombined.js', $jsFiles );
 		// Requirements::combine_files( "combinedCSS.css", $cssFiles );
 
 	}

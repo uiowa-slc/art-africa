@@ -1,0 +1,15 @@
+<div class="content-container typography">	
+	<article role="main">
+		<h1>$Title</h1>
+		<div class="content">
+		<% loop getObjects('VideoPiece') %>
+			
+				<li><a href="{$BaseHref}/media/videos/show/{$ID}">$Title</a></li><br>
+		
+		<% end_loop %>
+		<br><br>
+		</div>
+	</article>
+		
+</div>
+<% include SideBar %>

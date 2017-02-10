@@ -27,3 +27,4 @@ siteconfig/
 tagfield
 bootstrap-forms/
 node_modules
+.tmp

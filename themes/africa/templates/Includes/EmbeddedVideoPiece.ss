@@ -1,2 +1,1 @@
-<% include VideoPiece %>
-<div class="credit-line">$Caption</div>
+<% include VideoPiece %> <div class="credit-line">$Caption</div>

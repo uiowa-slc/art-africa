@@ -1,0 +1,180 @@
+#view.homepage {
+  overflow-x: hidden; /* was getting a weird horizontal scrolling issue from the #footer */
+}
+
+#view.homepage #footer {
+  background: white;
+  margin-top: 0;
+}
+
+#view.homepage #footer .c {
+  padding: 0 1.25rem;
+}
+
+#view.homepage #footer a {
+  color: #AA2F13;
+}
+
+@media (min-width: 769px) {
+  #view.homepage #footer {
+    display: none;
+  }
+}
+
+#homepage-pic {
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #homepage-pic {
+    min-height: 30rem;
+  }
+}
+
+@media (min-width: 769px) {
+  #homepage-pic {
+    position: fixed;
+    top: 5.3rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: 50% 10%;
+  }
+}
+
+@media (min-width: 1024px) {
+  /*#homepage-pic {
+    position: fixed;
+    top: 7.8rem;
+  }*/
+}
+
+@media (min-width: 2000px) {
+  #homepage-pic {
+    background-position: 0 5%;
+  }
+}
+#pic.toggle {
+  display: none;
+}
+
+hr {
+  border: none;
+  border-bottom: 0.0625rem solid #ccc;
+  margin: 2rem;
+}
+
+p,
+li,
+a {
+  text-rendering: optimizeLegibility;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a:hover,
+a:hover .text {
+  text-decoration: underline;
+}
+
+.secondary li a:hover {
+  text-decoration: none;
+}
+
+a .arrow {
+  text-decoration: none;
+  margin-right: 0.5rem;
+  color: #A38B85;
+}
+
+#footer .col:first-child img {
+  max-width: 20rem  !important;
+  width:     90%    !important;
+  position:  static !important;
+}
+
+#homepage-fixed-footer {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+@media (max-width: 768px) {
+  #homepage-fixed-footer {
+    display: none;
+  }
+}
+
+#homepage-pic-switchers {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2.25rem;
+}
+
+@media (max-width: 768px) {
+  #homepage-pic-switchers {
+    right: 2.25rem;
+    text-align: center;
+  }
+}
+
+#homepage-pic-switchers .switcher {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 0.0625rem 0.125rem #000;
+  margin-right: 1rem;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.1s ease-in;
+  -moz-transition: opacity 0.1s ease-in;
+  transition: opacity 0.1s ease-in;
+  cursor: pointer;
+}
+
+#homepage-pic-switchers .switcher:last-of-type {
+  margin-right: 0;
+}
+
+#homepage-pic-switchers .switcher:hover,
+#homepage-pic-switchers .switcher.selected {
+  opacity: 0.75;
+}
+
+#homepage-pic-desc {
+  color: #fff;
+  opacity: 0.8;
+  text-shadow: 1px 1px 1px #000;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 769px) {
+  #homepage-pic-desc {
+    position: relative;
+    bottom: 0.25rem;
+    margin-left: 1rem;
+    display: inline-block;
+  }
+}
+
+#homepage-pic-shadow {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12rem;
+  background: -webkit-linear-gradient(top, transparent, rgba(0,0,0, 0.9));
+}
+
+@media (max-width: 768px) {
+  #homepage-pic-shadow {
+    display: none;
+  }
+}
