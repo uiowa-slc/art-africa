@@ -28,3 +28,4 @@ tagfield
 bootstrap-forms/
 node_modules
 .tmp
+npm-debug.log

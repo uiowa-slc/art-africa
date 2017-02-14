@@ -296,6 +296,7 @@ class Page_Controller extends ContentController {
 		$otherClass = $this::$childPage;
 		$objectID = Convert::raw2xml( $this->request->param( 'ID' ) );
 		$source = $this->request->getVar( 'back' );
+		$source = preg_replace("(^https?://)", "", $source );
 
 		//We can '/show/ID' or '/show/object+name'
 		if ( $objectID ) {

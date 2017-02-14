@@ -132,18 +132,30 @@ class ImageExtension extends DataExtension {
 
   }
 
-  public function ShowLink() {
+  public function ShowLink($absolute = false, $back = true) {
     $imageHolder = ImageHolder::get_one( "ImageHolder" );
     $sourcePage = Director::get_current_page();
     $controller = Controller::curr();
 
     $backURL = urlencode( $controller->request->getURL( true ) );
 
-    $link = $imageHolder->Link().'show/'.$this->owner->ID;
-    $link .='?back='.$backURL;
 
+    if($absolute){
+      $link = $imageHolder->AbsoluteLink().'show/'.$this->owner->ID;
+    }else{
+      $link = $imageHolder->Link().'show/'.$this->owner->ID;
+    }
+
+    if($back){
+      $link .='?back='.$backURL;
+    }
+  
     return $link;
 
+  }
+
+  public function AbsoluteShowLink(){
+    return $this->ShowLink(true, false);
   }
 
   public function PopupLink() {
