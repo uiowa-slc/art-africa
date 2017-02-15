@@ -117,8 +117,11 @@ class MediaHolder_Controller extends Page_Controller {
 			$results = $results->filter((array('ObjectMediums.ID' => $filters['ObjectMedium'])));
 		}
 
-		if($filters['ObjectOwner'] != ''){
-			$results = $results->filter((array('ObjectOwners.ID' => $filters['ObjectOwner'])));
+		if($filters['ObjectMuseum'] != ''){
+			$results = $results->filter((array('ObjectMuseums.ID' => $filters['ObjectMuseum'])));
+		}
+		if($filters['ObjectCollection'] != ''){
+			$results = $results->filter((array('ObjectCollections.ID' => $filters['ObjectCollection'])));
 		}
 		if($filters['CreditLine'] != ''){
 			$results = $results->filter((array('CreditLine:PartialMatch' => $filters['CreditLine'])));
@@ -148,7 +151,8 @@ class MediaHolder_Controller extends Page_Controller {
 			'MediaType' => '',
 			'ObjectType' => '',
 			'Photographer' => '',
-			'ObjectOwner' => '',
+			'ObjectMuseum' => '',
+			'ObjectCollection' => '',
 			'CreditLine' => '',
 			'ObjectTitle' => '',
 			'ObjectMedium' => ''

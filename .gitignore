@@ -28,3 +28,6 @@ siteconfig/
 tagfield
 
 bootstrap-forms/
+.tmp/
+node_modules/
+npm-debug.log
