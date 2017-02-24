@@ -7,15 +7,23 @@
 		"silverstripe/framework": "3.4.*@stable",
 		"silverstripe-themes/simple": "*",
 		"undefinedoffset/sortablegridfield": "*",
-		"unclecheese/betterbuttons": "*",
+		"unclecheese/betterbuttons": "1.3.*",
 		"colymba/gridfield-bulk-editing-tools": "*",
 		"jonom/focuspoint" : "*",
 		"silverstripe/fulltextsearch" : "*",
 		"silverstripe/googlesitemaps": "*",
-		"unclecheese/bootstrap-forms" : "dev-master",
+		"unclecheese/bootstrap-forms" : "*",
 		"silverstripe/tagfield": "^1.3"
 
 	},
 
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-gridfield-betterbuttons"
+      
+        }
+    ]
+
 }
