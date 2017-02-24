@@ -35,10 +35,15 @@ class ObjectTypeAdmin extends ModelAdmin {
   private static $url_segment = 'object-types'; // Linked as /admin/products/
   private static $menu_title = 'Object Types';
 }
-class ObjectOwnerAdmin extends ModelAdmin {
-  private static $managed_models = array('ObjectOwner'); // Can manage multiple models
-  private static $url_segment = 'object-owners'; // Linked as /admin/products/
-  private static $menu_title = 'Object Owners';
+class ObjectCollectionAdmin extends ModelAdmin {
+  private static $managed_models = array('ObjectCollection'); // Can manage multiple models
+  private static $url_segment = 'object-collections'; // Linked as /admin/products/
+  private static $menu_title = 'Object Collections';
+}
+class ObjectMuseumAdmin extends ModelAdmin {
+  private static $managed_models = array('ObjectMuseum'); // Can manage multiple models
+  private static $url_segment = 'object-museums'; // Linked as /admin/products/
+  private static $menu_title = 'Object Museums';
 }
 
 class ObjectMediumAdmin extends ModelAdmin {
