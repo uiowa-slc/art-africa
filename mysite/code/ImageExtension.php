@@ -36,7 +36,8 @@ class ImageExtension extends DataExtension {
     'Essays' => 'Essay',
     'AudioPieces' => 'AudioPiece',
     'VideoPieces' => 'VideoPiece',
-    'ObjectOwners' => 'ObjectOwner',
+    'ObjectMuseums' => 'ObjectMuseum',
+    'ObjectCollections' => 'ObjectCollection',
     'ObjectTypes' => 'ObjectType',
     'ObjectMediums' => 'ObjectMedium',
 
@@ -79,8 +80,11 @@ class ImageExtension extends DataExtension {
       $captionField = HTMLEditorField::create( 'Caption', 'Caption' )->setRows(3);
       $fields->addFieldToTab( 'Root.Main', $captionField );
 
-      $ownerField = TagField::create('ObjectOwners', 'Object Owner(s)', ObjectOwner::get(), $this->owner->getManyManyComponents('ObjectOwners'))->setShouldLazyLoad(false);
-      $fields->addFieldToTab('Root.Main', $ownerField);
+      $museumField = TagField::create('ObjectMuseums', 'Object Museum(s)', ObjectMuseum::get(), $this->owner->getManyManyComponents('ObjectMuseums'))->setShouldLazyLoad(false);
+      $fields->addFieldToTab('Root.Main', $museumField);
+
+      $collField = TagField::create('ObjectCollections', 'Object Collection(s)', ObjectCollection::get(), $this->owner->getManyManyComponents('ObjectCollections'))->setShouldLazyLoad(false);
+      $fields->addFieldToTab('Root.Main', $collField);
 
       $objectTypeField = TagField::create('ObjectTypes', 'Object Type(s)', ObjectType::get(), $this->owner->getManyManyComponents('ObjectTypes'))->setShouldLazyLoad(false);
       $fields->addFieldToTab('Root.Main', $objectTypeField);
