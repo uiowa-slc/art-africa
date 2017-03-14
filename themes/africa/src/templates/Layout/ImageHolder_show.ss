@@ -18,7 +18,7 @@
 				<% include EmbeddedImage %>
 
 				<% if $ParentImage.Description %>
-					$ParentImage.Description</div>
+					<div class="content description">$ParentImage.Description</div>
 				<% else %>
 					<div class="content description">$Description</div>
 				<% end_if %>
@@ -43,7 +43,7 @@
 				<% end_if %>
 				<% if $ObjectTypes %>
 				<div class="span3">
-					<h2>Type<% if $ObjectTypes.Count > 1 %>s<% end_if %></h2>
+					<h2>Tags</h2>
 					<% loop $ObjectTypes %><a href="$Link">$Title</a><% if not $Last %>, <% end_if %><% end_loop %>
 				</div>
 				<% end_if %>
