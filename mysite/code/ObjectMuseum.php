@@ -30,7 +30,10 @@ class ObjectMuseum extends DataObject {
 
 		return $fields;	
   }
-  
+  public function Link(){
+    $link = 'media/index?ObjectMuseum='.$this->ID;
+    return $link;
+  }  
   
 }
 

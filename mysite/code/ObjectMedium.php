@@ -28,6 +28,9 @@ class ObjectMedium extends DataObject {
 		return $fields;	
   }
   
-  
+  public function Link(){
+    $link = 'media/index?ObjectMedium='.$this->ID;
+    return $link;
+  }  
 }
 

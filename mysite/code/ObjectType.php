@@ -27,6 +27,13 @@ class ObjectType extends DataObject {
 
 		return $fields;	
   }
+
+  public function Link(){
+    $link = 'media/index?ObjectType='.$this->ID;
+    return $link;
+
+
+  }
   
   
 }

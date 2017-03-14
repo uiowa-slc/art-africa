@@ -53,17 +53,17 @@ class MediaFilterForm extends Form
             $photographerField,
             $creditLineField,
             LiteralField::create('MediaFilterSep1', '<hr>'),
-            DropdownField::create('ObjectType', 'Type', ObjectType::get()->map('ID', 'Title'), $filters['ObjectType'])->setEmptyString('Any Type'),
-            DropdownField::create('ObjectMuseum', 'Museum', ObjectMuseum::get()->map('ID', 'Title'), $filters['ObjectMuseum'])->setEmptyString('Any Museum'),
-            DropdownField::create('ObjectCollection', 'Collection', ObjectCollection::get()->map('ID', 'Title'), $filters['ObjectCollection'])->setEmptyString('Any Collection'),
-            DropdownField::create('ObjectMedium', 'Medium', ObjectMedium::get()->map('ID', 'Title'), $filters['ObjectMedium'])->setEmptyString('Any Medium'),
+            DropdownField::create('ObjectType', 'Type', ObjectType::get()->sort('Title')->map('ID', 'Title'), $filters['ObjectType'])->setEmptyString('Any Type'),
+            DropdownField::create('ObjectMuseum', 'Museum', ObjectMuseum::get()->sort('Title')->map('ID', 'Title'), $filters['ObjectMuseum'])->setEmptyString('Any Museum'),
+            DropdownField::create('ObjectCollection', 'Collection', ObjectCollection::get()->sort('Title')->map('ID', 'Title'), $filters['ObjectCollection'])->setEmptyString('Any Collection'),
+            DropdownField::create('ObjectMedium', 'Medium', ObjectMedium::get()->sort('Title')->map('ID', 'Title'), $filters['ObjectMedium'])->setEmptyString('Any Medium'),
 
             //END COMMENTOUT
 
             DropdownField::create('MediaType', 'MediaType', $mediaFormTypes, $filters['MediaType']),
             LiteralField::create('MediaFilterSep2', '<hr>'),
-            DropdownField::create('Country', 'Countries', Country::get()->map('ID', 'Title'), $filters['Country'])->setEmptyString('Any Country'),
-            DropdownField::create('People', 'Peoples', People::get()->map('ID', 'Title'), $filters['People'])->setEmptyString('Any People'),
+            DropdownField::create('Country', 'Countries', Country::get()->sort('Title')->map('ID', 'Title'), $filters['Country'])->setEmptyString('Any Country'),
+            DropdownField::create('People', 'Peoples', People::get()->sort('Title')->map('ID', 'Title'), $filters['People'])->setEmptyString('Any People'),
             DropdownField::create('Chapter', 'Chapters', Chapter::get()->map('ID', 'Title'), $filters['Chapter'])->setEmptyString('Any Chapter')
 
         );

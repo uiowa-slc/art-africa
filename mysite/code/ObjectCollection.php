@@ -31,6 +31,9 @@ class ObjectCollection extends DataObject {
 		return $fields;	
   }
   
-  
+  public function Link(){
+    $link = 'media/index?ObjectCollection='.$this->ID;
+    return $link;
+  }  
 }
 
