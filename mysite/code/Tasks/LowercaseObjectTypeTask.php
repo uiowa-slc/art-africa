@@ -1,7 +1,7 @@
 <?php
 class LowercaseObjectTypeTask extends BuildTask {
 
-    protected $title = "Make all object types lowercase";
+    protected $title = "Make all object types and mediums lowercase";
     protected $description = '';
     protected $enabled = true;
     
@@ -9,6 +9,8 @@ class LowercaseObjectTypeTask extends BuildTask {
 	function run($request) {
 
 		$types = ObjectType::get();
+		$mediums = ObjectMedium::get();
+
 		echo '<h2>Converting all Object Types to lowercase</h2>';
 		echo '<ul>';
 		foreach($types as $type){
@@ -19,6 +21,19 @@ class LowercaseObjectTypeTask extends BuildTask {
 
 			$type->Title = $typeLower;
 			$type->write();
+		}
+		echo '</ul>';
+
+		echo '<h2>Converting all Object Mediums to lowercase</h2>';
+		echo '<ul>';
+		foreach($mediums as $medium){
+			$mediumTitle = $medium->Title;
+			$mediumLower = strtolower($mediumTitle);
+			
+			echo '<li>Converting medium <strong>'.$mediumTitle.'</strong> to <strong>'.$mediumLower.'</strong></li>';
+
+			$medium->Title = $mediumLower;
+			$medium->write();
 		}
 		echo '</ul>';
 	}
