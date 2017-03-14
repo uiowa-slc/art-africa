@@ -49,14 +49,14 @@ class MediaFilterForm extends Form
 
         $fields = new FieldList(
             //COMMENTING THESE OUT UNTIL WE GO LIVE!!
-            // $objectTitleField,
-            // $photographerField,
-            // $creditLineField,
-            // LiteralField::create('MediaFilterSep1', '<hr>'),
-            // DropdownField::create('ObjectType', 'Type', ObjectType::get()->map('ID', 'Title'), $filters['ObjectType'])->setEmptyString('Any Type'),
-            // DropdownField::create('ObjectMuseum', 'Museum', ObjectMuseum::get()->map('ID', 'Title'), $filters['ObjectMuseum'])->setEmptyString('Any Museum'),
-            // DropdownField::create('ObjectCollection', 'Collection', ObjectCollection::get()->map('ID', 'Title'), $filters['ObjectCollection'])->setEmptyString('Any Collection'),
-            // DropdownField::create('ObjectMedium', 'Medium', ObjectMedium::get()->map('ID', 'Title'), $filters['ObjectMedium'])->setEmptyString('Any Medium'),
+            $objectTitleField,
+            $photographerField,
+            $creditLineField,
+            LiteralField::create('MediaFilterSep1', '<hr>'),
+            DropdownField::create('ObjectType', 'Type', ObjectType::get()->map('ID', 'Title'), $filters['ObjectType'])->setEmptyString('Any Type'),
+            DropdownField::create('ObjectMuseum', 'Museum', ObjectMuseum::get()->map('ID', 'Title'), $filters['ObjectMuseum'])->setEmptyString('Any Museum'),
+            DropdownField::create('ObjectCollection', 'Collection', ObjectCollection::get()->map('ID', 'Title'), $filters['ObjectCollection'])->setEmptyString('Any Collection'),
+            DropdownField::create('ObjectMedium', 'Medium', ObjectMedium::get()->map('ID', 'Title'), $filters['ObjectMedium'])->setEmptyString('Any Medium'),
 
             //END COMMENTOUT
 
