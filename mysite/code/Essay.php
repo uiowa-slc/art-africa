@@ -36,7 +36,21 @@ class Essay extends DataObject {
 
   
   );
-  
+    public function canView($member = null) {
+      return Permission::check('CMS_ACCESS', 'any', $member);
+  }
+
+  public function canEdit($member = null) {
+      return Permission::check('CMS_ACCESS', 'any', $member);
+  }
+
+  public function canDelete($member = null) {
+      return Permission::check('CMS_ACCESS', 'any', $member);
+  }
+
+  public function canCreate($member = null) {
+      return Permission::check('CMS_ACCESS', 'any', $member);
+  } 
   private static $has_many = array('EssayPages' => 'EssayPage');
   
   private static $plural_name = "Essays";
