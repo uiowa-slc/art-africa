@@ -1,7 +1,7 @@
 <div class="pagination">
 <% if $getPaginatedPages('EssayPages').MoreThanOnePage %>
     <% if $getPaginatedPages('EssayPages').NotFirstPage %>
-      <a class="prev" href="{$getPaginatedPages('EssayPages').PrevLink}"><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</a>
+      <a class="prev" href="{$getPaginatedPages('EssayPages').PrevLink}"><i class="fa fa-caret-left" aria-hidden="true"></i> Previous Page</a>
      <% end_if %>
     <% loop $getPaginatedPages('EssayPages').Pages %>
       <% if $CurrentBool %>
