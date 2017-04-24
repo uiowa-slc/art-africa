@@ -59,7 +59,7 @@ class MediaHolder_Controller extends Page_Controller {
 	}
 
 	public function loadDefaultImageResults(){
-		$results = Image::get()->filter(array('HideFromMediaGrid' => 'false'))->sort('RAND()');
+		$results = Image::get()->filter(array('HideFromMediaGrid' => false))->sort('RAND()');
 		$paginatedMediaList = new PaginatedList($results, $this->getRequest());
 		$paginatedMediaList->setPageLength(20);
 		return $paginatedMediaList;

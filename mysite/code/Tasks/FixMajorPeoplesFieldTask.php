@@ -3,7 +3,7 @@ class FixMajorPeoplesFieldTask extends BuildTask {
 
     protected $title = "Fix Major Peoples Field";
     protected $description = 'Builds relationships between peoples + countries based on the text field in Country: "MajorPeoples"';
-    protected $enabled = true;
+    protected $enabled = false;
     
     
 	function run($request) {

@@ -43,6 +43,17 @@ class ImageExtension extends DataExtension {
 
   );
 
+  private static $summary_fields = array(
+    'CMSThumbnail',
+    'Title', 
+    'Filename',
+    'Description.NoHTML',
+    'Caption.NoHTML',
+    'CreditLine.NoHTML',
+
+
+  );
+
   private static $belongs_many_many = array(
     'People' => 'People',
     'Essays' => 'Essay',

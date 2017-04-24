@@ -5,7 +5,7 @@ class FormatImageNameTask extends BuildTask {
  
     protected $description = 'Change image names (not filenames, but the names used to pair images with essays) with long names like 075-97-3936-DHR001 to shorter names like DHR001';
  
-    protected $enabled = true;
+    protected $enabled = false;
  
     function run($request) {
         /*

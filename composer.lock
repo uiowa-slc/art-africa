@@ -162,12 +162,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonom/silverstripe-focuspoint.git",
-                "reference": "9f3b2dd59f31c3e5c66f44220aedc76035992f64"
+                "reference": "716a44b2d7f72d190121fa1e15da1f0b17ec147c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonom/silverstripe-focuspoint/zipball/9f3b2dd59f31c3e5c66f44220aedc76035992f64",
-                "reference": "9f3b2dd59f31c3e5c66f44220aedc76035992f64",
+                "url": "https://api.github.com/repos/jonom/silverstripe-focuspoint/zipball/716a44b2d7f72d190121fa1e15da1f0b17ec147c",
+                "reference": "716a44b2d7f72d190121fa1e15da1f0b17ec147c",
                 "shasum": ""
             },
             "require": {
@@ -193,7 +193,7 @@
                 "image",
                 "silverstripe"
             ],
-            "time": "2016-12-13 15:51:46"
+            "time": "2017-03-22 23:16:19"
         },
         {
             "name": "monolog/monolog",
@@ -201,12 +201,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1e044bc4b34e91743943479f1be7a1d5eb93add0"
+                "reference": "3266b6e257992887035c8952918607f5b858aaf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1e044bc4b34e91743943479f1be7a1d5eb93add0",
-                "reference": "1e044bc4b34e91743943479f1be7a1d5eb93add0",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/3266b6e257992887035c8952918607f5b858aaf8",
+                "reference": "3266b6e257992887035c8952918607f5b858aaf8",
                 "shasum": ""
             },
             "require": {
@@ -271,7 +271,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2017-03-13 07:08:03"
+            "time": "2017-03-20 10:21:06"
         },
         {
             "name": "psr/log",
