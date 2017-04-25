@@ -489,9 +489,11 @@ button, .button {
 }
 
 .nav1 input[type="text"] {
-  border: 0;
-  border-top-right-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #333;
+  margin: 1px 0;
 }
 
 .nav1 input[type="submit"] {

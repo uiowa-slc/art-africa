@@ -5,7 +5,11 @@ html {
 body {
   background: #181415;
 }
-
+*{
+  -moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
 .text-input {
   width: 100%;
 }
