@@ -19,7 +19,7 @@ $container.infinitescroll({
       nextSelector : '.next',  // selector for the NEXT link (to page 2)
       itemSelector : '.item',     // selector for all items you'll retrieve
       bufferPx: 300,
-	 debug        : true,
+	 debug        : false,
       loading: {
           finishedMsg: 'No more pages to load.',
           img: 'http://i.imgur.com/6RMhx.gif'

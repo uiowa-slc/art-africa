@@ -1563,6 +1563,12 @@ li:first-child .zoom-thumbnail {
   width: 100%;
 }
 
+#MediaFilterForm_index_ObjectTitle_Holder,#MediaFilterForm_index_Photographer_Holder,#MediaFilterForm_index_CreditLine_Holder{
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
 .media-filter-form label {
   display: none;
 }
