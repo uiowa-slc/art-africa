@@ -23,3 +23,6 @@ Essay:
 People:
   extensions:
     - AfricaDataObjectExtension
+SiteConfig:
+  extensions:
+    - SiteConfigExtension
