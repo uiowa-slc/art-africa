@@ -67,16 +67,7 @@
               <p>
               <a href="http://uima.uiowa.edu" target="_blank"><img src="{$ThemeDir}/dist/images/UIMA-newlogo-black.png" alt="University of Iowa Museum of Art" class="uima-logo"></a>
               </p>
-              <p>
-                Administrative Offices: <br />
-                1375 Highway One West<br />
-                1840 Studio Arts Building<br />
-                Iowa City, IA 52242<br />
-                <a href="http://uima.uiowa.edu/visit-us/" target="_blank">View Museum Locations</a><br />
-                Telephone (319) 335-1727<br />
-                Fax (319) 335-3677<br />
-                <a href="http://www.uiowa.edu/homepage/online-privacy-information" target="_blank">Privacy Information</a>
-              </p>
+                $SiteConfig.FooterInfo
               </div>
             </div>
 
