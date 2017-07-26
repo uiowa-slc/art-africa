@@ -48,10 +48,10 @@ class MediaFilterForm extends Form
         } 
 
         $fields = new FieldList(
-            //COMMENTING THESE OUT UNTIL WE GO LIVE!!
-            $objectTitleField,
-            $photographerField,
-            $creditLineField,
+            //COMMENTING THESE OUT... We may need them again someday.
+            // $objectTitleField,
+            // $photographerField,
+            // $creditLineField,
             LiteralField::create('MediaFilterSep1', '<hr>'),
             DropdownField::create('ObjectType', 'Type', ObjectType::get()->sort('Title')->map('ID', 'Title'), $filters['ObjectType'])->setEmptyString('Any Type'),
             DropdownField::create('ObjectMuseum', 'Museum', ObjectMuseum::get()->sort('Title')->map('ID', 'Title'), $filters['ObjectMuseum'])->setEmptyString('Any Museum'),
