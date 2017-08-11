@@ -36,6 +36,39 @@ class EssayPage extends DataObject {
    return $fields;
    
  }
+
+ public function Parent(){
+
+    if($this->Essay()->IsInDB()){
+      $parent = $this->Essay();
+    }elseif($this->Chapter()->IsInDB()){
+      $parent = $this->Chapter();
+    }elseif($this->Subtopic()->IsInDB()){
+      $parent = $this->Subtopic();
+    }else{
+      $parent = null;
+    }
+
+    return $parent;
+ }
+
+ public function Section(){
+    $parent = $this->Parent();
+
+    if($parent){
+      return $parent->Parent();
+    }
+ }
+
+  public function Link(){
+    $pageNumObj = $this->PageNo;
+    $pageNum = $pageNumObj - 1;
+    $parent = $this->Parent();
+    if($parent){
+      $link = $parent->Link(true).'?start='.$pageNum;
+      return $link;    
+    }
+  }
 }
 
 

@@ -55,6 +55,15 @@ class Subtopic extends Page {
 
 	}
 
+	public function Author(){
+		if($this->Parent())
+			return $this->Parent()->Author;
+	}
+
+	public function University(){
+		if($this->Parent())
+			return $this->Parent()->University;
+	}
 }
 
 class Subtopic_Controller extends Page_Controller {

@@ -87,28 +87,23 @@ class Page_Controller extends ContentController {
 
 
 	function results( $data, $form, $request ) {
-
-
 		$keyword = trim( $request->requestVar( 'Search' ) );
 		$keyword = Convert::raw2sql( $keyword );
-
 		$keywordArray = explode( " ", $keyword );
-
-
 		$keywordHTML = htmlentities( $keyword, ENT_NOQUOTES, 'UTF-8' );
+
+		$resultsFound = false;
 
 		$pages = new ArrayList(); //Output these to template
 		$dataObjects = new ArrayList(); //Output these to template
 
-
 		$bibliographyFlag = false; //set to true below if checkbox in searchform.ss is checked
-
-		//$searchedClasses = array('subtopics', 'people', 'essays', 'countries', 'audio pieces', 'video pieces', 'art photos', 'field photos'
-
-		//Define classes for outputting to template -- all of these arrays are nested in array
+		$chapters = new ArrayList();
 		$subtopics = new ArrayList();
 		$people = new ArrayList();
 		$essays = new ArrayList();
+		$essayContainers = new ArrayList();
+		$essayPages = new ArrayList();
 		$countries = new ArrayList();
 		$audioPieces = new ArrayList();
 		$videoPieces = new ArrayList();
@@ -118,16 +113,6 @@ class Page_Controller extends ContentController {
 		$photos = new ArrayList();
 		$biblographyPages = new ArrayList();
 
-
-
-
-
-
-		/*ADD IN CLASSES TO BE SEARCHED HERE */
-		$siteTreeClasses = array( 'Chapter', 'Subtopic', 'BibliographyPage' ); //add in an classes that extend Page or SiteTree
-		$dataObjectClasses = array( 'Country', 'Essay', 'People', 'Image', 'MediaPiece' ); //add in your DataObjects,
-
-
 		if($keyword == ''){
 			$data = array(
 				'Query' => false
@@ -135,11 +120,7 @@ class Page_Controller extends ContentController {
 			return $this->customise( $data )->renderWith( array( 'Search', 'Page' ) );
 		}
 
-
 		//Search happens here:
-
-
-
 		$images = Image::get()->filterAny(array(
 		    'Title:PartialMatch' =>  $keyword,
 		    'Caption:PartialMatch' => $keyword,
@@ -166,61 +147,110 @@ class Page_Controller extends ContentController {
 		    'Title:PartialMatch' =>  $keyword
 		));
 
-		$essays = Essay::get()->filterAny(array(
-		  'AuthorFirstName:PartialMatch' => $keyword,	
-		  'AuthorLastName:PartialMatch' => $keyword,
-		  'Content:PartialMatch' => $keyword,	
-		  'University:PartialMatch' => $keyword,	
-		  'Consultant:PartialMatch' => $keyword,	
-		  'Title:PartialMatch' => $keyword,	
-		  'Tags:PartialMatch' => $keyword
+		//Get essays and their containers
+
+		$essayContainers = Essay::get()->filterAny(array(
+			'AuthorFirstName:PartialMatch' => $keyword,	
+			'AuthorLastName:PartialMatch' => $keyword,
+			'Content:PartialMatch' => $keyword,	
+			'University:PartialMatch' => $keyword,	
+			'Consultant:PartialMatch' => $keyword,	
+			'Title:PartialMatch' => $keyword,	
+			'Tags:PartialMatch' => $keyword
+		));
+
+		$essayPages = EssayPage::get()->filterAny(array(
+			'Content:PartialMatch' => $keyword,
+		));
+
+		$chapters = Chapter::get()->filterAny(array(
+			'Title:PartialMatch' => $keyword,
+			'Description:PartialMatch' => $keyword,
+			'Author:PartialMatch' => $keyword,
+			'University:PartialMatch' => $keyword,
+			'Tags:PartialMatch' => $keyword
 		));
 
 		$subtopics = Subtopic::get()->filterAny(array(
 			'Title:PartialMatch' => $keyword,
 			'Content:PartialMatch' => $keyword,
 			'Description:PartialMatch' => $keyword,
-			'Tags:PartialMatch' => $keyword,
+			'Tags:PartialMatch' => $keyword
 		));
 
 		$people = People::get()->filterAny(array(
-		  'Title:PartialMatch' => 'Text',
-		  'AlternateNames:PartialMatch' => 'HTMLText',
-		  'Location:PartialMatch' => 'HTMLText',
-		  'Languages:PartialMatch' => 'HTMLText',
-		  'Population:PartialMatch' => 'HTMLText',
-		  'Neighbors:PartialMatch' => 'HTMLText',
-		  'TypesOfArt:PartialMatch' => 'HTMLText',
-		  'History:PartialMatch' => 'HTMLText',
-		  'Economy:PartialMatch' => 'HTMLText',
-		  'PoliticalSystems:PartialMatch' => 'HTMLText',
-		  'Religion:PartialMatch' => 'HTMLText',
-		  'Tags:PartialMatch' => 'Text'
+		  'Title:PartialMatch' => $keyword,
+		  'AlternateNames:PartialMatch' => $keyword,
+		  'Location:PartialMatch' => $keyword,
+		  // 'Languages:PartialMatch' => $keyword,
+		  // 'Population:PartialMatch' => $keyword,
+		  // 'Neighbors:PartialMatch' => $keyword,
+		  // 'TypesOfArt:PartialMatch' => $keyword,
+		  // 'History:PartialMatch' => $keyword,
+		  // 'Economy:PartialMatch' => $keyword,
+		  // 'PoliticalSystems:PartialMatch' => $keyword,
+		  // 'Religion:PartialMatch' => $keyword,
+		  // 'Tags:PartialMatch' => $keyword
 		));
 
 		$biblographyPages = BibliographyPage::get()->filterAny(array(
-	  	  'Content:PartialMatch' => 'Text',
-		  'Description' => 'HTMLText',
+	  	  'Content:PartialMatch' => $keyword,
+		  'Description:PartialMatch' => $keyword
 
 		));
+
+		if(    $chapters->First() 
+			|| $subtopics->First() 
+			|| $people->First()
+			|| $essayContainers->First()
+			|| $essayPages->First()
+			|| $countries->First()
+			|| $audioPieces->First()
+			|| $videoPieces->First()
+			|| $images->First()
+			|| $biblographyPages->First()
+		){
+			$resultsFound = true;
+		}
+	
+		$searchText =  _t('SearchForm.SEARCH', 'Search');
+
+		if($this->getRequest() && $this->getRequest()->getVar('Search')) {
+		 $searchText = $this->getRequest()->getVar('Search');
+		}
+
+		$searchField = new TextField('Search', false, 'hellur');
+	
+
+		$fields = new FieldList(
+		 $searchField
+		);
+		$actions = new FieldList(
+		 new FormAction('results', _t('SearchForm.GO', 'Go'))
+		);
+		$form = SearchForm::create($this, 'SearchForm', $fields, $actions);
+		$form->classesToSearch(FulltextSearchable::get_searchable_classes());
+		
+
 		/*THIS ARRAY IS WHAT THE SEARCH TEMPLATE IS CUSTOMISED WITH*/
 		$data = array(
+			'Chapter' => $chapters,
 			'Subtopic' => $subtopics,
 			'People' => $people,
-			'Essay' => $essays,
+			'EssayContainer' => $essayContainers,
+			'EssayPage' => $essayPages,
 			'Country' => $countries,
 			'AudioPiece' => $audioPieces,
 			'VideoPiece' => $videoPieces,
 			'Image' => $images,
 			'Query' => $keyword,
-			'BibliographyPage' =>$biblographyPages 
+			'BibliographyPage' => $biblographyPages,
+			'ResultsFound' => $resultsFound,
+			'SearchFormPage' => $form
 		);
 
 		return $this->customise( $data )->renderWith( array( 'Search', 'Page' ) );
-		
-
 	}
-
 
 	/*TEMPLATE FUNCTIONS*/
 

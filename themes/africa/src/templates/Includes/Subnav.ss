@@ -9,14 +9,15 @@
         <div id="quick-links-container">
           <h3><% if $ResultsFound %>Jump To<% end_if %></h3>
           <ul class="quick-links">
-            <% if Image %><li><a href="#images">Images ({$Image.Count})</a></li><% end_if %>
-            <% if VideoPiece %><li><a href="#videos">Videos ({$VideoPiece.Count})</a></li><% end_if %>
-            <% if AudioPiece %><li><a href="#audio">Audio ({$AudioPiece.Count})</a></li><% end_if %>
-            <% if Subtopic %><li><a href="#subtopics">Subtopics ({$Subtopic.Count})</a></li><% end_if %>
-            <% if People %><li><a href="#people">People ({$People.Count})</a></li><% end_if %>
-            <% if Essay %><li><a href="#essays">Essays ({$Essay.Count})</a></li><% end_if %>
-            <% if Country %><li><a href="#countries">Countries ({$Country.Count})</a></li><% end_if %>
-            <% if BibliographyPage %><li><a href="#bibliographic">Bibliographic Entries ({$BibliographyPage.Count})</a></li><% end_if %>
+            <% if $Chapter %><li><a href="#chapters">Chapters ({$Chapter.Count})</a></li><% end_if %>
+            <% if $Subtopic %><li><a href="#subtopics">Subtopics ({$Subtopic.Count})</a></li><% end_if %>
+            <% if $People %><li><a href="#people">People ({$People.Count})</a></li><% end_if %>
+            <% if $Essay || $EssayPage %><li><a href="#essays">Essays ({$EssayPage.Count})</a></li><% end_if %>
+            <% if $Country %><li><a href="#countries">Countries ({$Country.Count})</a></li><% end_if %>
+            <% if $BibliographyPage %><li><a href="#bibliographic">Bibliographic Entries ({$BibliographyPage.Count})</a></li><% end_if %>   
+            <% if $VideoPiece %><li><a href="#videos">Videos ({$VideoPiece.Count})</a></li><% end_if %>
+            <% if $AudioPiece %><li><a href="#audio">Audio ({$AudioPiece.Count})</a></li><% end_if %>
+            <% if Image %><li><a href="#images">Images ({$Image.Count}<% if $Image.Count == 100 %>+<% end_if %>)</a></li><% end_if %>
             <li><hr /><a href="#">Top of the page</a></li>
             <li><button><a href="media/" class="button"><i class="fa fa-search" aria-hidden="true"></i> Advanced search</a></button></li>
           </ul>
