@@ -82,8 +82,8 @@
 				</table>
 		 	 </div>
 		<% end_if %>
-	<% if EssayContainer || EssayPage %>
-		<h2 id="essays">Essays</h2>
+	<% if ChapterEssayPage %>
+		<h2 id="chapter-essays">Chapter Essays</h2>
 			<div class="search">
 			 <table class="table table-hover">
 				<tbody>
@@ -93,18 +93,8 @@
 		    		<th>Author</th>
 		    		<th>Institution</th>
 				</tr>
-					<% loop EssayContainer %>
-						<tr>
-							<% if Name %>
-								<td><a href="{$Link(false)}">$Name</a></td>
-							<% else_if Title %>
-								<td><a href="{$Link(false)}">$Title</a></td>
-							<% end_if %>
-								<td>$AuthorFirstName $AuthorLastName</td>
-								<td>$University</td>
-						</tr>					
-					<% end_loop %>
-					<% loop EssayPage %>
+
+					<% loop ChapterEssayPage %>
 						<% if $Parent %>
 							<tr>
 								<td><a href="{$Link}">{$Parent.Title}, Page $PageNo</a></td>
@@ -119,7 +109,41 @@
 			</table>
 		  </div>
     <% end_if %>
-	    
+	<% if $TopicEssayPage || $EssayContainer %>
+		<h2 id="topic-essays">Topic Essays</h2>
+		 <table class="table table-hover">
+			<tbody>
+			<tr>
+				
+				<th>Essay Name</th>
+	    		<th>Author</th>
+	    		<th>Institution</th>
+			</tr>
+				<% loop $EssayContainer %>
+				<tr>
+					<% if Name %>
+						<td><a href="{$Link(false)}">$Name</a></td>
+					<% else_if Title %>
+						<td><a href="{$Link(false)}">$Title</a></td>
+					<% end_if %>
+						<td>$AuthorFirstName $AuthorLastName</td>
+						<td>$University</td>
+				</tr>					
+			<% end_loop %> 
+			<% loop $TopicEssayPage %>
+				<% if $Parent %>
+					<tr>
+						<td><a href="{$Link}">{$Parent.Title}, Page $PageNo</a></td>
+						<% with $Parent %>
+							<td>$Author</td>
+							<td>$University</td>
+						<% end_with %>
+					</tr>
+				<% end_if %>
+			<% end_loop %>
+			</tbody>
+		</table>
+	<% end_if %>
 	<% if Country %>
 		<h2 id="countries">Countries</h2>
 			<div class="search">

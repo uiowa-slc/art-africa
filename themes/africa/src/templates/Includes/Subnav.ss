@@ -12,7 +12,8 @@
             <% if $Chapter %><li><a href="#chapters">Chapters ({$Chapter.Count})</a></li><% end_if %>
             <% if $Subtopic %><li><a href="#subtopics">Subtopics ({$Subtopic.Count})</a></li><% end_if %>
             <% if $People %><li><a href="#people">People ({$People.Count})</a></li><% end_if %>
-            <% if $Essay || $EssayPage %><li><a href="#essays">Essays ({$EssayPage.Count})</a></li><% end_if %>
+            <% if $ChapterEssayPage %><li><a href="#chapter-essays">Chapter Essays ($ChapterEssayPage.Count)</a></li><% end_if %>
+            <% if $TopicEssayPage || $EssayContainer %><li><a href="#topic-essays">Topic Essays</a></li><% end_if %>
             <% if $Country %><li><a href="#countries">Countries ({$Country.Count})</a></li><% end_if %>
             <% if $BibliographyPage %><li><a href="#bibliographic">Bibliographic Entries ({$BibliographyPage.Count})</a></li><% end_if %>   
             <% if $VideoPiece %><li><a href="#videos">Videos ({$VideoPiece.Count})</a></li><% end_if %>

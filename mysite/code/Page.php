@@ -163,6 +163,18 @@ class Page_Controller extends ContentController {
 			'Content:PartialMatch' => $keyword,
 		));
 
+		$topicEssayPages = $essayPages->filter(array(
+			'EssayID:GreaterThan' => 0
+		));
+
+		$chapterEssayPages = $essayPages->filterAny(array(
+			'ChapterID:GreaterThan' => 0,
+			'SubtopicID:GreaterThan' => 0
+		));
+
+		// print_r($chapterEssayPages->toArray());
+		// print_r($topicEssayPages->toArray());
+
 		$chapters = Chapter::get()->filterAny(array(
 			'Title:PartialMatch' => $keyword,
 			'Description:PartialMatch' => $keyword,
@@ -199,11 +211,12 @@ class Page_Controller extends ContentController {
 
 		));
 
-		if(    $chapters->First() 
+		if($chapters->First() 
 			|| $subtopics->First() 
 			|| $people->First()
 			|| $essayContainers->First()
-			|| $essayPages->First()
+			|| $chapterEssayPages->First()
+			|| $topicEssayPages->First()
 			|| $countries->First()
 			|| $audioPieces->First()
 			|| $videoPieces->First()
@@ -230,7 +243,6 @@ class Page_Controller extends ContentController {
 		);
 		$form = SearchForm::create($this, 'SearchForm', $fields, $actions);
 		$form->classesToSearch(FulltextSearchable::get_searchable_classes());
-		
 
 		/*THIS ARRAY IS WHAT THE SEARCH TEMPLATE IS CUSTOMISED WITH*/
 		$data = array(
@@ -238,7 +250,8 @@ class Page_Controller extends ContentController {
 			'Subtopic' => $subtopics,
 			'People' => $people,
 			'EssayContainer' => $essayContainers,
-			'EssayPage' => $essayPages,
+			'ChapterEssayPage' => $chapterEssayPages,
+			'TopicEssayPage' => $topicEssayPages,
 			'Country' => $countries,
 			'AudioPiece' => $audioPieces,
 			'VideoPiece' => $videoPieces,
@@ -251,7 +264,6 @@ class Page_Controller extends ContentController {
 
 		return $this->customise( $data )->renderWith( array( 'Search', 'Page' ) );
 	}
-
 	/*TEMPLATE FUNCTIONS*/
 
 	//Get a holder.  HolderType passed through in template
