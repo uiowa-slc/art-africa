@@ -6,12 +6,13 @@
 				<% if University %><br />$University<% end_if %>
 			</h2>
 		<% end_if %>
-		<% include EssayPages %>
+		
 	</article>
 
 	<% if Images %> 
 		<% include SmallImageScroller %>
 	<% end_if %>
+	<% include EssayPages %>
 	<div class="visible-phone">
 		Subtopics:<br><br>
 		<% loop Children %>

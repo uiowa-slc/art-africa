@@ -8,13 +8,14 @@
 	<section class="search-results">
 	
 	<div id="searchResults">	
-    	<% if $Chapter %>
+    	<% if $Chapter || $ChapterEssayPage %>
     		<h2 id="chapters">Chapters</h2>
     		<div class="search">
     			<table class="table table-hover">
     				<tbody>
     					<tr>
     						<th>Chapter Name</th>
+    					
     						<th>Author</th>
     						<th>Institution</th>
     					</tr>
@@ -24,7 +25,27 @@
 								<td>$Author</td>
 								<td>$University</td>
 							</tr>
-			    		<% end_loop %>
+			    		<% end_loop %>					
+			    		<% loop ChapterEssayPage %>
+							<% if $Parent.ClassName == "Subtopic" %>
+								<tr>
+									<td><a href="{$Link}">{$Parent.Parent.Title}, {$Parent.Title}, Page $PageNo</a></td>
+									<% with $Parent %>
+										<td>$Author</td>
+										<td>$University</td>
+									<% end_with %>
+								</tr>
+							<% else %>
+								<tr>
+									<td><a href="{$Link}">{$Parent.Title}, Page $PageNo</a></td>
+									<% with $Parent %>
+										<td>$Author</td>
+										<td>$University</td>
+									<% end_with %>
+								</tr>							
+							<% end_if %>
+
+					<% end_loop %>
     				</tbody>
     			</table>
     		</div>
@@ -82,7 +103,7 @@
 				</table>
 		 	 </div>
 		<% end_if %>
-	<% if ChapterEssayPage %>
+<%-- 	<% if ChapterEssayPage %>
 		<h2 id="chapter-essays">Chapter Essays</h2>
 			<div class="search">
 			 <table class="table table-hover">
@@ -108,7 +129,7 @@
 				</tbody>
 			</table>
 		  </div>
-    <% end_if %>
+    <% end_if %> --%>
 	<% if $TopicEssayPage || $EssayContainer %>
 		<h2 id="topic-essays">Topic Essays</h2>
 		 <table class="table table-hover">

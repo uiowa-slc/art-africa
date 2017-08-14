@@ -113,6 +113,8 @@ class Page_Controller extends ContentController {
 		$photos = new ArrayList();
 		$biblographyPages = new ArrayList();
 
+		$chapterCount = 0;
+		$topicEssayCount = 0;
 		if($keyword == ''){
 			$data = array(
 				'Query' => false
@@ -225,6 +227,12 @@ class Page_Controller extends ContentController {
 		){
 			$resultsFound = true;
 		}
+
+		
+		$chapterCount = $chapters->Count() + $chapterEssayPages->Count();
+		$topicEssayCount = $topicEssayPages->Count() + $essayContainers->Count();
+
+
 	
 		$searchText =  _t('SearchForm.SEARCH', 'Search');
 
@@ -234,7 +242,6 @@ class Page_Controller extends ContentController {
 
 		$searchField = new TextField('Search', false, 'hellur');
 	
-
 		$fields = new FieldList(
 		 $searchField
 		);
@@ -252,6 +259,8 @@ class Page_Controller extends ContentController {
 			'EssayContainer' => $essayContainers,
 			'ChapterEssayPage' => $chapterEssayPages,
 			'TopicEssayPage' => $topicEssayPages,
+			'TopicEssayCount' => $topicEssayCount,
+			'ChapterCount' => $chapterCount,
 			'Country' => $countries,
 			'AudioPiece' => $audioPieces,
 			'VideoPiece' => $videoPieces,

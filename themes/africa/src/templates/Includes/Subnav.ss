@@ -9,11 +9,10 @@
         <div id="quick-links-container">
           <h3><% if $ResultsFound %>Jump To<% end_if %></h3>
           <ul class="quick-links">
-            <% if $Chapter %><li><a href="#chapters">Chapters ({$Chapter.Count})</a></li><% end_if %>
+            <% if $Chapter || $ChapterEssayPage %><li><a href="#chapters">Chapter Results ({$ChapterCount})</a></li><% end_if %>
             <% if $Subtopic %><li><a href="#subtopics">Subtopics ({$Subtopic.Count})</a></li><% end_if %>
             <% if $People %><li><a href="#people">People ({$People.Count})</a></li><% end_if %>
-            <% if $ChapterEssayPage %><li><a href="#chapter-essays">Chapter Essays ($ChapterEssayPage.Count)</a></li><% end_if %>
-            <% if $TopicEssayPage || $EssayContainer %><li><a href="#topic-essays">Topic Essays</a></li><% end_if %>
+            <% if $TopicEssayPage || $EssayContainer %><li><a href="#topic-essays">Topic Essay Results ($TopicEssayCount)</a></li><% end_if %>
             <% if $Country %><li><a href="#countries">Countries ({$Country.Count})</a></li><% end_if %>
             <% if $BibliographyPage %><li><a href="#bibliographic">Bibliographic Entries ({$BibliographyPage.Count})</a></li><% end_if %>   
             <% if $VideoPiece %><li><a href="#videos">Videos ({$VideoPiece.Count})</a></li><% end_if %>
