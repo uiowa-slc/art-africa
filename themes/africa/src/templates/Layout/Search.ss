@@ -72,7 +72,7 @@
 			</div>
 		<% end_if %> 		  
 		<% if People %>
-			<h2 id="people">Peoples</h2>
+			<h2 id="people">People</h2>
 			<div class="search">
 				<table class="table table-hover">
 					<tbody>
