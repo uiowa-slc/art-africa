@@ -130,7 +130,7 @@ class Page_Controller extends ContentController {
 		    'Description:PartialMatch' => $keyword
 		))->filter(array(
 			'HideFromMediaGrid' => false,
-			'AltImage' => false
+			'AltImageID' => 0
 		));
 
 
