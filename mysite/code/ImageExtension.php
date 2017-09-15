@@ -83,11 +83,11 @@ class ImageExtension extends DataExtension {
       $fields->addFieldToTab( 'Root.Main', new UploadField( 'AltImage', 'Alternate / Better Quality Image (takes precedence over the image above)' ), 'Name' );
 
       if($this->owner->AltImageID){
-        // $fields->addFieldToTab('Root.Main', LabelField::create('AltImageLabel', '<a href="admin/assets/EditForm/field/File/item/'.$this->owner->AltImageID.'/edit" target="_blank">Alternate image found here</a>'));
+        // $fields->addFieldToTab('Root.Main', LabelField::create('AltImageLabel', '<a href="admin/assets/EditForm/field/File/item/'.$this->owner->AltImageID.'/edit" target="_blank">Edit alternate image\'s focus point</a>'), 'Name');
       }
 
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Title', 'Name' ) );
-      $fields->addFieldToTab( 'Root.Main', new CheckboxField( 'HideFromMediaGrid', 'Hide this image from the media grid and search results. Note: This will hide any alternate or preferred imagery as well.' ) );
+      $fields->addFieldToTab( 'Root.Main', new CheckboxField( 'HideFromMediaGrid', 'Hide this image and any alternate or preferred imagery from the media grid and search results.' ) );
 
 
       $captionField = HTMLEditorField::create( 'Caption', 'Caption' )->setRows(3);
@@ -260,7 +260,7 @@ class ImageExtension extends DataExtension {
 
   public function ParentImageID(){
     $parent = Image::get()->filter( array( "AltImageID"=>$this->owner->ID ) )->first();
-    Debug::show($parent);
+    //Debug::show($parent);
     if ( isset( $parent ) ) {
       return $parent->ID;
     }else {
