@@ -129,8 +129,7 @@ class Page_Controller extends ContentController {
 		    'Photographer:PartialMatch' => $keyword,
 		    'Description:PartialMatch' => $keyword
 		))->filter(array(
-			'HideFromMediaGrid' => false,
-			'AltImageID' => 0
+			'HideFromMediaGrid' => false
 		));
 
 

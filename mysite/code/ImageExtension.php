@@ -77,30 +77,32 @@ class ImageExtension extends DataExtension {
     $parentImage = $this->ParentImage();
 
     $fields->removeByName('OwnerID');
-    $fields->removeByName('OwnerID');
 
 
     if ( !$parentImage ) {
       $fields->addFieldToTab( 'Root.Main', new UploadField( 'AltImage', 'Alternate / Better Quality Image (takes precedence over the image above)' ), 'Name' );
 
+      if($this->owner->AltImageID){
+        // $fields->addFieldToTab('Root.Main', LabelField::create('AltImageLabel', '<a href="admin/assets/EditForm/field/File/item/'.$this->owner->AltImageID.'/edit" target="_blank">Alternate image found here</a>'));
+      }
 
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Title', 'Name' ) );
-      $fields->addFieldToTab( 'Root.Main', new CheckboxField( 'HideFromMediaGrid', 'Hide this image from the media grid.' ) );
+      $fields->addFieldToTab( 'Root.Main', new CheckboxField( 'HideFromMediaGrid', 'Hide this image from the media grid and search results. Note: This will hide any alternate or preferred imagery as well.' ) );
 
 
       $captionField = HTMLEditorField::create( 'Caption', 'Caption' )->setRows(3);
       $fields->addFieldToTab( 'Root.Main', $captionField );
 
-      $museumField = TagField::create('ObjectMuseums', 'Object Museum(s)', ObjectMuseum::get(), $this->owner->getManyManyComponents('ObjectMuseums'))->setShouldLazyLoad(false);
+      $museumField = TagField::create('ObjectMuseums', 'Object Museum(s)', ObjectMuseum::get(), $this->owner->getManyManyComponents('ObjectMuseums'))->setShouldLazyLoad(true);
       $fields->addFieldToTab('Root.Main', $museumField);
 
-      $collField = TagField::create('ObjectCollections', 'Object Collection(s)', ObjectCollection::get(), $this->owner->getManyManyComponents('ObjectCollections'))->setShouldLazyLoad(false);
+      $collField = TagField::create('ObjectCollections', 'Object Collection(s)', ObjectCollection::get(), $this->owner->getManyManyComponents('ObjectCollections'))->setShouldLazyLoad(true);
       $fields->addFieldToTab('Root.Main', $collField);
 
-      $objectTypeField = TagField::create('ObjectTypes', 'Object Type(s)', ObjectType::get(), $this->owner->getManyManyComponents('ObjectTypes'))->setShouldLazyLoad(false);
+      $objectTypeField = TagField::create('ObjectTypes', 'Object Type(s)', ObjectType::get(), $this->owner->getManyManyComponents('ObjectTypes'))->setShouldLazyLoad(true);
       $fields->addFieldToTab('Root.Main', $objectTypeField);
 
-      $objectMediumField = TagField::create('ObjectMediums', 'Object Medium(s)', ObjectMedium::get(), $this->owner->getManyManyComponents('ObjectMediums'))->setShouldLazyLoad(false);
+      $objectMediumField = TagField::create('ObjectMediums', 'Object Medium(s)', ObjectMedium::get(), $this->owner->getManyManyComponents('ObjectMediums'))->setShouldLazyLoad(true);
       $fields->addFieldToTab('Root.Main', $objectMediumField);
 
       // $dateRangeField = DateField::create('StartDate')->setConfig('showcalendar', true);
@@ -142,7 +144,7 @@ class ImageExtension extends DataExtension {
 
 
     }else {
-      $fields->addFieldToTab( 'Root.Main', new LabelField( 'ParentImage', 'This image is an alternate/better quality version of'.$parentImage->Title ) );
+      $fields->addFieldToTab( 'Root.Main', new LabelField( 'ParentImage', 'This image is an alternate/better quality version of <a href="admin/assets/EditForm/field/File/item/'.$parentImage->ID.'" target="_blank">'.$parentImage->Title.'</a>' ) );
     }
 
   }
@@ -247,7 +249,6 @@ class ImageExtension extends DataExtension {
   }
 
   public function ParentImage() {
-
     $parent = Image::get()->filter( array( "AltImageID"=>$this->owner->ID ) )->first();
     // Debug::show($parent);
     if ( isset( $parent ) ) {
@@ -255,6 +256,17 @@ class ImageExtension extends DataExtension {
     }else {
       return false;
     }
+  }
+
+  public function ParentImageID(){
+    $parent = Image::get()->filter( array( "AltImageID"=>$this->owner->ID ) )->first();
+    Debug::show($parent);
+    if ( isset( $parent ) ) {
+      return $parent->ID;
+    }else {
+      return 0;
+    }
+
   }
 
   public function TitleAttribute(){

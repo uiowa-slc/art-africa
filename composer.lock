@@ -85,16 +85,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045"
+                "reference": "9ce17fb70e9a38dd8acff0636a29f5cf4d575c1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/79ad876c7498c0bbfe7eed065b8651c93bfd6045",
-                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045",
+                "url": "https://api.github.com/repos/composer/installers/zipball/9ce17fb70e9a38dd8acff0636a29f5cf4d575c1b",
+                "reference": "9ce17fb70e9a38dd8acff0636a29f5cf4d575c1b",
                 "shasum": ""
             },
             "require": {
@@ -140,6 +140,7 @@
                 "Hurad",
                 "ImageCMS",
                 "Kanboard",
+                "Lan Management System",
                 "MODX Evo",
                 "Mautic",
                 "Maya",
@@ -163,6 +164,7 @@
                 "croogo",
                 "dokuwiki",
                 "drupal",
+                "eZ Platform",
                 "elgg",
                 "expressionengine",
                 "fuelphp",
@@ -179,6 +181,7 @@
                 "mediawiki",
                 "modulework",
                 "moodle",
+                "osclass",
                 "phpbb",
                 "piwik",
                 "ppi",
@@ -195,7 +198,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-04-24T06:37:16+00:00"
+            "time": "2017-08-09T07:53:48+00:00"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -251,16 +254,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonom/silverstripe-focuspoint.git",
-                "reference": "7afe1e9a7ef4e8c0c5264bf080ee3f028d1d1206"
+                "reference": "4e03625f0d58eda23295c64700e741f1a0db2ac4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonom/silverstripe-focuspoint/zipball/7afe1e9a7ef4e8c0c5264bf080ee3f028d1d1206",
-                "reference": "7afe1e9a7ef4e8c0c5264bf080ee3f028d1d1206",
+                "url": "https://api.github.com/repos/jonom/silverstripe-focuspoint/zipball/4e03625f0d58eda23295c64700e741f1a0db2ac4",
+                "reference": "4e03625f0d58eda23295c64700e741f1a0db2ac4",
                 "shasum": ""
             },
             "require": {
-                "silverstripe/framework": "^3.3"
+                "silverstripe/framework": "^3.6"
             },
             "type": "silverstripe-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -282,7 +285,7 @@
                 "image",
                 "silverstripe"
             ],
-            "time": "2017-04-24 17:39:38"
+            "time": "2017-07-26 20:40:29"
         },
         {
             "name": "monolog/monolog",
@@ -600,12 +603,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory.git",
-                "reference": "5cc1ea6d45a9bdcd7e18eb8ac72f4981e61f4c5c"
+                "reference": "0861435d5b8a5d3fe67528091f0f6a2dd0a27c20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-activedirectory/zipball/5cc1ea6d45a9bdcd7e18eb8ac72f4981e61f4c5c",
-                "reference": "5cc1ea6d45a9bdcd7e18eb8ac72f4981e61f4c5c",
+                "url": "https://api.github.com/repos/StudentLifeMarketingAndDesign/silverstripe-activedirectory/zipball/0861435d5b8a5d3fe67528091f0f6a2dd0a27c20",
+                "reference": "0861435d5b8a5d3fe67528091f0f6a2dd0a27c20",
                 "shasum": ""
             },
             "require": {
@@ -650,9 +653,9 @@
                 "sso"
             ],
             "support": {
-                "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory/tree/3.0.4.4"
+                "source": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory/tree/3"
             },
-            "time": "2017-07-11 18:03:07"
+            "time": "2017-08-25 16:29:19"
         },
         {
             "name": "silverstripe/cms",
@@ -768,12 +771,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-fulltextsearch.git",
-                "reference": "02ef3af52fe41afa336f3438bca325b28129bebf"
+                "reference": "fec3cadd95475d8bd7b245be0e71b686c8d96227"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-fulltextsearch/zipball/02ef3af52fe41afa336f3438bca325b28129bebf",
-                "reference": "02ef3af52fe41afa336f3438bca325b28129bebf",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-fulltextsearch/zipball/fec3cadd95475d8bd7b245be0e71b686c8d96227",
+                "reference": "fec3cadd95475d8bd7b245be0e71b686c8d96227",
                 "shasum": ""
             },
             "require": {
@@ -815,7 +818,7 @@
                 "solr",
                 "sphinx"
             ],
-            "time": "2017-07-05 14:06:09"
+            "time": "2017-07-27 10:35:44"
         },
         {
             "name": "silverstripe/googlesitemaps",
@@ -1162,17 +1165,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UndefinedOffset/SortableGridField.git",
-                "reference": "36dcdcef6bfe99c0cb3f602f724213dc11d9ccef"
+                "reference": "2b03ab81f73511241016844b4a7969c218fd99d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UndefinedOffset/SortableGridField/zipball/36dcdcef6bfe99c0cb3f602f724213dc11d9ccef",
-                "reference": "36dcdcef6bfe99c0cb3f602f724213dc11d9ccef",
+                "url": "https://api.github.com/repos/UndefinedOffset/SortableGridField/zipball/2b03ab81f73511241016844b4a7969c218fd99d2",
+                "reference": "2b03ab81f73511241016844b4a7969c218fd99d2",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "*",
-                "silverstripe/framework": ">=3.0.1"
+                "silverstripe/framework": ">=3.0.1 <4.0.0"
             },
             "type": "silverstripe-module",
             "extra": {
@@ -1194,7 +1197,7 @@
                 "gridfield",
                 "silverstripe"
             ],
-            "time": "2017-06-07 10:06:41"
+            "time": "2017-08-14 12:38:34"
         },
         {
             "name": "zendframework/zend-authentication",
