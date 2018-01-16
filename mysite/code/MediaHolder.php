@@ -84,7 +84,7 @@ class MediaHolder_Controller extends Page_Controller {
 				$results = VideoPiece::get();
 			}elseif(($filters['MediaType'] == 'ArtPhoto')||($filters['MediaType']=='FieldPhoto')) {
 				$results = $this->loadDefaultImageResults();
-				//$results = $results->addFilter((array('Type' => $filters['MediaType'])));
+				$results = $results->addFilter((array('Type' => $filters['MediaType'])));
 			}elseif($filters['MediaType'] == 'Image') {
 				$results = $this->loadDefaultImageResults();
 			}elseif($filters['MediaType'] == 'AllMedia'){
