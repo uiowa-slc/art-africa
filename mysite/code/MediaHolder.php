@@ -61,7 +61,7 @@ class MediaHolder_Controller extends Page_Controller {
 	public function loadDefaultImageResults(){
 		$results = Image::get()->filter(array(
 			'HideFromMediaGrid' => false,
-			'AltImageID' => 0
+			'ParentImageID' => 0
 		))->sort('RAND()');
 		$paginatedMediaList = new PaginatedList($results, $this->getRequest());
 		$paginatedMediaList->setPageLength(20);
@@ -84,7 +84,7 @@ class MediaHolder_Controller extends Page_Controller {
 				$results = VideoPiece::get();
 			}elseif(($filters['MediaType'] == 'ArtPhoto')||($filters['MediaType']=='FieldPhoto')) {
 				$results = $this->loadDefaultImageResults();
-				$results = $results->addFilter((array('Type' => $filters['MediaType'])));
+				//$results = $results->addFilter((array('Type' => $filters['MediaType'])));
 			}elseif($filters['MediaType'] == 'Image') {
 				$results = $this->loadDefaultImageResults();
 			}elseif($filters['MediaType'] == 'AllMedia'){

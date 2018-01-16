@@ -3,7 +3,7 @@ class LowercaseObjectTypeTask extends BuildTask {
 
     protected $title = "Make all object types and mediums lowercase";
     protected $description = '';
-    protected $enabled = true;
+    protected $enabled = false;
     
     
 	function run($request) {

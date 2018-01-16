@@ -24,7 +24,9 @@ class ImageExtension extends DataExtension {
     'Collection' => 'Text',
     'Source' => 'Text',
 
-    "HideFromMediaGrid" => "Boolean"
+    "HideFromMediaGrid" => "Boolean",
+
+    'ParentImageID' => 'Int'
 
   );
 
@@ -258,13 +260,35 @@ class ImageExtension extends DataExtension {
     }
   }
 
-  public function ParentImageID(){
+  public function retrieveParentImageID(){
     $parent = Image::get()->filter( array( "AltImageID"=>$this->owner->ID ) )->first();
     //Debug::show($parent);
     if ( isset( $parent ) ) {
       return $parent->ID;
     }else {
       return 0;
+    }
+
+  }
+
+  public function onBeforeWrite(){
+    $altImageId = $this->owner->AltImageID;
+    if($altImageId == 0){
+      $this->owner->ParentImageID = $this->retrieveParentImageID();
+    }else{
+
+
+    }
+    
+  }
+
+  public function onAfterWrite(){
+    $altImageId = $this->owner->AltImageID;
+
+    if($altImageId != 0){
+      $altImage = Image::get()->filter(array('ID' => $altImageId))->First();
+      $altImage->ParentImageID = $this->owner->ID; 
+      $altImage->write();      
     }
 
   }

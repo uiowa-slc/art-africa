@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="{$ThemeDir}/dist/css/main.css" />
   </head>
   <body>
+    <% include UiowaBar %>
     <div id="view" class="homepage">
       <div id="top">
         <div class="hamburger m" data-toggle=".nav1, #pic" onclick="void(0)">

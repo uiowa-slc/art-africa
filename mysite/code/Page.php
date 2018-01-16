@@ -133,7 +133,6 @@ class Page_Controller extends ContentController {
 		))->filterByCallback(function($item, $list) {
 			    return ($item->ParentImageID() == 0);
 			});
-		;
 
 
 		$videoPieces = VideoPiece::get()->filterAny(array(

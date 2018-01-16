@@ -16,6 +16,7 @@
   </head>
   
   <body>
+    <% include UiowaBar %>
 <!--[if lte IE 9]>
      <link rel="stylesheet" href="{$ThemeDir}/css/ie.css" />  
 <![endif]-->
