@@ -129,10 +129,9 @@ class Page_Controller extends ContentController {
 		    'Photographer:PartialMatch' => $keyword,
 		    'Description:PartialMatch' => $keyword
 		))->filter(array(
-			'HideFromMediaGrid' => false
-		))->filterByCallback(function($item, $list) {
-			    return ($item->ParentImageID() == 0);
-			});
+			'HideFromMediaGrid' => false,
+			'ParentImageID' => 0
+		));
 
 
 		$videoPieces = VideoPiece::get()->filterAny(array(
