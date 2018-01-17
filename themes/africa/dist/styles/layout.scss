@@ -238,10 +238,12 @@ button, .button {
 #top {
   position: relative;
 }
-
+.uiowa-bar__wrapper{
+  background: #171415;
+}
 #logo {
   color: #fff;
-  padding: 0 0.33rem;
+  padding: 0 20px;
   font-size: 3rem;
   font-weight: 100;
   text-transform: uppercase;

@@ -12,7 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOH9KFNRO7khI_4vmU7In5JAmeSay11Mw&v=3.expe&libraries=geometry"></script>
     <link rel="icon" type="image/png" href="{$BaseHref}themes/africa/images/logo.png">
-    <link rel="stylesheet" type="text/css" href="{$ThemeDir}/dist/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="{$ThemeDir}/dist/css/main2018-1.css" />
   </head>
   
   <body>
