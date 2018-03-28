@@ -128,7 +128,7 @@ public function RandomImages(){
 			$gridFieldConfigChapters = GridFieldConfig_RelationEditor::create(); 
 			$gridfield = new GridField("Chapters", "Chapters", $owner->Chapters(), $gridFieldConfigChapters);
 			$fields->addFieldToTab('Root.Chapters', $gridfield);
-			$fields->addFieldToTab('Root.Chapters', new LiteralField('PeopleViewerHeader', '<h2>All Peoples Listed Below</h2>'));
+			$fields->addFieldToTab('Root.Chapters', new LiteralField('PeopleViewerHeader', '<h2>All Chapters Listed Below For Reference:</h2>'));
 			$gridFieldConfigChaptersViewer = GridFieldConfig_Base ::create(); 
 			$gridfield = new GridField("ChaptersViewer", null, Chapter::get(), $gridFieldConfigChaptersViewer);
 			$fields->addFieldToTab('Root.Chapters', $gridfield);
@@ -139,7 +139,7 @@ public function RandomImages(){
 			$gridFieldConfigCountries = GridFieldConfig_RelationEditor::create(); 
 			$gridfield = new GridField("Countries", "Countries", $owner->Countries(), $gridFieldConfigCountries);	
 			$fields->addFieldToTab('Root.Countries', $gridfield);
-			$fields->addFieldToTab('Root.Countries', new LiteralField('CountryViewerHeader', '<h2>All Available Countries Listed Below</h2>'));
+			$fields->addFieldToTab('Root.Countries', new LiteralField('CountryViewerHeader', '<h2>All Available Countries Listed Below For Reference:</h2>'));
 			$gridFieldConfigCountriesViewer = GridFieldConfig_Base ::create(); 
 			$gridfield = new GridField("CountriesViewer", null, Country::get(), $gridFieldConfigCountriesViewer);	
 			$fields->addFieldToTab('Root.Countries', $gridfield);
@@ -150,7 +150,7 @@ public function RandomImages(){
 			$gridFieldConfigPeople = GridFieldConfig_RelationEditor::create(); 
 			$gridfield = new GridField("People", "People", $owner->People(), $gridFieldConfigPeople);
 			$fields->addFieldToTab('Root.People', $gridfield);
-			$fields->addFieldToTab('Root.People', new LiteralField('PeopleViewerHeader', '<h2>All Peoples Listed Below</h2>'));
+			$fields->addFieldToTab('Root.People', new LiteralField('PeopleViewerHeader', '<h2>All Peoples Listed Below For Reference:</h2>'));
 			$gridFieldConfigPeopleViewer = GridFieldConfig_Base ::create(); 
 			$gridfield = new GridField("PeopleViewer", null, People::get(), $gridFieldConfigPeopleViewer);
 			$fields->addFieldToTab('Root.People', $gridfield);
@@ -160,7 +160,7 @@ public function RandomImages(){
 			$gridFieldConfigEssays = GridFieldConfig_RelationEditor::create(); 
 			$gridfield = new GridField("Essays", "Essays", $owner->Essays(), $gridFieldConfigEssays);		
 			$fields->addFieldToTab('Root.Essays', $gridfield);
-			$fields->addFieldToTab('Root.Essays', new LiteralField('EssayViewerHeader', '<h2>All Essays Listed Below</h2>'));
+			$fields->addFieldToTab('Root.Essays', new LiteralField('EssayViewerHeader', '<h2>All Essays Listed Below For Reference:</h2>'));
 			$gridFieldConfigEssaysViewer = GridFieldConfig_Base ::create(); 
 			$gridfield = new GridField("EssaysViewer", null, Essay::get(), $gridFieldConfigEssaysViewer);		
 			$fields->addFieldToTab('Root.Essays', $gridfield);
@@ -170,7 +170,7 @@ public function RandomImages(){
 			$gridFieldConfigVideoPieces= GridFieldConfig_RelationEditor::create(); 
 			$gridfield = new GridField("VideoPieces", "Video Pieces", $owner->VideoPieces(), $gridFieldConfigVideoPieces);
 			$fields->addFieldToTab('Root.VideoPieces', $gridfield);
-			$fields->addFieldToTab('Root.VideoPieces', new LiteralField('VideoPieceViewerHeader', '<h2>All Video Pieces Listed Below</h2>'));
+			$fields->addFieldToTab('Root.VideoPieces', new LiteralField('VideoPieceViewerHeader', '<h2>All Video Pieces Listed Below For Reference:</h2>'));
 			$gridFieldConfigVideoPiecesViewer = GridFieldConfig_Base ::create(); 
 			$gridfield = new GridField("VideoPiecesViewer", null, VideoPiece::get(), $gridFieldConfigVideoPiecesViewer);
 			$fields->addFieldToTab('Root.VideoPieces', $gridfield);
@@ -180,7 +180,7 @@ public function RandomImages(){
 			$gridFieldConfigAudioPieces= GridFieldConfig_RelationEditor::create(); 
 			$gridfield = new GridField("AudioPieces", "Audio Pieces", $owner->AudioPieces(), $gridFieldConfigAudioPieces);
 			$fields->addFieldToTab('Root.AudioPieces', $gridfield);
-			$fields->addFieldToTab('Root.AudioPieces', new LiteralField('AudioPieceViewerHeader', '<h2>All Audio Pieces Listed Below</h2>'));
+			$fields->addFieldToTab('Root.AudioPieces', new LiteralField('AudioPieceViewerHeader', '<h2>All Audio Pieces Listed Below For Reference:</h2>'));
 			$gridFieldConfigAudioPiecesViewer= GridFieldConfig_Base ::create(); 
 			$gridfieldViewer = new GridField("AudioPiecesViewer", null, AudioPiece::get(), $gridFieldConfigAudioPiecesViewer);
 			$fields->addFieldToTab('Root.AudioPieces', $gridfieldViewer);
