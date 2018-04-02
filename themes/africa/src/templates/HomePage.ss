@@ -57,8 +57,7 @@
         </div>
       </div>
       <div id="homepage-fixed-footer">
-        <a href="http://www.uiowa.edu/" target="_blank"><img src="{$ThemeDir}/dist/images/home/uiowa-logo.png" alt="University of Iowa" width="200" style="margin-right: 2rem;position:relative;top:-1rem;"></a>
-       <a href="http://uima.uiowa.edu/" target="_blank"> <img src="{$ThemeDir}/dist/images/home/UIMA-newlogo-white.png" alt="University of Iowa Museum of Art" width="160" style="margin-right: 1.125rem;"></a>
+       <a href="http://uima.uiowa.edu/" target="_blank"> <img src="{$ThemeDir}/dist/images/UISMA_lockup_white.png" alt="University of Iowa Stanley Museum of Art" width="160" style="margin-right: 1.125rem;"></a>
         <a href="http://www.youtube.com/user/UIMAartmatters" target="_blank" class="img-link">
           <img width="42" src="{$ThemeDir}/dist/images/home/youtube-icon-white.png" alt="Youtube" style="margin-right: 0.5rem">
         </a>
@@ -73,7 +72,7 @@
         <div class="c">
           <div class="col">
             <p>
-              <a href="http://uima.uiowa.edu" target="_blank"><img src="{$ThemeDir}/dist/images/UIMA-newlogo-black.png" alt="University of Iowa Museum of Art"></a>
+              <a href="http://uima.uiowa.edu" target="_blank"><img src="{$ThemeDir}/dist/images/UISMA_lockup_black.png" alt="University of Iowa Stanley Museum of Art"></a>
             </p>
             <p>
               1375 Highway One West<br>
