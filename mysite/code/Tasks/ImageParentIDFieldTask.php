@@ -5,7 +5,7 @@ class ImageParentIDFieldTask extends BuildTask {
  
     protected $description = '';
  
-    protected $enabled = true;
+    protected $enabled = false;
  
     function run($request) {
 

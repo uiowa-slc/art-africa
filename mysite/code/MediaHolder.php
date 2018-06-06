@@ -127,7 +127,7 @@ class MediaHolder_Controller extends Page_Controller {
 			$results = $results->filter((array('ObjectCollections.ID' => $filters['ObjectCollection'])));
 		}
 		if($filters['CreditLine'] != ''){
-			$results = $results->filter((array('CreditLine:PartialMatch' => $filters['CreditLine'])));
+			$results = $results->filter((array('Caption:PartialMatch' => $filters['CreditLine'])));
 		}
 
 		if($filters['Photographer'] != ''){

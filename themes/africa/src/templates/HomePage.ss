@@ -49,7 +49,7 @@
               <span class="switcher<% if First %> selected<% end_if %>"
                     data-img-url="{$HomepagePic.CroppedFocusedImage(1000,500).URL}"
                     data-link="{$PageLink}"
-                    data-desc="{$CreditLine}">
+                    data-desc="{$Caption.ATT}">
               </span>
             <% end_loop %>
             <div id="homepage-pic-desc"></div>
