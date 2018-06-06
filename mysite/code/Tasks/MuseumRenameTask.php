@@ -8,19 +8,28 @@ class MuseumRenameTask extends BuildTask {
     
 	public function run($request) {
 
+		$museum = ObjectMuseum::get()->filter(array('Title' => 'University of Iowa Museum of Art'))->First();
+
+		if($museum){
+			$museum->Title = 'University of Iowa Stanley Museum of Art';
+			$museum->write();
+			echo '<p>Renamed Museum category to University of Iowa Stanley Museum of Art</p>';
+		}
+		
+
 		$images = Image::get();
 
 		echo '<h2>Find/replacing "The University of Iowa Museum of Art" in $Caption:</h2>';
 		echo '<ul>';
 		foreach($images as $image){
-			$this->findReplaceCaption($image, 'The University of Iowa Museum of Art', 'The University of Iowa Stanley Museum of Art');
+			$this->findReplaceCaption($image, 'The University of Iowa Museum of Art', 'University of Iowa Stanley Museum of Art');
 		}
 		echo '</ul>';
 
 		echo '<h2>Find/replacing "University of Iowa Museum of Art" in $Caption:</h2>';
 		echo '<ul>';
 		foreach($images as $image){
-			$this->findReplaceCaption($image, 'University of Iowa Museum of Art', 'The University of Iowa Stanley Museum of Art');
+			$this->findReplaceCaption($image, 'University of Iowa Museum of Art', 'University of Iowa Stanley Museum of Art');
 		}
 		echo '</ul>';
 
@@ -28,14 +37,14 @@ class MuseumRenameTask extends BuildTask {
 		echo '<ul>';
 
 		foreach($images as $image){
-			$this->findReplaceCaption($image, '<p>J. Richard Simon Collection', '<p>The University of Iowa Stanley Museum of Art, J. Richard Simon Collection');
+			$this->findReplaceCaption($image, '<p>J. Richard Simon Collection', '<p>University of Iowa Stanley Museum of Art, J. Richard Simon Collection');
 		}
 		echo '</ul>';
 
 		echo '<h2>Adding UISMA to all Stanley Collection pieces:</h2>';
 		echo '<ul>';
 		foreach($images as $image){
-			$this->findReplaceCaption($image, '<p>The Stanley Collection', '<p>The University of Iowa Stanley Museum of Art, The Stanley Collection');
+			$this->findReplaceCaption($image, '<p>The Stanley Collection', '<p>University of Iowa Stanley Museum of Art, The Stanley Collection');
 		}
 		echo '</ul>';
 		echo '<p>Done...?</p>';
