@@ -47,7 +47,29 @@ class MuseumRenameTask extends BuildTask {
 			$this->findReplaceCaption($image, '<p>The Stanley Collection', '<p>University of Iowa Stanley Museum of Art, The Stanley Collection');
 		}
 		echo '</ul>';
+
+
+		echo '<h2>Checking for and eliminating duplicate museum names:</h2>';
+		echo '<ul>';
+		foreach($images as $image){
+			$this->findReplaceCaption($image, '<p>University of Iowa Stanley Museum of Art</p><p>University of Iowa Stanley Museum of Art', '<p>University of Iowa Stanley Museum of Art, The Stanley Collection');
+		}
+		echo '</ul>';
+
+
+
+		echo '<h2>Checking for and eliminating duplicate collection names:</h2>';
+		echo '<ul>';
+		foreach($images as $image){
+			$this->findReplaceCaption($image, 'The Stanley Collection, The Stanley Collection', 'The Stanley Collection');
+		}
+		echo '</ul>';
+
+
 		echo '<p>Done...?</p>';
+
+		
+
 	}
 
 
