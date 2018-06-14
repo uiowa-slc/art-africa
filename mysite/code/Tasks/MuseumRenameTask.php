@@ -41,6 +41,24 @@ class MuseumRenameTask extends BuildTask {
 		}
 		echo '</ul>';
 
+		echo '<h3>Finding instances of Simon Collection that don\'t have a museum credit</h3>';
+		echo '<ul>';
+		foreach($images as $image){
+			$imageCaption = $image->Caption;
+
+			/*if University of Iowa Stanley Museum of Art not found anywhere in caption, 
+			we guess that there isn't a museum listed at all.. */
+			//echo $imageCaption;
+			if ((strpos($imageCaption, 'University of Iowa Stanley Museum of Art') === FALSE )&& (strpos($imageCaption, 'Simon Collection') !== false )) {
+				echo '<li>Found an instance on <strong><a href="'.$image->ShowLink().'">'.$image->Title.'</a></strong>, running find and replace: <ul>';
+			 $this->findReplaceCaption($image, 'J. Richard Simon Collection', 'University of Iowa Stanley Museum of Art, J. Richard Simon Collection');
+			 	echo '</ul>';
+			}
+			
+		}
+		echo '</ul>';
+
+
 		echo '<h2>Adding UISMA to all Stanley Collection pieces:</h2>';
 		echo '<ul>';
 		foreach($images as $image){
