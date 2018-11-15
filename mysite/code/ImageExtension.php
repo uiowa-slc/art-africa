@@ -204,15 +204,17 @@ class ImageExtension extends DataExtension {
     $height = $image->getHeight();
     $width = $image->getWidth();
 
+    print_r($height.' x '.$width);
+
     if ( ( $width < 1000 ) || ( $height < 1000 ) ) {
       $size = 'medium';
     }
 
-    if ( ( $width < 600 ) || ( $height < 600 ) ) {
+    if ( ( $width < 500 ) && ( $height < 500 ) ) {
       $size = 'small';
     }
 
-    if ( ( $width < 300 ) || ( $height < 300 ) ) {
+    if ( ( $width < 200 ) && ( $height < 200 ) ) {
       $size = 'tiny';
     }
     return $size;
