@@ -29,9 +29,14 @@ class PeoplesToArtistCreditlineTask extends BuildTask {
 	private function findReplaceCaption($image, $find, $replace){
 			$caption = $image->obj('Caption')->RAW();
 		
-			if(strpos($caption, $find) !== false){
+			// if(strpos($caption, $find) !== false){
+
+	
+
+			if(preg_match("/peoples(?!([^<]+)?>)/i", $caption)){
+
 				echo '<li>Match found and replaced in... <strong><a href="'.$image->ShowLink().'">'.$image->Title.'</a></strong></li>';
-				$captionReplaced = str_replace($find,$replace, $caption);
+				$captionReplaced = preg_replace("/peoples(?!([^<]+)?>)/i",$replace,$caption);
 				
 				$image->Caption = $captionReplaced;
 				$image->write();
