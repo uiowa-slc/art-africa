@@ -3,7 +3,7 @@ class MuseumRenameTask extends BuildTask {
 
     protected $title = "Find and replace UIMA and replace with UISMA in caption";
     protected $description = 'Uses a few possible variations also fixes empty museum credits.';
-    protected $enabled = true;
+    protected $enabled = false;
     
     
 	public function run($request) {
