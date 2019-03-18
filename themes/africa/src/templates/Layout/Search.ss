@@ -1,6 +1,8 @@
 <div class="content-container typography">
-	<p class="search-again-text">Search again:</p>
-	$SearchFormPage
+	<div class="inpage-search-container">
+		<p class="search-again-text">Search again:</p>
+		$SearchFormPage
+	</div>
 	<% if $Query %>
 	<h1> Search Results</h1>
 	<div class="visible-phone">

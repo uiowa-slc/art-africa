@@ -33,6 +33,10 @@ box-sizing: border-box;
   font-family: Raleway;
 }
 
+.inpage-search-container{
+  max-width: 400px;
+}
+
 @media (min-width: 480px) {
   .search-button {
     right: 0;
@@ -77,9 +81,10 @@ box-sizing: border-box;
   /*#view { margin: 0 4%; }*/
 }
 
+//This breaks on super wide displays, commented out for now.
 @media (min-width: 2560px) {
   html {
-    font-size: 1.5em;
+    // font-size: 1.5em;
   }
 
   /*#view { margin: 0 6%; }*/
@@ -1191,7 +1196,6 @@ article.page {
 }
 
 #searchInput {
-  border-radius: 3px;
   background: #333;
   border: 1px solid #202020;
   color: #ccc;
@@ -1199,7 +1203,7 @@ article.page {
 }
 
 #main_content #searchInput {
-  background: #efefef;
+  background: white;
   border-color: #ccc;
   color: #222;
 }
