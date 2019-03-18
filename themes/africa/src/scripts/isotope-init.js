@@ -47,6 +47,7 @@ $container.infinitescroll({
         // ensure that images load before adding to masonry layout
         $newElems.imagesLoaded(function(){
       	 $container.isotope( 'appended', $( newElements ) ); 
+         observer.observe();
 
 		});
     }

@@ -61,6 +61,10 @@ gulp.task('copy', () =>
   gulp.src([
     './themes/africa/src/*',
     './themes/africa/src/**/*',
+    '!./themes/africa/src/styles',
+    '!./themes/africa/src/styles/**/*',
+    '!./themes/africa/src/scripts',
+    '!./themes/africa/src/scripts/**/*',
     '!./themes/africa/src/templates',
     '!./themes/africa/src/templates/**/*',
     //'!themes/africa/*.html',
@@ -116,11 +120,14 @@ gulp.task('scripts', () =>
       './themes/africa/src/scripts/jquery.magnific-popup.min.js',
       './themes/africa/src/scripts/jquery.sticky.js',
       './themes/africa/src/scripts/jquery.infinitescroll.js',
-      './themes/africa/src/scripts/jquery.isotope.min.js',
+      './themes/africa/src/scripts/imagesloaded.js',
+      './themes/africa/src/scripts/isotope.pkgd.js',
       './themes/africa/src/scripts/isotope-init.js',
       './themes/africa/src/scripts/mediaelement/build/mediaelement-and-player.min.js',
       './themes/africa/src/scripts/jquery.placeholder.js',
       './themes/africa/src/scripts/jquery.placeholder-init.js',
+      './themes/africa/src/scripts/intersection-observer.js',
+      './themes/africa/src/scripts/lozad.js',
       './themes/africa/src/scripts/script.js'
 
 
@@ -171,7 +178,7 @@ gulp.task('watch', ['styles', 'html'], () => {
   // gulp.watch(['./themes/africa/**/*.html'], reload);
   gulp.watch(['./themes/africa/src/templates/**/*.ss'], ['html']);
   gulp.watch(['./themes/africa/src/styles/**/*.{scss,css}'], ['styles']);
-  gulp.watch(['./themes/africa/src/javascript/**/*.js'], ['lint', 'scripts']);
+  gulp.watch(['./themes/africa/src/scripts/**/*.js'], ['lint', 'scripts']);
   gulp.watch(['./themes/africa/src/images/**/*']);
 });
 

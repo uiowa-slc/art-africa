@@ -6,6 +6,8 @@ function rems (n) {
   return parseInt(getComputedStyle(htmlElement, null).getPropertyValue('font-size')) * n;
 }
 
+const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
 
 
 // <span data-toggle="#nav">Toggle nav</span>

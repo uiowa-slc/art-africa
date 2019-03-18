@@ -25,6 +25,13 @@ box-sizing: border-box;
   right: 15px;
   padding-right: 0;
 }
+.content-container .search-again-text{
+  text-transform: uppercase;
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 5px;
+  font-family: Raleway;
+}
 
 @media (min-width: 480px) {
   .search-button {

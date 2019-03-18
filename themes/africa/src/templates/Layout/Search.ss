@@ -1,4 +1,5 @@
 <div class="content-container typography">
+	<p class="search-again-text">Search again:</p>
 	$SearchFormPage
 	<% if $Query %>
 	<h1> Search Results</h1>
@@ -232,8 +233,8 @@
       <% if Image %>
     	<h2 id="images">Images</h2>
     	<div class="media-container">
-    	<% loop Image.Limit(150) %>
-	    	<div class="item">
+    	<% loop Image %>
+	    	<div class="item" style="height: {$SetWidth(282).Height}">
 	    	 <% include MediaGridImage %>
 	    	</div>
     	<% end_loop %>

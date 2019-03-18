@@ -19,7 +19,7 @@
 		    <% end_if %>
 		 <% end_loop %>  
 		 <% if $getResults.NextLink %>
-		 	<li class="pager-item"><a class="next" href="$getResults.NextLink">Next</a></li>
+		 	<li class="pager-item"><a class="next" href="{$BaseURL}$getResults.NextLink">Next</a></li>
 		 <% end_if %>
 		 
 		 </ul> 
