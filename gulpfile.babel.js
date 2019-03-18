@@ -116,21 +116,19 @@ gulp.task('scripts', () =>
       //       to be correctly concatenated
       './themes/africa/src/scripts/main.js',
       // Other scripts
-      './themes/africa/src/scripts/jquery-1.9.1.min.js',
-      './themes/africa/src/scripts/jquery.magnific-popup.min.js',
-      './themes/africa/src/scripts/jquery.sticky.js',
-      './themes/africa/src/scripts/jquery.infinitescroll.js',
-      './themes/africa/src/scripts/imagesloaded.js',
-      './themes/africa/src/scripts/isotope.pkgd.js',
+      './themes/africa/src/scripts/lib/jquery-1.9.1.min.js',
+      './themes/africa/src/scripts/lib/jquery.magnific-popup.min.js',
+      './themes/africa/src/scripts/lib/jquery.sticky.js',
+      './themes/africa/src/scripts/lib/jquery.infinitescroll.js',
+      './themes/africa/src/scripts/lib/imagesloaded.js',
+      './themes/africa/src/scripts/lib/isotope.pkgd.js',
+      './themes/africa/src/scripts/lib/mediaelement-and-player.min.js',
+      './themes/africa/src/scripts/lib/jquery.placeholder.js',
+      './themes/africa/src/scripts/lib/intersection-observer.js',
+      './themes/africa/src/scripts/lib/lozad.js',
       './themes/africa/src/scripts/isotope-init.js',
-      './themes/africa/src/scripts/mediaelement/build/mediaelement-and-player.min.js',
-      './themes/africa/src/scripts/jquery.placeholder.js',
       './themes/africa/src/scripts/jquery.placeholder-init.js',
-      './themes/africa/src/scripts/intersection-observer.js',
-      './themes/africa/src/scripts/lozad.js',
       './themes/africa/src/scripts/script.js'
-
-
     ])
       .pipe($.newer('.tmp/scripts'))
       .pipe($.sourcemaps.init())
