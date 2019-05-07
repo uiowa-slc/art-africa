@@ -243,7 +243,7 @@ class Page_Controller extends ContentController {
 		 $searchText = $this->getRequest()->getVar('Search');
 		}
 
-		$searchField = new TextField('Search', false, 'hellur');
+		$searchField = new TextField('Search', false);
 	
 		$fields = new FieldList(
 		 $searchField
