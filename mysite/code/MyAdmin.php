@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Admin\ModelAdmin;
+
 class CountriesAdmin extends ModelAdmin {
   private static $managed_models = array('Country'); // Can manage multiple models
   private static $url_segment = 'countries'; // Linked as /admin/products/

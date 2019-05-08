@@ -1,4 +1,9 @@
 <?php
+
+use SilverStripe\Forms\ReadonlyField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\ORM\DataObject;
  
 class MediaPiece extends DataObject {
  

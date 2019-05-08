@@ -1,5 +1,14 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\Form;
+use SilverStripe\Control\Controller;
+
 class MediaFilterForm extends Form
 {
 
@@ -27,9 +36,9 @@ class MediaFilterForm extends Form
         $audioPieces = AudioPiece::get()->First();
 
         if ($audioPieces) {
-            $mediaFormTypes = array('Image' => 'Image', 'ArtPhoto' => 'Art Photo', 'FieldPhoto' => 'Field Photo', 'AudioPiece' => 'Audio', 'VideoPiece' => 'Video');
+            $mediaFormTypes = array('Image' => Image::class, 'ArtPhoto' => 'Art Photo', 'FieldPhoto' => 'Field Photo', 'AudioPiece' => 'Audio', 'VideoPiece' => 'Video');
         } else {
-            $mediaFormTypes = array('Image' => 'Image', 'ArtPhoto' => 'Art Photo', 'FieldPhoto' => 'Field Photo', 'VideoPiece' => 'Video');
+            $mediaFormTypes = array('Image' => Image::class, 'ArtPhoto' => 'Art Photo', 'FieldPhoto' => 'Field Photo', 'VideoPiece' => 'Video');
         }
 
         $objectTitleField = TextField::create('ObjectTitle', 'Object Title')->setAttribute('placeholder', 'Object Title Contains');

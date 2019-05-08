@@ -1,4 +1,14 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Security\Permission;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\GridField\GridFieldPaginator;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\DataObject;
  
 class Essay extends DataObject {
  
@@ -25,7 +35,7 @@ class Essay extends DataObject {
   private static $many_many = array(
   'AudioPieces' => 'AudioPiece',
   'VideoPieces' => 'VideoPiece',
-  'Images' => 'Image'
+  'Images' => Image::class
   
   );
   private static $belongs_many_many = array(
@@ -48,7 +58,7 @@ class Essay extends DataObject {
       return Permission::check('CMS_ACCESS', 'any', $member);
   }
 
-  public function canCreate($member = null) {
+  public function canCreate($member = null, $context=null) {
       return Permission::check('CMS_ACCESS', 'any', $member);
   } 
   private static $has_many = array('EssayPages' => 'EssayPage');
@@ -83,8 +93,8 @@ class Essay extends DataObject {
  		 
  		$gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
-		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));
-		$gridFieldConfigEssayPages->getComponentByType('GridFieldPaginator')->setItemsPerPage(20);
+		$gridFieldConfigEssayPages->getComponentByType(GridFieldAddExistingAutocompleter::class)->setSearchFields(array('PageNo', 'Content'));
+		$gridFieldConfigEssayPages->getComponentByType(GridFieldPaginator::class)->setItemsPerPage(20);
 		$gridfield = new GridField("EssayPages", "Essay Pages", $this->EssayPages(), $gridFieldConfigEssayPages);
 		$fields->addFieldToTab('Root.Main', $gridfield);
  		

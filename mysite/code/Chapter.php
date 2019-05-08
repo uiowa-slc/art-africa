@@ -1,4 +1,12 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\GridField\GridFieldPaginator;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
  
 class Chapter extends Page {
  
@@ -12,7 +20,7 @@ class Chapter extends Page {
  
   // One-to-one relationship with gallery page
   private static $has_one = array(
-  	'CoverImage' => 'Image'
+  	'CoverImage' => Image::class
   );
   
 
@@ -26,7 +34,7 @@ class Chapter extends Page {
    'Countries' => 'Country',
    'AudioPieces' => 'AudioPiece',
    'VideoPieces' => 'VideoPiece',
-   'Images' => 'Image'
+   'Images' => Image::class
 
   
   );
@@ -46,8 +54,8 @@ class Chapter extends Page {
 		
 		$gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create(); 
 		$gridFieldConfigEssayPages->addComponent(new GridFieldSortableRows('PageNo'));
-		$gridFieldConfigEssayPages->getComponentByType('GridFieldAddExistingAutocompleter')->setSearchFields(array('PageNo', 'Content'));
-		$gridFieldConfigEssayPages->getComponentByType('GridFieldPaginator')->setItemsPerPage(20);
+		$gridFieldConfigEssayPages->getComponentByType(GridFieldAddExistingAutocompleter::class)->setSearchFields(array('PageNo', 'Content'));
+		$gridFieldConfigEssayPages->getComponentByType(GridFieldPaginator::class)->setItemsPerPage(20);
 		
 		$gridfield = new GridField("EssayPages", "Introduction Essay Pages", $this->EssayPages(), $gridFieldConfigEssayPages);
 		$fields->addFieldToTab('Root.Main', $gridfield);
@@ -76,73 +84,4 @@ class Chapter extends Page {
   
   
 
-}
-
-
-class Chapter_Controller extends Page_Controller {
-
-	/**
-	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
-	 * permissions or conditions required to allow the user to access it.
-	 *
-	 * <code>
-	 * array (
-	 *     'action', // anyone can access this action
-	 *     'action' => true, // same as above
-	 *     'action' => 'ADMIN', // you must have ADMIN permissions to access this action
-	 *     'action' => '->checkAction' // you can only access this action if $this->checkAction() returns true
-	 * );
-	 * </code>
-	 *
-	 * @var array
-	 */
-	private static $allowed_actions = array ();
-	
-	public function getNextChapter(){
-	
-		$chapterHolder = $this->getParent();
-		$chapters = $chapterHolder->Children();
-				
-		$check = false; //true when match for chapter found
-				
-			foreach($chapters as $loopChapter){
-			
-				if ($check == true){
-					$returnedItem = $loopChapter;
-									
-					$check = false;
-				}
-				if ($loopChapter->Title == $this->Title){
-					$check = true;
-				}	
-				
-			}		
-		
-		
-		if (!isset($returnedItem)){
-			//We're in the last chapter, so return the first chapter's link or title
-			$returnedItem = Chapter::get()->First();
-		}
-	    
-	    if (isset($returnedItem)){
-			return $returnedItem;
-		}
-	}
-	
-	public function hasChildren(){
-		$children = $this->Children()->First(); //just $this->Children returns an empty ArrayList that evaluates to true
-
-		if ($children){
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	public function nextPageInTree() {
-
-		$page = $this->Children()->First();
-		return $page;
-	}
 }

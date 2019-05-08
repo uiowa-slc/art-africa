@@ -1,4 +1,6 @@
 <?php
+
+use SilverStripe\Dev\BuildTask;
 class LowercaseObjectTypeTask extends BuildTask {
 
     protected $title = "Make all object types and mediums lowercase";

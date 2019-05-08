@@ -1,8 +1,8 @@
-Image:
+SilverStripe\Assets\Image:
   extensions:
     - ImageExtension
     - AfricaDataObjectExtension
-AssetAdmin:
+SilverStripe\AssetAdmin\Controller\AssetAdmin:
   extensions:
     - AssetAdminExtension
 AudioPiece:
@@ -23,6 +23,6 @@ Essay:
 People:
   extensions:
     - AfricaDataObjectExtension
-SiteConfig:
+SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - SiteConfigExtension

@@ -1,4 +1,6 @@
 <?php
+
+use SilverStripe\Dev\BuildTask;
 class CreateDummyArtTask extends BuildTask {
 
     protected $title = "Generate dummy art pieces";

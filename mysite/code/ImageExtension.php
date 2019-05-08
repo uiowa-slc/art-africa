@@ -1,5 +1,19 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\TagField\TagField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\ORM\FieldType\DBDate;
+use SilverStripe\Forms\LabelField;
+use SilverStripe\Control\Director;
+use SilverStripe\Control\Controller;
+use SilverStripe\ORM\DataExtension;
+
 class ImageExtension extends DataExtension {
 
   private static $db = array(
@@ -31,7 +45,7 @@ class ImageExtension extends DataExtension {
   );
 
   private static $has_one = array(
-    'AltImage' => 'Image',
+    'AltImage' => Image::class,
   );
 
   private static $many_many = array(
@@ -116,7 +130,7 @@ class ImageExtension extends DataExtension {
       $fields->addFieldToTab( 'Root.Main', new DropdownField( 'Type', 'Type of Image', $this->owner->dbObject( 'Type' )->enumValues() ) );
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Photographer', 'Photographer' ) );
 
-      $fields->addFieldToTab( 'Root.Main', new TextField( 'Date', 'Date' ) );
+      $fields->addFieldToTab( 'Root.Main', new TextField( DBDate::class, DBDate::class ) );
       $fields->addFieldToTab( 'Root.Main', new TextField( 'Location', 'Location' ) );
 
       $creditField = HTMLEditorField::create( 'CreditLine', 'Credit Line' )->setRows(3);
@@ -246,7 +260,7 @@ class ImageExtension extends DataExtension {
 
     }else {
 
-      $scaledImage = $image->SetRatioSize( 1000, 1000 );
+      $scaledImage = $image->Fit( 1000, 1000 );
       return $scaledImage;
     }
 
@@ -289,8 +303,11 @@ class ImageExtension extends DataExtension {
 
     if($altImageId != 0){
       $altImage = Image::get()->filter(array('ID' => $altImageId))->First();
-      $altImage->ParentImageID = $this->owner->ID; 
-      $altImage->write();      
+      if($altImage){
+         $altImage->ParentImageID = $this->owner->ID; 
+        $altImage->write();             
+      }
+
     }
 
   }

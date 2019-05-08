@@ -1,4 +1,14 @@
 <?php
+
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
+use Colymba\BulkManager\BulkManager;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\GridField\GridFieldConfig_Base;
+use SilverStripe\ORM\DataExtension;
  
 class AfricaDataObjectExtension extends DataExtension {
 
@@ -108,11 +118,11 @@ public function RandomImages(){
 			$fields->addFieldToTab('Root.ArtImages', $gridfield);
 		}*/
 		
-		if ($owner->ClassName != 'Image'){
+		if ($owner->ClassName != Image::class){
 		
 		  	$gridFieldConfigImages= GridFieldConfig_RelationEditor::create(); 
 			$gridfield = new GridField("Images", "Images", $owner->Images(), $gridFieldConfigImages);
-			$gridFieldConfigImages->addComponent(new GridFieldBulkManager());
+			$gridFieldConfigImages->addComponent(new BulkManager());
 			$fields->addFieldToTab('Root.Images', $gridfield);
 			
 			$fields->addFieldToTab('Root.Images', new LiteralField('ImagesViewerHeader', '<h2>All Images Listed Below</h2>'));

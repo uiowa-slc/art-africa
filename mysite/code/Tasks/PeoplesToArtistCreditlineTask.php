@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Dev\BuildTask;
 class PeoplesToArtistCreditlineTask extends BuildTask {
 
     protected $title = "Find and replace 'peoples' to 'artist' in caption";

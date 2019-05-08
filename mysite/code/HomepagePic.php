@@ -1,4 +1,9 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\DataObject;
  
 class HomepagePic extends DataObject {
  
@@ -11,11 +16,11 @@ class HomepagePic extends DataObject {
  
   // One-to-one relationship with gallery page
   private static $has_one = array(
-  'HomepagePic' => 'Image',
+  'HomepagePic' => Image::class,
   'HomePage' => 'HomePage'
   );
   
-  static $searchable_fields = array('PicNo', 'PageLink');
+  private static $searchable_fields = array('PicNo', 'PageLink');
   
   private static $summary_fields = array('PageLink', 'CreditLine');
   

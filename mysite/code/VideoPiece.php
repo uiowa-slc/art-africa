@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\TextField;
  
 class VideoPiece extends MediaPiece {
  
@@ -18,10 +21,10 @@ class VideoPiece extends MediaPiece {
    'Essays' => 'Essay',
    'Countries' => 'Country',
    'Subtopics' => 'Subtopic',
-   'Images' => 'Image',
+   'Images' => Image::class,
    'AudioPieces' => 'AudioPiece',
    'Chapters' => 'Chapter',
-   'Photos' => 'Image'
+   'Photos' => Image::class
   );
   
   private static $plural_name = "Video Pieces";

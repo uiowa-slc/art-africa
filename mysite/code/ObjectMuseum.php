@@ -1,4 +1,9 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Security\Permission;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\DataObject;
  
 class ObjectMuseum extends DataObject {
  
@@ -11,7 +16,7 @@ class ObjectMuseum extends DataObject {
   
   
   private static $belongs_many_many = array(
-    'Images' => 'Image'
+    'Images' => Image::class
 
   );
   
@@ -30,7 +35,7 @@ class ObjectMuseum extends DataObject {
       return Permission::check('CMS_ACCESS', 'any', $member);
   }
 
-  public function canCreate($member = null) {
+  public function canCreate($member = null, $context=null) {
       return Permission::check('CMS_ACCESS', 'any', $member);
   }    
  // tidy up the CMS by not showing these fields

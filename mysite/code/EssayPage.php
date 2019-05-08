@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\ORM\DataObject;
+
 class EssayPage extends DataObject {
  
   
@@ -16,7 +19,7 @@ class EssayPage extends DataObject {
     'Chapter'=> 'Chapter',
     'Essay' => 'Essay');
   
-  static $searchable_fields = array('PageNo', 'Content');
+  private static $searchable_fields = array('PageNo', 'Content');
   
   private static $summary_fields = array('PageNo', 'Content');
   

@@ -1,4 +1,8 @@
 <?php
+
+use SilverStripe\Assets\File;
+use SilverStripe\Assets\Folder;
+use SilverStripe\Dev\BuildTask;
 class FormatImageNameTask extends BuildTask {
  
     protected $title = 'Format image names';
@@ -44,7 +48,7 @@ class FormatImageNameTask extends BuildTask {
 				print_r('<br><br>');
 				print_r($match . ' MATCH');
 				//print_r($image->ParentID);
-				$folder = Folder::get_by_id('Folder', $image->ParentID);
+				$folder = Folder::get_by_id(Folder::class, $image->ParentID);
 				$path = $folder->getRelativePath();
 				
 				$image->setName($match . '.jpg');

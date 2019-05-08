@@ -1,4 +1,12 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Security\Permission;
+use SilverStripe\Forms\ReadonlyField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\ORM\DataObject;
  
 class People extends DataObject {
  
@@ -20,7 +28,7 @@ class People extends DataObject {
   );
  
   private static $has_one = array(
-  'Picture' => 'Image'
+  'Picture' => Image::class
 
   );
   
@@ -28,7 +36,7 @@ class People extends DataObject {
   'Essays' => 'Essay',
   'AudioPieces' => 'AudioPiece',
   'VideoPieces' => 'VideoPiece',
-  'Images' => 'Image'
+  'Images' => Image::class
   
   );
   
@@ -53,7 +61,7 @@ class People extends DataObject {
       return Permission::check('CMS_ACCESS', 'any', $member);
   }
 
-  public function canCreate($member = null) {
+  public function canCreate($member = null, $context=null) {
       return Permission::check('CMS_ACCESS', 'any', $member);
   }   
 

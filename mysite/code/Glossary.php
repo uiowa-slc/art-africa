@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
  
 class Glossary extends Page {
  
@@ -34,7 +37,7 @@ class Glossary extends Page {
 }
 
 
-class Glossary_Controller extends Page_Controller {
+class Glossary_Controller extends PageController {
 
 	/**
 	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the

@@ -1,12 +1,17 @@
 <?php
 
+use SilverStripe\Assets\File;
+use SilverStripe\Assets\Image;
+use SilverStripe\Security\Permission;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+
 class AudioPiece extends MediaPiece {
 
   private static $db = array(
   );
 
   private static $has_one = array(
-    'AudioFile' => 'File'
+    'AudioFile' => File::class
 
   );
 
@@ -20,7 +25,7 @@ class AudioPiece extends MediaPiece {
     'Countries' => 'Country',
     'Subtopics' => 'Subtopic',
     'Chapters' => 'Chapter',
-    'Images' => 'Image'
+    'Images' => Image::class
   );
 
   private static $plural_name = "Audio Pieces";
@@ -36,7 +41,7 @@ class AudioPiece extends MediaPiece {
       return Permission::check('CMS_ACCESS', 'any', $member);
   }
 
-  public function canCreate($member = null) {
+  public function canCreate($member = null, $context=null) {
       return Permission::check('CMS_ACCESS', 'any', $member);
   } 
   public function getCMSFields() {

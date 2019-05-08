@@ -1,5 +1,12 @@
 <?php
 
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\GridField\GridFieldPaginator;
+use SilverStripe\Forms\GridField\GridField;
+
 class Subtopic extends Page {
 
 
@@ -9,7 +16,7 @@ class Subtopic extends Page {
 	);
 
 	private static $has_one = array(
-		'CoverImage' => 'Image'
+		'CoverImage' => Image::class
 	);
 
 	private static $many_many = array(
@@ -18,9 +25,9 @@ class Subtopic extends Page {
 		'Countries' => 'Country',
 		'AudioPieces' => 'AudioPiece',
 		'VideoPieces' => 'VideoPiece',
-		'ArtPhotos' => 'ArtPhoto',
-		'FieldPhotos' => 'FieldPhoto',
-		'Images' => 'Image'
+		// 'ArtPhotos' => 'ArtPhoto',
+		// 'FieldPhotos' => 'FieldPhoto',
+		'Images' => Image::class
 	);
 
 	private static $has_many = array( 'EssayPages' => 'EssayPage' );
@@ -44,8 +51,8 @@ class Subtopic extends Page {
 		//$fields->addFieldToTab( 'Root.Main', new UploadField( 'CoverImage', 'Cover Image' ) );
 		$gridFieldConfigEssayPages = GridFieldConfig_RelationEditor::create();
 		$gridFieldConfigEssayPages->addComponent( new GridFieldSortableRows( 'PageNo' ) );
-		$gridFieldConfigEssayPages->getComponentByType( 'GridFieldAddExistingAutocompleter' )->setSearchFields( array( 'PageNo', 'Content' ) );
-		$gridFieldConfigEssayPages->getComponentByType( 'GridFieldPaginator' )->setItemsPerPage( 20 );
+		$gridFieldConfigEssayPages->getComponentByType( GridFieldAddExistingAutocompleter::class )->setSearchFields( array( 'PageNo', 'Content' ) );
+		$gridFieldConfigEssayPages->getComponentByType( GridFieldPaginator::class )->setItemsPerPage( 20 );
 		$gridfield = new GridField( "EssayPages", "Essay Pages", $this->EssayPages(), $gridFieldConfigEssayPages );
 		$fields->addFieldToTab( 'Root.Main', $gridfield );
 
@@ -64,119 +71,4 @@ class Subtopic extends Page {
 		if($this->Parent())
 			return $this->Parent()->University;
 	}
-}
-
-class Subtopic_Controller extends Page_Controller {
-
-	/**
-	 * An array of actions that can be accessed via a request. Each array element should be an action name, and the
-	 * permissions or conditions required to allow the user to access it.
-	 *
-	 * <code>
-	 * array (
-	 *     'action', // anyone can access this action
-	 *     'action' => true, // same as above
-	 *     'action' => 'ADMIN', // you must have ADMIN permissions to access this action
-	 *     'action' => '->checkAction' // you can only access this action if $this->checkAction() returns true
-	 * );
-	 * </code>
-	 *
-	 * @var array
-	 */
-
-	public function show( $request ) {
-		//Displays a data object
-
-
-		$otherClass = 'Subtopic';
-
-		$objectID = $this->request->param( 'ID' );
-		if ( $objectID ) {
-
-			$object = $otherClass::get_by_id( $otherClass, $objectID );
-
-			if ( isset( $object ) ) {
-				$showTemplate = $otherClass . '_show';
-				return $this->Customise( $object )->renderWith( array( $showTemplate, 'Page' ) );
-
-			}else {
-			}
-		}
-		else {
-			return $this->renderWith( 'Page' );
-		}
-
-	}
-
-	public function nextPageInTree() {
-
-		$page = Page::get()->filter( array (
-				'ParentID' => $this->ParentID,
-				'Sort:GreaterThan' => $this->Sort
-			) )->First();
-
-		if ( !$page ) {
-
-			$parentPage = $this->getParent();
-
-			$page = Page::get()->filter( array (
-					'ParentID' => $parentPage->ParentID,
-					'Sort:GreaterThan' => $parentPage->Sort
-				) )->First();
-		}
-
-		return $page;
-	}
-
-	public function getNextSubtopic( $title, $type='Subtopic' ) {
-		//Title is used to get the next subtopic, returnType returns either a Link or the Title
-		$currentSubtopic = $type::get()->filter( array( 'Title' => $title ) )->First();
-		$chapter = $currentSubtopic->getParent();
-		$chapterSubtopics = $chapter->Children();
-
-		$check = false; //true when match for subtopic found
-
-		foreach ( $chapterSubtopics as $subtopic ) {
-			if ( $check == true ) {
-				$returnedItem = $subtopic;
-
-				$check = false;
-			}
-			if ( $subtopic->Title == $currentSubtopic->Title ) {
-				$check = true;
-			}
-		}
-
-
-		if ( !isset( $returnedItem ) ) {
-			//If returned subtopic isn't set, it's the last subtopic in a chapter -- meaning we want the next link to point to the next chapter
-			$chapterHolder = $chapter->getParent();
-			$chapters = $chapterHolder->Children();
-
-			$check = false; //true when match for chapter found
-
-			foreach ( $chapters as $loopChapter ) {
-
-				if ( $check == true ) {
-					$returnedItem = $loopChapter;
-
-					$check = false;
-				}
-				if ( $loopChapter->Title == $chapter->Title ) {
-					$check = true;
-				}
-			}
-
-			if ( !isset( $returnedItem ) ) {
-				//We're in the last chapter, so return the first chapter's link or title
-				$returnedItem = Chapter::get()->First();
-			}
-
-		}
-
-		return $returnedItem;
-	}
-
-
-
 }

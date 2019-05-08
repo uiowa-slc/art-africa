@@ -1,4 +1,11 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Security\Permission;
+use SilverStripe\Forms\ReadonlyField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\ORM\DataObject;
  
 class Country extends DataObject {
  
@@ -35,7 +42,7 @@ class Country extends DataObject {
  
   // One-to-one relationship with gallery page
   private static $has_one = array(
-  'Picture' => 'Image'
+  'Picture' => Image::class
   
   );
   
@@ -46,7 +53,7 @@ class Country extends DataObject {
   'Essays' => 'Essay',
   'AudioPieces' => 'AudioPiece',
   'VideoPieces' => 'VideoPiece',
-  'Images' => 'Image'
+  'Images' => Image::class
   );
   
   private static $belongs_many_many = array(
@@ -69,7 +76,7 @@ class Country extends DataObject {
       return Permission::check('CMS_ACCESS', 'any', $member);
   }
 
-  public function canCreate($member = null) {
+  public function canCreate($member = null, $content=null) {
       return Permission::check('CMS_ACCESS', 'any', $member);
   }   
  // tidy up the CMS by not showing these fields

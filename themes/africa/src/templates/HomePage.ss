@@ -47,7 +47,7 @@
             <div id="homepage-pic-shadow"></div>
             <% loop HomepagePics %>
               <span class="switcher<% if First %> selected<% end_if %>"
-                    data-img-url="{$HomepagePic.CroppedFocusedImage(1000,500).URL}"
+                    data-img-url="{$HomepagePic.FocusFill(1000,500).URL}"
                     data-link="{$PageLink}"
                     data-desc="{$Caption.ATT}">
               </span>

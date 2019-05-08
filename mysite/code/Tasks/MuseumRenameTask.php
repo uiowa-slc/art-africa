@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Dev\BuildTask;
 class MuseumRenameTask extends BuildTask {
 
     protected $title = "Find and replace UIMA and replace with UISMA in caption";

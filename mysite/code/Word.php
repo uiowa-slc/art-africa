@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\DataObject;
  
 class Word extends DataObject {
  

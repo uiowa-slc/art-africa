@@ -1,4 +1,7 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Dev\BuildTask;
 class ImageParentIDFieldTask extends BuildTask {
  
     protected $title = 'Populate Image ParentID field';

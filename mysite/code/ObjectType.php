@@ -1,4 +1,9 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Security\Permission;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\DataObject;
  
 class ObjectType extends DataObject {
  
@@ -10,7 +15,7 @@ class ObjectType extends DataObject {
   
   
   private static $belongs_many_many = array(
-    'Images' => 'Image'
+    'Images' => Image::class
 
   );
   
@@ -28,7 +33,7 @@ class ObjectType extends DataObject {
       return Permission::check('CMS_ACCESS', 'any', $member);
   }
 
-  public function canCreate($member = null) {
+  public function canCreate($member = null, $context=null) {
       return Permission::check('CMS_ACCESS', 'any', $member);
   }    
   

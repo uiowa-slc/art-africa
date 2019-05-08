@@ -1,4 +1,6 @@
 <?php
+
+use SilverStripe\Dev\BuildTask;
 class FixMajorPeoplesFieldTask extends BuildTask {
 
     protected $title = "Fix Major Peoples Field";
