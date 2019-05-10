@@ -16,7 +16,7 @@
  	<div class="media-container">
  		<% loop $getResults %>
  			<div class="item $ID">
- 				<% if $ClassName == "Image" %>
+ 				<% if $ClassName == "SilverStripe\Assets\Image" %>
  					<% include MediaGridImage %>
  				<% else_if $ClassName == "AudioPiece" %>
  					<% include AudioPiece %>
