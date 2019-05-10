@@ -4,6 +4,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\ORM\PaginatedList;
 use SilverStripe\Control\Director;
 use SilverStripe\View\SSViewer;
+use SilverStripe\ORM\ArrayList;
 class MediaHolderController extends PageController {
 
 	/**
@@ -39,15 +40,13 @@ class MediaHolderController extends PageController {
 		$paginatedMediaList->setPageLength(20);
 		return $paginatedMediaList;
 
-
 	}
 
 	public function getResults(){
 
 		$filters = $this->getFilters();
-
+		// $results = $this->loadDefaultResults();
 		/* Filter by Media Type first-- then everything else */
-
 		if($filters['MediaType'] != ''){
 
 			if($filters['MediaType'] == 'AudioPiece'){
@@ -57,19 +56,19 @@ class MediaHolderController extends PageController {
 			}elseif(($filters['MediaType'] == 'ArtPhoto')||($filters['MediaType']=='FieldPhoto')) {
 				$results = $this->loadDefaultImageResults();
 				$results = $results->addFilter((array('Type' => $filters['MediaType'])));
-			}elseif($filters['MediaType'] == Image::class) {
+			}elseif($filters['MediaType'] == 'Image') {
 				$results = $this->loadDefaultImageResults();
 			}elseif($filters['MediaType'] == 'AllMedia'){
 				$results = $this->loadDefaultResults();
 
 			}
 
-			}else {
+		}else {
 				$results = $this->loadDefaultResults();
-			}
+		}
 
 		/* Everything Else */
-
+		// print_r($results);
 		if($filters['Country'] != ''){
 			$results = $results->filter((array('Countries.ID' => $filters['Country'])));
 		}
