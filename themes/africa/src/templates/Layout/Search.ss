@@ -236,7 +236,7 @@
     	<h2 id="images">Images</h2>
     	<div class="media-container">
     	<% loop Image %>
-	    	<div class="item" style="height: {$SetWidth(282).Height}">
+	    	<div class="item" style="height: {$ScaleWidth(282).Height}">
 	    	 <% include MediaGridImage %>
 	    	</div>
     	<% end_loop %>
