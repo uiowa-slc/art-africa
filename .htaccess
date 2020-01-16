@@ -62,5 +62,7 @@ ErrorDocument 500 /assets/error-500.html
 </IfModule>
 ### SILVERSTRIPE END ###
 
+RewriteRule ^.*\.git.* - [R=404]
+
 #php_value display_errors on
 #php_value memory_limit 256M
