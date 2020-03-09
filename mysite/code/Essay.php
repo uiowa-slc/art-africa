@@ -9,7 +9,8 @@ use SilverStripe\Forms\GridField\GridFieldPaginator;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataObject;
- 
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+
 class Essay extends DataObject {
  
   

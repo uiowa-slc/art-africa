@@ -1322,10 +1322,12 @@ table th[class*="col-"] {
       display: inline; } }
 
 .uiowa-bar__search {
-  margin-top: 3px;
   position: absolute;
   top: 6px;
   right: 25px; }
+  @media (min-width: 600px) {
+    .uiowa-bar__search {
+      margin-top: 3px; } }
 
 .uiowa-bar__menu-item {
   display: inline;
@@ -1372,7 +1374,6 @@ input[type="submit"].uiowa-bar__submit {
     position: static;
     padding-bottom: 5px; }
   .uiowa-bar__search {
-    margin-top: 3px;
     position: static; } }
 
 @media (max-width: 600px) {

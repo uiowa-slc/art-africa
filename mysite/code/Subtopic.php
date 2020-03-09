@@ -6,6 +6,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldPaginator;
 use SilverStripe\Forms\GridField\GridField;
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 class Subtopic extends Page {
 

@@ -7,7 +7,7 @@ use SilverStripe\Forms\GridField\GridFieldPaginator;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
- 
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 class Chapter extends Page {
  
   

@@ -4,8 +4,8 @@
     "description": "The SilverStripe Framework Installer",
     "require": {
         "php": ">=5.5",
-        "silverstripe/framework": "4.3.3",
-        "silverstripe/cms": "4.3.3",
+        "silverstripe/framework": "4.4.*@stable",
+        "silverstripe/cms": "4.4.*@stable",
         "silverstripe/recipe-plugin": "*",
         "silverstripe/recipe-cms": "*",
         "silverstripe/siteconfig": "*",
@@ -16,14 +16,11 @@
         "silverstripe/googlesitemaps": "*",
         "silverstripe/tagfield": "*",
         "md/division-analytics": "*",
-        "md/uiowa-bar": "*"
+        "md/uiowa-bar": "*",
+        "md/saml": "dev-md"
     },
     "minimum-stability": "dev",
     "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-gridfield-betterbuttons"
-        },
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-activedirectory"
@@ -35,6 +32,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/StudentLifeMarketingAndDesign/uiowa-bar"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/StudentLifeMarketingAndDesign/silverstripe-saml"
         }
     ],
     "extra": {
@@ -52,8 +53,8 @@
             "install.php",
             "web.config"
         ],
-         "expose": [
-          "themes/africa/dist"
+        "expose": [
+            "themes/africa/dist"
         ]
     }
 }
