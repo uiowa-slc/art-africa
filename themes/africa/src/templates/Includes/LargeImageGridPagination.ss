@@ -4,7 +4,7 @@
 		<ul class="pager">	
 		
 	    <% if $getResults.PrevLink %>
-	        <li class="pager-item"><a class="prev" href="$getResults.PrevLink">Previous</a></li>
+	        <li class="pager-item"><a class="prev" href="{$getBase}$getResults.PrevLink">Previous</a></li>
 	    <% end_if %>	
 	
 		<% loop $getResults.PaginationSummary(7) %>
@@ -19,7 +19,7 @@
 		    <% end_if %>
 		 <% end_loop %>  
 		 <% if $getResults.NextLink %>
-		 	<li class="pager-item"><a class="next" href="{$BaseURL}$getResults.NextLink">Next</a></li>
+		 	<li class="pager-item"><a class="next" href="{$getBase}$getResults.NextLink">Next</a></li>
 		 <% end_if %>
 		 
 		 </ul> 

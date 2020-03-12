@@ -5,6 +5,7 @@ use SilverStripe\ORM\PaginatedList;
 use SilverStripe\Control\Director;
 use SilverStripe\View\SSViewer;
 use SilverStripe\ORM\ArrayList;
+
 class MediaHolderController extends PageController {
 
 	/**
@@ -152,7 +153,8 @@ class MediaHolderController extends PageController {
 			$startParam = $getVars['start'];
 		}
 
-		if (isset($startParam) && Director::is_ajax()){
+		// if (isset($startParam) && Director::is_ajax()){
+		if (isset($startParam)){
 			$returnList = $this->getResults()->limit(20, $startParam);
 			$returnList->sort('RAND()');
 			
@@ -169,6 +171,12 @@ class MediaHolderController extends PageController {
 			return $this->renderWith(array('MediaHolder', 'Page'));
 			
 		}
+
+	}
+
+	public function getBase(){
+		$protocol = Director::protocolAndHost();
+		return $protocol;
 
 	}
 	

@@ -74,10 +74,14 @@ class Chapter extends Page {
 		return $fields;		
   }
 
+  public function Author(){
+    return $this->Author;
+  }
+
+
   public function CoverPhoto(){
   	$image = $this->Images()->sort('RAND()')->first();
   	return $image;
-  	echo "hello";
 
   }
   

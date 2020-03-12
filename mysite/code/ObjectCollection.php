@@ -16,7 +16,8 @@ class ObjectCollection extends DataObject {
   
   
   private static $belongs_many_many = array(
-    'Images' => Image::class
+    'Images' => Image::class,
+    'MediaPieces' => 'MediaPiece'
 
   );
   

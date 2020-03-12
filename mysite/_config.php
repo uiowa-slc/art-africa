@@ -21,7 +21,7 @@ ShortcodeParser::get('default')->register(
 	'FieldPhoto', ['PageController', 'shortCodeHandler']
 );
 ShortcodeParser::get('default')->register(
-	'Image', ['PageController', 'imageHandler']
+	'Img', ['PageController', 'imageHandler']
 );
 ShortcodeParser::get('default')->register(
 	'Video', ['PageController', 'videoHandler']

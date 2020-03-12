@@ -17,6 +17,13 @@ class MediaPiece extends DataObject {
 
 
   );
+
+  private static $many_many = array(
+    'ObjectMuseums' => 'ObjectMuseum',
+    'ObjectCollections' => 'ObjectCollection',
+    'ObjectTypes' => 'ObjectType',
+    'ObjectMediums' => 'ObjectMedium',
+  );
   
   private static $plural_name = "Media Pieces";
 

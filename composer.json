@@ -4,8 +4,8 @@
     "description": "The SilverStripe Framework Installer",
     "require": {
         "php": ">=5.5",
-        "silverstripe/framework": "4.4.*@stable",
-        "silverstripe/cms": "4.4.*@stable",
+        "silverstripe/framework": "4.5.*@stable",
+        "silverstripe/cms": "4.5.*@stable",
         "silverstripe/recipe-plugin": "*",
         "silverstripe/recipe-cms": "*",
         "silverstripe/siteconfig": "*",
@@ -39,6 +39,7 @@
         }
     ],
     "extra": {
+        "resources-dir": "_resources",
         "project-files-installed": [
             "app/.htaccess",
             "app/_config.php",
@@ -54,7 +55,9 @@
             "web.config"
         ],
         "expose": [
-            "themes/africa/dist"
+            "themes/africa/dist",
+            "themes/africa/src",
+            "themes/africa/css"
         ]
     }
 }
