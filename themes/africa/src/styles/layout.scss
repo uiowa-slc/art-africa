@@ -250,8 +250,24 @@ button, .button {
 #top {
   position: relative;
 }
-.uiowa-bar__wrapper{
+#uiowa-bar{
   background: #171415;
+}
+
+#uiowa-bar #wordmark-link{
+  left: 20px;
+}
+
+#uiowa-bar #uiowa-search .links{
+  margin-right: 0;
+}
+
+#uiowa-bar #uiowa-search .links a{
+  font-size: 12px;
+}
+
+#uiowa-bar #uiowa-search{
+  margin-top: 7px;
 }
 #logo {
   color: #fff;
