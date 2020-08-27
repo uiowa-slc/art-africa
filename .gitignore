@@ -18,3 +18,4 @@ smtp.yml
 /.tmp
 /.phpintel
 /public/_resources/
+/public/assets.zip

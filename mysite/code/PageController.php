@@ -42,6 +42,10 @@ class PageController extends ContentController {
         'SearchForm',
     );
 
+    private static $url_handlers = array(
+        'show//$ID' => 'show'
+    );
+
     public function getLatitudeLongitude() {
         $countries = Country::get();
         return $countries;
@@ -352,7 +356,13 @@ class PageController extends ContentController {
     public function show( $request ) {
 
         $otherClass = $this::$childPage;
+     
+        $path = explode('\\', $otherClass);
+        $otherClassNoNamespace = array_pop($path);
+
+
         $objectID = Convert::raw2xml( $this->request->param( 'ID' ) );
+
         $source = $this->request->getVar( 'back' );
         $source = preg_replace("(^https?://)", "", $source );
 
@@ -366,7 +376,8 @@ class PageController extends ContentController {
 
             if ( $object ) {
 
-                $showTemplate = $otherClass . 'Holder_show';
+
+                $showTemplate = $otherClassNoNamespace . 'Holder_show';
                 if ( !isset( $source ) ) {
                     $data = array (
                         "Object" => $object,
@@ -382,6 +393,7 @@ class PageController extends ContentController {
                     $parent = $object->ParentImage();
                     $this->redirect($parent->ShowLink());
                 }
+
 
                 return $this->Customise( $data )->renderWith( array( $showTemplate, 'Page' ) );
             }else {

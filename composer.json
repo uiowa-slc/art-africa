@@ -4,8 +4,8 @@
     "description": "The SilverStripe Framework Installer",
     "require": {
         "php": ">=5.5",
-        "silverstripe/framework": "4.5.*@stable",
-        "silverstripe/cms": "4.5.*@stable",
+        "silverstripe/framework": "4.6.*@stable",
+        "silverstripe/cms": "4.6.*@stable",
         "silverstripe/recipe-plugin": "*",
         "silverstripe/recipe-cms": "*",
         "silverstripe/siteconfig": "*",
@@ -16,7 +16,7 @@
         "silverstripe/googlesitemaps": "*",
         "silverstripe/tagfield": "*",
         "md/division-analytics": "*",
-        "md/uiowa-bar": "*",
+        "md/uiowa-bar": "2.*",
         "md/saml": "dev-md"
     },
     "minimum-stability": "dev",
@@ -43,6 +43,7 @@
         "project-files-installed": [
             "app/.htaccess",
             "app/_config.php",
+            "app/_config/mimevalidator.yml",
             "app/_config/mysite.yml",
             "app/src/Page.php",
             "app/src/PageController.php"

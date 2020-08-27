@@ -2,7 +2,7 @@
 <html lang="$ContentLocale">
   <head>
     <% base_tag %>
-    <title><% if not $Object %>$Title<% else %>$Object.Title<% end_if %><% if $EssayPages || $Object.EssayPages %>, Page <% loop $getPaginatedPages %>$PageNo<% end_loop %><% end_if %> -  Art &amp; Life in Africa - The University of Iowa Stanley Museum of Art</title>
+    <title><% if not $Object %>$Title<% else %>$Object.Title<% end_if %><% if $EssayPages.Count > 1 || $Object.EssayPages.Count > 1 %>, Page <% loop $getPaginatedPages %>$PageNo<% end_loop %><% end_if %> -  Art &amp; Life in Africa - The University of Iowa Stanley Museum of Art</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <% include OpenGraphTags %>
 
@@ -12,7 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOH9KFNRO7khI_4vmU7In5JAmeSay11Mw&v=3.expe&libraries=geometry"></script>
     <link rel="icon" type="image/png" href="{$BaseHref}{$ThemeDir}/dist/images/logo.png">
-    <link rel="stylesheet" type="text/css" href="{$ThemeDir}/dist/css/main2018-1.css" />
+    <link rel="stylesheet" type="text/css" href="{$ThemeDir}/dist/css/main2020-6-3.css" />
   </head>
   
   <body>
@@ -22,7 +22,7 @@
 <![endif]-->
     <div id="view" class="$ClassName $Action">
       <div class="top-link"><a href="#">Top &#8593;</a></div><!-- end .top-link -->
-      <div id="top">
+      <div id="top" class="top">
         <div class="hamburger m" data-toggle=".nav1" onclick="void(0)">
           <div></div>
           <div class="patty"></div>

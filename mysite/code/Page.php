@@ -28,3 +28,4 @@ class Page extends SiteTree {
 
 
 }
+
