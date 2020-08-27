@@ -204,7 +204,7 @@ class ImageExtension extends DataExtension {
     $height = $image->getHeight();
     $width = $image->getWidth();
 
-    print_r($height.' x '.$width);
+    //print_r($height.' x '.$width);
 
     if ( ( $width < 1000 ) || ( $height < 1000 ) ) {
       $size = 'medium';
