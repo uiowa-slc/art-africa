@@ -57,7 +57,9 @@
         </div>
       </div>
       <div id="homepage-fixed-footer">
-       <a href="https://stanleymuseum.uiowa.edu/" target="_blank"> <img src="{$ThemeDir}/dist/images/UISMA_lockup_white.png" alt="University of Iowa Stanley Museum of Art" width="160" style="margin-right: 1.125rem;"></a>
+       <div style="float: left; margin: 10px 0; margin-right: 10px;"><a href="https://stanleymuseum.uiowa.edu/" style="color: white; text-decoration: none;" target="_blank" rel="noopener">University of Iowa Stanley Museum of Art</a>
+       </div>
+       <div style="float: right;">
         <a href="http://www.youtube.com/user/UIMAartmatters" target="_blank" class="img-link">
           <img width="42" src="{$ThemeDir}/dist/images/home/youtube-icon-white.png" alt="Youtube" style="margin-right: 0.5rem">
         </a>
@@ -68,11 +70,12 @@
           <img width="42" src="{$ThemeDir}/dist/images/home/twitter-icon-white.png" alt="Twitter">
         </a>
       </div>
+      </div>
       <div id="footer">
         <div class="c">
           <div class="col">
             <p>
-              <a href="https://stanleymuseum.uiowa.edu" target="_blank"><img src="{$ThemeDir}/dist/images/UISMA_lockup_black.png" alt="University of Iowa Stanley Museum of Art"></a>
+              <a href="https://stanleymuseum.uiowa.edu/" target="_blank" rel="noopener">University of Iowa Stanley Museum of Art</a>
             </p>
             <p>
               1375 Highway One West<br>
@@ -85,10 +88,10 @@
           <div class="col">
             <p style="margin-top: 2rem">
 
-              <a href="#" class="img-link">
+              <a href="http://www.youtube.com/user/UIMAartmatters" class="img-link">
                 <img width="42" src="{$ThemeDir}/dist/images/facebook-icon.png" alt="facebook" style="margin-right: 0.5rem">
               </a>
-              <a href="#" class="img-link">
+              <a href="https://twitter.com/UIMuseumofArt" target="_blank" class="img-link">
                 <img width="42" src="{$ThemeDir}/dist/images/twitter-icon.png" alt="twitter">
               </a>
               <a href="http://www.youtube.com/user/UIMAartmatters" target="_blank" class="img-link">

@@ -66,7 +66,7 @@
             <div class="span4">
               <div>
               <p>
-              <a href="https://stanleymuseum.uiowa.edu" target="_blank"><img src="{$ThemeDir}/dist/images/UISMA_lockup_black.png" alt="University of Iowa Stanley Museum of Art" class="uima-logo"></a>
+             <a href="https://stanleymuseum.uiowa.edu/" target="_blank" rel="noopener">University of Iowa Stanley Museum of Art</a>
               </p>
                 $SiteConfig.FooterInfo
               </div>
