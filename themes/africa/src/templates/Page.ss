@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="$ContentLocale">
   <head>
+    <% include GlobalAnalytics %>
     <% base_tag %>
     <title><% if not $Object %>$Title<% else %>$Object.Title<% end_if %><% if $EssayPages.Count > 1 || $Object.EssayPages.Count > 1 %>, Page <% loop $getPaginatedPages %>$PageNo<% end_loop %><% end_if %> -  Art &amp; Life in Africa - The University of Iowa Stanley Museum of Art</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">

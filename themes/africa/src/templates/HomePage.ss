@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="$ContentLocale">
   <head>
+    <% include GlobalAnalytics %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <% base_tag %>
     <title>Art &amp; Life in Africa - The University of Iowa Museum of Art</title>
