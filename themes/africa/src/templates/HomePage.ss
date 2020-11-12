@@ -2,6 +2,7 @@
 <html lang="$ContentLocale">
   <head>
     <% include GlobalAnalytics %>
+    <% include Gtag %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <% base_tag %>
     <title>Art &amp; Life in Africa - The University of Iowa Museum of Art</title>
@@ -113,6 +114,5 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOH9KFNRO7khI_4vmU7In5JAmeSay11Mw&v=3.expe&libraries=geometry"></script>    
 <script src="{$ThemeDir}/dist/scripts/main.min-2019.js"></script>
 <script src="{$ThemeDir}/src/scripts/homepage-slider.js"></script>
-  $Analytics
   </body>
 </html>
