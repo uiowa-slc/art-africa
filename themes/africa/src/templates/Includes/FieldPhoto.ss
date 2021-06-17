@@ -1,4 +1,4 @@
 <div class="fieldPhotoContainer">
-  <img src="{$filename}" data-mfp-src="{$filename}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-href="{$BaseHref}field-photos/show/{$ID}">
+  <img src="{$filename}" data-mfp-src="{$filename}" class="artPhoto {$size}" title="{$CreditLine}" data-mfp-anchor="{$BaseHref}field-photos/show/{$ID}">
   <div class="credit-line">$CreditLine</div>
 </div>

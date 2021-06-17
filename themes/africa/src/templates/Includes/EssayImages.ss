@@ -3,7 +3,7 @@
 	<ul>
 		<% loop getEssayImages %>			    
 			<li>
-			  <img src="{$CroppedFocusedImage(225,225).URL}" data-mfp-src="{$URL}" class="videoThumbnail artPhoto" title="{$CreditLine}" data-mfp-href="$ShowLink">
+			  <img src="{$CroppedFocusedImage(225,225).URL}" data-mfp-src="{$URL}" class="videoThumbnail artPhoto" title="{$CreditLine}" data-mfp-anchor="$ShowLink">
 			 </li>
 		<% end_loop %>
 	</ul>
