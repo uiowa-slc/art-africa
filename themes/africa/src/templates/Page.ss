@@ -102,7 +102,7 @@
 
     </div><!-- end #middle -->
     </div><!-- end #view-->
-<script src="{$ThemeDir}/dist/scripts/main.min-2021.js"></script>    
+<script src="{$ThemeDir}/dist/scripts/main.min-2021-1.js"></script>    
 
   </body>
 </html>

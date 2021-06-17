@@ -112,7 +112,7 @@
       </div>
     </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOH9KFNRO7khI_4vmU7In5JAmeSay11Mw&v=3.expe&libraries=geometry"></script>    
-<script src="{$ThemeDir}/dist/scripts/main.min-2021.js"></script>
+<script src="{$ThemeDir}/dist/scripts/main.min-2021-1.js"></script>
 <script src="{$ThemeDir}/src/scripts/homepage-slider.js"></script>
   </body>
 </html>

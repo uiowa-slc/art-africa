@@ -134,7 +134,7 @@ gulp.task('scripts', () =>
       .pipe($.sourcemaps.init())
       .pipe($.babel())
       .pipe($.sourcemaps.write())
-      .pipe($.concat('main.min-2021.js'))
+      .pipe($.concat('main.min-2021-1.js'))
       .pipe($.uglify({preserveComments: 'some'}))
       // Output files
       .pipe($.size({title: 'scripts'}))
