@@ -22,7 +22,7 @@ $container.infinitescroll({
 	 debug        : false,
       loading: {
           finishedMsg: 'No more pages to load.',
-          img: 'http://i.imgur.com/6RMhx.gif'
+          img: 'https://africa.uima.uiowa.edu/dist/images/loader.gif'
         }
       },
       // trigger Isotope as a callback
