@@ -128,14 +128,16 @@ $(document).ready(function () {
 });
 
 $(document).on('click', '.mfp-img', function (event) {
-  event.preventDefault();
-  var src = $(this).attr('src'),
-      ap  = $('.artPhoto[data-mfp-src="' + src + '"]:first');
+  // event.preventDefault();
+  // var src = $(this).attr('src'),
+  //     ap  = $('.artPhoto[data-mfp-src="' + src + '"]:first');
+
+  // $( "#mfp-anchor" ).attr("href", "https://www.google.com/");
 
  // console.log( ap.attr('data-mfp-href'));
   //window.event.returnValue = false;
   //window.location.assign(ap.attr('data-mfp-href'));
-  window.location.href = ap.attr('data-mfp-href');
+  // window.location.href = ap.attr('data-mfp-href');
 });
 
 

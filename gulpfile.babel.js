@@ -130,12 +130,11 @@ gulp.task('scripts', () =>
       './themes/africa/src/scripts/jquery.placeholder-init.js',
       './themes/africa/src/scripts/script.js'
     ])
-      .pipe($.newer('.tmp/scripts'))
+  
       .pipe($.sourcemaps.init())
       .pipe($.babel())
       .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('.tmp/scripts'))
-      .pipe($.concat('main.min-2019.js'))
+      .pipe($.concat('main.min-2021.js'))
       .pipe($.uglify({preserveComments: 'some'}))
       // Output files
       .pipe($.size({title: 'scripts'}))
